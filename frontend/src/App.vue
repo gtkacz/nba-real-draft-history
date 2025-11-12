@@ -51,15 +51,15 @@ onMounted(() => {
   <v-app>
     <SplashScreen v-if="showSplash" @continue="markSplashSeen" />
 
-    <v-app-bar elevation="2" color="primary">
+    <!-- <v-app-bar elevation="2" color="primary">
       <v-app-bar-title class="font-weight-bold">
-        True Draft History
+        Real Draft History
       </v-app-bar-title>
 
       <v-spacer />
 
       <ThemeToggle />
-    </v-app-bar>
+    </v-app-bar> -->
 
     <v-main>
       <v-container fluid class="table-container">
@@ -82,6 +82,8 @@ onMounted(() => {
       </v-container>
     </v-main>
 
+    <v-divider class="mt-8" />
+
     <AppFooter />
   </v-app>
 </template>
@@ -92,19 +94,19 @@ onMounted(() => {
 }
 
 .table-container {
-  padding: 10vw 10vw !important;
+  padding: 2.5vw 10vw 0 !important;
   max-width: 100%;
 }
 
 @media (min-width: 960px) {
   .table-container {
-    padding: 8vw 10vw !important;
+    padding: 2vw 10vw 0 !important;
   }
 }
 
 @media (min-width: 1280px) {
   .table-container {
-    padding: 6vw 10vw !important;
+    padding: 1.5vw 10vw 0 !important;
   }
 }
 </style>

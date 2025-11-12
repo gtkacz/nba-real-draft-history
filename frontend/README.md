@@ -1,4 +1,4 @@
-# True Draft History - Frontend
+# Real Draft History - Frontend
 
 A sleek, elegant Vue.js application for exploring NBA draft history with comprehensive player information and trade chains.
 

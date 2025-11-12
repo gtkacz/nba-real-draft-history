@@ -24,7 +24,7 @@ export const TEAM_ALIAS_MAP: Record<string, TeamAbbreviation> = {
   'SDR': 'HOU',
   // 'STH': '',
   'SYR': 'PHI',
-  // 'TCB': '',
+  'TCB': 'ATL',
   'VAN': 'TOR'
 }
 

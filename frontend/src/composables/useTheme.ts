@@ -29,7 +29,8 @@ export function useTheme() {
   })
 
   onMounted(() => {
-    isDark.value = loadThemePreference()
+    // isDark.value = loadThemePreference()
+    isDark.value = false
   })
 
   return {
