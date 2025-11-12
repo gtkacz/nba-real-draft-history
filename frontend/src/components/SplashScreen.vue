@@ -32,7 +32,7 @@ function handleContinue() {
 
         <br/>
 
-        <p>You see a player listed who never played a single game for your team, only to remember, "Oh, right, he was traded on draft night." Meanwhile, the player the team <em>actually</em> drafted is listed on another team's history, as if they were the ones who drafted him.</p>
+        <p>You see a player listed who never played a single game for that team, only to remember, "Oh, right, he was traded on draft night." Meanwhile, the player the team <em>actually</em> drafted is listed on another team's history, as if they were the ones who drafted him.</p>
 
         <br/>
 
@@ -68,21 +68,31 @@ function handleContinue() {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   font-family: "Barlow", sans-serif;
+  overflow: auto;
+  padding: 16px;
 }
 
 .splash-content {
   animation: fadeIn 0.5s ease-in-out;
   max-width: 90vw;
   width: 100%;
+  max-height: 90vh;
   z-index: 1;
   position: relative;
   font-family: "Barlow", sans-serif;
   padding: 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 
   h1 {
     font-family: "Barlow", sans-serif !important;
     font-size: 1.75rem;
     padding: 16px 8px !important;
+    margin: 0;
+    flex-shrink: 0;
   }
 
   @media (min-width: 600px) {
@@ -96,7 +106,7 @@ function handleContinue() {
   }
 
   @media (min-width: 960px) {
-    max-width: 60vw;
+    max-width: 90vw;
     padding: 32px;
     
     h1 {
@@ -109,10 +119,16 @@ function handleContinue() {
 .splash-text {
   // No background - just floating text over blur
   font-family: "Barlow", sans-serif;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
   
   p {
     margin-bottom: 12px;
     line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   @media (min-width: 600px) {
@@ -129,6 +145,7 @@ function handleContinue() {
 .continue-btn {
   min-width: 120px;
   min-height: 44px;
+  flex-shrink: 0;
 }
 
 @keyframes fadeIn {
