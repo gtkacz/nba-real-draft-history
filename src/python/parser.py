@@ -1,4 +1,5 @@
 import pathlib  # noqa: CPY001, D100
+from io import StringIO
 
 import pandas as pd
 
@@ -23,7 +24,7 @@ def load_team_data(team_name: str, *, data_path: str = "data/html") -> pd.DataFr
         raise FileNotFoundError(f"The file {path} does not exist.")
 
     with path.open() as f:
-        data = pd.read_html(f.read())  # pyright: ignore[reportUnknownMemberType]
+        data = pd.read_html(StringIO(f.read()))  # pyright: ignore[reportUnknownMemberType]
 
     df = pd.concat((data[0], data[1]))
 
