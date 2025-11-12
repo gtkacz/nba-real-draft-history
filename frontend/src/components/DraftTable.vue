@@ -5,6 +5,7 @@ import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getDataUrl } from '@/utils/dataUrl'
+import PlayerCard from './PlayerCard.vue'
 
 const display = useDisplay()
 const isMobile = computed(() => display.mobile.value)
@@ -566,6 +567,13 @@ const itemsPerPageOptions = computed(() => {
 })
 
 const pageInput = ref('')
+const selectedPlayer = ref<DraftPick | null>(null)
+const showPlayerCard = ref(false)
+
+function openPlayerCard(player: DraftPick) {
+  selectedPlayer.value = player
+  showPlayerCard.value = true
+}
 
 function handlePageInput(event: Event) {
   const target = event.target as HTMLInputElement
@@ -1146,8 +1154,9 @@ watch(currentPage, () => {
           <v-avatar 
             v-if="item.nba_id" 
             :size="isMobile ? 32 : 40" 
-            class="mr-3 player-headshot"
+            class="mr-3 player-headshot player-headshot-clickable"
             color="grey-lighten-4"
+            @click.stop="openPlayerCard(item)"
           >
             <v-img
               :src="getPlayerHeadshotUrl(item.nba_id)"
@@ -1240,6 +1249,12 @@ watch(currentPage, () => {
       </template>
 
     </v-data-table>
+
+    <!-- Player Card Dialog -->
+    <PlayerCard
+      v-model="showPlayerCard"
+      :player="selectedPlayer"
+    />
   </v-card>
 </template>
 
@@ -1439,9 +1454,13 @@ watch(currentPage, () => {
     overflow: hidden !important;
     border-radius: 50% !important;
 
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    &.player-headshot-clickable {
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
     }
 
     :deep(.player-headshot-img),
