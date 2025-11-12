@@ -145,9 +145,9 @@ export function useDraftData() {
 
       for (const team of teams) {
         try {
-          const response = await fetch(getDataUrl(`csv/${team}.csv`))
+          const response = await fetch(getDataUrl(`csv/${team}_enriched.csv`))
           if (!response.ok) {
-            console.error(`Failed to fetch ${team}.csv:`, response.status)
+            console.error(`Failed to fetch ${team}_enriched.csv:`, response.status)
             continue
           }
           const csvText = await response.text()

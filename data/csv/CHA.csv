@@ -1,70 +1,70 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
-2025,1,4,Kon Knueppel,F,6-6,215,19.0,Duke,Fr  *,,0,CHA
-2025,2,33,Sion James,PG,6-5,220,22.0,Duke,Sr,,0,CHA
-2025,2,34,Ryan Kalkbrenner,C,7-1,256,23.0,Creighton,Sr,,0,CHA
-2024,1,6,Tidjane Salaun,F,6-10,207,18.0,Cholet Basket (France),2005 DOB  *,,1,CHA
-2024,2,42,K.J. Simpson,G,6-2,189,21.0,Colorado,Jr  *,,1,CHA
-2023,1,2,Brandon Miller,F,6-7,200,20.0,Alabama,Fr  *,,2,CHA
-2023,1,27,"Nick Smith, Jr.",G,6-2,185,19.0,Arkansas,Fr  *,,2,CHA
-2023,2,41,Amari Bailey,G,6-5,185,19.0,UCLA,Fr  *,,1,CHA
-2022,1,15,Mark Williams,C,7-1,240,20.0,Duke,So  *,,3,CHA
-2021,1,11,James Bouknight,G,6-5,190,20.0,UConn,So  *,,3,CHA
-2021,2,56,Scottie Lewis,SF,6-5,185,21.0,Florida,So  *,,1,CHA
-2020,1,3,LaMelo Ball,G,6-7,180,19.0,Illawarra (Australia),2001 DOB,,5,CHA
-2020,2,32,"Vernon Carey, Jr.",PF,6-10,270,19.0,Duke,Fr  *,,3,CHA
-2020,2,56,Grant Riller,SG,6-0,195,23.0,Charleston,Sr,,2,CHA
-2019,1,12,P.J. Washington,PF,6-7,230,20.0,Kentucky,So  *,,6,CHA
-2019,2,36,Cody Martin,F,6-6,205,23.0,Nevada,Sr,,6,CHA
-2019,2,52,Jalen McDaniels,PF,6-9,190,21.0,SAS Diego State,So  *,,6,CHA
-2018,2,55,Arnoldas Kulboka,SF,6-10,225,20.0,Orlandina Basket (Italy),1998 DOB  *,,1,CHA
-2017,1,11,Malik Monk,SG,6-3,200,19.0,Kentucky,Fr  *,,8,CHA
-2015,1,9,Frank Kaminsky,F,7-0,240,22.0,Wisconsin,Sr,,8,CHA
-2014,1,9,Noah Vonleh,FC,6-10,257,18.0,Indiana,Fr  *,,8,CHA
-2013,1,4,Cody Zeller,F,6-11,240,20.0,Indiana,So  *,,12,CHA
-2012,1,2,Michael Kidd-Gilchrist,SF,6-7,232,18.0,Kentucky,Fr  *,,8,CHA
-2012,2,31,Jeffery Taylor,SF,6-7,225,23.0,Vanderbilt,Sr,,3,CHA
-2011,1,9,Kemba Walker,G,6-0,184,21.0,UConn,Jr  *,,12,CHA
-2009,1,12,Gerald Henderson,SG,6-5,215,21.0,Duke,Jr  *,,8,CHA
-2009,2,40,Derrick Brown,F,6-7,225,21.0,Xavier,Jr  *,,3,CHA
-2008,1,9,D.J. Augustin,G,6-0,183,20.0,Texas,So  *,,15,CHA
-2008,1,20,Alexis Ajinca,C,7-2,248,20.0,Hyeres-Toulon (France),1988 DOB  *,,8,CHA
-2007,1,22,Jared Dudley,PF,6-7,237,21.0,Boston College,Sr,,14,CHA
-2006,1,3,Adam Morrison,SF,6-8,198,21.0,Gonzaga,Jr  *,,4,CHA
-2006,2,50,Ryan Hollins,C,7-0,230,21.0,UCLA,Sr,,10,CHA
-2005,1,5,Raymond Felton,PG,6-1,205,21.0,North Carolina,Jr  *,,14,CHA
-2005,1,13,Sean May,PF,6-9,266,21.0,North Carolina,Jr  *,,5,CHA
-2004,1,2,Emeka Okafor,FC,6-10,255,21.0,UConn,Jr  *,,11,CHA
-2004,2,45,Bernard Robinson,GF,6-6,210,23.0,Michigan,Sr,,3,CHA
-2001,1,16,Kirk Haston,PF,6-9,242,22.0,Indiana,Jr  *,,4,CHA
-2000,1,19,Jamaal Magloire,C,6-11,259,22.0,Kentucky,Sr,,12,CHA
-1999,1,3,Baron Davis,G,6-3,215,20.0,UCLA,So  *,,13,CHA
-1999,2,43,Lee Nailon,F,6-9,238,24.0,TCU,Sr,,6,CHA
-1998,1,21,Ricky Davis,GF,6-7,195,18.0,Iowa,Fr  *,,12,CHA
-1998,2,50,Andrew Betts,C,7-1,275,21.0,Long Beach State,Sr,NOP to  IND,0,CHA
-1996,1,16,Tony Delk,G,6-1,189,22.0,Kentucky,Sr,,10,CHA
-1996,2,44,Malik Rose,F,6-7,250,21.0,Drexel,Sr,,13,CHA
-1995,1,22,George Zidek,C,7-0,266,21.0,UCLA,Sr,,3,CHA
-1994,2,38,Darrin Hancock,F,6-7,205,22.0,Maurienne (France),1971 DOB,,6,CHA
-1993,1,20,Scott Burrell,G-F,6-7,218,22.0,UConn,Sr,,8,CHA
-1992,1,2,Alonzo Mourning,C,6-10,240,22.0,Georgetown,Sr,,16,CHA
-1992,2,35,Tony Bennett,PG,6-0,175,23.0,Green Bay,Sr,,4,CHA
-1991,1,1,Larry Johnson,F,6-6,250,22.0,UNLV,Sr,,10,CHA
-1991,2,28,Kevin Lynch,G,6-5,185,22.0,Minnesota,Sr,,2,CHA
-1990,1,5,Kendall Gill,SG,6-5,195,22.0,Illinois,Sr,,15,CHA
-1990,2,39,Steve Scheffler,F,6-9,250,22.0,Purdue,Sr,,9,CHA
-1989,1,5,J.R. Reid,PF,6-9,247,21.0,North Carolina,Jr  *,,11,CHA
-1988,1,8,Rex Chapman,SG,6-4,185,20.0,Kentucky,So  *,,13,CHA
-1988,2,34,Tom Tolbert,F,6-7,235,22.0,Arizona,Sr,,7,CHA
-1988,3,58,Jeff Moore,F,6-7,205,,Auburn,Sr,,1,CHA
-2025,1,29,Liam McNeeley,F,6-7,210,19.0,UConn,Fr *,PHX to  CHA,0,CHA
-2022,2,40,Bryce McGowens,GF,6-6,190,19.0,Nebraska,Fr *,MIN to  CHA,3,CHA
-2021,1,19,Kai Jones,PF,6-11,221,20.0,Texas,So *,NYK to  CHA,4,CHA
-2021,2,37,J.T. Thor,PF,6-9,203,18.0,Auburn,Fr *,DET to  CHA,4,CHA
-2020,2,42,Nick Richards,C,6-11,245,22.0,Kentucky,Jr *,NOP to  CHA,5,CHA
-2018,1,12,Miles Bridges,SF,6-7,225,20.0,Michigan State,So *,LAC to  CHA,6,CHA
-2018,2,34,Devonte' Graham,PG,6-1,195,23.0,Kansas,Sr,ATL to  CHA,6,CHA
-2017,2,40,Dwayne Bacon,SF,6-6,221,21.0,Florida State,So *,NOP to  CHA,4,CHA
-2015,2,51,Tyler Harvey,G,6-4,185,21.0,Eastern Washington,Jr *,ORL to  MEM MEM  to CHA,0,CHA
-2014,1,26,P.J. Hairston,SG,6-6,230,21.0,Texas Legends,1992 DOB *,MIA to  CHA,2,CHA
-2011,1,7,Bismack Biyombo,PF,6-8,255,18.0,Baloncesto Fuenlabrada (Spain),1992 DOB *,SAC to  CHA,14,CHA
-2007,2,36,Jermareo Davidson,PF,6-10,230,22.0,Alabama,Sr,GSW to  CHA,2,CHA
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team,nba_player_id
+2025,1,4,Kon Knueppel,F,6-6,215,19.0,Duke,Fr  *,,0,CHA,
+2025,2,33,Sion James,PG,6-5,220,22.0,Duke,Sr,,0,CHA,
+2025,2,34,Ryan Kalkbrenner,C,7-1,256,23.0,Creighton,Sr,,0,CHA,
+2024,1,6,Tidjane Salaun,F,6-10,207,18.0,Cholet Basket (France),2005 DOB  *,,1,CHA,
+2024,2,42,K.J. Simpson,G,6-2,189,21.0,Colorado,Jr  *,,1,CHA,
+2023,1,2,Brandon Miller,F,6-7,200,20.0,Alabama,Fr  *,,2,CHA,
+2023,1,27,"Nick Smith, Jr.",G,6-2,185,19.0,Arkansas,Fr  *,,2,CHA,
+2023,2,41,Amari Bailey,G,6-5,185,19.0,UCLA,Fr  *,,1,CHA,
+2022,1,15,Mark Williams,C,7-1,240,20.0,Duke,So  *,,3,CHA,
+2021,1,11,James Bouknight,G,6-5,190,20.0,UConn,So  *,,3,CHA,
+2021,2,56,Scottie Lewis,SF,6-5,185,21.0,Florida,So  *,,1,CHA,
+2020,1,3,LaMelo Ball,G,6-7,180,19.0,Illawarra (Australia),2001 DOB,,5,CHA,
+2020,2,32,"Vernon Carey, Jr.",PF,6-10,270,19.0,Duke,Fr  *,,3,CHA,
+2020,2,56,Grant Riller,SG,6-0,195,23.0,Charleston,Sr,,2,CHA,
+2019,1,12,P.J. Washington,PF,6-7,230,20.0,Kentucky,So  *,,6,CHA,
+2019,2,36,Cody Martin,F,6-6,205,23.0,Nevada,Sr,,6,CHA,
+2019,2,52,Jalen McDaniels,PF,6-9,190,21.0,SAS Diego State,So  *,,6,CHA,
+2018,2,55,Arnoldas Kulboka,SF,6-10,225,20.0,Orlandina Basket (Italy),1998 DOB  *,,1,CHA,
+2017,1,11,Malik Monk,SG,6-3,200,19.0,Kentucky,Fr  *,,8,CHA,
+2015,1,9,Frank Kaminsky,F,7-0,240,22.0,Wisconsin,Sr,,8,CHA,
+2014,1,9,Noah Vonleh,FC,6-10,257,18.0,Indiana,Fr  *,,8,CHA,
+2013,1,4,Cody Zeller,F,6-11,240,20.0,Indiana,So  *,,12,CHA,
+2012,1,2,Michael Kidd-Gilchrist,SF,6-7,232,18.0,Kentucky,Fr  *,,8,CHA,
+2012,2,31,Jeffery Taylor,SF,6-7,225,23.0,Vanderbilt,Sr,,3,CHA,
+2011,1,9,Kemba Walker,G,6-0,184,21.0,UConn,Jr  *,,12,CHA,
+2009,1,12,Gerald Henderson,SG,6-5,215,21.0,Duke,Jr  *,,8,CHA,
+2009,2,40,Derrick Brown,F,6-7,225,21.0,Xavier,Jr  *,,3,CHA,
+2008,1,9,D.J. Augustin,G,6-0,183,20.0,Texas,So  *,,15,CHA,
+2008,1,20,Alexis Ajinca,C,7-2,248,20.0,Hyeres-Toulon (France),1988 DOB  *,,8,CHA,
+2007,1,22,Jared Dudley,PF,6-7,237,21.0,Boston College,Sr,,14,CHA,
+2006,1,3,Adam Morrison,SF,6-8,198,21.0,Gonzaga,Jr  *,,4,CHA,
+2006,2,50,Ryan Hollins,C,7-0,230,21.0,UCLA,Sr,,10,CHA,
+2005,1,5,Raymond Felton,PG,6-1,205,21.0,North Carolina,Jr  *,,14,CHA,
+2005,1,13,Sean May,PF,6-9,266,21.0,North Carolina,Jr  *,,5,CHA,
+2004,1,2,Emeka Okafor,FC,6-10,255,21.0,UConn,Jr  *,,11,CHA,
+2004,2,45,Bernard Robinson,GF,6-6,210,23.0,Michigan,Sr,,3,CHA,
+2001,1,16,Kirk Haston,PF,6-9,242,22.0,Indiana,Jr  *,,4,CHA,
+2000,1,19,Jamaal Magloire,C,6-11,259,22.0,Kentucky,Sr,,12,CHA,
+1999,1,3,Baron Davis,G,6-3,215,20.0,UCLA,So  *,,13,CHA,
+1999,2,43,Lee Nailon,F,6-9,238,24.0,TCU,Sr,,6,CHA,
+1998,1,21,Ricky Davis,GF,6-7,195,18.0,Iowa,Fr  *,,12,CHA,
+1998,2,50,Andrew Betts,C,7-1,275,21.0,Long Beach State,Sr,NOP to  IND,0,CHA,
+1996,1,16,Tony Delk,G,6-1,189,22.0,Kentucky,Sr,,10,CHA,
+1996,2,44,Malik Rose,F,6-7,250,21.0,Drexel,Sr,,13,CHA,
+1995,1,22,George Zidek,C,7-0,266,21.0,UCLA,Sr,,3,CHA,
+1994,2,38,Darrin Hancock,F,6-7,205,22.0,Maurienne (France),1971 DOB,,6,CHA,
+1993,1,20,Scott Burrell,G-F,6-7,218,22.0,UConn,Sr,,8,CHA,
+1992,1,2,Alonzo Mourning,C,6-10,240,22.0,Georgetown,Sr,,16,CHA,
+1992,2,35,Tony Bennett,PG,6-0,175,23.0,Green Bay,Sr,,4,CHA,
+1991,1,1,Larry Johnson,F,6-6,250,22.0,UNLV,Sr,,10,CHA,
+1991,2,28,Kevin Lynch,G,6-5,185,22.0,Minnesota,Sr,,2,CHA,
+1990,1,5,Kendall Gill,SG,6-5,195,22.0,Illinois,Sr,,15,CHA,
+1990,2,39,Steve Scheffler,F,6-9,250,22.0,Purdue,Sr,,9,CHA,
+1989,1,5,J.R. Reid,PF,6-9,247,21.0,North Carolina,Jr  *,,11,CHA,
+1988,1,8,Rex Chapman,SG,6-4,185,20.0,Kentucky,So  *,,13,CHA,
+1988,2,34,Tom Tolbert,F,6-7,235,22.0,Arizona,Sr,,7,CHA,
+1988,3,58,Jeff Moore,F,6-7,205,,Auburn,Sr,,1,CHA,
+2025,1,29,Liam McNeeley,F,6-7,210,19.0,UConn,Fr *,PHX to  CHA,0,CHA,
+2022,2,40,Bryce McGowens,GF,6-6,190,19.0,Nebraska,Fr *,MIN to  CHA,3,CHA,
+2021,1,19,Kai Jones,PF,6-11,221,20.0,Texas,So *,NYK to  CHA,4,CHA,
+2021,2,37,J.T. Thor,PF,6-9,203,18.0,Auburn,Fr *,DET to  CHA,4,CHA,
+2020,2,42,Nick Richards,C,6-11,245,22.0,Kentucky,Jr *,NOP to  CHA,5,CHA,
+2018,1,12,Miles Bridges,SF,6-7,225,20.0,Michigan State,So *,LAC to  CHA,6,CHA,
+2018,2,34,Devonte' Graham,PG,6-1,195,23.0,Kansas,Sr,ATL to  CHA,6,CHA,
+2017,2,40,Dwayne Bacon,SF,6-6,221,21.0,Florida State,So *,NOP to  CHA,4,CHA,
+2015,2,51,Tyler Harvey,G,6-4,185,21.0,Eastern Washington,Jr *,ORL to  MEM MEM  to CHA,0,CHA,
+2014,1,26,P.J. Hairston,SG,6-6,230,21.0,Texas Legends,1992 DOB *,MIA to  CHA,2,CHA,
+2011,1,7,Bismack Biyombo,PF,6-8,255,18.0,Baloncesto Fuenlabrada (Spain),1992 DOB *,SAC to  CHA,14,CHA,
+2007,2,36,Jermareo Davidson,PF,6-10,230,22.0,Alabama,Sr,GSW to  CHA,2,CHA,
