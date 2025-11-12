@@ -45,7 +45,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2004,1,22,Viktor Khryapa,PF,6-7,220.0,21.0,CSKA Moscow (Russia),1982 DOB,NJN to  POR,4,BKN
 2004,2,51,Christian Drejer,F,6-9,225.0,21.0,Barca (Spain),1982 DOB,,0,BKN
 2003,1,22,Zoran Planinic,GF,6-7,210.0,20.0,Khimki (Russia),1982 DOB  *,,3,BKN
-2003,2,51,Kyle Korver,SF,6-7,212.0,22.0,Creighton,Sr,NJN to  PHL,17,BKN
+2003,2,51,Kyle Korver,SF,6-7,212.0,22.0,Creighton,Sr,NJN to  PHI,17,BKN
 2002,1,24,Nenad Krstic,C,6-10,255.0,18.0,KK Partizan (Serbia),1983 DOB  *,,7,BKN
 2002,2,53,Tamar Slay,GF,6-8,215.0,22.0,Marshall,Sr,,3,BKN
 2001,1,7,Eddie Griffin,F,6-10,220.0,19.0,Seton Hall,Fr  *,NJN to  HOU,6,BKN
@@ -53,8 +53,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2000,1,1,Kenyon Martin,F,6-9,240.0,22.0,Cincinnati,Sr,,15,BKN
 2000,2,36,Soumaila Samake,C,7-0,230.0,22.0,Cincinnati Stuff (United States),1978 DOB,,4,BKN
 1999,2,34,Evan Eschmeyer,C,6-11,255.0,24.0,Northwestern,Sr,,6,BKN
-1997,1,7,Tim Thomas,F,6-10,240.0,20.0,Villanova,Fr  *,NJN to  PHL,13,BKN
-1997,1,21,Anthony Parker,GF,6-6,215.0,22.0,Bradley,Sr,NJN to  PHL,9,BKN
+1997,1,7,Tim Thomas,F,6-10,240.0,20.0,Villanova,Fr  *,NJN to  PHI,13,BKN
+1997,1,21,Anthony Parker,GF,6-6,215.0,22.0,Bradley,Sr,NJN to  PHI,9,BKN
 1996,1,8,Kerry Kittles,G,6-5,179.0,22.0,Villanova,Sr,,9,BKN
 1995,1,9,Ed O'Bannon,F,6-8,222.0,22.0,UCLA,Sr,,4,BKN
 1994,1,14,Yinka Dare,C,7-1,270.0,21.0,George Washington,So  *,,5,BKN
@@ -112,16 +112,16 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2015,2,49,Aaron White,F,6-9,220.0,22.0,Iowa,Sr,WAS to  BKN,0,BKN
 2014,2,44,Markel Brown,SG,6-3,190.0,22.0,Oklahoma State,Sr,MIN to  BKN,3,BKN
 2014,2,59,Xavier Thames,G,6-3,187.0,23.0,SAS Diego State,Sr,TOR to  BKN,0,BKN
-2014,2,60,Cory Jefferson,PF,6-9,215.0,23.0,Baylor,Sr,SAS to  PHL PHL  to BKN,2,BKN
+2014,2,60,Cory Jefferson,PF,6-9,215.0,23.0,Baylor,Sr,SAS to  PHI PHI  to BKN,2,BKN
 2012,2,41,Tyshawn Taylor,G,6-3,185.0,22.0,Kansas,Sr,POR to  BKN,2,BKN
-2012,2,54,Tornike Shengelia,PF,6-9,220.0,20.0,Proximus Spirou Charleroi (Belgium),1991 DOB *,PHL to  BKN,2,BKN
+2012,2,54,Tornike Shengelia,PF,6-9,220.0,20.0,Proximus Spirou Charleroi (Belgium),1991 DOB *,PHI to  BKN,2,BKN
 2011,1,25,MarShon Brooks,GF,6-5,200.0,22.0,Providence,Sr,BOS to  NJN,5,BKN
 2011,2,31,Bojan Bogdanovic,F,6-7,226.0,22.0,KK Cibona (Croatia),1989 DOB,MIA to  MIN MIN  to NJN,11,BKN
 2010,1,24,Damion James,SF,6-7,225.0,22.0,Texas,Sr,ATL to  NJN,4,BKN
 2001,1,13,Richard Jefferson,SF,6-7,233.0,21.0,Arizona,Jr *,HOU to  NJN,17,BKN
 2001,1,18,Jason Collins,C,7-0,255.0,22.0,Stanford,Jr *,HOU to  NJN,13,BKN
 2001,1,23,Brandon Armstrong,SG,6-5,185.0,21.0,Pepperdine,Jr *,HOU to  NJN,4,BKN
-1997,1,2,Keith Van Horn,F,6-10,220.0,21.0,Utah,Sr,PHL to  NJN,10,BKN
+1997,1,2,Keith Van Horn,F,6-10,220.0,21.0,Utah,Sr,PHI to  NJN,10,BKN
 1990,2,38,Jud Buechler,SF,6-6,220.0,22.0,Arizona,Sr,SEA to  NJN,12,BKN
 1989,2,42,Michael Cutright,SG,6-4,210.0,22.0,McNeese State,Sr,DEN to  NJN,0,BKN
 1982,2,38,Wayne Sappleton,F,6-9,215.0,21.0,Loyola (IL),Sr,GSW to  NJN,1,BKN

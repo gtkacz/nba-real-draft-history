@@ -2,6 +2,7 @@
 import { computed, ref, onMounted } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
+import { getCanonicalTeam, getDisplayTeam } from '@/utils/teamAliases'
 
 interface DraftTableProps {
   data: DraftPick[]
@@ -89,16 +90,18 @@ const headers = [
   { title: 'Weight', key: 'weight', sortable: true, width: '35px' },
   { title: 'Age', key: 'age', sortable: true, width: '35px' },
   { title: 'Pre-Draft Team', key: 'preDraftTeam', sortable: true, minWidth: '20px' },
-  { title: 'Draft Trades', key: 'draftTrades', sortable: false, minWidth: '80px' }
+  { title: 'Pick Trades', key: 'draftTrades', sortable: false, minWidth: '80px' }
 ]
 
 const items = computed(() => props.data)
 
 function getTeamLogoUrl(team: string): string {
-  return `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${team.toLowerCase()}.svg`
+  // Use canonical team code for logo URL (aliases map to their canonical team's logo)
+  const canonicalTeam = getCanonicalTeam(team)
+  return `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${canonicalTeam.toLowerCase()}.svg`
 }
 
-function parseTradeChain(trades: string | null): { original: string } | null {
+function getOriginalTeam(trades: string | null): string | null {
   if (!trades || trades.trim() === '') return null
 
   // Parse trade chain format like "NOP to  ATL" or "CHA to  BOS BOS  to ATL"
@@ -109,12 +112,64 @@ function parseTradeChain(trades: string | null): { original: string } | null {
   const original = trades.substring(0, firstToIndex).trim()
   if (!original) return null
 
-  return { original }
+  // Return the display name (preserves alias if it's an alias)
+  return getDisplayTeam(original)
 }
 
-function parseDraftTrades(trades: string | null): string[] {
-  if (!trades) return []
-  return trades.split(',').map(t => t.trim()).filter(t => t)
+function isDifferentTeam(originalTeam: string | null, currentTeam: string): boolean {
+  if (!originalTeam) return false
+  return getCanonicalTeam(originalTeam) !== getCanonicalTeam(currentTeam)
+}
+
+function parseTradeChain(trades: string | null): string[] {
+  if (!trades || trades.trim() === '') return []
+
+  // Parse trade chain format like "WAS to NYK NYK to OKC" or "CHA to  BOS BOS  to ATL"
+  // Split by " to " (with possible extra spaces)
+  const parts = trades.split(/\s+to\s+/).map(p => p.trim()).filter(p => p)
+  
+  if (parts.length < 2) return []
+
+  // Extract teams: first part is the first team, then each subsequent part starts with the next team
+  const displayTeams: string[] = []
+  const canonicalTeams: string[] = []
+  
+  // Add the first team (everything before first " to ")
+  const firstTeam = parts[0]?.trim()
+  if (firstTeam) {
+    displayTeams.push(getDisplayTeam(firstTeam))
+    canonicalTeams.push(getCanonicalTeam(firstTeam))
+  }
+
+  // For each subsequent part, extract the team at the beginning
+  for (let i = 1; i < parts.length; i++) {
+    const part = parts[i]?.trim()
+    if (!part) continue
+    // Split by spaces and take the first word (the team abbreviation)
+    const team = part.split(/\s+/)[0]
+    if (team && team.length <= 4) { // Team abbreviations are typically 3-4 characters
+      displayTeams.push(getDisplayTeam(team))
+      canonicalTeams.push(getCanonicalTeam(team))
+    }
+  }
+
+  // Remove duplicates while preserving order (unify chains) - use canonical for comparison
+  const unifiedDisplayTeams: string[] = []
+  const seenCanonical: string[] = []
+  
+  for (let i = 0; i < displayTeams.length; i++) {
+    const displayTeam = displayTeams[i]
+    const canonical = canonicalTeams[i]
+    if (!displayTeam || !canonical) continue
+    
+    // Only add if we haven't seen this canonical team before (or it's the first)
+    if (seenCanonical.length === 0 || seenCanonical[seenCanonical.length - 1] !== canonical) {
+      unifiedDisplayTeams.push(displayTeam)
+      seenCanonical.push(canonical)
+    }
+  }
+
+  return unifiedDisplayTeams.length >= 2 ? unifiedDisplayTeams : []
 }
 
 function splitPosition(position: string): string[] {
@@ -330,10 +385,10 @@ function getPositionColor(position: string): string {
           <div class="d-flex flex-column">
             <span class="font-weight-medium">{{ item.team }}</span>
             <span
-              v-if="parseTradeChain(item.draftTrades) && parseTradeChain(item.draftTrades)!.original !== item.team"
+              v-if="isDifferentTeam(getOriginalTeam(item.draftTrades), item.team)"
               class="text-caption text-medium-emphasis"
             >
-              (via {{ parseTradeChain(item.draftTrades)!.original }})
+              (via {{ getOriginalTeam(item.draftTrades) }})
             </span>
           </div>
         </div>
@@ -377,19 +432,20 @@ function getPositionColor(position: string): string {
       </template>
 
       <template #item.draftTrades="{ item }">
-        <div v-if="item.draftTrades" class="trade-chain">
-          <v-chip
-            v-for="(trade, index) in parseDraftTrades(item.draftTrades)"
-            :key="index"
-            size="small"
-            variant="outlined"
-            color="warning"
-            class="mr-1 mb-1"
-          >
-            <v-icon start icon="mdi-swap-horizontal" size="x-small" />
-            {{ trade }}
-          </v-chip>
-        </div>
+        <template v-if="item.draftTrades">
+          <div class="trade-chain">
+            <template v-for="(team, index) in parseTradeChain(item.draftTrades)" :key="index">
+              <v-avatar size="24" class="mr-1" rounded="0">
+                <v-img
+                  :src="getTeamLogoUrl(team)"
+                  :alt="team"
+                  contain
+                />
+              </v-avatar>
+              <span v-if="index < parseTradeChain(item.draftTrades).length - 1" class="mx-1 text-medium-emphasis">→</span>
+            </template>
+          </div>
+        </template>
         <span v-else class="text-medium-emphasis">-</span>
       </template>
 
@@ -438,9 +494,10 @@ function getPositionColor(position: string): string {
 
   .trade-chain {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 4px;
-    max-width: 300px;
+    gap: 2px;
+    max-width: 400px;
   }
 
   :deep(.v-avatar img),

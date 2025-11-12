@@ -1,4 +1,5 @@
 import type { DraftPick } from '@/types/draft'
+import { getAllTeamCodes } from '@/utils/teamAliases'
 
 function parseCSVLine(line: string): string[] {
   const result: string[] = []
@@ -46,9 +47,20 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
     const draftTrades = values[10]?.trim()
     
     // Skip picks that were traded away from this team (same logic as backend parser)
-    // If trade string contains "{teamAbbreviation} to ", it means this team traded the pick away
-    if (draftTrades && draftTrades.includes(`${teamAbbreviation} to `)) {
-      continue
+    // If trade string starts with "{teamAbbreviation} to " or any alias, it means this team traded the pick away
+    // Need to check both the canonical team and all its aliases (e.g., SEA is an alias for OKC)
+    if (draftTrades) {
+      const allTeamCodes = getAllTeamCodes(teamAbbreviation)
+      const wasTradedAway = allTeamCodes.some(teamCode => {
+        // Check if trade string starts with this team code followed by " to "
+        // Use word boundary or start of string to avoid false matches
+        const pattern = new RegExp(`^${teamCode}\\s+to\\s+`, 'i')
+        return pattern.test(draftTrades)
+      })
+      
+      if (wasTradedAway) {
+        continue
+      }
     }
     
     // Remove "S" and "P" prefixes from position (e.g., "SG" -> "G", "PF" -> "F")
