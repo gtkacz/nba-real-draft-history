@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, watch, nextTick } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
 import { getCanonicalTeam, getDisplayTeam } from '@/utils/teamAliases'
@@ -77,8 +77,8 @@ async function loadTeams() {
 
 
 const headers = [
-  { title: 'Team', key: 'team', sortable: true, minWidth: '70px' },
-  { title: 'Player', key: 'player', sortable: true, minWidth: '150px' },
+  { title: 'Team', key: 'team', sortable: true, minWidth: '40px' },
+  { title: 'Player', key: 'player', sortable: true, minWidth: '75px' },
   { title: 'Year', key: 'year', sortable: true, width: '80px' },
   { title: 'Round', key: 'round', sortable: true, width: '80px' },
   { title: 'Overall Pick', key: 'pick', sortable: true, width: '35px' },
@@ -86,98 +86,35 @@ const headers = [
   { title: 'Height', key: 'height', sortable: true, width: '35px' },
   { title: 'Weight', key: 'weight', sortable: true, width: '35px' },
   { title: 'Age', key: 'age', sortable: true, width: '35px' },
-  { title: 'Pre-Draft Team', key: 'preDraftTeam', sortable: true, minWidth: '20px' },
+  { title: 'Pre-Draft Team', key: 'preDraftTeam', sortable: true, minWidth: '175px' },
   { title: 'Pick Trades', key: 'draftTrades', sortable: false, minWidth: '80px', width: 'auto' }
 ]
 
-// Columns that support multisort
-const multisortColumns = ['year', 'round', 'pick']
-
-// Sort state - only allow multisort for year, round, and pick
+// Sort state - initial multi-sort by year (desc) and pick (asc)
+// Users can only sort by single columns, but initial state uses multi-sort
 const sortBy = ref([
   { key: 'year', order: 'desc' },
-  { key: 'round', order: 'asc' },
   { key: 'pick', order: 'asc' }
 ])
 
 function handleSortUpdate(newSort: Array<{ key: string; order: 'asc' | 'desc' }>) {
-  // Separate multisort columns from other columns
-  const multisortItems = newSort.filter(s => multisortColumns.includes(s.key))
-  const otherItems = newSort.filter(s => !multisortColumns.includes(s.key))
-  
-  // If only a single non-multisort column was clicked (normal click, not shift+click),
-  // allow it as a single sort
-  if (otherItems.length === 1 && multisortItems.length === 0 && newSort.length === 1) {
-    sortBy.value = otherItems
-    return
-  }
-  
-  // For all other cases (multisort columns, or shift+click scenarios),
-  // only allow multisort columns
-  if (multisortItems.length > 0) {
-    sortBy.value = multisortItems
-  } else if (newSort.length === 0) {
-    // All sorts cleared - restore default multisort
+  // Only allow single column sorting - if user tries to sort multiple columns,
+  // just use the first one
+  if (newSort.length > 0) {
+    sortBy.value = [newSort[0]]
+  } else {
+    // If all sorts cleared, restore default multi-sort
     sortBy.value = [
       { key: 'year', order: 'desc' },
-      { key: 'round', order: 'asc' },
       { key: 'pick', order: 'asc' }
     ]
   }
-  // If otherItems.length > 1, it's an invalid state (multiple non-multisort columns)
-  // Keep current sort state by not updating
 }
 
 const items = computed(() => props.data)
 
-// Function to remove sort priority numbers
-function removeSortBadges() {
-  nextTick(() => {
-    // Try multiple selectors to find and remove the badge elements
-    const selectors = [
-      '.v-data-table-header__sort-badge',
-      '.v-data-table__sort-badge',
-      '.v-data-table-header th[aria-sort] .v-btn__content span:not(:first-child)',
-      '.v-data-table-header th[aria-sort] .v-icon ~ span'
-    ]
-    
-    selectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector)
-      elements.forEach(el => {
-        // Only remove if it contains a single digit (1-9)
-        const text = el.textContent?.trim()
-        if (text && /^[1-9]$/.test(text)) {
-          el.remove()
-        }
-      })
-    })
-  })
-}
-
-// Watch for sort changes and remove badges
-watch(sortBy, () => {
-  removeSortBadges()
-}, { deep: true })
-
 onMounted(() => {
   loadTeams()
-  // Remove badges after initial render
-  removeSortBadges()
-  // Also use MutationObserver to catch dynamically added badges
-  const observer = new MutationObserver(() => {
-    removeSortBadges()
-  })
-  
-  // Observe the table container
-  nextTick(() => {
-    const tableElement = document.querySelector('.draft-table .v-data-table')
-    if (tableElement) {
-      observer.observe(tableElement, {
-        childList: true,
-        subtree: true
-      })
-    }
-  })
 })
 
 function getTeamLogoUrl(team: string): string {
@@ -511,7 +448,7 @@ function getPositionColor(position: string): string {
       </template>
 
       <template #item.preDraftTeam="{ item }">
-        <span class="text-medium-emphasis">{{ item.preDraftTeam || '-' }}</span>
+        <span class="text-medium-emphasis pre-draft-team-text">{{ item.preDraftTeam || '-' }}</span>
       </template>
 
       <template #item.draftTrades="{ item }">
@@ -566,41 +503,9 @@ function getPositionColor(position: string): string {
     padding: 24px 20px !important;
   }
 
-  // Hide sort priority numbers in multisort
-  :deep(.v-data-table-header__sort-badge) {
-    display: none !important;
-  }
-  
-  // Also target any other possible badge elements
+  // Hide sort priority numbers (for initial multi-sort)
+  :deep(.v-data-table-header__sort-badge),
   :deep(.v-data-table__sort-badge) {
-    display: none !important;
-  }
-  
-  // Target badge spans that might contain the numbers
-  :deep(.v-data-table-header th .v-data-table-header__sort-badge),
-  :deep(.v-data-table-header th span[class*="badge"]) {
-    display: none !important;
-  }
-  
-  // Target any small text elements in sortable headers that might be numbers
-  :deep(.v-data-table-header th[aria-sort] .v-btn__content > span:not(:first-child)),
-  :deep(.v-data-table-header th[aria-sort] .v-btn__content > .v-icon ~ span) {
-    display: none !important;
-  }
-  
-  // Hide any span elements after the icon in sortable headers (likely the numbers)
-  :deep(.v-data-table-header th[aria-sort] .v-btn__content .v-icon ~ span) {
-    display: none !important;
-  }
-  
-  // Hide any direct child elements after the icon (but not the title text)
-  :deep(.v-data-table-header th[aria-sort] .v-btn__content > *:not(.v-icon):not(:first-child)) {
-    display: none !important;
-  }
-  
-  // Alternative: target any small badge or chip elements
-  :deep(.v-data-table-header th .v-badge),
-  :deep(.v-data-table-header th .v-chip) {
     display: none !important;
   }
 
@@ -653,6 +558,19 @@ function getPositionColor(position: string): string {
   :deep(.v-avatar img),
   :deep(.v-avatar .v-img__img) {
     object-fit: contain !important;
+  }
+
+  .pre-draft-team-text {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 20ch;
+    display: inline-block;
+  }
+
+  // Allow Pre-Draft Team column to wrap
+  :deep(.v-data-table__td:nth-child(10)) {
+    white-space: normal !important;
   }
 }
 </style>

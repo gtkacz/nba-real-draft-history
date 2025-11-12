@@ -20,19 +20,15 @@ function handleContinue() {
     :model-value="visible"
     class="splash-screen"
     persistent
-    scrim="rgba(0, 0, 0, 0.7)"
+    scrim="rgba(0, 0, 0, 0.3)"
   >
-    <v-card
-      class="splash-content"
-      elevation="12"
-      max-width="80vw"
-    >
-      <v-card-title class="text-h3 text-center pa-8">
+    <div class="splash-content">
+      <h1 class="text-h3 text-center pa-8 mb-4">
         Real Draft History
-      </v-card-title>
+      </h1>
 
-      <v-card-text class="text-body-1 text-center px-8 pb-4">
-        <p>As basketball fans, we’ve all felt the same frustration. You look up your favorite team's draft history to see how the roster was built, but the data is misleading.</p>
+      <div class="text-body-1 text-center px-8 pb-4 splash-text">
+        <p>As basketball fans, we've all felt the same frustration. You look up your favorite team's draft history to see how the roster was built, but the data is misleading.</p>
 
         <br/>
 
@@ -45,9 +41,9 @@ function handleContinue() {
         <br/>
 
         <p>This website was built to solve that one, simple problem.</p>
-      </v-card-text>
+      </div>
 
-      <v-card-actions class="justify-center pb-8">
+      <div class="d-flex justify-center pb-8">
         <v-btn
           color="primary"
           size="large"
@@ -56,8 +52,8 @@ function handleContinue() {
         >
           Continue
         </v-btn>
-      </v-card-actions>
-    </v-card>
+      </div>
+    </div>
   </v-overlay>
 </template>
 
@@ -66,10 +62,23 @@ function handleContinue() {
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .splash-content {
   animation: fadeIn 0.5s ease-in-out;
+  max-width: 80vw;
+  z-index: 1;
+  position: relative;
+}
+
+.splash-text {
+  background-color: rgba(var(--v-theme-surface), 0.95);
+  border-radius: 8px;
+  padding: 24px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 @keyframes fadeIn {
