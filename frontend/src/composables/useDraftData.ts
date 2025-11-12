@@ -15,7 +15,7 @@ export function useDraftData() {
   const useYearRange = ref(true)
   const selectedRounds = ref<(number | string)[]>([])
   const overallPickRange = ref<[number, number]>([1, 61])
-  const preDraftTeamSearch = ref('')
+  const preDraftTeamSearch = ref<string[]>([])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
 
   const allPreDraftTeams = computed(() => {
@@ -75,8 +75,8 @@ export function useDraftData() {
         // Calculate overall pick: (round - 1) * 30 + pick
         const overallPick = (pick.round - 1) * 30 + pick.pick
         if (maxOverall === 61) {
-          // If max is 61, show all picks 61+ (all picks beyond 60)
-          return overallPick >= 61
+          // If max is 61, it means "no upper limit" - show all picks >= minOverall
+          return overallPick >= minOverall
         } else {
           // Normal range filter
           return overallPick >= minOverall && overallPick <= maxOverall
@@ -84,11 +84,10 @@ export function useDraftData() {
       })
     }
 
-    // Pre-draft team filter
-    if (preDraftTeamSearch.value && preDraftTeamSearch.value.trim() !== '') {
-      const searchTerm = preDraftTeamSearch.value.toLowerCase()
+    // Pre-draft team filter - multiple selection
+    if (preDraftTeamSearch.value.length > 0) {
       filtered = filtered.filter(pick =>
-        pick.preDraftTeam?.toLowerCase().includes(searchTerm)
+        pick.preDraftTeam && preDraftTeamSearch.value.includes(pick.preDraftTeam)
       )
     }
 

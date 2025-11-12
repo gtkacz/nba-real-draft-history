@@ -14,7 +14,7 @@ interface DraftTableProps {
   useYearRange?: boolean
   selectedRounds?: (number | string)[]
   overallPickRange?: [number, number]
-  preDraftTeamSearch?: string
+  preDraftTeamSearch?: string[]
   tradeFilter?: 'all' | 'traded' | 'not-traded'
   availableYears?: number[]
   allPreDraftTeams?: string[]
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   useYearRange: () => true,
   selectedRounds: () => [],
   overallPickRange: () => [1, 61],
-  preDraftTeamSearch: () => '',
+  preDraftTeamSearch: () => [],
   tradeFilter: () => 'all',
   availableYears: () => [],
   allPreDraftTeams: () => []
@@ -41,7 +41,7 @@ const emit = defineEmits<{
   'update:useYearRange': [value: boolean]
   'update:selectedRounds': [value: (number | string)[]]
   'update:overallPickRange': [value: [number, number]]
-  'update:preDraftTeamSearch': [value: string]
+  'update:preDraftTeamSearch': [value: string[]]
   'update:tradeFilter': [value: 'all' | 'traded' | 'not-traded']
 }>()
 
@@ -208,6 +208,30 @@ const items = computed(() => {
   return sortItems(props.data, sortBy.value)
 })
 
+// Check if any filters are active (non-default)
+const hasActiveFilters = computed(() => {
+  // Team filter active
+  if (props.selectedTeam.length > 0) return true
+  
+  // Year filter active
+  if (!props.useYearRange && props.selectedYear !== null) return true
+  if (props.useYearRange && (props.yearRange[0] !== 1950 || props.yearRange[1] !== 2025)) return true
+  
+  // Round filter active
+  if (props.selectedRounds.length > 0) return true
+  
+  // Overall pick range active
+  if (props.overallPickRange[0] !== 1 || props.overallPickRange[1] !== 61) return true
+  
+  // Pre-draft team filter active
+  if (props.preDraftTeamSearch.length > 0) return true
+  
+  // Trade filter active
+  if (props.tradeFilter !== 'all') return true
+  
+  return false
+})
+
 onMounted(() => {
   loadTeams()
 })
@@ -329,15 +353,22 @@ function getPositionColor(position: string): string {
       </div>
       <v-menu v-model="filterMenu" location="bottom end" :close-on-content-click="false">
         <template #activator="{ props: menuProps }">
-          <v-btn
-            v-bind="menuProps"
-            icon="mdi-filter-variant"
-            variant="outlined"
-            color="primary"
-            size="small"
-          />
+          <v-badge
+            :model-value="hasActiveFilters"
+            color="error"
+            dot
+            location="top end"
+          >
+            <v-btn
+              v-bind="menuProps"
+              icon="mdi-filter-variant"
+              variant="outlined"
+              color="primary"
+              size="small"
+            />
+          </v-badge>
         </template>
-        <v-card min-width="600" class="pa-4">
+        <v-card min-width="600" max-width="600" class="pa-4">
           <v-card-title class="d-flex align-center mb-4">
             <v-icon icon="mdi-filter-variant" class="mr-2" />
             Filters
@@ -493,6 +524,8 @@ function getPositionColor(position: string): string {
                   variant="outlined"
                   density="compact"
                   hide-details
+                  multiple
+                  chips
                   clearable
                   prepend-inner-icon="mdi-school"
                 />
@@ -718,9 +751,32 @@ function getPositionColor(position: string): string {
     min-width: auto !important;
   }
   
-  :deep(.v-select__selection) {
+  // Prevent select containers from expanding when chips are added
+  :deep(.v-select),
+  :deep(.v-autocomplete) {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  :deep(.v-select__selection),
+  :deep(.v-autocomplete__selection) {
     overflow-x: auto;
+    overflow-y: hidden;
     flex-wrap: nowrap;
+    max-width: 100%;
+    min-width: 0;
+    white-space: nowrap;
+  }
+  
+  // Ensure chips don't cause expansion
+  :deep(.v-select__selection .v-chip),
+  :deep(.v-autocomplete__selection .v-chip) {
+    flex-shrink: 0;
+  }
+  
+  // Ensure filter menu card maintains fixed width
+  :deep(.v-menu__content) {
+    max-width: 600px !important;
   }
 
   .pre-draft-team-text {
