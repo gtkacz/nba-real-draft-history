@@ -39,7 +39,7 @@ target-version = "py313"
 preview = true
 
 select = ["ALL"]
-ignore = ["D212", "TRY003", "EM102"]
+ignore = ["D212", "TRY003", "EM102", "PD901"]
 extend-select = ["DOC"]
 
 fixable = ["ALL"]

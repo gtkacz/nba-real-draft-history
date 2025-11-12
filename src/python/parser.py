@@ -22,7 +22,9 @@ def load_team_data(team_name: str, *, data_path: str = "data/html") -> pd.DataFr
     if not path.exists():
         raise FileNotFoundError(f"The file {path} does not exist.")
 
-    with path.open("data/html/Timberwolves.html") as f:
+    with path.open() as f:
         data = pd.read_html(f.read())  # pyright: ignore[reportUnknownMemberType]
 
-    return pd.concat((data[0], data[1]))
+    df = pd.concat((data[0], data[1]))
+
+    return df[~df["Draft Trades"].str.contains(f"{team_name} to ", na=False)]
