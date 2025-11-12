@@ -25,6 +25,7 @@ interface DraftTableProps {
   availableYears?: number[]
   allPreDraftTeams?: string[]
   availableAges?: number[]
+  showPlayerMeasurements?: boolean
 }
 
 const props = withDefaults(defineProps<DraftTableProps>(), {
@@ -41,7 +42,8 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   tradeFilter: () => 'all',
   availableYears: () => [],
   allPreDraftTeams: () => [],
-  availableAges: () => []
+  availableAges: () => [],
+  showPlayerMeasurements: false
 })
 
 const emit = defineEmits<{
@@ -55,6 +57,7 @@ const emit = defineEmits<{
   'update:selectedPositions': [value: string[]]
   'update:ageRange': [value: [number, number]]
   'update:tradeFilter': [value: 'all' | 'traded' | 'not-traded']
+  'update:showPlayerMeasurements': [value: boolean]
 }>()
 
 const filterMenu = ref(false)
@@ -109,7 +112,7 @@ async function loadTeams() {
 }
 
 
-const headers = [
+const allHeaders = [
   { title: 'Team', key: 'team', sortable: true, minWidth: '40px' },
   { title: 'Player', key: 'player', sortable: true, minWidth: '75px' },
   { title: 'Year', key: 'year', sortable: true, width: '80px' },
@@ -122,6 +125,13 @@ const headers = [
   { title: 'Drafted From', key: 'preDraftTeam', sortable: true, minWidth: '175px' },
   { title: 'Pick Trades', key: 'draftTrades', sortable: false, minWidth: '80px', width: 'auto' }
 ]
+
+const headers = computed(() => {
+  if (props.showPlayerMeasurements) {
+    return allHeaders
+  }
+  return allHeaders.filter(header => header.key !== 'height' && header.key !== 'weight')
+})
 
 // Sort state - initial multi-sort by year (desc) and pick (asc)
 // Users can only sort by single columns, but initial state uses multi-sort
@@ -828,6 +838,16 @@ watch(currentPage, () => {
                   prepend-inner-icon="mdi-swap-horizontal"
                 />
               </v-col>
+
+              <!-- Player Measurements Toggle -->
+              <v-col cols="12" md="6" class="mb-2">
+                <v-checkbox
+                  :model-value="props.showPlayerMeasurements"
+                  @update:model-value="emit('update:showPlayerMeasurements', $event)"
+                  label="Player Measurements"
+                  hide-details
+                />
+              </v-col>
             </v-row>
           </v-card-text>
         </v-card>
@@ -851,7 +871,7 @@ watch(currentPage, () => {
             />
           </v-badge>
         </template>
-        <v-card class="filter-card">
+        <v-card class="filter-card pa-6">
           <v-card-title class="d-flex align-center mb-4">
             <v-icon icon="mdi-filter-variant" class="mr-2" />
             Filters
@@ -1063,6 +1083,16 @@ watch(currentPage, () => {
                   variant="outlined"
                   hide-details
                   prepend-inner-icon="mdi-swap-horizontal"
+                />
+              </v-col>
+
+              <!-- Player Measurements Toggle -->
+              <v-col cols="12" md="6" class="mb-2">
+                <v-checkbox
+                  :model-value="props.showPlayerMeasurements"
+                  @update:model-value="emit('update:showPlayerMeasurements', $event)"
+                  label="Player Measurements"
+                  hide-details
                 />
               </v-col>
             </v-row>
@@ -1333,6 +1363,7 @@ watch(currentPage, () => {
 
   @media (min-width: 960px) {
     .filter-card {
+      width: 650px;
       min-width: 650px;
       max-width: 650px;
     }
@@ -1344,6 +1375,8 @@ watch(currentPage, () => {
 
   @media (min-width: 960px) {
     :deep(.v-menu__content) {
+      width: 650px !important;
+      min-width: 650px !important;
       max-width: 650px !important;
     }
   }

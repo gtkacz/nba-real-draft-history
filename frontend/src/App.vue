@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import SplashScreen from './components/SplashScreen.vue'
 import ThemeToggle from './components/ThemeToggle.vue'
 import DraftTable from './components/DraftTable.vue'
@@ -28,6 +28,8 @@ const {
   loading,
   loadAllTeamData
 } = useDraftData()
+
+const showPlayerMeasurements = ref(false)
 
 async function loadData() {
   try {
@@ -79,6 +81,7 @@ onMounted(() => {
               v-model:selected-positions="selectedPositions"
               v-model:age-range="ageRange"
               v-model:trade-filter="tradeFilter"
+              v-model:show-player-measurements="showPlayerMeasurements"
               :available-years="availableYears"
               :all-pre-draft-teams="allPreDraftTeams"
               :available-ages="availableAges"
