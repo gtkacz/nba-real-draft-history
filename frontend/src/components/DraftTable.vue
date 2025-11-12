@@ -840,12 +840,13 @@ watch(currentPage, () => {
               </v-col>
 
               <!-- Player Measurements Toggle -->
-              <v-col cols="12" md="6" class="mb-2">
+              <v-col cols="12" class="mb-2">
                 <v-checkbox
                   :model-value="props.showPlayerMeasurements"
                   @update:model-value="emit('update:showPlayerMeasurements', $event)"
-                  label="Player Measurements"
+                  label="Show Player Measurements"
                   hide-details
+                  density="comfortable"
                 />
               </v-col>
             </v-row>
@@ -1091,7 +1092,7 @@ watch(currentPage, () => {
                 <v-checkbox
                   :model-value="props.showPlayerMeasurements"
                   @update:model-value="emit('update:showPlayerMeasurements', $event)"
-                  label="Player Measurements"
+                  label="Show Player Measurements"
                   hide-details
                 />
               </v-col>
@@ -1359,6 +1360,8 @@ watch(currentPage, () => {
   .filter-card {
     width: 100%;
     max-width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   @media (min-width: 960px) {
@@ -1366,6 +1369,8 @@ watch(currentPage, () => {
       width: 650px;
       min-width: 650px;
       max-width: 650px;
+      max-height: none;
+      overflow-y: visible;
     }
   }
 
