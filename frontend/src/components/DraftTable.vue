@@ -377,10 +377,10 @@ function getPositionColor(position: string): string {
       :headers="headers"
       :items="items"
       :loading="loading"
-      :items-per-page="50"
+      :items-per-page="30"
       :items-per-page-options="[
-        { value: 25, title: '25' },
-        { value: 50, title: '50' },
+        { value: 30, title: '30' },
+        { value: 60, title: '60' },
         { value: 100, title: '100' },
         { value: 250, title: '250' },
         { value: 500, title: '500' },
