@@ -73,8 +73,8 @@ const teamColorAccent = computed(() => {
       }"
     >
       <v-card-title class="player-card-header d-flex align-center justify-space-between">
-        <div class="d-flex align-center">
-          <div class="team-logo-container mr-3">
+          <div class="d-flex align-center">
+          <div class="team-logo-container mr-2">
             <v-img
               :src="teamLogoUrl"
               :alt="player.team"
@@ -102,31 +102,31 @@ const teamColorAccent = computed(() => {
             v-if="player.nba_id"
             :src="getPlayerHeadshotUrl(player.nba_id)"
             :alt="player.player"
-            cover
+            contain
             class="player-card-image"
-            height="300"
+            height="150"
           >
             <template #placeholder>
               <div class="d-flex align-center justify-center fill-height">
-                <v-icon icon="mdi-account" size="80" color="grey-lighten-1" />
+                <v-icon icon="mdi-account" size="60" color="grey-lighten-1" />
               </div>
             </template>
             <template #error>
               <div class="d-flex align-center justify-center fill-height">
-                <v-icon icon="mdi-account" size="80" color="grey-lighten-1" />
+                <v-icon icon="mdi-account" size="60" color="grey-lighten-1" />
               </div>
             </template>
           </v-img>
           <div v-else class="player-card-image-placeholder d-flex align-center justify-center">
-            <v-icon icon="mdi-account" size="80" color="grey-lighten-1" />
+            <v-icon icon="mdi-account" size="60" color="grey-lighten-1" />
           </div>
         </div>
 
         <!-- Player Info -->
-        <div class="player-card-info pa-6">
-          <div class="player-measurements mb-4">
-            <div class="text-h6 mb-3 font-weight-bold">Measurements</div>
-            <v-row>
+        <div class="player-card-info pa-4">
+          <div class="player-measurements mb-3">
+            <div class="text-h6 mb-2 font-weight-bold">Measurements</div>
+            <v-row dense>
               <v-col cols="6">
                 <div class="measurement-item">
                   <div class="text-caption text-medium-emphasis mb-1">Height</div>
@@ -144,24 +144,24 @@ const teamColorAccent = computed(() => {
             </v-row>
           </div>
 
-          <v-divider class="mb-4" />
+          <v-divider class="mb-3" />
 
           <div class="player-details">
-            <v-row>
+            <v-row dense>
               <v-col cols="6">
-                <div class="detail-item mb-3">
+                <div class="detail-item mb-2">
                   <div class="text-caption text-medium-emphasis mb-1">Position</div>
                   <div class="text-body-1 font-weight-medium">{{ player.position || 'N/A' }}</div>
                 </div>
               </v-col>
               <v-col cols="6">
-                <div class="detail-item mb-3">
+                <div class="detail-item mb-2">
                   <div class="text-caption text-medium-emphasis mb-1">Draft Age</div>
                   <div class="text-body-1 font-weight-medium">{{ player.age || 'N/A' }}</div>
                 </div>
               </v-col>
               <v-col cols="12">
-                <div class="detail-item">
+                <div class="detail-item mb-2">
                   <div class="text-caption text-medium-emphasis mb-1">Drafted From</div>
                   <div class="text-body-1 font-weight-medium">{{ player.preDraftTeam || 'N/A' }}</div>
                 </div>
@@ -194,17 +194,17 @@ const teamColorAccent = computed(() => {
   .player-card-header {
     background: linear-gradient(135deg, var(--team-primary) 0%, var(--team-secondary) 100%);
     color: var(--team-accent);
-    padding: 20px 24px;
+    padding: 12px 16px;
 
     :deep(.v-btn) {
       color: var(--team-accent);
     }
 
     .team-logo-container {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      min-height: 48px;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -215,8 +215,8 @@ const teamColorAccent = computed(() => {
       .team-logo-img {
         width: 100%;
         height: 100%;
-        max-width: 48px;
-        max-height: 48px;
+        max-width: 40px;
+        max-height: 40px;
       }
 
       :deep(.v-img) {
@@ -254,11 +254,11 @@ const teamColorAccent = computed(() => {
 
     .player-card-image {
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .player-card-image-placeholder {
-      height: 300px;
+      height: 150px;
       background: linear-gradient(135deg, var(--team-primary) 0%, var(--team-secondary) 100%);
     }
   }
@@ -269,7 +269,7 @@ const teamColorAccent = computed(() => {
 
   .measurement-item,
   .detail-item {
-    padding: 8px 0;
+    padding: 4px 0;
   }
 
   // Team color theming
