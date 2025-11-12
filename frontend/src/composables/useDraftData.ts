@@ -17,7 +17,7 @@ export function useDraftData() {
   const overallPickRange = ref<[number, number]>([1, 61])
   const preDraftTeamSearch = ref<string[]>([])
   const selectedPositions = ref<string[]>([])
-  const ageRange = ref<[number, number]>([18, 50])
+  const ageRange = ref<[number, number]>([17, 50])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
 
   const allPreDraftTeams = computed(() => {

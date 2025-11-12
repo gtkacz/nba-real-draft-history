@@ -45,12 +45,14 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
     }
 
     const draftTrades = values[10]?.trim()
+    const year = parseInt(values[0] || '0')
     
     // Skip picks that were traded away from this team (same logic as backend parser)
     // If trade string starts with "{teamAbbreviation} to " or any alias, it means this team traded the pick away
     // Need to check both the canonical team and all its aliases (e.g., SEA is an alias for OKC)
+    // Also need to handle year-based aliasing (e.g., MIN pre-1988 -> LAL)
     if (draftTrades) {
-      const allTeamCodes = getAllTeamCodes(teamAbbreviation)
+      const allTeamCodes = getAllTeamCodes(teamAbbreviation, year)
       const wasTradedAway = allTeamCodes.some(teamCode => {
         // Check if trade string starts with this team code followed by " to "
         // Use word boundary or start of string to avoid false matches
@@ -87,6 +89,5 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
     })
   }
 
-  console.log(`Parsed ${picks.length} picks for ${teamAbbreviation}`)
   return picks
 }

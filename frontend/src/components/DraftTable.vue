@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, watch } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
-import { getCanonicalTeam, getDisplayTeam } from '@/utils/teamAliases'
+import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getDataUrl } from '@/utils/dataUrl'
 
 interface DraftTableProps {
@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   overallPickRange: () => [1, 61],
   preDraftTeamSearch: () => [],
   selectedPositions: () => [],
-  ageRange: () => [18, 50],
+  ageRange: () => [17, 50],
   tradeFilter: () => 'all',
   availableYears: () => [],
   allPreDraftTeams: () => [],
@@ -56,6 +56,8 @@ const emit = defineEmits<{
 const filterMenu = ref(false)
 const teams = ref<TeamAbbreviation[]>([])
 const loadingTeams = ref(true)
+const currentPage = ref(1)
+const itemsPerPage = ref(30)
 
 interface TeamOption {
   value: TeamAbbreviation
@@ -76,7 +78,7 @@ const positionOptions = [
   { value: 'C', title: 'Center (C)' }
 ]
 
-const minAge = computed(() => props.availableAges.length > 0 ? Math.min(...props.availableAges) : 18)
+const minAge = computed(() => props.availableAges.length > 0 ? Math.min(...props.availableAges) : 17)
 const maxAge = computed(() => props.availableAges.length > 0 ? Math.max(...props.availableAges) : 50)
 
 const minYear = computed(() => props.availableYears.length > 0 ? Math.min(...props.availableYears) : 1950)
@@ -110,8 +112,8 @@ const headers = [
   { title: 'Position', key: 'position', sortable: true, width: '35px' },
   { title: 'Height', key: 'height', sortable: true, width: '35px' },
   { title: 'Weight', key: 'weight', sortable: true, width: '35px' },
-  { title: 'Age', key: 'age', sortable: true, width: '35px' },
-  { title: 'Pre-Draft Team', key: 'preDraftTeam', sortable: true, minWidth: '175px' },
+  { title: 'Draft Age', key: 'age', sortable: true, width: '35px' },
+  { title: 'Drafted From', key: 'preDraftTeam', sortable: true, minWidth: '175px' },
   { title: 'Pick Trades', key: 'draftTrades', sortable: false, minWidth: '80px', width: 'auto' }
 ]
 
@@ -247,7 +249,7 @@ const hasActiveFilters = computed(() => {
   if (props.selectedPositions.length > 0) return true
   
   // Age range filter active
-  if (props.ageRange[0] !== 18 || props.ageRange[1] !== 50) return true
+  if (props.ageRange[0] !== 17 || props.ageRange[1] !== 50) return true
   
   // Trade filter active
   if (props.tradeFilter !== 'all') return true
@@ -280,15 +282,90 @@ const headerTitle = computed(() => {
 
 onMounted(() => {
   loadTeams()
+  // Inject page input between chevrons after table is rendered
+  setTimeout(() => {
+    injectPageInput()
+  }, 100)
 })
 
-function getTeamLogoUrl(team: string): string {
+function injectPageInput() {
+  const footer = document.querySelector('.v-data-table-footer')
+  if (!footer) return
+
+  const pagination = footer.querySelector('.v-data-table-footer__pagination')
+  if (!pagination) return
+
+  const pageArea = pagination.querySelector('.v-data-table-footer__page')
+  if (!pageArea) return
+
+  // Check if input already exists
+  if (pageArea.querySelector('.page-input-wrapper')) return
+
+  // Find the chevron buttons - try different selectors
+  let leftChevron = pageArea.querySelector('.v-btn .mdi-chevron-left')?.closest('.v-btn')
+  let rightChevron = pageArea.querySelector('.v-btn .mdi-chevron-right')?.closest('.v-btn')
+  
+  // Alternative: find by button order
+  if (!leftChevron || !rightChevron) {
+    const buttons = pageArea.querySelectorAll('.v-btn')
+    if (buttons.length >= 2) {
+      leftChevron = buttons[0] as HTMLElement
+      rightChevron = buttons[buttons.length - 1] as HTMLElement
+    }
+  }
+  
+  if (!leftChevron || !rightChevron) return
+
+  // Create the input wrapper
+  const inputWrapper = document.createElement('div')
+  inputWrapper.className = 'page-input-wrapper d-flex align-center gap-1'
+  
+  const input = document.createElement('input')
+  input.type = 'number'
+  input.className = 'page-input-field'
+  input.style.cssText = 'width: 60px; padding: 4px 8px; border: 1px solid rgba(0,0,0,0.12); border-radius: 4px; text-align: center;'
+  input.min = '1'
+  input.max = String(totalPages.value)
+  input.placeholder = String(currentPage.value)
+  
+  const span = document.createElement('span')
+  span.className = 'text-caption text-medium-emphasis'
+  span.textContent = `/ ${totalPages.value}`
+  
+  inputWrapper.appendChild(input)
+  inputWrapper.appendChild(span)
+
+  // Insert between chevrons
+  rightChevron.parentNode?.insertBefore(inputWrapper, rightChevron)
+
+  // Add event listeners
+  input.addEventListener('blur', handlePageInput)
+  input.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handlePageInput(e)
+    }
+  })
+  
+  // Update placeholder when page changes
+  watch(currentPage, () => {
+    input.placeholder = String(currentPage.value)
+    input.max = String(totalPages.value)
+    span.textContent = `/ ${totalPages.value}`
+  })
+  
+  watch(totalPages, () => {
+    input.max = String(totalPages.value)
+    span.textContent = `/ ${totalPages.value}`
+  })
+}
+
+function getTeamLogoUrl(team: string, year?: number): string {
   // Use canonical team code for logo URL (aliases map to their canonical team's logo)
-  const canonicalTeam = getCanonicalTeam(team)
+  const canonicalTeam = getCanonicalTeam(team, year)
   return `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${canonicalTeam.toLowerCase()}.svg`
 }
 
-function getOriginalTeam(trades: string | null): string | null {
+function getOriginalTeam(trades: string | null, year?: number): string | null {
   if (!trades || trades.trim() === '') return null
 
   // Parse trade chain format like "NOP to  ATL" or "CHA to  BOS BOS  to ATL"
@@ -300,15 +377,15 @@ function getOriginalTeam(trades: string | null): string | null {
   if (!original) return null
 
   // Return the display name (preserves alias if it's an alias)
-  return getDisplayTeam(original)
+  return getDisplayTeam(original, year)
 }
 
-function isDifferentTeam(originalTeam: string | null, currentTeam: string): boolean {
+function isDifferentTeam(originalTeam: string | null, currentTeam: string, year?: number): boolean {
   if (!originalTeam) return false
-  return getCanonicalTeam(originalTeam) !== getCanonicalTeam(currentTeam)
+  return getCanonicalTeam(originalTeam, year) !== getCanonicalTeam(currentTeam, year)
 }
 
-function parseTradeChain(trades: string | null): string[] {
+function parseTradeChain(trades: string | null, year?: number): string[] {
   if (!trades || trades.trim() === '') return []
 
   // Parse trade chain format like "WAS to NYK NYK to OKC" or "CHA to  BOS BOS  to ATL"
@@ -324,8 +401,8 @@ function parseTradeChain(trades: string | null): string[] {
   // Add the first team (everything before first " to ")
   const firstTeam = parts[0]?.trim()
   if (firstTeam) {
-    displayTeams.push(getDisplayTeam(firstTeam))
-    canonicalTeams.push(getCanonicalTeam(firstTeam))
+    displayTeams.push(getDisplayTeam(firstTeam, year))
+    canonicalTeams.push(getCanonicalTeam(firstTeam, year))
   }
 
   // For each subsequent part, extract the team at the beginning
@@ -335,8 +412,8 @@ function parseTradeChain(trades: string | null): string[] {
     // Split by spaces and take the first word (the team abbreviation)
     const team = part.split(/\s+/)[0]
     if (team && team.length <= 4) { // Team abbreviations are typically 3-4 characters
-      displayTeams.push(getDisplayTeam(team))
-      canonicalTeams.push(getCanonicalTeam(team))
+      displayTeams.push(getDisplayTeam(team, year))
+      canonicalTeams.push(getCanonicalTeam(team, year))
     }
   }
 
@@ -379,6 +456,92 @@ function getPositionColor(position: string): string {
       return 'secondary'
   }
 }
+
+// Heatmap color function for age - younger players get green, older get blue
+// Returns hex color optimized for tonal chips (better readability with lighter backgrounds)
+function getAgeColor(age: number | null | undefined): string {
+  if (!age || age <= 0) return '#9e9e9e' // Gray for missing/invalid age
+  
+  const min = minAge.value
+  const max = maxAge.value
+  const range = max - min
+  
+  if (range === 0) return '#4caf50' // Green if all ages are the same
+  
+  // Normalize age to 0-1 range (0 = youngest, 1 = oldest)
+  const normalized = (age - min) / range
+  
+  // Heatmap: Green for young, Blue for old
+  // Use HSL for better control and more vibrant colors for tonal chips
+  // Hue: 120 (green) to 240 (blue)
+  // Saturation: High (80-100%) for vibrant colors that work well with tonal variant
+  // Lightness: Medium (40-50%) for good contrast on lighter backgrounds
+  
+  const hue = 120 + (240 - 120) * normalized // 120 (green) to 240 (blue)
+  const saturation = 85 + (normalized * 10) // 85% to 95% - more saturated for better visibility
+  const lightness = 45 - (normalized * 5) // 45% to 40% - slightly darker for contrast
+  
+  // Convert HSL to RGB
+  const h = hue / 360
+  const s = saturation / 100
+  const l = lightness / 100
+  
+  const c = (1 - Math.abs(2 * l - 1)) * s
+  const x = c * (1 - Math.abs((h * 6) % 2 - 1))
+  const m = l - c / 2
+  
+  let r = 0, g = 0, b = 0
+  
+  if (h < 1/6) {
+    r = c; g = x; b = 0
+  } else if (h < 2/6) {
+    r = x; g = c; b = 0
+  } else if (h < 3/6) {
+    r = 0; g = c; b = x
+  } else if (h < 4/6) {
+    r = 0; g = x; b = c
+  } else if (h < 5/6) {
+    r = x; g = 0; b = c
+  } else {
+    r = c; g = 0; b = x
+  }
+  
+  // Convert to hex
+  const red = Math.round((r + m) * 255)
+  const green = Math.round((g + m) * 255)
+  const blue = Math.round((b + m) * 255)
+  
+  return `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`
+}
+
+// Computed properties for pagination
+const totalPages = computed(() => {
+  if (itemsPerPage.value === -1) return 1
+  return Math.ceil(items.value.length / itemsPerPage.value)
+})
+
+
+const pageInput = ref('')
+
+function handlePageInput(event: Event) {
+  const target = event.target as HTMLInputElement
+  const value = parseInt(target.value, 10)
+  if (!isNaN(value) && value >= 1 && value <= totalPages.value) {
+    currentPage.value = value
+    pageInput.value = ''
+  } else {
+    pageInput.value = ''
+  }
+}
+
+
+// Watch for page changes to update the input placeholder
+watch(currentPage, () => {
+  // Clear input when page changes externally (via chevrons)
+  if (pageInput.value) {
+    pageInput.value = ''
+  }
+})
 </script>
 
 <template>
@@ -414,15 +577,15 @@ function getPositionColor(position: string): string {
             />
           </v-badge>
         </template>
-        <v-card min-width="600" max-width="600" class="pa-4">
+        <v-card min-width="650" max-width="650" class="pa-6">
           <v-card-title class="d-flex align-center mb-4">
             <v-icon icon="mdi-filter-variant" class="mr-2" />
             Filters
           </v-card-title>
-          <v-card-text>
-            <v-row dense>
+          <v-card-text class="pa-0">
+            <v-row>
               <!-- Team Filter -->
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="mb-2">
                 <v-select
                   :model-value="props.selectedTeam"
                   @update:model-value="emit('update:selectedTeam', $event)"
@@ -430,7 +593,6 @@ function getPositionColor(position: string): string {
                   :loading="loadingTeams"
                   label="Team"
                   variant="outlined"
-                  density="compact"
                   hide-details
                   multiple
                   chips
@@ -480,19 +642,18 @@ function getPositionColor(position: string): string {
               </v-col>
 
               <!-- Year Filter -->
-              <v-col cols="12" md="6">
-                <div class="px-2">
-                  <div class="d-flex align-center justify-space-between mb-2">
+              <v-col cols="12" md="6" class="mb-2">
+                <div class="px-1">
+                  <div class="d-flex align-center justify-space-between mb-3">
                     <label class="text-caption text-medium-emphasis">Year</label>
                     <v-btn-toggle
                       :model-value="props.useYearRange ? 'range' : 'single'"
                       @update:model-value="emit('update:useYearRange', $event === 'range')"
-                      density="compact"
                       variant="outlined"
                       mandatory
                     >
-                      <v-btn value="single" size="small">Single</v-btn>
-                      <v-btn value="range" size="small">Range</v-btn>
+                      <v-btn value="single">Single</v-btn>
+                      <v-btn value="range">Range</v-btn>
                     </v-btn-toggle>
                   </div>
                   <v-range-slider
@@ -503,9 +664,10 @@ function getPositionColor(position: string): string {
                     :max="maxYear"
                     :step="1"
                     thumb-label="always"
+                    thumb-label-location="bottom"
                     hide-details
                     color="primary"
-                    class="mt-4"
+                    class="mt-2"
                   />
                   <v-select
                     v-else
@@ -514,7 +676,6 @@ function getPositionColor(position: string): string {
                     :items="props.availableYears"
                     label="Select Year"
                     variant="outlined"
-                    density="compact"
                     hide-details
                     clearable
                     class="mt-2"
@@ -523,14 +684,13 @@ function getPositionColor(position: string): string {
               </v-col>
 
               <!-- Round Filter -->
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="mb-2">
                 <v-select
                   :model-value="props.selectedRounds"
                   @update:model-value="emit('update:selectedRounds', $event)"
                   :items="roundOptions"
                   label="Rounds"
                   variant="outlined"
-                  density="compact"
                   multiple
                   chips
                   hide-details
@@ -539,9 +699,9 @@ function getPositionColor(position: string): string {
               </v-col>
 
               <!-- Overall Pick Range -->
-              <v-col cols="12" md="6">
-                <div class="px-2">
-                  <label class="text-caption text-medium-emphasis mb-2 d-block">
+              <v-col cols="12" md="6" class="mb-2">
+                <div class="px-1">
+                  <label class="text-caption text-medium-emphasis mb-3 d-block">
                     Overall Pick Range
                     <span v-if="props.overallPickRange && props.overallPickRange[1] === 61" class="ml-2 text-primary">
                       (61+)
@@ -554,22 +714,22 @@ function getPositionColor(position: string): string {
                     :max="61"
                     :step="1"
                     thumb-label="always"
+                    thumb-label-location="bottom"
                     hide-details
                     color="primary"
-                    class="mt-4"
+                    class="mt-2"
                   />
                 </div>
               </v-col>
 
               <!-- Pre-Draft Team Search -->
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="mb-2">
                 <v-autocomplete
                   :model-value="props.preDraftTeamSearch"
                   @update:model-value="emit('update:preDraftTeamSearch', $event)"
                   :items="props.allPreDraftTeams"
-                  label="Pre-Draft Team"
+                  label="Drafted From"
                   variant="outlined"
-                  density="compact"
                   hide-details
                   multiple
                   chips
@@ -580,14 +740,13 @@ function getPositionColor(position: string): string {
               </v-col>
 
               <!-- Position Filter -->
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="mb-2">
                 <v-select
                   :model-value="props.selectedPositions"
                   @update:model-value="emit('update:selectedPositions', $event)"
                   :items="positionOptions"
                   label="Position"
                   variant="outlined"
-                  density="compact"
                   multiple
                   chips
                   clearable
@@ -598,9 +757,9 @@ function getPositionColor(position: string): string {
               </v-col>
 
               <!-- Age Range Filter -->
-              <v-col cols="12" md="6">
-                <div class="px-2">
-                  <label class="text-caption text-medium-emphasis mb-2 d-block">Age Range</label>
+              <v-col cols="12" md="6" class="mb-2">
+                <div class="px-1">
+                  <label class="text-caption text-medium-emphasis mb-3 d-block">Age Range</label>
                   <v-range-slider
                     :model-value="props.ageRange"
                     @update:model-value="emit('update:ageRange', $event)"
@@ -608,15 +767,16 @@ function getPositionColor(position: string): string {
                     :max="maxAge"
                     :step="1"
                     thumb-label="always"
+                    thumb-label-location="bottom"
                     hide-details
                     color="primary"
-                    class="mt-4"
+                    class="mt-2"
                   />
                 </div>
               </v-col>
 
               <!-- Trade Filter -->
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="mb-2">
                 <v-select
                   :model-value="props.tradeFilter"
                   @update:model-value="emit('update:tradeFilter', $event)"
@@ -627,7 +787,6 @@ function getPositionColor(position: string): string {
                   ]"
                   label="Trade Status"
                   variant="outlined"
-                  density="compact"
                   hide-details
                   prepend-inner-icon="mdi-swap-horizontal"
                 />
@@ -642,7 +801,8 @@ function getPositionColor(position: string): string {
       :headers="headers"
       :items="items"
       :loading="loading"
-      :items-per-page="30"
+      v-model:page="currentPage"
+      v-model:items-per-page="itemsPerPage"
       :items-per-page-options="[
         { value: 30, title: '30' },
         { value: 60, title: '60' },
@@ -661,18 +821,18 @@ function getPositionColor(position: string): string {
         <div class="d-flex align-center">
           <v-avatar size="32" class="mr-2" rounded="0" style="background: transparent;">
             <v-img
-              :src="getTeamLogoUrl(item.team)"
-              :alt="item.team"
+              :src="getTeamLogoUrl(item.team, item.year)"
+              :alt="getOriginalTeamName(item.team, item.year)"
               contain
             />
           </v-avatar>
           <div class="d-flex flex-column">
-            <span class="font-weight-medium">{{ item.team }}</span>
+            <span class="font-weight-medium">{{ getOriginalTeamName(item.team, item.year) }}</span>
             <span
-              v-if="isDifferentTeam(getOriginalTeam(item.draftTrades), item.team)"
+              v-if="isDifferentTeam(getOriginalTeam(item.draftTrades, item.year), item.team, item.year)"
               class="text-caption text-medium-emphasis"
             >
-              (via {{ getOriginalTeam(item.draftTrades) }})
+              (via {{ getOriginalTeam(item.draftTrades, item.year) }})
             </span>
           </div>
         </div>
@@ -706,7 +866,11 @@ function getPositionColor(position: string): string {
       </template>
 
       <template #item.age="{ item }">
-        <v-chip size="small" variant="outlined">
+        <v-chip 
+          size="small" 
+          variant="tonal"
+          :color="getAgeColor(item.age) || 'white'"
+        >
           {{ item.age || '-' }}
         </v-chip>
       </template>
@@ -718,15 +882,15 @@ function getPositionColor(position: string): string {
       <template #item.draftTrades="{ item }">
         <template v-if="item.draftTrades">
           <div class="trade-chain">
-            <template v-for="(team, index) in parseTradeChain(item.draftTrades)" :key="index">
+            <template v-for="(team, index) in parseTradeChain(item.draftTrades, item.year)" :key="index">
               <v-avatar size="24" class="mr-1" rounded="0" style="background: transparent;">
                 <v-img
-                  :src="getTeamLogoUrl(team)"
+                  :src="getTeamLogoUrl(team, item.year)"
                   :alt="team"
                   contain
                 />
               </v-avatar>
-              <span v-if="index < parseTradeChain(item.draftTrades).length - 1" class="mx-1 text-medium-emphasis">→</span>
+              <span v-if="index < parseTradeChain(item.draftTrades, item.year).length - 1" class="mx-1 text-medium-emphasis">→</span>
             </template>
           </div>
         </template>
@@ -744,6 +908,7 @@ function getPositionColor(position: string): string {
           <p class="text-body-2 text-medium-emphasis">Try adjusting your filters</p>
         </div>
       </template>
+
     </v-data-table>
   </v-card>
 </template>
@@ -882,7 +1047,7 @@ function getPositionColor(position: string): string {
   
   // Ensure filter menu card maintains fixed width
   :deep(.v-menu__content) {
-    max-width: 600px !important;
+    max-width: 650px !important;
   }
 
   .pre-draft-team-text {
@@ -896,6 +1061,18 @@ function getPositionColor(position: string): string {
   // Allow Pre-Draft Team column to wrap
   :deep(.v-data-table__td:nth-child(10)) {
     white-space: normal !important;
+  }
+
+  // Style for injected page input
+  .page-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 8px;
+  }
+
+  .page-input-field {
+    text-align: center;
   }
 }
 </style>
