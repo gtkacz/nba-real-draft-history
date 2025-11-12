@@ -64,7 +64,7 @@ onMounted(() => {
     </v-app-bar>
 
     <v-main>
-      <v-container fluid class="pa-4 pa-md-6">
+      <v-container fluid class="pa-8 pa-md-10 pa-lg-12">
         <v-row class="mb-4">
           <v-col cols="12">
             <DraftFilters

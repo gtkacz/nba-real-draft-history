@@ -1,18 +1,18 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2025,1,2,Dylan Harper,GF,6-5,215.0,19.0,Rutgers,Fr  *,,0,SAS
 2025,1,14,Carter Bryant,F,6-6,220.0,19.0,Arizona,Fr  *,,0,SAS
-2025,2,38,Kam Jones,F,6-4,200.0,23.0,Marquette,Sr,SAN to  IND,0,SAS
+2025,2,38,Kam Jones,F,6-4,200.0,23.0,Marquette,Sr,SAS to  IND,0,SAS
 2024,1,4,Stephon Castle,G,6-6,215.0,19.0,UConn,Fr  *,,1,SAS
-2024,1,8,Rob Dillingham,G,6-2,175.0,19.0,Kentucky,Fr  *,SAN to  MIN,1,SAS
-2024,2,35,Johnny Furphy,F,6-8,200.0,19.0,Kansas,Fr  *,SAN to  IND,1,SAS
+2024,1,8,Rob Dillingham,G,6-2,175.0,19.0,Kentucky,Fr  *,SAS to  MIN,1,SAS
+2024,2,35,Johnny Furphy,F,6-8,200.0,19.0,Kansas,Fr  *,SAS to  IND,1,SAS
 2024,2,48,Harrison Ingram,F,6-5,230.0,21.0,North Carolina,Jr  *,,1,SAS
 2023,1,1,Victor Wembanyama,F,7-4,235.0,19.0,Boulogne-Levallois (France),2004 DOB  *,,2,SAS
-2023,2,33,Leonard Miller,F,6-10,220.0,19.0,NBA G League Ignite,2003 DOB,SAN to  MIN,2,SAS
+2023,2,33,Leonard Miller,F,6-10,220.0,19.0,NBA G League Ignite,2003 DOB,SAS to  MIN,2,SAS
 2023,2,44,Sidy Cissoko,GF,6-6,220.0,19.0,NBA G League Ignite,2004 DOB,,2,SAS
 2022,1,9,Jeremy Sochan,SG,6-8,230.0,19.0,Baylor,Fr  *,,3,SAS
 2022,1,20,Malaki Branham,GF,6-4,180.0,19.0,Ohio State,Fr  *,,3,SAS
 2022,1,25,Blake Wesley,SG,6-4,190.0,19.0,Notre Dame,Fr  *,,3,SAS
-2022,2,38,Kennedy Chandler,PG,6-0,170.0,19.0,Tennessee,Fr  *,SAN to  MEM,1,SAS
+2022,2,38,Kennedy Chandler,PG,6-0,170.0,19.0,Tennessee,Fr  *,SAS to  MEM,1,SAS
 2021,1,12,Joshua Primo,G,6-4,189.0,18.0,Alabama,Fr  *,,3,SAS
 2021,2,41,Joe Wieskamp,SF,6-6,212.0,21.0,Iowa,Jr  *,,2,SAS
 2020,1,11,Devin Vassell,SG,6-5,200.0,20.0,Florida State,So  *,,5,SAS
@@ -25,11 +25,11 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2017,1,29,Derrick White,G,6-4,190.0,22.0,Colorado,Sr,,8,SAS
 2017,2,59,Jaron Blossomgame,F,6-8,220.0,23.0,Clemson,Sr,,1,SAS
 2016,1,29,Dejounte Murray,SG,6-4,180.0,19.0,Washington,Fr  *,,9,SAS
-2015,1,26,Nikola Milutinov,C,7-0,220.0,20.0,KK Partizan (Serbia),1994 DOB  *,SAN to  BRK,0,SAS
-2015,2,55,Cady Lalanne,FC,6-9,242.0,23.0,Massachusetts,Sr,SAN to  GOS,0,SAS
+2015,1,26,Nikola Milutinov,C,7-0,220.0,20.0,KK Partizan (Serbia),1994 DOB  *,SAS to  BKN,0,SAS
+2015,2,55,Cady Lalanne,FC,6-9,242.0,23.0,Massachusetts,Sr,SAS to  GSW,0,SAS
 2014,1,30,Kyle Anderson,PF,6-8,230.0,20.0,UCLA,So  *,,11,SAS
-2014,2,58,Jordan McRae,G,6-5,179.0,23.0,Tennessee,Sr,SAN to  PHL,4,SAS
-2014,2,60,Cory Jefferson,PF,6-9,215.0,23.0,Baylor,Sr,SAN to  PHL PHL  to BRK,2,SAS
+2014,2,58,Jordan McRae,G,6-5,179.0,23.0,Tennessee,Sr,SAS to  PHL,4,SAS
+2014,2,60,Cory Jefferson,PF,6-9,215.0,23.0,Baylor,Sr,SAS to  PHL PHL  to BKN,2,SAS
 2013,1,28,Livio Jean-Charles,SF,6-9,230.0,19.0,ASVEL Basket (France),1993 DOB  *,,0,SAS
 2013,2,58,Deshaun Thomas,F,6-7,220.0,21.0,Ohio State,Jr  *,,0,SAS
 2012,2,59,Marcus Denmon,G,6-3,185.0,22.0,Missouri,Sr,,0,SAS
@@ -41,32 +41,32 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2009,2,51,Jack McClinton,G,6-1,185.0,24.0,Miami (FL),Sr,,0,SAS
 2009,2,53,Nando De Colo,G,6-5,195.0,22.0,Cholet Basket (France),1987 DOB,,2,SAS
 2008,1,26,George Hill,G,6-3,188.0,22.0,IU Indy,Jr  *,,15,SAS
-2008,2,45,Goran Dragic,G,6-4,190.0,22.0,Union Olimpija (Slovenia),1986 DOB,SAN to  PHX,15,SAS
+2008,2,45,Goran Dragic,G,6-4,190.0,22.0,Union Olimpija (Slovenia),1986 DOB,SAS to  PHX,15,SAS
 2008,2,57,James Gist,PF,6-9,235.0,21.0,Maryland,Sr,,0,SAS
 2007,1,28,Tiago Splitter,F,6-11,245.0,22.0,Baskonia (Spain),1985 DOB,,7,SAS
 2007,2,33,Marcus E. Williams,F,6-7,207.0,20.0,Arizona,So  *,,2,SAS
-2007,2,58,Georgios Printezis,F,6-9,235.0,22.0,Ifestos Limnou (Greece),1985 DOB,SAN to  TOR TOR  to DAL DAL  to NYK NYK  to POR POR  to OKC OKC  to ATL ATL  to SAN,0,SAS
-2006,2,59,Damir Markota,PF,6-10,260.0,20.0,KK Cibona (Croatia),1985 DOB  *,SAN to  MIL,1,SAS
+2007,2,58,Georgios Printezis,F,6-9,235.0,22.0,Ifestos Limnou (Greece),1985 DOB,SAS to  TOR TOR  to DAL DAL  to NYK NYK  to POR POR  to OKC OKC  to ATL ATL  to SAS,0,SAS
+2006,2,59,Damir Markota,PF,6-10,260.0,20.0,KK Cibona (Croatia),1985 DOB  *,SAS to  MIL,1,SAS
 2005,1,28,Ian Mahinmi,C,6-11,262.0,18.0,STB Le Havre (France),1986 DOB  *,,13,SAS
 2004,1,28,Beno Udrih,G,6-4,205.0,21.0,AX Armani Exchange Milan (Italy),1982 DOB,,13,SAS
 2004,2,52,Romain Sato,GF,6-5,205.0,23.0,Xavier,Sr,,1,SAS
 2004,2,57,Sergei Karaulov,C,6-10,254.0,22.0,Sakha-Yakutia Yakutsk (Russia),1982 DOB,,0,SAS
-2003,1,28,Leandro Barbosa,G,6-3,194.0,20.0,Bauru (Brazil),1982 DOB  *,SAN to  PHX,14,SAS
-2002,1,26,John Salmons,GF,6-7,210.0,22.0,Miami (FL),Sr,SAN to  PHL,13,SAS
-2002,2,55,Luis Scola,PF,6-9,241.0,22.0,Baskonia (Spain),1980 DOB,SAN to  HOU,10,SAS
-2002,2,56,Raed Farid Elhamali,F,6-9,225.0,22.0,San Diego State,Sr,SAN to  PHL PHL  to ATL,3,SAS
+2003,1,28,Leandro Barbosa,G,6-3,194.0,20.0,Bauru (Brazil),1982 DOB  *,SAS to  PHX,14,SAS
+2002,1,26,John Salmons,GF,6-7,210.0,22.0,Miami (FL),Sr,SAS to  PHL,13,SAS
+2002,2,55,Luis Scola,PF,6-9,241.0,22.0,Baskonia (Spain),1980 DOB,SAS to  HOU,10,SAS
+2002,2,56,Raed Farid Elhamali,F,6-9,225.0,22.0,SAS Diego State,Sr,SAS to  PHL PHL  to ATL,3,SAS
 2001,1,28,Tony Parker,G,6-2,185.0,19.0,Paris Basket Racing (France),1982 DOB  *,,18,SAS
 2001,2,55,Robertas Javtokas,PF,6-11,247.0,21.0,Lietuvos Rytas (Lithuania),1980 DOB  *,,0,SAS
 2001,2,57,Bryan Bracey,F,6-7,210.0,22.0,Oregon,Sr,,1,SAS
 2000,2,41,Chris Carrawell,F,6-6,215.0,22.0,Duke,Sr,,1,SAS
-2000,2,54,Cory Hightower,G-F,6-8,200.0,20.0,Indian Hills,So  *,SAN to  LAL,2,SAS
-1999,1,29,Leon Smith,PF,6-10,235.0,18.0,King College Prep High School (Illinois),1980 DOB  *,SAN to  DAL,5,SAS
+2000,2,54,Cory Hightower,G-F,6-8,200.0,20.0,Indian Hills,So  *,SAS to  LAL,2,SAS
+1999,1,29,Leon Smith,PF,6-10,235.0,18.0,King College Prep High School (Illinois),1980 DOB  *,SAS to  DAL,5,SAS
 1999,2,57,Manu Ginobili,SG,6-6,205.0,21.0,Viola Reggio Calabria (Italy),1977 DOB,,16,SAS
-1998,1,24,Felipe Lopez,SF,6-5,199.0,23.0,St. John's,Sr,SAN to  VAN,6,SAS
+1998,1,24,Felipe Lopez,SF,6-5,199.0,23.0,St. John's,Sr,SAS to  VAN,6,SAS
 1998,2,52,Derrick Dial,G,6-4,184.0,22.0,Eastern Michigan,Sr,,5,SAS
 1997,1,1,Tim Duncan,FC,6-11,250.0,21.0,Wake Forest,Sr,,19,SAS
 1995,1,29,Cory Alexander,G,6-1,185.0,22.0,Virginia,Jr  *,,7,SAS
-1994,1,22,Bill Curley,F,6-9,220.0,22.0,Boston College,Sr,SAN to  DET,8,SAS
+1994,1,22,Bill Curley,F,6-9,220.0,22.0,Boston College,Sr,SAS to  DET,8,SAS
 1993,2,47,Chris Whitney,PG,6-0,168.0,21.0,Clemson,Sr,,11,SAS
 1992,2,44,Henry Williams,G,6-1,170.0,22.0,Charlotte,Sr,,1,SAS
 1991,2,49,Greg Sutton,G,6-2,170.0,23.0,Oral Roberts,Sr,,5,SAS
@@ -99,14 +99,14 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 1985,4,82,Scott Roth,F,6-8,212.0,22.0,Wisconsin,Sr,,3,SAS
 1985,5,106,Clayton Olivier,C,6-10,,,USC,Sr,,0,SAS
 1985,6,128,Chris Harper,,,,,Oregon,Sr,,0,SAS
-2024,2,36,Juan Nunez,PG,6-4,190.0,20.0,Ratiopharm Ulm (Germany),2004 DOB *,IND to  SAN,0,SAS
-2015,2,42,Olivier Hanlan,G,6-4,190.0,22.0,Boston College,Jr *,UTH to  SAN,0,SAS
-2011,1,15,Kawhi Leonard,F,6-6,225.0,19.0,San Diego State,So *,IND to  SAN,14,SAS
-2011,2,42,Davis Bertans,SF,6-10,225.0,18.0,Union Olimpija (Slovenia),1992 DOB *,IND to  SAN,8,SAS
-2008,2,48,Malik Hairston,SF,6-6,220.0,21.0,Oregon,Sr,PHX to  SAN,2,SAS
-2005,2,46,Erazem Lorbek,FC,6-11,242.0,21.0,Fortituto Kontatto Bologna (Italy),1984 DOB *,IND to  SAN,0,SAS
-2004,2,42,Viktor Sanikidze,F,6-7,194.0,18.0,JDA Dijon Basket (France),1986 DOB *,ATL to  SAN,0,SAS
-1988,2,47,Vernon Maxwell,G,6-4,180.0,22.0,Florida,Sr,DEN to  SAN,13,SAS
-1986,2,28,Larry Krystkowiak,PF,6-9,220.0,21.0,Montana,Sr,CHI to  POR POR  to SAN,11,SAS
-1982,2,27,Fred Roberts,FC,6-10,218.0,21.0,Brigham Young,Sr,MIL to  NJN NJN  to SAN,14,SAS
-1979,2,43,Johnny Moore,G,6-1,175.0,21.0,Texas,Sr,SEA to  SAN,10,SAS
+2024,2,36,Juan Nunez,PG,6-4,190.0,20.0,Ratiopharm Ulm (Germany),2004 DOB *,IND to  SAS,0,SAS
+2015,2,42,Olivier Hanlan,G,6-4,190.0,22.0,Boston College,Jr *,UTA to  SAS,0,SAS
+2011,1,15,Kawhi Leonard,F,6-6,225.0,19.0,SAS Diego State,So *,IND to  SAS,14,SAS
+2011,2,42,Davis Bertans,SF,6-10,225.0,18.0,Union Olimpija (Slovenia),1992 DOB *,IND to  SAS,8,SAS
+2008,2,48,Malik Hairston,SF,6-6,220.0,21.0,Oregon,Sr,PHX to  SAS,2,SAS
+2005,2,46,Erazem Lorbek,FC,6-11,242.0,21.0,Fortituto Kontatto Bologna (Italy),1984 DOB *,IND to  SAS,0,SAS
+2004,2,42,Viktor Sanikidze,F,6-7,194.0,18.0,JDA Dijon Basket (France),1986 DOB *,ATL to  SAS,0,SAS
+1988,2,47,Vernon Maxwell,G,6-4,180.0,22.0,Florida,Sr,DEN to  SAS,13,SAS
+1986,2,28,Larry Krystkowiak,PF,6-9,220.0,21.0,Montana,Sr,CHI to  POR POR  to SAS,11,SAS
+1982,2,27,Fred Roberts,FC,6-10,218.0,21.0,Brigham Young,Sr,MIL to  NJN NJN  to SAS,14,SAS
+1979,2,43,Johnny Moore,G,6-1,175.0,21.0,Texas,Sr,SEA to  SAS,10,SAS

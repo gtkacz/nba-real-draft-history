@@ -17,14 +17,12 @@ const headers = [
   { title: 'Round', key: 'round', sortable: true, width: '80px' },
   { title: 'Pick', key: 'pick', sortable: true, width: '70px' },
   { title: 'Player', key: 'player', sortable: true, minWidth: '150px' },
-  { title: 'Pos', key: 'position', sortable: true, width: '70px' },
-  { title: 'HT', key: 'height', sortable: true, width: '70px' },
-  { title: 'WT', key: 'weight', sortable: true, width: '70px' },
+  { title: 'Position', key: 'position', sortable: true, width: '70px' },
+  { title: 'Height', key: 'height', sortable: true, width: '70px' },
+  { title: 'Weight', key: 'weight', sortable: true, width: '70px' },
   { title: 'Age', key: 'age', sortable: true, width: '70px' },
   { title: 'Pre-Draft Team', key: 'preDraftTeam', sortable: true, minWidth: '120px' },
-  { title: 'Class', key: 'class', sortable: true, width: '80px' },
-  { title: 'Draft Trades', key: 'draftTrades', sortable: false, minWidth: '200px' },
-  { title: 'YOS', key: 'yearsOfService', sortable: true, width: '70px' }
+  { title: 'Draft Trades', key: 'draftTrades', sortable: false, minWidth: '200px' }
 ]
 
 const items = computed(() => props.data)
@@ -56,6 +54,19 @@ function splitPosition(position: string): string[] {
   if (!position || position.trim() === '') return []
   // Split multi-position strings like "FC" into ["F", "C"], "GF" into ["G", "F"]
   return position.trim().split('').filter(char => char.match(/[A-Z]/))
+}
+
+function getPositionColor(position: string): string {
+  switch (position) {
+    case 'G':
+      return 'primary'
+    case 'F':
+      return 'success'
+    case 'C':
+      return 'warning'
+    default:
+      return 'secondary'
+  }
 }
 </script>
 
@@ -109,7 +120,7 @@ function splitPosition(position: string): string[] {
           <div class="d-flex flex-column">
             <span class="font-weight-medium">{{ item.team }}</span>
             <span
-              v-if="parseTradeChain(item.draftTrades)"
+              v-if="parseTradeChain(item.draftTrades) && parseTradeChain(item.draftTrades)!.original !== item.team"
               class="text-caption text-medium-emphasis"
             >
               (via {{ parseTradeChain(item.draftTrades)!.original }})
@@ -129,7 +140,7 @@ function splitPosition(position: string): string[] {
             :key="index"
             size="small"
             variant="tonal"
-            color="secondary"
+            :color="getPositionColor(pos)"
           >
             {{ pos }}
           </v-chip>
@@ -155,16 +166,6 @@ function splitPosition(position: string): string[] {
         <span class="text-medium-emphasis">{{ item.preDraftTeam || '-' }}</span>
       </template>
 
-      <template #item.class="{ item }">
-        <v-chip
-          size="small"
-          :color="item.class === 'FR' ? 'success' : item.class === 'SO' ? 'info' : item.class === 'JR' ? 'warning' : 'default'"
-          variant="tonal"
-        >
-          {{ item.class || '-' }}
-        </v-chip>
-      </template>
-
       <template #item.draftTrades="{ item }">
         <div v-if="item.draftTrades" class="trade-chain">
           <v-chip
@@ -180,16 +181,6 @@ function splitPosition(position: string): string[] {
           </v-chip>
         </div>
         <span v-else class="text-medium-emphasis">-</span>
-      </template>
-
-      <template #item.yearsOfService="{ item }">
-        <v-chip
-          size="small"
-          :color="item.yearsOfService > 10 ? 'success' : item.yearsOfService > 5 ? 'info' : 'default'"
-          variant="flat"
-        >
-          {{ item.yearsOfService || 0 }}
-        </v-chip>
       </template>
 
       <template #loading>

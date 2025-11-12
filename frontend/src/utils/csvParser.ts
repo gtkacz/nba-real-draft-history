@@ -44,13 +44,25 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
     }
 
     const draftTrades = values[10]?.trim()
+    
+    // Skip picks that were traded away from this team (same logic as backend parser)
+    // If trade string contains "{teamAbbreviation} to ", it means this team traded the pick away
+    if (draftTrades && draftTrades.includes(`${teamAbbreviation} to `)) {
+      continue
+    }
+    
+    // Remove "S" and "P" prefixes from position (e.g., "SG" -> "G", "PF" -> "F")
+    let position = values[4] || ''
+    if (position) {
+      position = position.replace(/^[SP]/g, '')
+    }
 
     picks.push({
       year: parseInt(values[0] || '0'),
       round: parseInt(values[1] || '0'),
       pick: parseInt(values[2] || '0'),
       player: values[3] || '',
-      position: values[4] || '',
+      position: position,
       height: values[5] || '',
       weight: parseFloat(values[6] || '0'),
       age: parseFloat(values[7] || '0'),

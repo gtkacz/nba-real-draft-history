@@ -43,13 +43,13 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2014,2,39,Jerami Grant,F,6-7,213,20,Syracuse,So  *,,11,PHI
 2014,2,47,Russ Smith,G,6-0,165,23,Louisville,Sr,PHL to  NOP,2,PHI
 2014,2,52,Vasilije Micic,PG,6-3,188,20,KK Mega Bemax (Serbia),1994 DOB  *,PHL to  OKC,2,PHI
-2014,2,54,Nemanja Dangubic,SF,6-9,176,21,KK Mega Bemax (Serbia),1993 DOB  *,PHL to  SAN SAN  to BRK BRK  to MEM,0,PHI
+2014,2,54,Nemanja Dangubic,SF,6-9,176,21,KK Mega Bemax (Serbia),1993 DOB  *,PHL to  SAS SAS  to BKN BKN  to MEM,0,PHI
 2013,1,11,Michael Carter-Williams,PG,6-5,190,21,Syracuse,So  *,,10,PHI
 2013,2,35,Glen Rice,GF,6-6,206,22,Rio Grande Valley Vipers,1991 DOB,PHL to  WAS,2,PHI
 2013,2,42,Pierre Jackson,PG,5-10,180,21,Baylor,Sr,PHL to  NOP NOP  to PHL,1,PHI
 2012,1,15,Maurice Harkless,F,6-7,220,19,St. John's,Fr  *,,10,PHI
 2012,2,45,Justin Hamilton,C,7-0,255,22,LSU,Jr  *,PHL to  MIA,3,PHI
-2012,2,54,Tornike Shengelia,PF,6-9,220,20,Proximus Spirou Charleroi (Belgium),1991 DOB  *,PHL to  BRK,2,PHI
+2012,2,54,Tornike Shengelia,PF,6-9,220,20,Proximus Spirou Charleroi (Belgium),1991 DOB  *,PHL to  BKN,2,PHI
 2011,1,16,Nikola Vucevic,PF,6-9,260,20,USC,Jr  *,,14,PHI
 2011,2,50,Lavoy Allen,PF,6-9,260,22,Temple,Sr,,6,PHI
 2010,1,2,Evan Turner,GF,6-7,220,21,Ohio State,Jr  *,,10,PHI
@@ -58,12 +58,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2007,1,12,Thaddeus Young,F,6-8,225,19,Georgia Tech,Fr  *,,17,PHI
 2007,1,21,Daequan Cook,G,6-5,205,20,Ohio State,Fr  *,PHL to  MIA,6,PHI
 2007,1,30,Petteri Koponen,G,6-4,195,19,Tapiolan Honka (Finland),1988 DOB  *,PHL to  POR POR  to DAL DAL  to NYK,0,PHI
-2007,2,38,Kyrylo Fesenko,C,7-1,280,20,BK Cherkassy (Ukraine),1986 DOB  *,PHL to  UTH,5,PHI
+2007,2,38,Kyrylo Fesenko,C,7-1,280,20,BK Cherkassy (Ukraine),1986 DOB  *,PHL to  UTA,5,PHI
 2006,1,13,Thabo Sefolosha,GF,6-7,220,22,Edilnol Pallacanestro Biella (Italy),1984 DOB,PHL to  CHI,14,PHI
 2005,2,45,Lou Williams,G,6-1,175,18,South Gwinnett High School (Georgia),1986 DOB  *,,17,PHI
 2004,1,9,Andre Iguodala,SF,6-6,215,20,Arizona,So  *,,19,PHI
 2003,2,50,Paccelis Morlende,G,6-3,185,22,JDA Dijon Basket (France),1981 DOB,PHL to  SEA,0,PHI
-2002,1,16,Jiri Welsch,F,6-6,208,22,Union Olimpija (Slovenia),1980 DOB,PHL to  GOS,4,PHI
+2002,1,16,Jiri Welsch,F,6-6,208,22,Union Olimpija (Slovenia),1980 DOB,PHL to  GSW,4,PHI
 2002,2,44,Sam Clancy,F,6-7,240,22,USC,Sr,,2,PHI
 2001,1,26,Samuel Dalembert,C,6-11,250,21,Seton Hall,So  *,,14,PHI
 2001,2,36,Damone Brown,F,6-9,200,21,Syracuse,Sr,,4,PHI
@@ -104,27 +104,27 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
 2018,2,54,Shake Milton,SG,6-5,205,21,Southern Methodist,Jr *,DAL to  PHL,7,PHI
 2017,1,25,Anzejs Pasecniks,C,7-1,229,21,Dreamland Gran Canaria (Spain),1995 DOB,ORL to  PHL,2,PHI
 2014,1,12,Dario Saric,SF,6-10,225,20,KK Cibona (Croatia),1994 DOB *,ORL to  PHL,9,PHI
-2014,2,58,Jordan McRae,G,6-5,179,23,Tennessee,Sr,SAN to  PHL,4,PHI
+2014,2,58,Jordan McRae,G,6-5,179,23,Tennessee,Sr,SAS to  PHL,4,PHI
 2013,1,6,Nerlens Noel,FC,6-10,220,19,Kentucky,Fr *,NOP to  PHL,10,PHI
 2013,2,54,Arsalan Kazemi,F,6-7,226,23,Oregon,Sr,WAS to  PHL,0,PHI
 2012,1,27,Arnett Moultrie,PF,6-11,250,21,Mississippi State,Jr *,MIA to  PHL,2,PHI
 2012,2,53,Furkan Aldemir,PF,6-10,240,20,Galatasaray (Turkey),1991 DOB *,LAC to  HOU HOU  to PHL,1,PHI
 2007,1,20,Jason Smith,PF,7-0,240,21,Colorado State,Jr *,MIA to  PHL,12,PHI
 2007,2,42,Derrick Byars,SF,6-7,220,23,Vanderbilt,Sr,POR to  PHL,2,PHI
-2007,2,55,Herbert Hill,FC,6-10,240,22,Providence,Sr,UTH to  PHL,1,PHI
+2007,2,55,Herbert Hill,FC,6-10,240,22,Providence,Sr,UTA to  PHL,1,PHI
 2006,1,16,Rodney Carney,F,6-7,205,22,Memphis,Sr,CHI to  PHL,5,PHI
 2006,2,37,Bobby Jones,F,6-7,215,22,Washington,Sr,MIN to  PHL,2,PHI
 2003,2,41,Willie Green,SG,6-3,201,21,Detroit-Mercy,Sr,SEA to  PHL,12,PHI
 2003,2,51,Kyle Korver,SF,6-7,212,22,Creighton,Sr,NJN to  PHL,17,PHI
-2002,1,26,John Salmons,GF,6-7,210,22,Miami (FL),Sr,SAN to  PHL,13,PHI
+2002,1,26,John Salmons,GF,6-7,210,22,Miami (FL),Sr,SAS to  PHL,13,PHI
 1999,1,27,Jumaine Jones,SF,6-8,218,20,Georgia,So *,ATL to  PHL,8,PHI
-1998,1,29,Nazr Mohammed,C,6-10,250,20,Kentucky,Jr *,UTH to  PHL,18,PHI
+1998,1,29,Nazr Mohammed,C,6-10,250,20,Kentucky,Jr *,UTA to  PHL,18,PHI
 1997,1,7,Tim Thomas,F,6-10,240,20,Villanova,Fr *,NJN to  PHL,13,PHI
 1997,1,21,Anthony Parker,GF,6-6,215,22,Bradley,Sr,NJN to  PHL,9,PHI
 1996,1,23,Efthimios Rentzias,C,6-11,260,20,PAOK BC (Greece),1976 DOB *,DEN to  ATL ATL  to PHL,1,PHI
 1993,1,17,Greg Graham,G,6-4,183,22,Indiana,Sr,CHA to  PHL,5,PHI
 1990,1,21,Jayson Williams,FC,6-10,245,22,St. John's,Sr,PHX to  PHL,10,PHI
 1988,1,6,Hersey Hawkins,SG,6-3,190,21,Bradley,Sr,LAC to  PHL,13,PHI
-1975,1,14,Joe Bryant,PF,6-9,185,20,La Salle,Sr,GOS to  PHL,8,PHI
+1975,1,14,Joe Bryant,PF,6-9,185,20,La Salle,Sr,GSW to  PHL,8,PHI
 1969,1,5,Larry Cannon,SG,6-4,195,21,La Salle,Sr,CHI to  PHL,2,PHI
 1948,4,40,Ed Peterson,FC,6-9,220,23,Cornell,Jr,NYK to  SYR,2,PHI
