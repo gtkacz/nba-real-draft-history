@@ -6,6 +6,7 @@ import DraftTable from './components/DraftTable.vue'
 import AppFooter from './components/AppFooter.vue'
 import { useSplashScreen } from './composables/useSplashScreen'
 import { useDraftData } from './composables/useDraftData'
+import { useFilterUrlSync } from './composables/useFilterUrlSync'
 import { getDataUrl } from './utils/dataUrl'
 import type { TeamAbbreviation } from './types/team'
 
@@ -21,6 +22,9 @@ const {
   selectedPositions,
   ageRange,
   tradeFilter,
+  sortBy,
+  currentPage,
+  itemsPerPage,
   filteredData,
   allPreDraftTeams,
   availableYears,
@@ -28,6 +32,23 @@ const {
   loading,
   loadAllTeamData
 } = useDraftData()
+
+// Sync filters with URL query strings
+useFilterUrlSync({
+  selectedTeam,
+  selectedYear,
+  yearRange,
+  useYearRange,
+  selectedRounds,
+  overallPickRange,
+  preDraftTeamSearch,
+  selectedPositions,
+  ageRange,
+  tradeFilter,
+  sortBy,
+  currentPage,
+  itemsPerPage
+})
 
 const showPlayerMeasurements = ref(false)
 
@@ -81,6 +102,9 @@ onMounted(() => {
               v-model:selected-positions="selectedPositions"
               v-model:age-range="ageRange"
               v-model:trade-filter="tradeFilter"
+              v-model:sort-by="sortBy"
+              v-model:current-page="currentPage"
+              v-model:items-per-page="itemsPerPage"
               v-model:show-player-measurements="showPlayerMeasurements"
               :available-years="availableYears"
               :all-pre-draft-teams="allPreDraftTeams"

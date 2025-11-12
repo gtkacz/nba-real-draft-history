@@ -10,6 +10,8 @@ import PlayerCard from './PlayerCard.vue'
 const display = useDisplay()
 const isMobile = computed(() => display.mobile.value)
 
+type SortItem = { key: string; order: 'asc' | 'desc' }
+
 interface DraftTableProps {
   data: DraftPick[]
   loading?: boolean
@@ -23,6 +25,9 @@ interface DraftTableProps {
   selectedPositions?: string[]
   ageRange?: [number, number]
   tradeFilter?: 'all' | 'traded' | 'not-traded'
+  sortBy?: SortItem[]
+  currentPage?: number
+  itemsPerPage?: number
   availableYears?: number[]
   allPreDraftTeams?: string[]
   availableAges?: number[]
@@ -32,7 +37,7 @@ interface DraftTableProps {
 const props = withDefaults(defineProps<DraftTableProps>(), {
   loading: false,
   selectedTeam: () => [],
-  yearRange: () => [1950, 2025],
+  yearRange: () => [1947, 2025],
   selectedYear: null,
   useYearRange: () => true,
   selectedRounds: () => [],
@@ -41,6 +46,12 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   selectedPositions: () => [],
   ageRange: () => [17, 50],
   tradeFilter: () => 'all',
+  sortBy: () => [
+    { key: 'year', order: 'desc' },
+    { key: 'pick', order: 'asc' }
+  ],
+  currentPage: 1,
+  itemsPerPage: 30,
   availableYears: () => [],
   allPreDraftTeams: () => [],
   availableAges: () => [],
@@ -58,16 +69,26 @@ const emit = defineEmits<{
   'update:selectedPositions': [value: string[]]
   'update:ageRange': [value: [number, number]]
   'update:tradeFilter': [value: 'all' | 'traded' | 'not-traded']
+  'update:sortBy': [value: SortItem[]]
+  'update:currentPage': [value: number]
+  'update:itemsPerPage': [value: number]
   'update:showPlayerMeasurements': [value: boolean]
 }>()
 
 const filterMenu = ref(false)
 const teams = ref<TeamAbbreviation[]>([])
 const loadingTeams = ref(true)
-const currentPage = ref(1)
-// Set lower default items per page on mobile for better performance
-// Initialize with a default, will be updated reactively
-const itemsPerPage = ref(30)
+
+// Pagination - use props with computed for two-way binding
+const currentPage = computed({
+  get: () => props.currentPage ?? 1,
+  set: (value) => emit('update:currentPage', value)
+})
+
+const itemsPerPage = computed({
+  get: () => props.itemsPerPage ?? 30,
+  set: (value) => emit('update:itemsPerPage', value)
+})
 
 interface TeamOption {
   value: TeamAbbreviation
@@ -91,7 +112,7 @@ const positionOptions = [
 const minAge = computed(() => props.availableAges.length > 0 ? Math.min(...props.availableAges) : 17)
 const maxAge = computed(() => props.availableAges.length > 0 ? Math.max(...props.availableAges) : 50)
 
-const minYear = computed(() => props.availableYears.length > 0 ? Math.min(...props.availableYears) : 1950)
+const minYear = computed(() => props.availableYears.length > 0 ? Math.min(...props.availableYears) : 1947)
 const maxYear = computed(() => props.availableYears.length > 0 ? Math.max(...props.availableYears) : 2025)
 
 async function loadTeams() {
@@ -134,13 +155,14 @@ const headers = computed(() => {
   return allHeaders.filter(header => header.key !== 'height' && header.key !== 'weight')
 })
 
-// Sort state - initial multi-sort by year (desc) and pick (asc)
-// Users can only sort by single columns, but initial state uses multi-sort
-type SortItem = { key: string; order: 'asc' | 'desc' }
-const sortBy = ref<SortItem[]>([
-  { key: 'year', order: 'desc' },
-  { key: 'pick', order: 'asc' }
-])
+// Sort state - use prop value, fallback to local ref if not provided
+const sortBy = computed({
+  get: () => props.sortBy || [
+    { key: 'year', order: 'desc' },
+    { key: 'pick', order: 'asc' }
+  ],
+  set: (value) => emit('update:sortBy', value)
+})
 
 function handleSortUpdate(newSort: SortItem[]) {
   // Only allow single column sorting - if user tries to sort multiple columns,
@@ -251,7 +273,7 @@ const hasActiveFilters = computed(() => {
   
   // Year filter active
   if (!props.useYearRange && props.selectedYear !== null) return true
-  if (props.useYearRange && (props.yearRange[0] !== 1950 || props.yearRange[1] !== 2025)) return true
+  if (props.useYearRange && (props.yearRange[0] !== 1947 || props.yearRange[1] !== 2025)) return true
   
   // Round filter active
   if (props.selectedRounds.length > 0) return true
@@ -300,8 +322,8 @@ const headerTitle = computed(() => {
 onMounted(() => {
   loadTeams()
   // Set initial items per page based on mobile state
-  if (isMobile.value) {
-    itemsPerPage.value = 20
+  if (isMobile.value && props.itemsPerPage === 30) {
+    emit('update:itemsPerPage', 20)
   }
   // Inject page input between chevrons after table is rendered
   setTimeout(() => {

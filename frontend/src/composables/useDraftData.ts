@@ -11,7 +11,7 @@ const error = ref<string | null>(null)
 export function useDraftData() {
   const selectedTeam = ref<TeamAbbreviation[]>([])
   const selectedYear = ref<number | null>(null)
-  const yearRange = ref<[number, number]>([1950, 2025])
+  const yearRange = ref<[number, number]>([1947, 2025])
   const useYearRange = ref(true)
   const selectedRounds = ref<(number | string)[]>([])
   const overallPickRange = ref<[number, number]>([1, 61])
@@ -19,6 +19,17 @@ export function useDraftData() {
   const selectedPositions = ref<string[]>([])
   const ageRange = ref<[number, number]>([17, 50])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
+  
+  // Sort state - initial multi-sort by year (desc) and pick (asc)
+  type SortItem = { key: string; order: 'asc' | 'desc' }
+  const sortBy = ref<SortItem[]>([
+    { key: 'year', order: 'desc' },
+    { key: 'pick', order: 'asc' }
+  ])
+
+  // Pagination state
+  const currentPage = ref(1)
+  const itemsPerPage = ref(30)
 
   const allPreDraftTeams = computed(() => {
     const teams = new Set<string>()
@@ -205,6 +216,9 @@ export function useDraftData() {
     selectedPositions,
     ageRange,
     tradeFilter,
+    sortBy,
+    currentPage,
+    itemsPerPage,
     filteredData,
     allPreDraftTeams,
     availableYears,
