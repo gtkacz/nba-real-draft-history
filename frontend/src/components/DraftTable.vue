@@ -232,6 +232,29 @@ const hasActiveFilters = computed(() => {
   return false
 })
 
+// Check if exactly one team is selected
+const singleSelectedTeam = computed(() => {
+  if (props.selectedTeam.length === 1) {
+    return props.selectedTeam[0]
+  }
+  return null
+})
+
+// Get header logo and title
+const headerLogo = computed(() => {
+  if (singleSelectedTeam.value) {
+    return getTeamLogoUrl(singleSelectedTeam.value)
+  }
+  return 'https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg'
+})
+
+const headerTitle = computed(() => {
+  if (singleSelectedTeam.value) {
+    return `${singleSelectedTeam.value} Draft History`
+  }
+  return 'NBA Draft History'
+})
+
 onMounted(() => {
   loadTeams()
 })
@@ -341,12 +364,12 @@ function getPositionColor(position: string): string {
       <div class="d-flex align-center">
         <v-avatar size="32" class="mr-2" rounded="0" style="background: transparent;">
           <v-img
-            src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
-            alt="NBA"
+            :src="headerLogo"
+            :alt="singleSelectedTeam || 'NBA'"
             contain
           />
         </v-avatar>
-        NBA Draft History
+        {{ headerTitle }}
         <v-chip class="ml-2" color="primary" size="small" variant="flat">
           {{ items.length }} picks
         </v-chip>
@@ -389,26 +412,27 @@ function getPositionColor(position: string): string {
                   multiple
                   chips
                   clearable
+                  closable-chips
                 >
                   <template #prepend-inner>
-                    <v-avatar size="24" class="mr-2" rounded="0">
-                      <v-img
+                    <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                      <img
                         src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
                         alt="NBA"
-                        contain
+                        style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
                       />
-                    </v-avatar>
+                    </div>
                   </template>
                   <template #item="{ props: itemProps, item }">
                     <v-list-item v-bind="itemProps">
                       <template #prepend v-if="item.raw.logo">
-                        <v-avatar size="28" class="mr-2" rounded="0" style="flex-shrink: 0; background: transparent;">
-                          <v-img 
+                        <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                          <img 
                             :src="item.raw.logo" 
                             :alt="item.raw.title" 
-                            contain
+                            style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
                           />
-                        </v-avatar>
+                        </div>
                       </template>
                     </v-list-item>
                   </template>
@@ -419,13 +443,13 @@ function getPositionColor(position: string): string {
                       size="small"
                       class="mr-1"
                     >
-                      <v-avatar v-if="item.raw.logo" size="20" class="mr-1" rounded="0" style="flex-shrink: 0; background: transparent;">
-                        <v-img 
+                      <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                        <img 
                           :src="item.raw.logo" 
                           :alt="item.raw.title" 
-                          contain
+                          style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
                         />
-                      </v-avatar>
+                      </div>
                       <span>{{ item.raw.title }}</span>
                     </v-chip>
                   </template>
@@ -528,6 +552,7 @@ function getPositionColor(position: string): string {
                   chips
                   clearable
                   prepend-inner-icon="mdi-school"
+                  closable-chips
                 />
               </v-col>
 
@@ -736,19 +761,41 @@ function getPositionColor(position: string): string {
   }
 
   :deep(.v-avatar img),
-  :deep(.v-avatar .v-img__img) {
+  :deep(.v-avatar .v-img__img),
+  :deep(.v-avatar .v-img) {
     object-fit: contain !important;
     background: transparent !important;
+    width: 100% !important;
+    height: 100% !important;
   }
   
   :deep(.v-avatar) {
     background: transparent !important;
+    overflow: visible !important;
   }
   
-  // Fix logo clipping in dropdown
+  // Fix logo clipping in dropdown - ensure avatars don't get cropped
   :deep(.v-list-item__prepend) {
     width: auto !important;
     min-width: auto !important;
+    overflow: visible !important;
+  }
+  
+  // Team logo containers in select dropdowns
+  .team-logo-container {
+    overflow: visible !important;
+    background: transparent !important;
+    
+    img {
+      object-fit: contain !important;
+      display: block;
+    }
+  }
+  
+  // Ensure logo containers in select items don't get clipped
+  :deep(.v-select .v-list-item__prepend .team-logo-container),
+  :deep(.v-autocomplete .v-list-item__prepend .team-logo-container) {
+    overflow: visible !important;
   }
   
   // Prevent select containers from expanding when chips are added
