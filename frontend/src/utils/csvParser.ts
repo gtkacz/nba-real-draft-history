@@ -31,6 +31,39 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
     return []
   }
 
+  // Parse header to find column indices
+  const headerLine = lines[0]
+  const headerValues = parseCSVLine(headerLine)
+  
+  // Find column indices by name (case-insensitive)
+  const getColumnIndex = (name: string): number => {
+    return headerValues.findIndex(col => col.toLowerCase() === name.toLowerCase())
+  }
+  
+  const yearIndex = getColumnIndex('Year')
+  const roundIndex = getColumnIndex('Round')
+  const pickIndex = getColumnIndex('Pick')
+  const playerIndex = getColumnIndex('Player')
+  const posIndex = getColumnIndex('Pos')
+  const htIndex = getColumnIndex('HT')
+  const wtIndex = getColumnIndex('WT')
+  const ageIndex = getColumnIndex('Age')
+  const preDraftTeamIndex = getColumnIndex('Pre-Draft Team')
+  const classIndex = getColumnIndex('Class')
+  const draftTradesIndex = getColumnIndex('Draft Trades')
+  const yosIndex = getColumnIndex('YOS')
+  const teamIndex = getColumnIndex('Team')
+  const nbaIdIndex = getColumnIndex('nba_id')
+  
+  // Check if we have the minimum required columns
+  const requiredIndices = [yearIndex, roundIndex, pickIndex, playerIndex, posIndex, htIndex, wtIndex, ageIndex, preDraftTeamIndex, classIndex, draftTradesIndex, yosIndex, teamIndex]
+  const missingColumns = requiredIndices.filter(idx => idx === -1)
+  
+  if (missingColumns.length > 0) {
+    console.error(`CSV for ${teamAbbreviation} is missing required columns. Found columns:`, headerValues)
+    return []
+  }
+
   const picks: DraftPick[] = []
 
   for (let i = 1; i < lines.length; i++) {
@@ -39,13 +72,26 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
 
     const values = parseCSVLine(line)
 
-    if (values.length < 13) {
-      console.warn(`Invalid CSV line for ${teamAbbreviation}:`, line)
-      continue
+    // Require at least as many columns as the header (or minimum required)
+    const minRequiredColumns = Math.max(13, headerValues.length - 1) // Allow for missing optional columns
+    if (values.length < minRequiredColumns) {
+      // Only warn if significantly fewer columns (more than 2 missing)
+      if (values.length < 11) {
+        console.warn(`Invalid CSV line for ${teamAbbreviation} (expected at least ${minRequiredColumns} columns, got ${values.length}):`, line.substring(0, 100))
+      }
+      // Try to parse anyway if we have at least the essential columns
+      if (values.length < 11) {
+        continue
+      }
     }
 
-    const draftTrades = values[10]?.trim()
-    const year = parseInt(values[0] || '0')
+    const draftTrades = values[draftTradesIndex]?.trim()
+    const year = parseInt(values[yearIndex] || '0')
+    
+    // Extract nba_id if available (check index is valid and value exists and is not empty)
+    const nbaId = nbaIdIndex >= 0 && nbaIdIndex < values.length && values[nbaIdIndex] && values[nbaIdIndex].trim() !== '' 
+      ? values[nbaIdIndex].trim() 
+      : undefined
     
     // Skip picks that were traded away from this team (same logic as backend parser)
     // If trade string starts with "{teamAbbreviation} to " or any alias, it means this team traded the pick away
@@ -66,26 +112,27 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
     }
     
     // Remove "S" and "P" prefixes from position (e.g., "SG" -> "G", "PF" -> "F")
-    let position = values[4] || ''
+    let position = values[posIndex] || ''
     if (position) {
       position = position.replace(/^[SP]/g, '')
     }
 
     picks.push({
-      year: parseInt(values[0] || '0'),
-      round: parseInt(values[1] || '0'),
-      pick: parseInt(values[2] || '0'),
-      player: values[3] || '',
+      year: parseInt(values[yearIndex] || '0'),
+      round: parseInt(values[roundIndex] || '0'),
+      pick: parseInt(values[pickIndex] || '0'),
+      player: values[playerIndex] || '',
       position: position,
-      height: values[5] || '',
-      weight: parseFloat(values[6] || '0'),
-      age: parseFloat(values[7] || '0'),
-      preDraftTeam: values[8] || '',
-      class: values[9] || '',
+      height: values[htIndex] || '',
+      weight: parseFloat(values[wtIndex] || '0'),
+      age: parseFloat(values[ageIndex] || '0'),
+      preDraftTeam: values[preDraftTeamIndex] || '',
+      class: values[classIndex] || '',
       draftTrades: draftTrades && draftTrades !== '' ? draftTrades : null,
-      yearsOfService: parseInt(values[11] || '0'),
+      yearsOfService: parseInt(values[yosIndex] || '0'),
       team: teamAbbreviation,
-      teamLogo: `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${teamAbbreviation.toLowerCase()}.svg`
+      teamLogo: `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${teamAbbreviation.toLowerCase()}.svg`,
+      nba_id: nbaId ? (isNaN(Number(nbaId)) ? nbaId : Number(nbaId)) : undefined
     })
   }
 

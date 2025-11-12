@@ -1,113 +1,113 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
-2025,2,49,Tyrese Proctor,PG,6-4,185.0,21.0,Duke,Jr  *,,0,CLE
-2025,2,58,Saliou Niang,F,6-5,190.0,21.0,Dolomiti Energia Trento (Italy),2004 DOB  *,,0,CLE
-2024,1,20,Jaylon Tyson,F,6-6,215.0,21.0,California,Jr  *,,1,CLE
-2023,2,49,Emoni Bates,SF,6-9,202.0,19.0,Eastern Michigan,So  *,,2,CLE
-2022,1,14,Ochai Agbaji,SF,6-5,215.0,22.0,Kansas,Sr  *,,3,CLE
-2022,2,39,Khalifa Diop,FC,6-10,231.0,20.0,Dreamland Gran Canaria (Spain),2002 DOB  *,,0,CLE
-2022,2,49,Isaiah Mobley,SF,6-8,238.0,22.0,USC,Jr  *,,3,CLE
-2022,2,56,Luke Travers,F,6-6,207.0,20.0,Perth (Australia),2001 DOB  *,,1,CLE
-2021,1,3,Evan Mobley,PF,6-11,215.0,20.0,USC,Fr  *,,4,CLE
-2020,1,5,Isaac Okoro,SG,6-4,225.0,19.0,Auburn,Fr  *,,5,CLE
-2019,1,5,Darius Garland,G,6-1,192.0,19.0,Vanderbilt,Fr  *,,6,CLE
-2019,1,26,Dylan Windler,SF,6-7,196.0,22.0,Belmont,Sr,,5,CLE
-2018,1,8,Collin Sexton,PG,6-3,190.0,19.0,Alabama,Fr  *,,7,CLE
-2015,2,53,Dom Pointer,SF,6-5,200.0,23.0,St. John's,Sr,,1,CLE
-2014,1,1,Andrew Wiggins,F,6-6,197.0,19.0,Kansas,Fr  *,,11,CLE
-2014,2,33,Joe Harris,SG,6-6,220.0,22.0,Virginia,Sr,,10,CLE
-2013,1,1,Anthony Bennett,PF,6-8,245.0,20.0,UNLV,Fr  *,,4,CLE
-2013,1,19,Sergey Karasev,SF,6-7,213.0,19.0,Zenit Saint Petersburg (Russia),1993 DOB  *,,3,CLE
-2013,2,33,Carrick Felix,SF,6-6,200.0,22.0,Arizona State,Sr,,2,CLE
-2012,1,4,Dion Waiters,SG,6-4,215.0,20.0,Syracuse,So  *,,8,CLE
-2011,1,1,Kyrie Irving,G,6-2,195.0,19.0,Duke,Fr  *,,14,CLE
-2011,1,4,Tristan Thompson,F,6-9,254.0,20.0,Texas,Fr  *,,14,CLE
-2011,2,54,Milan Macvan,PF,6-9,265.0,21.0,KK Vrsac Swisslion (Serbia),1989 DOB,,0,CLE
-2009,1,30,Christian Eyenga,GF,6-7,210.0,20.0,CB Prat (Spain),1989 DOB  *,,2,CLE
-2009,2,46,Danny Green,SF,6-6,215.0,22.0,North Carolina,Sr,,15,CLE
-2008,1,19,J.J. Hickson,PF,6-9,242.0,19.0,NC State,Fr  *,,8,CLE
-2006,1,25,Shannon Brown,G,6-4,210.0,20.0,Michigan State,Jr  *,,9,CLE
-2006,2,42,Daniel Gibson,G,6-2,200.0,20.0,Texas,So  *,,7,CLE
-2006,2,55,Ejike Ugboaja,F,6-9,225.0,21.0,Union Bank Lagos (Nigeria),1985 DOB  *,,0,CLE
-2004,1,10,Luke Jackson,SF,6-7,215.0,22.0,Oregon,Sr,,4,CLE
-2003,1,1,LeBron James,F,6-9,250.0,18.0,St. Vincent St. Mary High School (Ohio),1984 DOB  *,,22,CLE
-2003,2,31,Jason Kapono,SF,6-8,213.0,22.0,UCLA,Sr,,9,CLE
-2002,1,6,Dajuan Wagner,G,6-2,200.0,19.0,Memphis,Fr  *,,4,CLE
-2002,2,34,Carlos Boozer,PF,6-9,266.0,20.0,Duke,Jr  *,,13,CLE
-2001,1,8,DeSagana Diop,C,7-0,280.0,19.0,Oak Hill Academy (Virginia),1982 DOB  *,,12,CLE
-2001,2,35,Jeff Trepagnier,G,6-4,200.0,21.0,USC,Sr,,3,CLE
-1999,1,8,Andre Miller,PG,6-3,200.0,23.0,Utah,Sr,,17,CLE
-1999,1,11,Trajan Langdon,G,6-4,200.0,23.0,Duke,Sr,,4,CLE
-1999,2,39,A.J. Bramlett,F,6-10,227.0,22.0,Arizona,Sr,,1,CLE
-1998,2,48,Ryan Stack,F,6-11,215.0,22.0,South Carolina,Sr,,2,CLE
-1997,1,13,Derek Anderson,G,6-5,194.0,22.0,Kentucky,Sr,,11,CLE
-1997,1,16,Brevin Knight,G,5-10,170.0,21.0,Stanford,Sr,,12,CLE
-1997,2,44,Cedric Henderson,SF,6-7,215.0,22.0,Memphis,Sr,,7,CLE
-1996,1,12,Vitaly Potapenko,C-F,6-10,280.0,21.0,Wright State,So  *,,11,CLE
-1996,1,20,Zydrunas Ilgauskas,C,7-3,260.0,21.0,BC Aisciai-Atletas (Lithuania),1975 DOB  *,,15,CLE
-1996,2,56,Reggie Geary,SG,6-2,187.0,22.0,Arizona,Sr,,4,CLE
-1995,1,17,Bob Sura,G,6-5,200.0,22.0,Florida State,Sr,,12,CLE
-1995,2,39,Donny Marshall,SF,6-7,230.0,22.0,UConn,Sr,,6,CLE
-1994,2,42,Gary Collier,SG,6-4,195.0,22.0,Tulsa,Sr,,1,CLE
-1993,1,22,Chris Mills,SF,6-5,215.0,23.0,Arizona,Sr,,11,CLE
-1991,1,11,Terrell Brandon,PG,5-11,180.0,21.0,Oregon,Jr  *,,13,CLE
-1991,2,39,Jimmy Oliver,F,6-7,205.0,21.0,Purdue,Sr,,7,CLE
-1989,1,25,John Morton,G,6-3,180.0,22.0,Seton Hall,Sr,,6,CLE
-1989,2,43,Chucky Brown,SF,6-7,214.0,21.0,NC State,Sr,,13,CLE
-1988,1,22,Randolph Keys,F,6-7,195.0,22.0,Southern Mississippi,Sr,,5,CLE
-1988,3,64,Winston Bennett,F,6-7,210.0,23.0,Kentucky,Sr,,3,CLE
-1987,1,7,Kevin Johnson,PG,6-1,180.0,21.0,California,Sr,,12,CLE
-1987,2,41,Kannard Johnson,F,6-9,220.0,21.0,Western Kentucky,Sr,,2,CLE
-1987,3,52,Donald Royal,PF,6-8,210.0,21.0,Notre Dame,Sr,,10,CLE
-1987,4,75,Chris Dudley,C,6-11,235.0,22.0,Yale,Sr,,16,CLE
-1987,4,80,Carven Holcomb,SG,6-5,202.0,,TCU,Sr,,0,CLE
-1987,5,98,Carl Lott,,,,,TCU,Sr,,0,CLE
-1987,6,121,Harold Jensen,SG,6-5,185.0,,Villanova,Sr,,1,CLE
-1987,7,144,Michael Foster,G,6-2,,,South Carolina,Sr,,0,CLE
-1986,1,1,Brad Daugherty,C,7-0,245.0,20.0,North Carolina,Sr,,10,CLE
-1986,1,8,Ron Harper,SG,6-6,185.0,22.0,Miami (OH),Sr,,15,CLE
-1986,2,29,Johnny Newman,SF,6-7,190.0,22.0,Richmond,Sr,,16,CLE
-1986,3,50,Kevin Henderson,SG,6-4,195.0,22.0,Cal State Fullerton,Sr,,2,CLE
-1986,4,73,Warren Martin,C,6-11,240.0,,North Carolina,Sr,,2,CLE
-1986,5,96,Ben Davis,GF,6-4,,,Gardner-Webb,Sr,,0,CLE
-1986,6,119,Gilbert Wilburn,SF,6-4,,22.0,New Mexico State,Sr,,0,CLE
-1986,7,142,Ralph Dalton,C,6-11,,,Georgetown,Sr,,0,CLE
-1985,2,45,Hot Rod Williams,FC,6-11,215.0,22.0,Tulane,Sr,,15,CLE
-1985,3,55,Herb Johnson,PF,6-10,220.0,,Tulsa,Sr,,1,CLE
-1985,4,79,Mark Davis,GF,6-6,195.0,22.0,Old Dominion,Sr,,4,CLE
-1985,6,125,Ricky Johnson,,,,,Illinois State,Sr,,1,CLE
-1985,7,147,Buzz Peterson,G,6-3,175.0,22.0,North Carolina,Sr,,1,CLE
-1984,2,27,Ron Anderson,GF,6-7,215.0,25.0,Fresno State,Sr,,10,CLE
-1984,3,50,Ben McDonald,F,6-8,210.0,21.0,UC Irvine,Sr,,3,CLE
-1984,3,60,Leonard Mitchell,PF,6-7,,,LSU,Sr,,1,CLE
-1984,4,73,Art Aaron,SF,6-7,,,Northwestern,Sr,,1,CLE
-1984,5,96,Vince Hinchen,,,,,Boise State,Sr,,1,CLE
-1984,6,119,Matt Doherty,F,6-7,205.0,22.0,North Carolina,Sr,,0,CLE
-1984,7,142,Joe Jakubick,G,6-5,,,Akron,Sr,,0,CLE
-1984,8,165,Elliot Beard,,,,,Oberlin,Sr,,1,CLE
-1984,9,187,John Shimko,,,,,Xavier,Sr,,0,CLE
-1984,10,209,Darrell Space,,,,,Northeastern Illinois,Sr,,1,CLE
-2019,1,30,"Kevin Porter, Jr.",SF,6-5,203.0,19.0,USC,Fr *,MIL to  DET DET  to CLE,5,CLE
-2016,2,54,Kay Felder,PG,5-9,176.0,21.0,Oakland,Jr *,ATL to  CLE,2,CLE
-2015,2,31,Cedi Osman,GF,6-7,230.0,20.0,Anadolu Efes (Turkey),1995 DOB *,MIN to  CLE,7,CLE
-2015,2,47,Arturas Gudaitis,C,6-10,254.0,22.0,Zalgiris (Lithuania),1993 DOB,PHI to  SAC SAC  to CLE,0,CLE
-2014,2,45,Dwight Powell,PF,6-10,240.0,22.0,Stanford,Sr,CHA to  CLE,11,CLE
-2012,1,17,Tyler Zeller,C,7-0,250.0,22.0,North Carolina,Sr,DAL to  CLE,8,CLE
-2011,2,56,Chu Maduabum,PF,6-9,210.0,20.0,Bakersfield Jam,1991 DOB,LAL to  DEN DEN  to PHI PHI  to CLE,0,CLE
-2009,2,49,Sergii Gladyr,G,6-5,190.0,20.0,MBC Mykolaiv (Ukraine),1988 DOB *,ATL to  CLE,0,CLE
-2008,2,52,Darnell Jackson,F,6-8,241.0,22.0,Kansas,Sr,MIA to  CLE,3,CLE
-2008,2,56,Sasha Kaun,C,6-11,250.0,23.0,Kansas,Sr,SEA to  CLE,1,CLE
-2007,2,50,Renaldas Seibutis,SG,6-5,176.0,21.0,Maroussi BC (Greece),1985 DOB,DAL to  LAC LAC  to CLE,0,CLE
-2006,2,56,Edin Bavcic,C,6-8,242.0,22.0,KK Bosna (Bosnia and Herzegovina),1984 DOB,TOR to  PHI PHI  to NOP NOP  to BKN BKN  to CLE,0,CLE
-2005,2,44,Martynas Andriuskevicius,C,7-2,240.0,19.0,Zalgiris (Lithuania),1986 DOB *,ORL to  CLE,2,CLE
-2004,2,30,Anderson Varejao,C,6-10,273.0,21.0,Barca (Spain),1982 DOB,ORL to  CLE,14,CLE
-2002,2,45,Matt Barnes,GF,6-7,226.0,22.0,UCLA,Sr,MEM to  CLE,15,CLE
-2000,1,7,Chris Mihm,C,7-0,265.0,20.0,Texas,Jr *,CHI to  CLE,9,CLE
-1991,2,47,Keith Hughes,PF,6-8,235.0,22.0,Rutgers,Sr,HOU to  CLE,1,CLE
-1990,2,50,Milos Babic,C,7-0,240.0,21.0,Tennessee Tech,Sr,PHX to  CLE,2,CLE
-1989,1,2,Danny Ferry,PF,6-10,230.0,22.0,Duke,Sr,LAC to  CLE,14,CLE
-1986,2,25,Mark Price,PG,6-0,170.0,22.0,Georgia Tech,Sr,DAL to  CLE,12,CLE
-1985,1,11,Keith Lee,FC,6-10,215.0,22.0,Memphis,Sr,CHI to  CLE,4,CLE
-1984,1,6,Mel Turpin,C,6-11,240.0,23.0,Kentucky,Sr,WAS to  CLE,5,CLE
-1980,3,61,Rich Yonakor,PF,6-9,220.0,21.0,North Carolina,Sr,SAS to  CLE,2,CLE
-1973,2,31,Jim Chones,FC,6-11,220.0,23.0,Marquette,Sr,LAL to  CLE,8,CLE
-1972,3,45,Chuck Jura,C,6-10,220.0,,Nebraska,Sr,CHI to  CLE,0,CLE
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team,nba_player_id
+2025,2,49,Tyrese Proctor,PG,6-4,185.0,21.0,Duke,Jr  *,,0,CLE,
+2025,2,58,Saliou Niang,F,6-5,190.0,21.0,Dolomiti Energia Trento (Italy),2004 DOB  *,,0,CLE,
+2024,1,20,Jaylon Tyson,F,6-6,215.0,21.0,California,Jr  *,,1,CLE,
+2023,2,49,Emoni Bates,SF,6-9,202.0,19.0,Eastern Michigan,So  *,,2,CLE,
+2022,1,14,Ochai Agbaji,SF,6-5,215.0,22.0,Kansas,Sr  *,,3,CLE,
+2022,2,39,Khalifa Diop,FC,6-10,231.0,20.0,Dreamland Gran Canaria (Spain),2002 DOB  *,,0,CLE,
+2022,2,49,Isaiah Mobley,SF,6-8,238.0,22.0,USC,Jr  *,,3,CLE,
+2022,2,56,Luke Travers,F,6-6,207.0,20.0,Perth (Australia),2001 DOB  *,,1,CLE,
+2021,1,3,Evan Mobley,PF,6-11,215.0,20.0,USC,Fr  *,,4,CLE,
+2020,1,5,Isaac Okoro,SG,6-4,225.0,19.0,Auburn,Fr  *,,5,CLE,
+2019,1,5,Darius Garland,G,6-1,192.0,19.0,Vanderbilt,Fr  *,,6,CLE,
+2019,1,26,Dylan Windler,SF,6-7,196.0,22.0,Belmont,Sr,,5,CLE,
+2018,1,8,Collin Sexton,PG,6-3,190.0,19.0,Alabama,Fr  *,,7,CLE,
+2015,2,53,Dom Pointer,SF,6-5,200.0,23.0,St. John's,Sr,,1,CLE,
+2014,1,1,Andrew Wiggins,F,6-6,197.0,19.0,Kansas,Fr  *,,11,CLE,
+2014,2,33,Joe Harris,SG,6-6,220.0,22.0,Virginia,Sr,,10,CLE,
+2013,1,1,Anthony Bennett,PF,6-8,245.0,20.0,UNLV,Fr  *,,4,CLE,
+2013,1,19,Sergey Karasev,SF,6-7,213.0,19.0,Zenit Saint Petersburg (Russia),1993 DOB  *,,3,CLE,
+2013,2,33,Carrick Felix,SF,6-6,200.0,22.0,Arizona State,Sr,,2,CLE,
+2012,1,4,Dion Waiters,SG,6-4,215.0,20.0,Syracuse,So  *,,8,CLE,
+2011,1,1,Kyrie Irving,G,6-2,195.0,19.0,Duke,Fr  *,,14,CLE,
+2011,1,4,Tristan Thompson,F,6-9,254.0,20.0,Texas,Fr  *,,14,CLE,
+2011,2,54,Milan Macvan,PF,6-9,265.0,21.0,KK Vrsac Swisslion (Serbia),1989 DOB,,0,CLE,
+2009,1,30,Christian Eyenga,GF,6-7,210.0,20.0,CB Prat (Spain),1989 DOB  *,,2,CLE,
+2009,2,46,Danny Green,SF,6-6,215.0,22.0,North Carolina,Sr,,15,CLE,
+2008,1,19,J.J. Hickson,PF,6-9,242.0,19.0,NC State,Fr  *,,8,CLE,
+2006,1,25,Shannon Brown,G,6-4,210.0,20.0,Michigan State,Jr  *,,9,CLE,
+2006,2,42,Daniel Gibson,G,6-2,200.0,20.0,Texas,So  *,,7,CLE,
+2006,2,55,Ejike Ugboaja,F,6-9,225.0,21.0,Union Bank Lagos (Nigeria),1985 DOB  *,,0,CLE,
+2004,1,10,Luke Jackson,SF,6-7,215.0,22.0,Oregon,Sr,,4,CLE,
+2003,1,1,LeBron James,F,6-9,250.0,18.0,St. Vincent St. Mary High School (Ohio),1984 DOB  *,,22,CLE,
+2003,2,31,Jason Kapono,SF,6-8,213.0,22.0,UCLA,Sr,,9,CLE,
+2002,1,6,Dajuan Wagner,G,6-2,200.0,19.0,Memphis,Fr  *,,4,CLE,
+2002,2,34,Carlos Boozer,PF,6-9,266.0,20.0,Duke,Jr  *,,13,CLE,
+2001,1,8,DeSagana Diop,C,7-0,280.0,19.0,Oak Hill Academy (Virginia),1982 DOB  *,,12,CLE,
+2001,2,35,Jeff Trepagnier,G,6-4,200.0,21.0,USC,Sr,,3,CLE,
+1999,1,8,Andre Miller,PG,6-3,200.0,23.0,Utah,Sr,,17,CLE,
+1999,1,11,Trajan Langdon,G,6-4,200.0,23.0,Duke,Sr,,4,CLE,
+1999,2,39,A.J. Bramlett,F,6-10,227.0,22.0,Arizona,Sr,,1,CLE,
+1998,2,48,Ryan Stack,F,6-11,215.0,22.0,South Carolina,Sr,,2,CLE,
+1997,1,13,Derek Anderson,G,6-5,194.0,22.0,Kentucky,Sr,,11,CLE,
+1997,1,16,Brevin Knight,G,5-10,170.0,21.0,Stanford,Sr,,12,CLE,
+1997,2,44,Cedric Henderson,SF,6-7,215.0,22.0,Memphis,Sr,,7,CLE,
+1996,1,12,Vitaly Potapenko,C-F,6-10,280.0,21.0,Wright State,So  *,,11,CLE,
+1996,1,20,Zydrunas Ilgauskas,C,7-3,260.0,21.0,BC Aisciai-Atletas (Lithuania),1975 DOB  *,,15,CLE,
+1996,2,56,Reggie Geary,SG,6-2,187.0,22.0,Arizona,Sr,,4,CLE,
+1995,1,17,Bob Sura,G,6-5,200.0,22.0,Florida State,Sr,,12,CLE,
+1995,2,39,Donny Marshall,SF,6-7,230.0,22.0,UConn,Sr,,6,CLE,
+1994,2,42,Gary Collier,SG,6-4,195.0,22.0,Tulsa,Sr,,1,CLE,
+1993,1,22,Chris Mills,SF,6-5,215.0,23.0,Arizona,Sr,,11,CLE,
+1991,1,11,Terrell Brandon,PG,5-11,180.0,21.0,Oregon,Jr  *,,13,CLE,
+1991,2,39,Jimmy Oliver,F,6-7,205.0,21.0,Purdue,Sr,,7,CLE,
+1989,1,25,John Morton,G,6-3,180.0,22.0,Seton Hall,Sr,,6,CLE,
+1989,2,43,Chucky Brown,SF,6-7,214.0,21.0,NC State,Sr,,13,CLE,
+1988,1,22,Randolph Keys,F,6-7,195.0,22.0,Southern Mississippi,Sr,,5,CLE,
+1988,3,64,Winston Bennett,F,6-7,210.0,23.0,Kentucky,Sr,,3,CLE,
+1987,1,7,Kevin Johnson,PG,6-1,180.0,21.0,California,Sr,,12,CLE,
+1987,2,41,Kannard Johnson,F,6-9,220.0,21.0,Western Kentucky,Sr,,2,CLE,
+1987,3,52,Donald Royal,PF,6-8,210.0,21.0,Notre Dame,Sr,,10,CLE,
+1987,4,75,Chris Dudley,C,6-11,235.0,22.0,Yale,Sr,,16,CLE,
+1987,4,80,Carven Holcomb,SG,6-5,202.0,,TCU,Sr,,0,CLE,
+1987,5,98,Carl Lott,,,,,TCU,Sr,,0,CLE,
+1987,6,121,Harold Jensen,SG,6-5,185.0,,Villanova,Sr,,1,CLE,
+1987,7,144,Michael Foster,G,6-2,,,South Carolina,Sr,,0,CLE,
+1986,1,1,Brad Daugherty,C,7-0,245.0,20.0,North Carolina,Sr,,10,CLE,
+1986,1,8,Ron Harper,SG,6-6,185.0,22.0,Miami (OH),Sr,,15,CLE,
+1986,2,29,Johnny Newman,SF,6-7,190.0,22.0,Richmond,Sr,,16,CLE,
+1986,3,50,Kevin Henderson,SG,6-4,195.0,22.0,Cal State Fullerton,Sr,,2,CLE,
+1986,4,73,Warren Martin,C,6-11,240.0,,North Carolina,Sr,,2,CLE,
+1986,5,96,Ben Davis,GF,6-4,,,Gardner-Webb,Sr,,0,CLE,
+1986,6,119,Gilbert Wilburn,SF,6-4,,22.0,New Mexico State,Sr,,0,CLE,
+1986,7,142,Ralph Dalton,C,6-11,,,Georgetown,Sr,,0,CLE,
+1985,2,45,Hot Rod Williams,FC,6-11,215.0,22.0,Tulane,Sr,,15,CLE,
+1985,3,55,Herb Johnson,PF,6-10,220.0,,Tulsa,Sr,,1,CLE,
+1985,4,79,Mark Davis,GF,6-6,195.0,22.0,Old Dominion,Sr,,4,CLE,
+1985,6,125,Ricky Johnson,,,,,Illinois State,Sr,,1,CLE,
+1985,7,147,Buzz Peterson,G,6-3,175.0,22.0,North Carolina,Sr,,1,CLE,
+1984,2,27,Ron Anderson,GF,6-7,215.0,25.0,Fresno State,Sr,,10,CLE,
+1984,3,50,Ben McDonald,F,6-8,210.0,21.0,UC Irvine,Sr,,3,CLE,
+1984,3,60,Leonard Mitchell,PF,6-7,,,LSU,Sr,,1,CLE,
+1984,4,73,Art Aaron,SF,6-7,,,Northwestern,Sr,,1,CLE,
+1984,5,96,Vince Hinchen,,,,,Boise State,Sr,,1,CLE,
+1984,6,119,Matt Doherty,F,6-7,205.0,22.0,North Carolina,Sr,,0,CLE,
+1984,7,142,Joe Jakubick,G,6-5,,,Akron,Sr,,0,CLE,
+1984,8,165,Elliot Beard,,,,,Oberlin,Sr,,1,CLE,
+1984,9,187,John Shimko,,,,,Xavier,Sr,,0,CLE,
+1984,10,209,Darrell Space,,,,,Northeastern Illinois,Sr,,1,CLE,
+2019,1,30,"Kevin Porter, Jr.",SF,6-5,203.0,19.0,USC,Fr *,MIL to  DET DET  to CLE,5,CLE,
+2016,2,54,Kay Felder,PG,5-9,176.0,21.0,Oakland,Jr *,ATL to  CLE,2,CLE,
+2015,2,31,Cedi Osman,GF,6-7,230.0,20.0,Anadolu Efes (Turkey),1995 DOB *,MIN to  CLE,7,CLE,
+2015,2,47,Arturas Gudaitis,C,6-10,254.0,22.0,Zalgiris (Lithuania),1993 DOB,PHI to  SAC SAC  to CLE,0,CLE,
+2014,2,45,Dwight Powell,PF,6-10,240.0,22.0,Stanford,Sr,CHA to  CLE,11,CLE,
+2012,1,17,Tyler Zeller,C,7-0,250.0,22.0,North Carolina,Sr,DAL to  CLE,8,CLE,
+2011,2,56,Chu Maduabum,PF,6-9,210.0,20.0,Bakersfield Jam,1991 DOB,LAL to  DEN DEN  to PHI PHI  to CLE,0,CLE,
+2009,2,49,Sergii Gladyr,G,6-5,190.0,20.0,MBC Mykolaiv (Ukraine),1988 DOB *,ATL to  CLE,0,CLE,
+2008,2,52,Darnell Jackson,F,6-8,241.0,22.0,Kansas,Sr,MIA to  CLE,3,CLE,
+2008,2,56,Sasha Kaun,C,6-11,250.0,23.0,Kansas,Sr,SEA to  CLE,1,CLE,
+2007,2,50,Renaldas Seibutis,SG,6-5,176.0,21.0,Maroussi BC (Greece),1985 DOB,DAL to  LAC LAC  to CLE,0,CLE,
+2006,2,56,Edin Bavcic,C,6-8,242.0,22.0,KK Bosna (Bosnia and Herzegovina),1984 DOB,TOR to  PHI PHI  to NOP NOP  to BKN BKN  to CLE,0,CLE,
+2005,2,44,Martynas Andriuskevicius,C,7-2,240.0,19.0,Zalgiris (Lithuania),1986 DOB *,ORL to  CLE,2,CLE,
+2004,2,30,Anderson Varejao,C,6-10,273.0,21.0,Barca (Spain),1982 DOB,ORL to  CLE,14,CLE,
+2002,2,45,Matt Barnes,GF,6-7,226.0,22.0,UCLA,Sr,MEM to  CLE,15,CLE,
+2000,1,7,Chris Mihm,C,7-0,265.0,20.0,Texas,Jr *,CHI to  CLE,9,CLE,
+1991,2,47,Keith Hughes,PF,6-8,235.0,22.0,Rutgers,Sr,HOU to  CLE,1,CLE,
+1990,2,50,Milos Babic,C,7-0,240.0,21.0,Tennessee Tech,Sr,PHX to  CLE,2,CLE,
+1989,1,2,Danny Ferry,PF,6-10,230.0,22.0,Duke,Sr,LAC to  CLE,14,CLE,
+1986,2,25,Mark Price,PG,6-0,170.0,22.0,Georgia Tech,Sr,DAL to  CLE,12,CLE,
+1985,1,11,Keith Lee,FC,6-10,215.0,22.0,Memphis,Sr,CHI to  CLE,4,CLE,
+1984,1,6,Mel Turpin,C,6-11,240.0,23.0,Kentucky,Sr,WAS to  CLE,5,CLE,
+1980,3,61,Rich Yonakor,PF,6-9,220.0,21.0,North Carolina,Sr,SAS to  CLE,2,CLE,
+1973,2,31,Jim Chones,FC,6-11,220.0,23.0,Marquette,Sr,LAL to  CLE,8,CLE,
+1972,3,45,Chuck Jura,C,6-10,220.0,,Nebraska,Sr,CHI to  CLE,0,CLE,

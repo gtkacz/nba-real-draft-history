@@ -1,43 +1,43 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team
-2025,1,7,Jeremiah Fears,G,6-3,190,18,Oklahoma,Fr  *,,0,NOP
-2024,1,21,Yves Missi,C,6-11,235,20,Baylor,Fr  *,,1,NOP
-2023,1,14,Jordan Hawkins,G,6-5,190,21,UConn,So  *,,2,NOP
-2022,1,8,Dyson Daniels,GF,6-7,199,19,NBA G League Ignite,2003 DOB,,3,NOP
-2022,2,41,E.J. Liddell,PF,6-6,240,21,Ohio State,Jr  *,,3,NOP
-2022,2,52,Karlo Matkovic,PF,6-10,231,21,KK Mega Bemax (Serbia),2001 DOB  *,,1,NOP
-2021,2,35,Herb Jones,SF,6-7,206,22,Alabama,Sr  *,,4,NOP
-2020,1,13,"Kira Lewis, Jr.",PG,6-1,170,19,Alabama,So  *,,4,NOP
-2019,1,1,Zion Williamson,PF,6-6,284,18,Duke,Fr  *,,6,NOP
-2018,2,51,Tony Carr,PG,6-5,200,20,Penn State,So  *,,0,NOP
-2016,1,6,Buddy Hield,G,6-4,220,23,Oklahoma,Sr,,9,NOP
-2012,1,1,Anthony Davis,PF,6-10,253,19,Kentucky,Fr  *,,13,NOP
-2012,1,10,Austin Rivers,SG,6-4,200,19,Duke,Fr  *,,11,NOP
-2012,2,46,Darius Miller,GF,6-8,225,22,Kentucky,Sr,,7,NOP
-2009,1,21,Darren Collison,PG,6-0,175,21,UCLA,Sr,,11,NOP
-2007,1,13,Julian Wright,F,6-8,225,20,Kansas,So  *,,4,NOP
-2007,2,43,Adam Haluska,G,6-5,210,23,Iowa,Sr,,1,NOP
-2006,1,12,Hilton Armstrong,C,6-11,235,21,UConn,Sr,,6,NOP
-2006,1,15,Cedric Simmons,FC,6-9,235,20,NC State,So  *,,3,NOP
-2006,2,43,Marquinhos Vinicius,F,6-9,225,22,Objetivo Sao Carlos (Brazil),1984 DOB,,2,NOP
-2005,1,4,Chris Paul,PG,6-0,175,20,Wake Forest,So  *,,20,NOP
-2005,2,33,Brandon Bass,PF,6-8,250,20,LSU,So  *,,12,NOP
-2004,1,18,J.R. Smith,SG,6-6,225,18,Saint Benedict's Preparatory School (New Jersey),1985 DOB  *,,15,NOP
-2004,2,44,Tim Pickett,G,6-4,207,23,Florida State,Sr,,1,NOP
-2003,1,18,David West,PF,6-9,250,22,Xavier,Sr,,15,NOP
-2003,2,48,James Lang,C,6-10,285,19,Central Park Christian High School (Alabama),1983 DOB  *,,4,NOP
-2025,1,13,Derik Queen,C,6-9,250,20,Maryland,Fr *,ATL to  NOP,0,NOP
-2025,2,40,Micah Peavy,SF,6-7,215,23,Georgetown,Sr,WAS to  NOP,0,NOP
-2024,2,47,Antonio Reeves,GF,6-5,205,23,Kentucky,Sr,ORL to  NOP,1,NOP
-2021,1,17,Trey Murphy III,G,6-8,206,21,Virginia,Jr *,MEM to  NOP,4,NOP
-2019,1,8,Jaxson Hayes,PF,7-0,220,19,Texas,Fr *,ATL to  NOP,6,NOP
-2019,1,17,Nickeil Alexander-Walker,SG,6-5,205,20,Virginia Tech,So *,BKN to  ATL ATL  to NOP,6,NOP
-2019,2,35,Didi Louzada,SF,6-5,215,19,Franca (Brazil),1999 DOB *,ATL to  NOP,2,NOP
-2017,2,31,Frank Jackson,SG,6-3,205,19,Duke,Fr *,CHA to  NOP,6,NOP
-2016,2,33,Cheick Diallo,PF,6-8,219,19,Kansas,Fr *,LAC to  NOP,5,NOP
-2014,2,47,Russ Smith,G,6-0,165,23,Louisville,Sr,PHI to  NOP,2,NOP
-2013,2,39,Jeff Withey,C,7-0,230,23,Kansas,Sr,POR to  NOP,5,NOP
-2011,2,58,Ater Majok,FC,6-11,233,23,Gold Coast (Australia),1987 DOB,LAL to  CHI CHI  to NOP,0,NOP
-2010,1,21,Craig Brackins,F,6-10,230,22,Iowa State,Jr *,OKC to  NOP,2,NOP
-2010,1,26,Quincy Pondexter,F,6-7,230,22,Washington,Sr,OKC to  NOP,9,NOP
-2010,2,48,Latavious Williams,F,6-8,225,21,Tulsa 66ers,1989 DOB,MIA to  OKC OKC  to NOP,0,NOP
-2009,2,43,Marcus Thornton,SG,6-4,205,22,LSU,Sr,MIA to  NOP,8,NOP
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,Team,nba_player_id
+2025,1,7,Jeremiah Fears,G,6-3,190,18,Oklahoma,Fr  *,,0,NOP,
+2024,1,21,Yves Missi,C,6-11,235,20,Baylor,Fr  *,,1,NOP,
+2023,1,14,Jordan Hawkins,G,6-5,190,21,UConn,So  *,,2,NOP,
+2022,1,8,Dyson Daniels,GF,6-7,199,19,NBA G League Ignite,2003 DOB,,3,NOP,
+2022,2,41,E.J. Liddell,PF,6-6,240,21,Ohio State,Jr  *,,3,NOP,
+2022,2,52,Karlo Matkovic,PF,6-10,231,21,KK Mega Bemax (Serbia),2001 DOB  *,,1,NOP,
+2021,2,35,Herb Jones,SF,6-7,206,22,Alabama,Sr  *,,4,NOP,
+2020,1,13,"Kira Lewis, Jr.",PG,6-1,170,19,Alabama,So  *,,4,NOP,
+2019,1,1,Zion Williamson,PF,6-6,284,18,Duke,Fr  *,,6,NOP,
+2018,2,51,Tony Carr,PG,6-5,200,20,Penn State,So  *,,0,NOP,
+2016,1,6,Buddy Hield,G,6-4,220,23,Oklahoma,Sr,,9,NOP,
+2012,1,1,Anthony Davis,PF,6-10,253,19,Kentucky,Fr  *,,13,NOP,
+2012,1,10,Austin Rivers,SG,6-4,200,19,Duke,Fr  *,,11,NOP,
+2012,2,46,Darius Miller,GF,6-8,225,22,Kentucky,Sr,,7,NOP,
+2009,1,21,Darren Collison,PG,6-0,175,21,UCLA,Sr,,11,NOP,
+2007,1,13,Julian Wright,F,6-8,225,20,Kansas,So  *,,4,NOP,
+2007,2,43,Adam Haluska,G,6-5,210,23,Iowa,Sr,,1,NOP,
+2006,1,12,Hilton Armstrong,C,6-11,235,21,UConn,Sr,,6,NOP,
+2006,1,15,Cedric Simmons,FC,6-9,235,20,NC State,So  *,,3,NOP,
+2006,2,43,Marquinhos Vinicius,F,6-9,225,22,Objetivo Sao Carlos (Brazil),1984 DOB,,2,NOP,
+2005,1,4,Chris Paul,PG,6-0,175,20,Wake Forest,So  *,,20,NOP,
+2005,2,33,Brandon Bass,PF,6-8,250,20,LSU,So  *,,12,NOP,
+2004,1,18,J.R. Smith,SG,6-6,225,18,Saint Benedict's Preparatory School (New Jersey),1985 DOB  *,,15,NOP,
+2004,2,44,Tim Pickett,G,6-4,207,23,Florida State,Sr,,1,NOP,
+2003,1,18,David West,PF,6-9,250,22,Xavier,Sr,,15,NOP,
+2003,2,48,James Lang,C,6-10,285,19,Central Park Christian High School (Alabama),1983 DOB  *,,4,NOP,
+2025,1,13,Derik Queen,C,6-9,250,20,Maryland,Fr *,ATL to  NOP,0,NOP,
+2025,2,40,Micah Peavy,SF,6-7,215,23,Georgetown,Sr,WAS to  NOP,0,NOP,
+2024,2,47,Antonio Reeves,GF,6-5,205,23,Kentucky,Sr,ORL to  NOP,1,NOP,
+2021,1,17,Trey Murphy III,G,6-8,206,21,Virginia,Jr *,MEM to  NOP,4,NOP,
+2019,1,8,Jaxson Hayes,PF,7-0,220,19,Texas,Fr *,ATL to  NOP,6,NOP,
+2019,1,17,Nickeil Alexander-Walker,SG,6-5,205,20,Virginia Tech,So *,BKN to  ATL ATL  to NOP,6,NOP,
+2019,2,35,Didi Louzada,SF,6-5,215,19,Franca (Brazil),1999 DOB *,ATL to  NOP,2,NOP,
+2017,2,31,Frank Jackson,SG,6-3,205,19,Duke,Fr *,CHA to  NOP,6,NOP,
+2016,2,33,Cheick Diallo,PF,6-8,219,19,Kansas,Fr *,LAC to  NOP,5,NOP,
+2014,2,47,Russ Smith,G,6-0,165,23,Louisville,Sr,PHI to  NOP,2,NOP,
+2013,2,39,Jeff Withey,C,7-0,230,23,Kansas,Sr,POR to  NOP,5,NOP,
+2011,2,58,Ater Majok,FC,6-11,233,23,Gold Coast (Australia),1987 DOB,LAL to  CHI CHI  to NOP,0,NOP,
+2010,1,21,Craig Brackins,F,6-10,230,22,Iowa State,Jr *,OKC to  NOP,2,NOP,
+2010,1,26,Quincy Pondexter,F,6-7,230,22,Washington,Sr,OKC to  NOP,9,NOP,
+2010,2,48,Latavious Williams,F,6-8,225,21,Tulsa 66ers,1989 DOB,MIA to  OKC OKC  to NOP,0,NOP,
+2009,2,43,Marcus Thornton,SG,6-4,205,22,LSU,Sr,MIA to  NOP,8,NOP,

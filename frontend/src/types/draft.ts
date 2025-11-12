@@ -13,6 +13,7 @@ export interface DraftPick {
   yearsOfService: number
   team: string
   teamLogo?: string
+  nba_id?: string | number
 }
 
 export interface TradeStep {

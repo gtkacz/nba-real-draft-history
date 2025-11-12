@@ -385,6 +385,11 @@ function getTeamLogoUrl(team: string, year?: number): string {
   return `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${canonicalTeam.toLowerCase()}.svg`
 }
 
+function getPlayerHeadshotUrl(nbaId: string | number | undefined): string {
+  if (!nbaId) return ''
+  return `https://cdn.nba.com/headshots/nba/latest/1040x760/${nbaId}.png`
+}
+
 function getOriginalTeam(trades: string | null, year?: number): string | null {
   if (!trades || trades.trim() === '') return null
 
@@ -1137,7 +1142,34 @@ watch(currentPage, () => {
       </template>
 
       <template #item.player="{ item }">
-        <span class="font-weight-bold text-primary">{{ item.player }}</span>
+        <div class="d-flex align-center player-cell">
+          <v-avatar 
+            v-if="item.nba_id" 
+            :size="isMobile ? 32 : 40" 
+            class="mr-3 player-headshot"
+            color="grey-lighten-4"
+          >
+            <v-img
+              :src="getPlayerHeadshotUrl(item.nba_id)"
+              :alt="item.player"
+              cover
+              eager
+              class="player-headshot-img"
+            >
+              <template #placeholder>
+                <div class="d-flex align-center justify-center fill-height">
+                  <v-icon icon="mdi-account" size="24" color="grey-lighten-1" />
+                </div>
+              </template>
+              <template #error>
+                <div class="d-flex align-center justify-center fill-height">
+                  <v-icon icon="mdi-account" size="24" color="grey-lighten-1" />
+                </div>
+              </template>
+            </v-img>
+          </v-avatar>
+          <span class="font-weight-bold text-primary">{{ item.player }}</span>
+        </div>
       </template>
 
       <template #item.position="{ item }">
@@ -1394,6 +1426,62 @@ watch(currentPage, () => {
     display: inline-block;
   }
 
+  // Player headshot styling
+  .player-cell {
+    min-height: 48px;
+  }
+
+  .player-headshot {
+    flex-shrink: 0;
+    border: 2px solid rgba(var(--v-theme-surface), 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden !important;
+    border-radius: 50% !important;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    :deep(.player-headshot-img),
+    :deep(.v-img) {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 50% !important;
+      overflow: hidden !important;
+    }
+
+    :deep(.v-img__img) {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center top;
+      border-radius: 50% !important;
+    }
+
+    :deep(.v-img__wrapper) {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 50% !important;
+      overflow: hidden !important;
+    }
+
+    :deep(.v-img__sizer) {
+      padding-bottom: 0 !important;
+    }
+
+    :deep(.v-avatar__underlay) {
+      background: transparent;
+      border-radius: 50% !important;
+    }
+  }
+
+  // Ensure player column has enough width for headshot
+  :deep(.v-data-table__td:nth-child(2)) {
+    min-width: 200px;
+  }
+
   // Allow Pre-Draft Team column to wrap
   :deep(.v-data-table__td:nth-child(10)) {
     white-space: normal !important;
@@ -1413,6 +1501,14 @@ watch(currentPage, () => {
 
   // Mobile touch target improvements
   @media (max-width: 959px) {
+    .player-cell {
+      min-height: 40px;
+    }
+
+    .player-headshot {
+      margin-right: 8px !important;
+    }
+
     // Ensure buttons meet minimum 44x44px touch target
     :deep(.v-btn) {
       min-width: 44px;
