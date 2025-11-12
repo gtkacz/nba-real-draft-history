@@ -1,0 +1,158 @@
+/* Team Colors CSS Variables */
+:root {
+  /* Default fallback colors */
+  --team-default-primary: #1D428A;
+  --team-default-secondary: #C8102E;
+  --team-default-accent: #FFFFFF;
+
+  /* Atlanta Hawks */
+  --team-atl-primary: #E03A3E;
+  --team-atl-secondary: #C1D32F;
+  --team-atl-accent: #FFFFFF;
+
+  /* Boston Celtics */
+  --team-bos-primary: #007A33;
+  --team-bos-secondary: #BA9653;
+  --team-bos-accent: #FFFFFF;
+
+  /* Brooklyn Nets */
+  --team-bkn-primary: #000000;
+  --team-bkn-secondary: #FFFFFF;
+  --team-bkn-accent: #FFFFFF;
+
+  /* Charlotte Hornets */
+  --team-cha-primary: #1D1160;
+  --team-cha-secondary: #00788C;
+  --team-cha-accent: #FFFFFF;
+
+  /* Chicago Bulls */
+  --team-chi-primary: #CE1141;
+  --team-chi-secondary: #000000;
+  --team-chi-accent: #FFFFFF;
+
+  /* Cleveland Cavaliers */
+  --team-cle-primary: #860038;
+  --team-cle-secondary: #041E42;
+  --team-cle-accent: #FFFFFF;
+
+  /* Dallas Mavericks */
+  --team-dal-primary: #00538C;
+  --team-dal-secondary: #002B5E;
+  --team-dal-accent: #FFFFFF;
+
+  /* Denver Nuggets */
+  --team-den-primary: #0E2240;
+  --team-den-secondary: #FEC524;
+  --team-den-accent: #FFFFFF;
+
+  /* Detroit Pistons */
+  --team-det-primary: #C8102E;
+  --team-det-secondary: #1D42BA;
+  --team-det-accent: #FFFFFF;
+
+  /* Golden State Warriors */
+  --team-gsw-primary: #1D428A;
+  --team-gsw-secondary: #FFC72C;
+  --team-gsw-accent: #FFFFFF;
+
+  /* Houston Rockets */
+  --team-hou-primary: #CE1141;
+  --team-hou-secondary: #000000;
+  --team-hou-accent: #FFFFFF;
+
+  /* Indiana Pacers */
+  --team-ind-primary: #002D62;
+  --team-ind-secondary: #FDBB30;
+  --team-ind-accent: #FFFFFF;
+
+  /* LA Clippers */
+  --team-lac-primary: #C8102E;
+  --team-lac-secondary: #1D428A;
+  --team-lac-accent: #FFFFFF;
+
+  /* LA Lakers */
+  --team-lal-primary: #552583;
+  --team-lal-secondary: #FDB927;
+  --team-lal-accent: #FFFFFF;
+
+  /* Memphis Grizzlies */
+  --team-mem-primary: #5D76A9;
+  --team-mem-secondary: #12173F;
+  --team-mem-accent: #FFFFFF;
+
+  /* Miami Heat */
+  --team-mia-primary: #98002E;
+  --team-mia-secondary: #F9A01B;
+  --team-mia-accent: #FFFFFF;
+
+  /* Milwaukee Bucks */
+  --team-mil-primary: #00471B;
+  --team-mil-secondary: #EEE1C6;
+  --team-mil-accent: #FFFFFF;
+
+  /* Minnesota Timberwolves */
+  --team-min-primary: #0C2340;
+  --team-min-secondary: #236192;
+  --team-min-accent: #FFFFFF;
+
+  /* New Orleans Pelicans */
+  --team-nop-primary: #0C2340;
+  --team-nop-secondary: #C8102E;
+  --team-nop-accent: #FFFFFF;
+
+  /* New York Knicks */
+  --team-nyk-primary: #006BB6;
+  --team-nyk-secondary: #F58426;
+  --team-nyk-accent: #FFFFFF;
+
+  /* Oklahoma City Thunder */
+  --team-okc-primary: #007AC1;
+  --team-okc-secondary: #EF3B24;
+  --team-okc-accent: #FFFFFF;
+
+  /* Orlando Magic */
+  --team-orl-primary: #0077C0;
+  --team-orl-secondary: #C4CED4;
+  --team-orl-accent: #FFFFFF;
+
+  /* Philadelphia 76ers */
+  --team-phi-primary: #006BB6;
+  --team-phi-secondary: #ED174C;
+  --team-phi-accent: #FFFFFF;
+
+  /* Phoenix Suns */
+  --team-phx-primary: #1D1160;
+  --team-phx-secondary: #E56020;
+  --team-phx-accent: #FFFFFF;
+
+  /* Portland Trail Blazers */
+  --team-por-primary: #E03A3E;
+  --team-por-secondary: #000000;
+  --team-por-accent: #FFFFFF;
+
+  /* Sacramento Kings */
+  --team-sac-primary: #5A2D81;
+  --team-sac-secondary: #63727A;
+  --team-sac-accent: #FFFFFF;
+
+  /* San Antonio Spurs */
+  --team-sas-primary: #C4CED4;
+  --team-sas-secondary: #000000;
+  --team-sas-accent: #FFFFFF;
+
+  /* Toronto Raptors */
+  --team-tor-primary: #CE1141;
+  --team-tor-secondary: #000000;
+  --team-tor-accent: #FFFFFF;
+
+  /* Utah Jazz */
+  --team-uta-primary: #002B5C;
+  --team-uta-secondary: #00471B;
+  --team-uta-accent: #FFFFFF;
+
+  /* Washington Wizards */
+  --team-was-primary: #002B5C;
+  --team-was-secondary: #E31837;
+  --team-was-accent: #FFFFFF;
+}
+

@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 
+import './assets/styles/team-colors.css'
 import './assets/styles/main.scss'
 
 const app = createApp(App)
