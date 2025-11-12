@@ -7,6 +7,7 @@ import vuetify from 'vite-plugin-vuetify'
 
 // https://vite.dev/config/
 export default defineConfig({
+  root: fileURLToPath(new URL('.', import.meta.url)),
   base: process.env.VITE_BASE_URL || process.env.BASE_URL || '/',
   plugins: [
     vue(),
