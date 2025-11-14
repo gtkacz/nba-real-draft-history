@@ -1,15 +1,15 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2025,1,29,Liam McNeeley,F,6-7,210.0,19.0,UConn,Fr *,PHX to CHA,0
-2025,2,52,Alex Toohey,F,6-8,223.0,21.0,Sydney (Australia),2004 DOB *,PHX to GOS,0
+2025,2,52,Alex Toohey,F,6-8,223.0,21.0,Sydney (Australia),2004 DOB *,PHX to GSW,0
 2024,1,22,DaRon Holmes II,PF,6-9,225.0,21.0,Dayton,Jr *,PHX to DEN,1
 2024,2,56,"Kevin McCullar, Jr.",PG,6-6,210.0,23.0,Kansas,Sr,PHX to NYK,1
 2023,2,52,Toumani Camara,SF,6-7,230.0,23.0,Dayton,Sr *,,2
-2021,1,29,Day'Ron Sharpe,PF,6-10,265.0,19.0,North Carolina,Fr *,PHX to BRK,4
+2021,1,29,Day'Ron Sharpe,PF,6-10,265.0,19.0,North Carolina,Fr *,PHX to BKN,4
 2020,1,10,Jalen Smith,C,6-8,215.0,20.0,Maryland,So *,,5
 2019,1,6,Jarrett Culver,SG,6-6,195.0,20.0,Texas Tech,So *,PHX to MIN,4
 2019,2,32,KZ Okpala,SG,6-8,215.0,20.0,Stanford,So *,PHX to MIA,4
 2018,1,1,Deandre Ayton,C,7-0,252.0,19.0,Arizona,Fr *,,7
-2018,1,16,Zhaire Smith,SG,6-4,205.0,19.0,Texas Tech,Fr *,PHX to PHL,3
+2018,1,16,Zhaire Smith,SG,6-4,205.0,19.0,Texas Tech,Fr *,PHX to PHI,3
 2018,2,31,Elie Okobo,PG,6-3,190.0,20.0,Pau-Orthez (France),1997 DOB *,,2
 2018,2,59,George King,SF,6-6,220.0,24.0,Colorado,Sr,,2
 2017,1,4,Josh Jackson,SF,6-8,207.0,20.0,Kansas,Fr *,,5
@@ -26,7 +26,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2014,1,27,Bogdan Bogdanovic,SG,6-5,225.0,21.0,KK Partizan (Serbia),1992 DOB,PHX to SAC,8
 2014,2,50,Alec Brown,C,7-1,235.0,21.0,Green Bay,Sr,,0
 2013,1,5,Alex Len,C,7-0,250.0,20.0,Maryland,So *,,12
-2013,1,30,Nemanja Nedovic,SG,6-3,192.0,22.0,Lietuvos Rytas (Lithuania),1991 DOB,PHX to GOS,2
+2013,1,30,Nemanja Nedovic,SG,6-3,192.0,22.0,Lietuvos Rytas (Lithuania),1991 DOB,PHX to GSW,2
 2013,2,57,Alex Oriakhi,PF,6-9,255.0,23.0,Missouri,Sr,PHX to SAC,0
 2012,1,13,Kendall Marshall,PG,6-4,195.0,20.0,North Carolina,So *,,4
 2011,1,13,Markieff Morris,PF,6-9,245.0,21.0,Kansas,Jr *,,14
@@ -34,9 +34,9 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2010,2,60,Dwayne Collins,F,6-8,241.0,22.0,Miami (FL),Sr,,0
 2009,1,14,Earl Clark,F,6-10,234.0,21.0,Louisville,Jr *,,6
 2009,2,48,Taylor Griffin,F,6-8,235.0,23.0,Oklahoma,Sr,,1
-2009,2,57,Emir Preldzic,SF,6-9,220.0,21.0,Fenerbahce Beko (Turkey),1987 DOB,PHX to CLE CLE to WAS WAS to DAL DAL to IND IND to TOR TOR to PHL PHL to NYK,0
+2009,2,57,Emir Preldzic,SF,6-9,220.0,21.0,Fenerbahce Beko (Turkey),1987 DOB,PHX to CLE CLE to WAS WAS to DAL DAL to IND IND to TOR TOR to PHI PHI to NYK,0
 2008,1,15,Robin Lopez,FC,7-1,281.0,20.0,Stanford,So *,,16
-2008,2,48,Malik Hairston,SF,6-6,220.0,21.0,Oregon,Sr,PHX to SAN,2
+2008,2,48,Malik Hairston,SF,6-6,220.0,21.0,Oregon,Sr,PHX to SAS,2
 2007,1,24,Rudy Fernandez,SG,6-6,185.0,22.0,Joventut Badalona (Spain),1985 DOB,PHX to POR,4
 2007,1,29,Alando Tucker,F,6-6,205.0,23.0,Wisconsin,Sr,,3
 2007,2,59,D.J. Strawberry,G,6-6,205.0,22.0,Maryland,Sr,,1
@@ -71,7 +71,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1991,2,32,Chad Gallagher,PF,6-10,255.0,22.0,Creighton,Sr,,3
 1991,2,46,Richard Dumas,SF,6-7,200.0,22.0,Hapoel Galil Gilboa (Israel),1969 DOB,,4
 1991,2,50,Joey Wright,G,6-3,185.0,22.0,Texas,Sr,,1
-1990,1,21,Jayson Williams,FC,6-10,245.0,22.0,St. John's,Sr,PHX to PHL,10
+1990,1,21,Jayson Williams,FC,6-10,245.0,22.0,St. John's,Sr,PHX to PHI,10
 1990,2,31,Negele Knight,G,6-1,175.0,23.0,Dayton,Sr,,7
 1990,2,48,Cedric Ceballos,SF,6-6,190.0,20.0,Cal State Fullerton,Sr,,12
 1990,2,50,Milos Babic,C,7-0,240.0,21.0,Tennessee Tech,Sr,PHX to CLE,2

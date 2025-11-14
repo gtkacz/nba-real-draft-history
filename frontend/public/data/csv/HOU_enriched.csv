@@ -1,286 +1,286 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year
-2025,1,10,Khaman Maluach,C,7-1,250.0,18.0,Duke,Fr *,HOU to PHX,0,1642863.0,South Sudan,2025
-2025,2,59,Jahmai Mashack,F,6-4,203.0,22.0,Tennessee,Sr,HOU to GOS GOS to MEM,0,,,
-2024,1,3,Reed Sheppard,G,6-2,185.0,20.0,Kentucky,Fr *,,1,1642263.0,USA,2025
-2024,2,44,Pelle Larsson,SG,6-5,215.0,23.0,Arizona,Sr *,HOU to MIA,1,1641796.0,Sweden,2025
-2023,1,4,Amen Thompson,G,6-7,200.0,20.0,Overtime Elite (Georgia),2003 DOB,,2,1641708.0,USA,2025
-2023,1,20,Cam Whitmore,F,6-6,230.0,18.0,Villanova,Fr *,,2,1641715.0,USA,2025
-2022,1,3,"Jabari Smith, Jr.",F,6-11,220.0,19.0,Auburn,Fr *,,3,2074.0,USA,2004
-2022,1,3,"Jabari Smith, Jr.",F,6-11,220.0,19.0,Auburn,Fr *,,3,1631095.0,USA,2025
-2022,1,17,Tari Eason,F,6-8,215.0,21.0,LSU,So *,,3,1631106.0,USA,2025
-2021,1,2,Jalen Green,SG,6-4,186.0,19.0,NBA G League Ignite,2002 DOB,,4,1630224.0,USA,2025
-2021,1,23,Usman Garuba,C,6-8,229.0,19.0,Real Madrid (Spain),2002 DOB *,,3,1630586.0,Spain,2023
-2021,1,24,Josh Christopher,G,6-4,215.0,19.0,Arizona State,Fr *,,4,1630528.0,USA,2024
-2018,2,46,De'Anthony Melton,SG,6-2,200.0,20.0,USC,So *,HOU to PHX,7,1629001.0,USA,2025
-2017,2,43,Isaiah Hartenstein,PF,7-0,250.0,19.0,Zalgiris (Lithuania),1998 DOB *,,7,1628392.0,Germany,2025
-2017,2,45,Dillon Brooks,F,6-7,225.0,21.0,Oregon,Jr *,HOU to MEM,8,1628415.0,Canada,2025
-2016,2,37,Chinanu Onuaku,C,6-9,250.0,19.0,Louisville,So *,,2,1627778.0,USA,2017
-2016,2,43,Zhou Qi,C,7-1,210.0,20.0,Xinjiang Guanghui (China),1996 DOB *,,2,1627753.0,China,2018
-2015,1,18,Sam Dekker,SF,6-9,230.0,21.0,Wisconsin,Jr *,,5,1626155.0,USA,2021
-2015,2,32,Montrezl Harrell,F,6-7,240.0,21.0,Louisville,Jr *,,8,1626149.0,USA,2022
-2014,1,25,Clint Capela,PF,6-10,256.0,20.0,Chalon-Sur-Saone (France),1994 DOB *,,11,203991.0,Switzerland,2025
-2014,2,42,Nick Johnson,SG,6-3,200.0,21.0,Arizona,Jr *,,1,203910.0,USA,2014
-2013,2,34,Isaiah Canaan,G,6-0,200.0,22.0,Murray State,Sr,,6,203477.0,USA,2018
-2012,1,12,Jeremy Lamb,SG,6-5,180.0,20.0,UConn,So *,,10,203087.0,USA,2021
-2012,1,16,Royce White,PF,6-8,268.0,21.0,Iowa State,So *,,2,203091.0,USA,2013
-2012,1,18,Terrence Jones,PF,6-9,255.0,20.0,Kentucky,So *,,6,203093.0,USA,2018
-2011,1,14,Marcus Morris,F,6-8,218.0,21.0,Kansas,Jr *,,13,,,
-2011,1,23,Nikola Mirotic,F,6-10,250.0,20.0,Real Madrid (Spain),1991 DOB *,HOU to MIN MIN to CHI,5,202703.0,Montenegro,2018
-2011,2,38,Chandler Parsons,SF,6-10,230.0,22.0,Florida,Sr,HOU to MIN MIN to HOU,9,202718.0,USA,2019
-2010,1,14,Patrick Patterson,F,6-8,235.0,21.0,Kentucky,Jr *,,11,202335.0,USA,2020
-2008,1,25,Nicolas Batum,F,6-7,230.0,19.0,Le Mans Sarthe Basket (France),1988 DOB *,HOU to POR,17,201587.0,France,2025
-2008,2,54,Maarty Leunen,F,6-9,220.0,22.0,Oregon,Sr,HOU to LAC LAC to DAL DAL to HOU HOU to IND,0,,,
-2007,1,26,Aaron Brooks,G,6-0,161.0,22.0,Oregon,Sr,,10,201166.0,USA,2017
-2007,2,54,Brad Newley,F,6-6,205.0,22.0,Lietuvos Rytas (Lithuania),1985 DOB,HOU to LAL LAL to NYK,0,,,
-2006,1,8,Rudy Gay,SF,6-7,250.0,19.0,UConn,So *,HOU to MEM,17,200752.0,USA,2022
-2006,2,32,Steve Novak,F,6-10,225.0,23.0,Marquette,Sr,,11,200779.0,USA,2016
-2005,1,24,Luther Head,G,6-3,185.0,22.0,Illinois,Sr,,6,101129.0,USA,2010
-2004,2,55,Luis Flores,G,6-2,205.0,23.0,Manhattan,Sr,HOU to DAL DAL to GOS,1,2784.0,USA,2004
-2003,2,44,Malick Badiane,FC,6-11,230.0,19.0,TV 1862 Langen (Germany),1984 DOB *,HOU to MEM,0,,,
-2002,1,1,Yao Ming,C,7-6,310.0,21.0,Shanghai Dongfang (China),1980 DOB,,9,2397.0,China,2010
-2002,1,15,Bostjan Nachbar,F,6-10,220.0,21.0,Universo De'Longhi Treviso (Italy),1980 DOB,,6,2411.0,Slovenia,2007
-2002,2,37,Tito Maddox,G,6-4,190.0,21.0,Fresno State,Jr *,,2,2432.0,USA,2002
-2001,1,13,Richard Jefferson,SF,6-7,233.0,21.0,Arizona,Jr *,HOU to NJN,17,2210.0,USA,2017
-2001,1,18,Jason Collins,C,7-0,255.0,22.0,Stanford,Jr *,HOU to NJN,13,2215.0,USA,2013
-2001,1,23,Brandon Armstrong,SG,6-5,185.0,21.0,Pepperdine,Jr *,HOU to NJN,4,2220.0,USA,2003
-2000,1,9,Joel Przybilla,C,7-1,245.0,20.0,Minnesota,So *,HOU to MIL,13,2038.0,USA,2012
-2000,2,38,Eduardo Najera,F,6-8,235.0,23.0,Oklahoma,Sr,HOU to DAL,12,2059.0,Mexico,2011
-1999,1,22,Kenny Thomas,F,6-7,245.0,21.0,New Mexico,Sr,,11,1903.0,USA,2009
-1999,2,44,Tyrone Washington,F,6-9,260.0,22.0,Mississippi State,Sr,,0,,,
-1999,2,50,Venson Hamilton,F,6-10,240.0,21.0,Nebraska,Sr,,0,,,
-1998,1,14,Michael Dickerson,SG,6-5,190.0,22.0,Arizona,Sr,,6,1722.0,USA,2002
-1998,1,16,Bryce Drew,SG,6-2,185.0,23.0,Valparaiso,Sr,,6,1724.0,USA,2003
-1998,1,18,Mirsad Turkcan,F,6-9,250.0,22.0,Anadolu Efes (Turkey),1976 DOB,HOU to PHL PHL to NYK,2,1726.0,Turkey,1999
-1998,2,41,Cuttino Mobley,G,6-4,190.0,22.0,Rhode Island,Sr,,12,1749.0,USA,2008
-1997,1,24,Rodrick Rhodes,G-F,6-6,225.0,23.0,USC,Sr,,5,1518.0,USA,1999
-1997,2,29,Serge Zwikker,C,7-3,273.0,24.0,North Carolina,Sr,,1,,,
-1996,2,30,Othella Harrington,F-C,6-9,235.0,22.0,Georgetown,Sr,,12,970.0,USA,2007
-1996,2,42,Randy Livingston,GF,6-4,209.0,21.0,LSU,Jr *,,10,988.0,USA,2006
-1996,2,50,Terrell Bell,PF,6-10,240.0,22.0,Georgia,Sr,,5,,,
-1995,2,41,Erik Meek,FC,6-10,245.0,22.0,Duke,Sr,,0,,,
-1994,2,53,Albert Burditt,PF,6-8,230.0,22.0,Texas,Sr,,1,,,
-1993,1,24,Sam Cassell,G,6-3,185.0,23.0,Florida State,Sr,,16,208.0,USA,2007
-1993,2,46,Richard Petruska,F-C,6-10,260.0,24.0,UCLA,So,,2,77846.0,USA,1993
-1993,2,50,Marcelo Nicola,F,6-10,225.0,22.0,Baskonia (Spain),1971 DOB,HOU to POR,0,,,
-1992,1,11,Robert Horry,PF,6-9,220.0,21.0,Alabama,Sr,,16,109.0,USA,2007
-1992,2,41,Popeye Jones,PF,6-8,250.0,22.0,Murray State,Sr,HOU to DAL,11,461.0,USA,2003
-1992,2,53,Curtis Blair,SG,6-3,187.0,21.0,Richmond,Sr,,0,,,
-1991,1,20,John Turner,F,6-9,245.0,23.0,Phillips,Sr,,2,1819.0,USA,1991
-1991,2,47,Keith Hughes,PF,6-8,235.0,22.0,Rutgers,Sr,HOU to CLE,1,,,
-1991,2,51,Zan Tabak,C,7-0,245.0,21.0,KK Split (Croatia),1970 DOB *,,6,440.0,Croatia,2000
-1990,1,12,Alec Kessler,C,6-11,230.0,23.0,Georgia,Sr,HOU to MIA,4,77251.0,USA,1993
-1988,1,16,Derrick Chievous,F,6-7,185.0,20.0,Missouri,Sr,,4,76387.0,USA,1990
-1987,2,35,Doug Lee,GF,6-5,200.0,22.0,Purdue,Sr,,6,77358.0,USA,1994
-1987,4,82,Joe Niego,SF,6-7,200.0,,Lewis,Sr,,0,,,
-1987,5,104,Andre LaFleur,PG,,,22.0,Northeastern,Sr,,1,,,
-1987,6,129,Fred Jenkins,G,,,,Tennessee,Sr,,0,,,
-1987,7,151,Clarence Grier,F,,,,Campbell,Sr,,0,,,
-1986,1,20,Buck Johnson,F,6-7,190.0,22.0,Alabama,Sr,,7,77130.0,USA,1992
-1986,2,43,Dave Feitl,C,6-11,235.0,24.0,UTEP,Sr,,5,76703.0,USA,1991
-1986,3,66,Anthony Bowie,GF,6-6,190.0,22.0,Oklahoma,Sr,,11,194.0,USA,1997
-1986,4,89,Conner Henry,GF,6-7,195.0,22.0,UC Santa Barbara,Sr,,3,77002.0,USA,1987
-1986,5,112,Andre Banks,G,6-2,,21.0,Iowa,Sr,,0,,,
-1986,6,135,Robert Worthy,,,,,Chancellor University,Sr,,0,,,
-1986,7,158,Rick Olson,,,,,Wisconsin,Sr,,0,,,
-1985,1,19,Steve Harris,G,6-5,185.0,21.0,Tulsa,Sr,,5,76960.0,USA,1989
-1985,3,54,Sam Mitchell,SF,6-6,210.0,21.0,Mercer,Sr,,15,417.0,USA,2001
-1985,3,57,Michael Payne,PF,6-11,195.0,,Iowa,Sr,,1,,,
-1985,4,88,Mike Brooks,G,6-2,170.0,,Tennessee,Sr,,0,,,
-1985,6,134,Sam Potter,F,6-7,,,Oral Roberts,Sr,,0,,,
-1984,1,1,Hakeem Olajuwon,C,7-0,255.0,21.0,Houston,Jr *,,20,165.0,Nigeria,2002
-1984,3,51,Jim Petersen,FC,6-10,235.0,22.0,Minnesota,Sr,,8,77839.0,USA,1991
-1984,4,74,Willie Jackson,SF,6-6,210.0,,Centenary (LA),Sr,,1,,,
-1984,5,97,Al McClain,G,6-2,,,New Hampshire,Sr,,0,,,
-1984,7,143,Joedy Gardner,,,,,Long Beach State,Sr,,1,,,
-1984,8,166,Greg Wolff,,,,,Angelo State,Sr,,0,,,
-1984,9,188,Bill Coon,,,,,Presbyterian,Sr,,0,,,
-1984,10,210,Robert Turner,G,,,,Canisius,Sr,,0,,,
-1983,1,1,Ralph Sampson,C,7-4,228.0,22.0,Virginia,Sr,,9,78055.0,USA,1991
-1983,1,3,Rodney McCray,SF,6-7,220.0,21.0,Louisville,Sr,,11,1622.0,USA,1992
-1983,3,48,Craig Ehlo,SG,6-6,180.0,21.0,Washington State,Sr,,14,378.0,USA,1996
-1983,4,71,Darrell Browder,PG,6-1,175.0,,TCU,Sr,,1,,,
-1983,5,94,Chuck Barnett,G,6-4,200.0,,Oklahoma,Sr,,0,,,
-1983,6,117,Jim Stack,,,,,Northwestern,Sr,,0,,,
-1983,7,140,Brian Kellerman,G,6-5,,,Idaho,Sr,,0,,,
-1983,8,163,Jeff Bolding,C,,,,Arkansas Tech,Sr,,0,,,
-1983,9,185,James Campbell,,,,,Oklahoma City,Sr,,0,,,
-1982,1,16,Terry Teagle,SG,6-5,195.0,22.0,Baylor,Sr,,11,78304.0,USA,1992
-1982,2,42,Jeff Taylor,G,6-4,175.0,22.0,Texas Tech,Sr,,3,78299.0,USA,1986
-1982,3,63,Chuck Nevitt,C,7-5,217.0,23.0,NC State,Sr,,11,77707.0,USA,1993
-1982,4,85,Andre Gaddy,PF,6-10,200.0,,George Mason,Sr,,0,,,
-1982,5,107,Jeff Schneider,,,,,Virginia Tech,Sr,,0,,,
-1982,6,132,Don Wilson,,,,,Louisiana-Monroe,Sr,,0,,,
-1982,7,154,Mike Helms,FC,6-10,,,Wake Forest,Sr,,0,,,
-1982,8,176,Dan Callandrillo,,,,,Seton Hall,Sr,,2,,,
-1981,2,45,Ed Turner,SF,6-6,195.0,23.0,Texas A&M-Kingsville,Sr,,0,,,
-1981,4,81,Larry Spriggs,F,6-7,230.0,21.0,Howard,Sr,,6,78233.0,USA,1985
-1981,5,105,Hasan Houston,,,,,Bradley,Sr,,0,,,
-1981,6,127,Fred Cowan,FC,6-8,,,Kentucky,Sr,,0,,,
-1981,7,151,Joe Faine,,,,,Bowling Green,Sr,,0,,,
-1981,7,153,Julius Wayne,,,,,UTEP,Sr,,0,,,
-1981,8,172,Stanley Brewer,,,,,West Georgia,Sr,,0,,,
-1980,2,27,John Stroud,SF,6-7,215.0,22.0,Ole Miss,Sr,,1,78274.0,USA,1980
-1980,2,38,Terry Stotts,PF,6-8,220.0,22.0,Oklahoma,Sr,HOU to CHI,1,,,
-1980,2,43,Billy Williams,SG,6-4,205.0,21.0,Clemson,Sr,,0,,,
-1980,4,84,Dean Hunger,PF,6-8,215.0,21.0,Utah State,Jr,,0,,,
-1980,5,106,Albert Jones,,,,,New Mexico,Sr,,0,,,
-1980,6,130,Everette Jefferson,G,6-0,,,New Mexico,Sr,,0,,,
-1980,7,152,Joe Nehls,,,,,Arizona,Sr,,0,,,
-1980,8,173,Rosie Barnes,,,,,Bowling Green,Sr,,0,,,
-1979,1,17,Lee Johnson,PF,6-11,205.0,22.0,East Texas A&M,Sr,,2,77158.0,USA,1980
-1979,2,42,Paul Mokeski,C,7-0,250.0,22.0,Kansas,Sr,,13,77623.0,USA,1990
-1979,3,59,Ricardo Brown,PG,6-0,190.0,22.0,Pepperdine,Jr,,0,,,
-1979,4,76,Sammy Drummer,SG,6-5,208.0,23.0,Georgia Tech,Sr,,0,,,
-1979,4,80,Lionel Green,PF,6-8,205.0,,LSU,Sr,,0,,,
-1979,5,104,Allen Leavell,G,6-1,170.0,22.0,Oklahoma City,Sr,,10,77353.0,USA,1988
-1979,6,124,Collie Davis,,,,,Southern,Sr,,0,,,
-1979,7,143,Rich Valavicius,F,6-5,220.0,,Auburn,Sr,,0,,,
-1979,8,161,Delbert Watson,,,,,East Tennessee State,Sr,,0,,,
-1978,2,28,Buster Matheney,PF,6-8,212.0,21.0,Utah,Sr,,1,,,
-1978,3,47,Billy Ray Bates,SG,6-4,210.0,22.0,Kentucky State,Sr,,5,,,
-1978,4,67,Jackie Robinson,SF,6-6,210.0,23.0,UNLV,Sr,,4,77989.0,USA,1981
-1978,4,69,Joel Thompson,PF,6-8,210.0,,Michigan,Sr,,0,,,
-1978,5,91,Gary Goodner,F,6-7,220.0,,Texas,Sr,,0,,,
-1978,6,113,Eddie Joe Chavez,G,,,,Santa Clara,Sr,,0,,,
-1978,7,134,Stan Stewart,,,,,Loyola Marymount,Sr,,0,,,
-1977,2,34,Larry Moffett,PF,6-8,210.0,22.0,UNLV,Sr,,1,77621.0,USA,1977
-1977,2,40,Robert Reid,GF,6-8,205.0,21.0,St. Mary's (TX),Sr,,13,77936.0,USA,1990
-1977,3,62,Phil Bond,PG,6-2,175.0,22.0,Louisville,Sr,,1,76198.0,USA,1977
-1977,4,84,Rocky Smith,SG,6-2,180.0,,Oregon State,Sr,,0,,,
-1977,5,106,Ed Thompson,,,,,Idaho State,Sr,,0,,,
-1976,1,1,John Lucas,G,6-3,175.0,22.0,Maryland,Sr,,14,77419.0,USA,1989
-1976,1,1,John Lucas,G,6-3,175.0,22.0,Maryland,Sr,,14,101249.0,USA,2016
-1976,2,27,Phil Hicks,SF,6-7,205.0,23.0,Tulane,Jr,,3,77017.0,USA,1978
-1976,3,44,Barnes Hauptfuhrer,SF,6-7,200.0,,Princeton,Sr,,1,,,
-1976,4,61,Hercle Ivy,SG,6-3,195.0,,Iowa State,Sr,,0,,,
-1976,5,78,Dave Marrs,,,,,Houston,Sr,,0,,,
-1976,6,96,Robert Paige,C,7-0,,,Houston Christian,Sr,,0,,,
-1976,7,114,Barry Davis,,,,,Texas A&M,Sr,,0,,,
-1976,8,132,Dan Kruger,,,,,Texas,Sr,,0,,,
-1975,1,11,Joe C. Meriweather,FC,6-10,215.0,21.0,Southern Illinois,Sr,,10,,,
-1975,2,29,Jim Blanks,,,,,Gardner-Webb,Sr,,1,,,
-1975,3,47,Rudy White,SG,6-2,195.0,21.0,Arizona State,Sr,,6,78513.0,USA,1980
-1975,4,65,Ken Smith,F,6-7,185.0,21.0,Tulsa,Sr,,0,,,
-1975,5,83,Rick Whitlow,,,,,Illinois State,Sr,,0,,,
-1975,6,101,William Johnson,,,,,Texas Tech,Sr,,1,,,
-1975,7,119,Nate Barnett,SG,6-3,175.0,22.0,Akron,Sr,,0,,,
-1975,8,137,Leon Johnson,,,,,Centenary (LA),Sr,,1,,,
-1975,9,154,Steve Storther,,,,,Providence,Sr,,0,,,
-1974,1,5,Bobby Jones,SF,6-9,210.0,22.0,North Carolina,Sr,,10,77193.0,USA,1985
-1974,1,5,Bobby Jones,SF,6-9,210.0,22.0,North Carolina,Sr,,10,200784.0,USA,2007
-1974,2,23,Gus Bailey,GF,6-5,185.0,23.0,UTEP,Sr,,7,76083.0,USA,1979
-1974,3,41,Robert Wilson,SF,6-6,205.0,,Iowa State,Sr,,0,,,
-1974,4,59,Larry Robinson,PF,6-7,185.0,,Texas,Sr,,0,1683.0,USA,2001
-1974,5,77,Owen Wells,SF,6-7,200.0,23.0,Detroit-Mercy,Sr,,1,78488.0,USA,1974
-1974,6,95,Lawrence Johnson,,,,,Prairie View A&M,Sr,,0,,,
-1974,7,113,Kevin Fitzgerald,,,,,Oklahoma,Sr,,0,,,
-1974,8,131,Steve Brooks,C,6-9,,,Arkansas State,Sr,,0,,,
-1974,9,149,Ken Stalling,,,,,Missouri S&T (Rolla),Sr,,0,,,
-1974,10,166,Marcus Washington,G,6-1,160.0,,Marquette,Sr,,0,,,
-1973,1,6,Ed Ratleff,GF,6-6,195.0,23.0,Long Beach State,Sr,,5,77914.0,USA,1977
-1973,3,51,E.C. Coleman,PF,6-8,225.0,22.0,Houston Christian,Sr,,6,76413.0,USA,1978
-1973,4,58,Lee Colburn,F,6-6,,22.0,South Dakota,Sr,,0,,,
-1973,5,75,Gary Rhoades,,,,,Colorado State,Sr,,0,,,
-1973,6,92,Tom Peck,,,,,Wisconsin-Eau Claire,Sr,,0,,,
-1973,7,109,Fred DeVaughn,,,,,Westmont,Sr,,0,,,
-1973,8,126,John Thomas,,,,,Missouri Southern State,Sr,,0,1519.0,USA,2005
-1972,2,20,John Gianelli,FC,6-10,220.0,21.0,Pacific,Sr,,8,76806.0,USA,1979
-1972,3,37,Eric McWilliams,PF,6-8,200.0,21.0,Long Beach State,Sr,,1,77567.0,USA,1972
-1972,4,54,Wilbert Robinson,G,6-2,170.0,22.0,West Virginia,Sr,,0,,,
-1972,5,70,James Silas,PG,6-1,180.0,23.0,Stephen F. Austin,Sr,,7,78150.0,USA,1981
-1972,6,87,Mike Collins,,,,,Seattle,Sr,,0,,,
-1972,7,104,Mike Jackson,PF,6-7,215.0,22.0,Cal State Los Angeles,Sr,,0,,,
-1972,8,120,Henry Harris,,,,,Auburn,Sr,,0,,,
-1971,1,7,Cliff Meely,PF,6-8,215.0,23.0,Colorado,Sr,,5,77570.0,USA,1975
-1971,2,24,Mike Newlin,GF,6-4,200.0,22.0,Utah,Sr,,11,77710.0,USA,1981
-1971,4,58,Tom Owens,FC,6-10,215.0,21.0,South Carolina,Sr,,7,77786.0,USA,1982
-1971,5,75,Rudy Benjamin,G,6-2,,,Michigan State,Sr,,0,,,
-1971,5,78,Greg Nelson,F,6-6,,,Jacksonville,Sr,,0,,,
-1971,6,92,Gary Reist,,,,,Rice,Sr,,0,,,
-1971,7,109,Eric Hill,G,,,,Minnesota,Sr,,0,,,
-1971,8,126,Rick Katherman,F,6-7,180.0,,Duke,Sr,,0,,,
-1971,9,142,Willie Kerry,,,,,Denver,Sr,,0,,,
-1971,10,158,Calvin Oliver,SF,6-7,,,Texas-RGV,Sr,,0,,,
-1971,11,174,Doug Rex,,,,,UC Santa Barbara,Sr,,0,,,
-1971,12,187,Chris Schrobilgen,PF,6-8,,,USC,Sr,,0,,,
-1971,13,199,Lee McCollough,,,,,Indiana,Sr,,0,,,
-1971,14,210,Gene Roberson,,,,,Canisius,Sr,,0,,,
-1971,15,219,Terry Guigg,,,,,Gonzaga,Sr,,0,,,
-1971,16,227,Leonard Jackson,,,,,Oregon,Sr,,0,,,
-1971,17,231,Steve Sims,,,,,Pepperdine,Sr,,0,,,
-1971,18,234,Carlos Quintar,G,6-4,192.0,33.0,,,,0,,,
-1971,19,236,Gary Schneider,,,,,San Diego State,Sr,,0,,,
-1970,1,2,Rudy Tomjanovich,F,6-8,218.0,21.0,Michigan,Sr,,11,78350.0,USA,1980
-1970,2,18,Calvin Murphy,PG,5-9,165.0,21.0,Niagara,Sr,,13,77669.0,USA,1982
-1970,3,35,Curtis Perry,FC,6-7,220.0,21.0,Missouri State,Sr,,8,77835.0,USA,1977
-1970,4,52,Jody Finney,G,6-3,180.0,,Ohio State,Sr,,0,,,
-1970,5,69,James Gilbert,C,7-0,,,Adams State,Sr,,0,,,
-1970,6,86,Mike Kretzer,,,,,East Tennessee State,Sr,,0,,,
-1970,7,103,Billy Paultz,FC,6-11,235.0,21.0,St. John's,Sr,,9,77817.0,USA,1984
-1970,8,120,Don Adams,SF,6-6,210.0,22.0,Northwestern,Sr,,8,76012.0,USA,1976
-1970,9,137,Jim Gottschall,,,,,Dayton,Sr,,0,,,
-1970,10,154,Toke Coleman,G,6-3,,,Eastern Kentucky,Sr,,0,,,
-1970,11,171,Ron Belton,,,,,Bellarmine,Sr,,1,,,
-1970,12,184,Jim Brooks,,,,,Nebraska,Sr,,0,,,
-1970,13,194,Harry Lozon,,,,,Old Dominion,Sr,,0,,,
-1970,14,204,Clyde Oatis,,,,,Aurora,Sr,,0,,,
-1970,15,214,Jay Bond,,,,,Washington,Sr,,0,,,
-1970,16,223,Dean Olofson,,,,,Wayne State (MI),Sr,,0,,,
-1970,17,230,Dennis Dickens,,,,,Azusa Pacific,Sr,,1,,,
-1970,18,234,Jeff Cunningham,,,,,UC Irvine,Sr,,0,,,
-1970,19,237,Rick Erickson,,,,,Washington State,Sr,,0,,,
-1969,1,6,Bingo Smith,GF,6-5,195.0,23.0,Tulsa,Sr,,11,78202.0,USA,1979
-1969,2,21,Bernie Williams,G,6-3,175.0,23.0,La Salle,Sr,,2,78540.0,USA,1970
-1969,3,35,Charley Bonaparte,G,6-1,170.0,21.0,Norfolk State,Sr,,0,,,
-1969,4,49,Johnny Allen,PF,6-8,,26.0,Bethune-Cookman,Sr,,0,,,
-1969,5,63,Charles Hentz,F,6-5,210.0,21.0,Arkansas-Pine Bluff,Sr,,0,,,
-1969,6,77,Bob Tallent,,,,,George Washington,Sr,,0,,,
-1969,7,91,Lynn Shackelford,F,6-5,,21.0,UCLA,Sr,,0,,,
-1969,8,105,Bill DeHeer,FC,6-9,240.0,,Indiana,Sr,,0,,,
-1969,9,119,Larry Cheatham,,,,,Tulsa,Sr,,0,,,
-1969,10,133,Lee Sims,,,,,Ashland,Sr,,0,,,
-1969,11,147,Justus Thigpen,G,6-1,160.0,21.0,Weber State,Sr,,2,78313.0,USA,1973
-1969,12,160,Raul Duarte,,,,,South Dakota State,Sr,,0,,,
-1969,13,173,Joe McBride,,,,,Augusta University,Sr,,0,,,
-1969,14,184,Mike Heckman,,,,,UC Irvine,Sr,,0,,,
-1969,15,192,Jerry Nickens,,,,,Tougaloo,Sr,,0,,,
-1969,16,198,Dick Groves,,,,,San Jose State,Sr,,0,,,
-1969,17,204,Steve Howell,,,,,Ohio State,Sr,,0,,,
-1969,18,209,Joe Pridgen,,,,,North Carolina Central,Sr,,0,,,
-1969,19,213,Blaine Royer,,,,,Illinois State,Sr,,0,,,
-1968,1,1,Elvin Hayes,FC,6-9,235.0,22.0,Houston,Sr,,16,76979.0,USA,1983
-1968,2,15,John Q. Trapp,SF,6-7,210.0,22.0,UNLV,Sr,,5,,,
-1968,3,23,Stu Lantz,G,6-3,175.0,21.0,Nebraska,Sr,,8,77338.0,USA,1975
-1968,4,37,Harry Barnes,G,6-3,205.0,22.0,Northeastern,Sr,,1,76103.0,USA,1968
-1968,4,48,Darryl Jones,F,6-5,,,Benedictine College (KS),Sr,,0,,,
-1968,5,51,Glen Combs,G,6-2,185.0,21.0,Virginia Tech,Sr,,0,,,
-1968,6,65,Eldridge Webb,,,,,Tulsa,Sr,,0,,,
-1968,7,79,Rick Adelman,PG,6-1,175.0,21.0,Loyola Marymount,Sr,,7,76015.0,USA,1974
-1968,8,93,Aaron Sellers,F,,,22.0,Jackson State,Sr,,0,,,
-1968,9,107,John Schetzsle,,,,,Ashland,Sr,,0,,,
-1968,10,121,Mike Butler,G,6-2,170.0,21.0,Memphis,Sr,,0,,,
-1968,11,135,Leonardo Epps,,,,,Clark Atlanta,Sr,,0,,,
-1968,12,148,Roy Manning,,,,,Lane,Sr,,0,,,
-1968,13,161,Marshall Evans,,,,,Lincoln (MO),Sr,,0,,,
-1968,14,172,Bobby Lewis,,,,,NC State,Sr,,0,77385.0,USA,1970
-1968,15,182,Bill Gaines,G,6-4,185.0,22.0,East Texas A&M,Sr,,0,,,
-1968,16,190,Chuck Caldwell,,,,,Missouri-St. Louis,Sr,,0,,,
-1968,17,198,Dave Miller,G,6-4,,,San Diego State,Sr,,0,,,
-1968,18,204,Harold Grant,,,,,Pepperdine,Sr,,0,,,
-1968,19,208,Bill Corley,F,6-7,195.0,,UConn,Sr,,0,,,
-1967,1,7,Pat Riley,SG,6-4,205.0,22.0,Kentucky,Sr,,9,77962.0,USA,1975
-1967,2,18,Bob Netolicky,PF,6-9,220.0,24.0,Drake,Sr,,0,,,
-1967,3,29,Rich Moore,G,6-2,190.0,,Hiram College,Jr,,0,,,
-1967,3,31,Nick Jones,G,6-2,190.0,22.0,Oregon,Sr,,3,77195.0,USA,1971
-1967,4,41,Ron Kozlicki,F,6-7,215.0,22.0,Northwestern,Sr,,0,,,
-1967,4,42,Craig Dill,C,6-11,215.0,22.0,Michigan,Sr,,0,,,
-1967,5,55,Herb McPherson,,,,,Murray State,Sr,,0,,,
-1967,6,66,Robert Cole,,,,,Saint Louis,Sr,,0,,,
-1967,7,79,Elbert Miller,,,,,College of Southern Nevada,Jr,,0,,,
-1967,8,90,Al Grundy,,,,,Saint Joseph's,Sr,,0,,,
-1967,9,102,Ron Coleman,,,,,Missouri,Sr,,0,,,
-1967,10,112,John Duncan,,,,,Murray State,Sr,,0,,,
-1967,11,123,Al Razutis,,,,,California Western,Sr,,0,,,
-1967,12,132,Martin Navia,,,,,New Mexico Highlands,Sr,,0,,,
-1967,13,141,Bob Chlupsa,,,,,Manhattan,Sr,,0,,,
-1967,14,146,John Tolbert,,,,,South Carolina State,Sr,,0,,,
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
+2025,1,10,Khaman Maluach,C,7-1,250.0,18.0,Duke,Fr *,HOU to PHX,0,1642863.0,South Sudan,2025,0.0
+2025,2,59,Jahmai Mashack,F,6-4,203.0,22.0,Tennessee,Sr,HOU to GSW GSW to MEM,0,,,,
+2024,1,3,Reed Sheppard,G,6-2,185.0,20.0,Kentucky,Fr *,,1,1642263.0,USA,2025,0.0
+2024,2,44,Pelle Larsson,SG,6-5,215.0,23.0,Arizona,Sr *,HOU to MIA,1,1641796.0,Sweden,2025,0.0
+2023,1,4,Amen Thompson,G,6-7,200.0,20.0,Overtime Elite (Georgia),2003 DOB,,2,1641708.0,USA,2025,0.0
+2023,1,20,Cam Whitmore,F,6-6,230.0,18.0,Villanova,Fr *,,2,1641715.0,USA,2025,0.0
+2022,1,3,"Jabari Smith, Jr.",F,6-11,220.0,19.0,Auburn,Fr *,,3,2074.0,USA,2004,0.0
+2022,1,3,"Jabari Smith, Jr.",F,6-11,220.0,19.0,Auburn,Fr *,,3,1631095.0,USA,2025,0.0
+2022,1,17,Tari Eason,F,6-8,215.0,21.0,LSU,So *,,3,1631106.0,USA,2025,0.0
+2021,1,2,Jalen Green,SG,6-4,186.0,19.0,NBA G League Ignite,2002 DOB,,4,1630224.0,USA,2025,0.0
+2021,1,23,Usman Garuba,C,6-8,229.0,19.0,Real Madrid (Spain),2002 DOB *,,3,1630586.0,Spain,2023,0.0
+2021,1,24,Josh Christopher,G,6-4,215.0,19.0,Arizona State,Fr *,,4,1630528.0,USA,2024,0.0
+2018,2,46,De'Anthony Melton,SG,6-2,200.0,20.0,USC,So *,HOU to PHX,7,1629001.0,USA,2025,0.0
+2017,2,43,Isaiah Hartenstein,PF,7-0,250.0,19.0,Zalgiris (Lithuania),1998 DOB *,,7,1628392.0,Germany,2025,0.0
+2017,2,45,Dillon Brooks,F,6-7,225.0,21.0,Oregon,Jr *,HOU to MEM,8,1628415.0,Canada,2025,0.0
+2016,2,37,Chinanu Onuaku,C,6-9,250.0,19.0,Louisville,So *,,2,1627778.0,USA,2017,0.0
+2016,2,43,Zhou Qi,C,7-1,210.0,20.0,Xinjiang Guanghui (China),1996 DOB *,,2,1627753.0,China,2018,0.0
+2015,1,18,Sam Dekker,SF,6-9,230.0,21.0,Wisconsin,Jr *,,5,1626155.0,USA,2021,0.0
+2015,2,32,Montrezl Harrell,F,6-7,240.0,21.0,Louisville,Jr *,,8,1626149.0,USA,2022,0.0
+2014,1,25,Clint Capela,PF,6-10,256.0,20.0,Chalon-Sur-Saone (France),1994 DOB *,,11,203991.0,Switzerland,2025,0.0
+2014,2,42,Nick Johnson,SG,6-3,200.0,21.0,Arizona,Jr *,,1,203910.0,USA,2014,0.0
+2013,2,34,Isaiah Canaan,G,6-0,200.0,22.0,Murray State,Sr,,6,203477.0,USA,2018,0.0
+2012,1,12,Jeremy Lamb,SG,6-5,180.0,20.0,UConn,So *,,10,203087.0,USA,2021,0.0
+2012,1,16,Royce White,PF,6-8,268.0,21.0,Iowa State,So *,,2,203091.0,USA,2013,0.0
+2012,1,18,Terrence Jones,PF,6-9,255.0,20.0,Kentucky,So *,,6,203093.0,USA,2018,0.0
+2011,1,14,Marcus Morris,F,6-8,218.0,21.0,Kansas,Jr *,,13,,,,
+2011,1,23,Nikola Mirotic,F,6-10,250.0,20.0,Real Madrid (Spain),1991 DOB *,HOU to MIN MIN to CHI,5,202703.0,Montenegro,2018,0.0
+2011,2,38,Chandler Parsons,SF,6-10,230.0,22.0,Florida,Sr,HOU to MIN MIN to HOU,9,202718.0,USA,2019,0.0
+2010,1,14,Patrick Patterson,F,6-8,235.0,21.0,Kentucky,Jr *,,11,202335.0,USA,2020,0.0
+2008,1,25,Nicolas Batum,F,6-7,230.0,19.0,Le Mans Sarthe Basket (France),1988 DOB *,HOU to POR,17,201587.0,France,2025,0.0
+2008,2,54,Maarty Leunen,F,6-9,220.0,22.0,Oregon,Sr,HOU to LAC LAC to DAL DAL to HOU HOU to IND,0,,,,
+2007,1,26,Aaron Brooks,G,6-0,161.0,22.0,Oregon,Sr,,10,201166.0,USA,2017,0.0
+2007,2,54,Brad Newley,F,6-6,205.0,22.0,Lietuvos Rytas (Lithuania),1985 DOB,HOU to LAL LAL to NYK,0,,,,
+2006,1,8,Rudy Gay,SF,6-7,250.0,19.0,UConn,So *,HOU to MEM,17,200752.0,USA,2022,0.0
+2006,2,32,Steve Novak,F,6-10,225.0,23.0,Marquette,Sr,,11,200779.0,USA,2016,0.0
+2005,1,24,Luther Head,G,6-3,185.0,22.0,Illinois,Sr,,6,101129.0,USA,2010,0.0
+2004,2,55,Luis Flores,G,6-2,205.0,23.0,Manhattan,Sr,HOU to DAL DAL to GSW,1,2784.0,USA,2004,0.0
+2003,2,44,Malick Badiane,FC,6-11,230.0,19.0,TV 1862 Langen (Germany),1984 DOB *,HOU to MEM,0,,,,
+2002,1,1,Yao Ming,C,7-6,310.0,21.0,Shanghai Dongfang (China),1980 DOB,,9,2397.0,China,2010,0.0
+2002,1,15,Bostjan Nachbar,F,6-10,220.0,21.0,Universo De'Longhi Treviso (Italy),1980 DOB,,6,2411.0,Slovenia,2007,0.0
+2002,2,37,Tito Maddox,G,6-4,190.0,21.0,Fresno State,Jr *,,2,2432.0,USA,2002,0.0
+2001,1,13,Richard Jefferson,SF,6-7,233.0,21.0,Arizona,Jr *,HOU to NJN,17,2210.0,USA,2017,0.0
+2001,1,18,Jason Collins,C,7-0,255.0,22.0,Stanford,Jr *,HOU to NJN,13,2215.0,USA,2013,0.0
+2001,1,23,Brandon Armstrong,SG,6-5,185.0,21.0,Pepperdine,Jr *,HOU to NJN,4,2220.0,USA,2003,0.0
+2000,1,9,Joel Przybilla,C,7-1,245.0,20.0,Minnesota,So *,HOU to MIL,13,2038.0,USA,2012,0.0
+2000,2,38,Eduardo Najera,F,6-8,235.0,23.0,Oklahoma,Sr,HOU to DAL,12,2059.0,Mexico,2011,0.0
+1999,1,22,Kenny Thomas,F,6-7,245.0,21.0,New Mexico,Sr,,11,1903.0,USA,2009,0.0
+1999,2,44,Tyrone Washington,F,6-9,260.0,22.0,Mississippi State,Sr,,0,,,,
+1999,2,50,Venson Hamilton,F,6-10,240.0,21.0,Nebraska,Sr,,0,,,,
+1998,1,14,Michael Dickerson,SG,6-5,190.0,22.0,Arizona,Sr,,6,1722.0,USA,2002,0.0
+1998,1,16,Bryce Drew,SG,6-2,185.0,23.0,Valparaiso,Sr,,6,1724.0,USA,2003,0.0
+1998,1,18,Mirsad Turkcan,F,6-9,250.0,22.0,Anadolu Efes (Turkey),1976 DOB,HOU to PHI PHI to NYK,2,1726.0,Turkey,1999,0.0
+1998,2,41,Cuttino Mobley,G,6-4,190.0,22.0,Rhode Island,Sr,,12,1749.0,USA,2008,0.0
+1997,1,24,Rodrick Rhodes,G-F,6-6,225.0,23.0,USC,Sr,,5,1518.0,USA,1999,0.0
+1997,2,29,Serge Zwikker,C,7-3,273.0,24.0,North Carolina,Sr,,1,,,,
+1996,2,30,Othella Harrington,F-C,6-9,235.0,22.0,Georgetown,Sr,,12,970.0,USA,2007,0.0
+1996,2,42,Randy Livingston,GF,6-4,209.0,21.0,LSU,Jr *,,10,988.0,USA,2006,0.0
+1996,2,50,Terrell Bell,PF,6-10,240.0,22.0,Georgia,Sr,,5,,,,
+1995,2,41,Erik Meek,FC,6-10,245.0,22.0,Duke,Sr,,0,,,,
+1994,2,53,Albert Burditt,PF,6-8,230.0,22.0,Texas,Sr,,1,,,,
+1993,1,24,Sam Cassell,G,6-3,185.0,23.0,Florida State,Sr,,16,208.0,USA,2007,0.0
+1993,2,46,Richard Petruska,F-C,6-10,260.0,24.0,UCLA,So,,2,77846.0,USA,1993,0.0
+1993,2,50,Marcelo Nicola,F,6-10,225.0,22.0,Baskonia (Spain),1971 DOB,HOU to POR,0,,,,
+1992,1,11,Robert Horry,PF,6-9,220.0,21.0,Alabama,Sr,,16,109.0,USA,2007,0.0
+1992,2,41,Popeye Jones,PF,6-8,250.0,22.0,Murray State,Sr,HOU to DAL,11,461.0,USA,2003,0.0
+1992,2,53,Curtis Blair,SG,6-3,187.0,21.0,Richmond,Sr,,0,,,,
+1991,1,20,John Turner,F,6-9,245.0,23.0,Phillips,Sr,,2,1819.0,USA,1991,0.0
+1991,2,47,Keith Hughes,PF,6-8,235.0,22.0,Rutgers,Sr,HOU to CLE,1,,,,
+1991,2,51,Zan Tabak,C,7-0,245.0,21.0,KK Split (Croatia),1970 DOB *,,6,440.0,Croatia,2000,0.0
+1990,1,12,Alec Kessler,C,6-11,230.0,23.0,Georgia,Sr,HOU to MIA,4,77251.0,USA,1993,0.0
+1988,1,16,Derrick Chievous,F,6-7,185.0,20.0,Missouri,Sr,,4,76387.0,USA,1990,0.0
+1987,2,35,Doug Lee,GF,6-5,200.0,22.0,Purdue,Sr,,6,77358.0,USA,1994,0.0
+1987,4,82,Joe Niego,SF,6-7,200.0,,Lewis,Sr,,0,,,,
+1987,5,104,Andre LaFleur,PG,,,22.0,Northeastern,Sr,,1,,,,
+1987,6,129,Fred Jenkins,G,,,,Tennessee,Sr,,0,,,,
+1987,7,151,Clarence Grier,F,,,,Campbell,Sr,,0,,,,
+1986,1,20,Buck Johnson,F,6-7,190.0,22.0,Alabama,Sr,,7,77130.0,USA,1992,0.0
+1986,2,43,Dave Feitl,C,6-11,235.0,24.0,UTEP,Sr,,5,76703.0,USA,1991,0.0
+1986,3,66,Anthony Bowie,GF,6-6,190.0,22.0,Oklahoma,Sr,,11,194.0,USA,1997,0.0
+1986,4,89,Conner Henry,GF,6-7,195.0,22.0,UC Santa Barbara,Sr,,3,77002.0,USA,1987,0.0
+1986,5,112,Andre Banks,G,6-2,,21.0,Iowa,Sr,,0,,,,
+1986,6,135,Robert Worthy,,,,,Chancellor University,Sr,,0,,,,
+1986,7,158,Rick Olson,,,,,Wisconsin,Sr,,0,,,,
+1985,1,19,Steve Harris,G,6-5,185.0,21.0,Tulsa,Sr,,5,76960.0,USA,1989,0.0
+1985,3,54,Sam Mitchell,SF,6-6,210.0,21.0,Mercer,Sr,,15,417.0,USA,2001,0.0
+1985,3,57,Michael Payne,PF,6-11,195.0,,Iowa,Sr,,1,,,,
+1985,4,88,Mike Brooks,G,6-2,170.0,,Tennessee,Sr,,0,,,,
+1985,6,134,Sam Potter,F,6-7,,,Oral Roberts,Sr,,0,,,,
+1984,1,1,Hakeem Olajuwon,C,7-0,255.0,21.0,Houston,Jr *,,20,165.0,Nigeria,2002,0.0
+1984,3,51,Jim Petersen,FC,6-10,235.0,22.0,Minnesota,Sr,,8,77839.0,USA,1991,0.0
+1984,4,74,Willie Jackson,SF,6-6,210.0,,Centenary (LA),Sr,,1,,,,
+1984,5,97,Al McClain,G,6-2,,,New Hampshire,Sr,,0,,,,
+1984,7,143,Joedy Gardner,,,,,Long Beach State,Sr,,1,,,,
+1984,8,166,Greg Wolff,,,,,Angelo State,Sr,,0,,,,
+1984,9,188,Bill Coon,,,,,Presbyterian,Sr,,0,,,,
+1984,10,210,Robert Turner,G,,,,Canisius,Sr,,0,,,,
+1983,1,1,Ralph Sampson,C,7-4,228.0,22.0,Virginia,Sr,,9,78055.0,USA,1991,0.0
+1983,1,3,Rodney McCray,SF,6-7,220.0,21.0,Louisville,Sr,,11,1622.0,USA,1992,0.0
+1983,3,48,Craig Ehlo,SG,6-6,180.0,21.0,Washington State,Sr,,14,378.0,USA,1996,0.0
+1983,4,71,Darrell Browder,PG,6-1,175.0,,TCU,Sr,,1,,,,
+1983,5,94,Chuck Barnett,G,6-4,200.0,,Oklahoma,Sr,,0,,,,
+1983,6,117,Jim Stack,,,,,Northwestern,Sr,,0,,,,
+1983,7,140,Brian Kellerman,G,6-5,,,Idaho,Sr,,0,,,,
+1983,8,163,Jeff Bolding,C,,,,Arkansas Tech,Sr,,0,,,,
+1983,9,185,James Campbell,,,,,Oklahoma City,Sr,,0,,,,
+1982,1,16,Terry Teagle,SG,6-5,195.0,22.0,Baylor,Sr,,11,78304.0,USA,1992,0.0
+1982,2,42,Jeff Taylor,G,6-4,175.0,22.0,Texas Tech,Sr,,3,78299.0,USA,1986,0.0
+1982,3,63,Chuck Nevitt,C,7-5,217.0,23.0,NC State,Sr,,11,77707.0,USA,1993,0.0
+1982,4,85,Andre Gaddy,PF,6-10,200.0,,George Mason,Sr,,0,,,,
+1982,5,107,Jeff Schneider,,,,,Virginia Tech,Sr,,0,,,,
+1982,6,132,Don Wilson,,,,,Louisiana-Monroe,Sr,,0,,,,
+1982,7,154,Mike Helms,FC,6-10,,,Wake Forest,Sr,,0,,,,
+1982,8,176,Dan Callandrillo,,,,,Seton Hall,Sr,,2,,,,
+1981,2,45,Ed Turner,SF,6-6,195.0,23.0,Texas A&M-Kingsville,Sr,,0,,,,
+1981,4,81,Larry Spriggs,F,6-7,230.0,21.0,Howard,Sr,,6,78233.0,USA,1985,0.0
+1981,5,105,Hasan Houston,,,,,Bradley,Sr,,0,,,,
+1981,6,127,Fred Cowan,FC,6-8,,,Kentucky,Sr,,0,,,,
+1981,7,151,Joe Faine,,,,,Bowling Green,Sr,,0,,,,
+1981,7,153,Julius Wayne,,,,,UTEP,Sr,,0,,,,
+1981,8,172,Stanley Brewer,,,,,West Georgia,Sr,,0,,,,
+1980,2,27,John Stroud,SF,6-7,215.0,22.0,Ole Miss,Sr,,1,78274.0,USA,1980,0.0
+1980,2,38,Terry Stotts,PF,6-8,220.0,22.0,Oklahoma,Sr,HOU to CHI,1,,,,
+1980,2,43,Billy Williams,SG,6-4,205.0,21.0,Clemson,Sr,,0,,,,
+1980,4,84,Dean Hunger,PF,6-8,215.0,21.0,Utah State,Jr,,0,,,,
+1980,5,106,Albert Jones,,,,,New Mexico,Sr,,0,,,,
+1980,6,130,Everette Jefferson,G,6-0,,,New Mexico,Sr,,0,,,,
+1980,7,152,Joe Nehls,,,,,Arizona,Sr,,0,,,,
+1980,8,173,Rosie Barnes,,,,,Bowling Green,Sr,,0,,,,
+1979,1,17,Lee Johnson,PF,6-11,205.0,22.0,East Texas A&M,Sr,,2,77158.0,USA,1980,0.0
+1979,2,42,Paul Mokeski,C,7-0,250.0,22.0,Kansas,Sr,,13,77623.0,USA,1990,0.0
+1979,3,59,Ricardo Brown,PG,6-0,190.0,22.0,Pepperdine,Jr,,0,,,,
+1979,4,76,Sammy Drummer,SG,6-5,208.0,23.0,Georgia Tech,Sr,,0,,,,
+1979,4,80,Lionel Green,PF,6-8,205.0,,LSU,Sr,,0,,,,
+1979,5,104,Allen Leavell,G,6-1,170.0,22.0,Oklahoma City,Sr,,10,77353.0,USA,1988,0.0
+1979,6,124,Collie Davis,,,,,Southern,Sr,,0,,,,
+1979,7,143,Rich Valavicius,F,6-5,220.0,,Auburn,Sr,,0,,,,
+1979,8,161,Delbert Watson,,,,,East Tennessee State,Sr,,0,,,,
+1978,2,28,Buster Matheney,PF,6-8,212.0,21.0,Utah,Sr,,1,,,,
+1978,3,47,Billy Ray Bates,SG,6-4,210.0,22.0,Kentucky State,Sr,,5,,,,
+1978,4,67,Jackie Robinson,SF,6-6,210.0,23.0,UNLV,Sr,,4,77989.0,USA,1981,0.0
+1978,4,69,Joel Thompson,PF,6-8,210.0,,Michigan,Sr,,0,,,,
+1978,5,91,Gary Goodner,F,6-7,220.0,,Texas,Sr,,0,,,,
+1978,6,113,Eddie Joe Chavez,G,,,,Santa Clara,Sr,,0,,,,
+1978,7,134,Stan Stewart,,,,,Loyola Marymount,Sr,,0,,,,
+1977,2,34,Larry Moffett,PF,6-8,210.0,22.0,UNLV,Sr,,1,77621.0,USA,1977,0.0
+1977,2,40,Robert Reid,GF,6-8,205.0,21.0,St. Mary's (TX),Sr,,13,77936.0,USA,1990,0.0
+1977,3,62,Phil Bond,PG,6-2,175.0,22.0,Louisville,Sr,,1,76198.0,USA,1977,0.0
+1977,4,84,Rocky Smith,SG,6-2,180.0,,Oregon State,Sr,,0,,,,
+1977,5,106,Ed Thompson,,,,,Idaho State,Sr,,0,,,,
+1976,1,1,John Lucas,G,6-3,175.0,22.0,Maryland,Sr,,14,77419.0,USA,1989,0.0
+1976,1,1,John Lucas,G,6-3,175.0,22.0,Maryland,Sr,,14,101249.0,USA,2016,0.0
+1976,2,27,Phil Hicks,SF,6-7,205.0,23.0,Tulane,Jr,,3,77017.0,USA,1978,0.0
+1976,3,44,Barnes Hauptfuhrer,SF,6-7,200.0,,Princeton,Sr,,1,,,,
+1976,4,61,Hercle Ivy,SG,6-3,195.0,,Iowa State,Sr,,0,,,,
+1976,5,78,Dave Marrs,,,,,Houston,Sr,,0,,,,
+1976,6,96,Robert Paige,C,7-0,,,Houston Christian,Sr,,0,,,,
+1976,7,114,Barry Davis,,,,,Texas A&M,Sr,,0,,,,
+1976,8,132,Dan Kruger,,,,,Texas,Sr,,0,,,,
+1975,1,11,Joe C. Meriweather,FC,6-10,215.0,21.0,Southern Illinois,Sr,,10,,,,
+1975,2,29,Jim Blanks,,,,,Gardner-Webb,Sr,,1,,,,
+1975,3,47,Rudy White,SG,6-2,195.0,21.0,Arizona State,Sr,,6,78513.0,USA,1980,0.0
+1975,4,65,Ken Smith,F,6-7,185.0,21.0,Tulsa,Sr,,0,,,,
+1975,5,83,Rick Whitlow,,,,,Illinois State,Sr,,0,,,,
+1975,6,101,William Johnson,,,,,Texas Tech,Sr,,1,,,,
+1975,7,119,Nate Barnett,SG,6-3,175.0,22.0,Akron,Sr,,0,,,,
+1975,8,137,Leon Johnson,,,,,Centenary (LA),Sr,,1,,,,
+1975,9,154,Steve Storther,,,,,Providence,Sr,,0,,,,
+1974,1,5,Bobby Jones,SF,6-9,210.0,22.0,North Carolina,Sr,,10,77193.0,USA,1985,0.0
+1974,1,5,Bobby Jones,SF,6-9,210.0,22.0,North Carolina,Sr,,10,200784.0,USA,2007,0.0
+1974,2,23,Gus Bailey,GF,6-5,185.0,23.0,UTEP,Sr,,7,76083.0,USA,1979,0.0
+1974,3,41,Robert Wilson,SF,6-6,205.0,,Iowa State,Sr,,0,,,,
+1974,4,59,Larry Robinson,PF,6-7,185.0,,Texas,Sr,,0,1683.0,USA,2001,0.0
+1974,5,77,Owen Wells,SF,6-7,200.0,23.0,Detroit-Mercy,Sr,,1,78488.0,USA,1974,0.0
+1974,6,95,Lawrence Johnson,,,,,Prairie View A&M,Sr,,0,,,,
+1974,7,113,Kevin Fitzgerald,,,,,Oklahoma,Sr,,0,,,,
+1974,8,131,Steve Brooks,C,6-9,,,Arkansas State,Sr,,0,,,,
+1974,9,149,Ken Stalling,,,,,Missouri S&T (Rolla),Sr,,0,,,,
+1974,10,166,Marcus Washington,G,6-1,160.0,,Marquette,Sr,,0,,,,
+1973,1,6,Ed Ratleff,GF,6-6,195.0,23.0,Long Beach State,Sr,,5,77914.0,USA,1977,0.0
+1973,3,51,E.C. Coleman,PF,6-8,225.0,22.0,Houston Christian,Sr,,6,76413.0,USA,1978,0.0
+1973,4,58,Lee Colburn,F,6-6,,22.0,South Dakota,Sr,,0,,,,
+1973,5,75,Gary Rhoades,,,,,Colorado State,Sr,,0,,,,
+1973,6,92,Tom Peck,,,,,Wisconsin-Eau Claire,Sr,,0,,,,
+1973,7,109,Fred DeVaughn,,,,,Westmont,Sr,,0,,,,
+1973,8,126,John Thomas,,,,,Missouri Southern State,Sr,,0,1519.0,USA,2005,0.0
+1972,2,20,John Gianelli,FC,6-10,220.0,21.0,Pacific,Sr,,8,76806.0,USA,1979,0.0
+1972,3,37,Eric McWilliams,PF,6-8,200.0,21.0,Long Beach State,Sr,,1,77567.0,USA,1972,0.0
+1972,4,54,Wilbert Robinson,G,6-2,170.0,22.0,West Virginia,Sr,,0,,,,
+1972,5,70,James Silas,PG,6-1,180.0,23.0,Stephen F. Austin,Sr,,7,78150.0,USA,1981,0.0
+1972,6,87,Mike Collins,,,,,Seattle,Sr,,0,,,,
+1972,7,104,Mike Jackson,PF,6-7,215.0,22.0,Cal State Los Angeles,Sr,,0,,,,
+1972,8,120,Henry Harris,,,,,Auburn,Sr,,0,,,,
+1971,1,7,Cliff Meely,PF,6-8,215.0,23.0,Colorado,Sr,,5,77570.0,USA,1975,0.0
+1971,2,24,Mike Newlin,GF,6-4,200.0,22.0,Utah,Sr,,11,77710.0,USA,1981,0.0
+1971,4,58,Tom Owens,FC,6-10,215.0,21.0,South Carolina,Sr,,7,77786.0,USA,1982,0.0
+1971,5,75,Rudy Benjamin,G,6-2,,,Michigan State,Sr,,0,,,,
+1971,5,78,Greg Nelson,F,6-6,,,Jacksonville,Sr,,0,,,,
+1971,6,92,Gary Reist,,,,,Rice,Sr,,0,,,,
+1971,7,109,Eric Hill,G,,,,Minnesota,Sr,,0,,,,
+1971,8,126,Rick Katherman,F,6-7,180.0,,Duke,Sr,,0,,,,
+1971,9,142,Willie Kerry,,,,,Denver,Sr,,0,,,,
+1971,10,158,Calvin Oliver,SF,6-7,,,Texas-RGV,Sr,,0,,,,
+1971,11,174,Doug Rex,,,,,UC Santa Barbara,Sr,,0,,,,
+1971,12,187,Chris Schrobilgen,PF,6-8,,,USC,Sr,,0,,,,
+1971,13,199,Lee McCollough,,,,,Indiana,Sr,,0,,,,
+1971,14,210,Gene Roberson,,,,,Canisius,Sr,,0,,,,
+1971,15,219,Terry Guigg,,,,,Gonzaga,Sr,,0,,,,
+1971,16,227,Leonard Jackson,,,,,Oregon,Sr,,0,,,,
+1971,17,231,Steve Sims,,,,,Pepperdine,Sr,,0,,,,
+1971,18,234,Carlos Quintar,G,6-4,192.0,33.0,,,,0,,,,
+1971,19,236,Gary Schneider,,,,,San Diego State,Sr,,0,,,,
+1970,1,2,Rudy Tomjanovich,F,6-8,218.0,21.0,Michigan,Sr,,11,78350.0,USA,1980,0.0
+1970,2,18,Calvin Murphy,PG,5-9,165.0,21.0,Niagara,Sr,,13,77669.0,USA,1982,0.0
+1970,3,35,Curtis Perry,FC,6-7,220.0,21.0,Missouri State,Sr,,8,77835.0,USA,1977,0.0
+1970,4,52,Jody Finney,G,6-3,180.0,,Ohio State,Sr,,0,,,,
+1970,5,69,James Gilbert,C,7-0,,,Adams State,Sr,,0,,,,
+1970,6,86,Mike Kretzer,,,,,East Tennessee State,Sr,,0,,,,
+1970,7,103,Billy Paultz,FC,6-11,235.0,21.0,St. John's,Sr,,9,77817.0,USA,1984,0.0
+1970,8,120,Don Adams,SF,6-6,210.0,22.0,Northwestern,Sr,,8,76012.0,USA,1976,0.0
+1970,9,137,Jim Gottschall,,,,,Dayton,Sr,,0,,,,
+1970,10,154,Toke Coleman,G,6-3,,,Eastern Kentucky,Sr,,0,,,,
+1970,11,171,Ron Belton,,,,,Bellarmine,Sr,,1,,,,
+1970,12,184,Jim Brooks,,,,,Nebraska,Sr,,0,,,,
+1970,13,194,Harry Lozon,,,,,Old Dominion,Sr,,0,,,,
+1970,14,204,Clyde Oatis,,,,,Aurora,Sr,,0,,,,
+1970,15,214,Jay Bond,,,,,Washington,Sr,,0,,,,
+1970,16,223,Dean Olofson,,,,,Wayne State (MI),Sr,,0,,,,
+1970,17,230,Dennis Dickens,,,,,Azusa Pacific,Sr,,1,,,,
+1970,18,234,Jeff Cunningham,,,,,UC Irvine,Sr,,0,,,,
+1970,19,237,Rick Erickson,,,,,Washington State,Sr,,0,,,,
+1969,1,6,Bingo Smith,GF,6-5,195.0,23.0,Tulsa,Sr,,11,78202.0,USA,1979,0.0
+1969,2,21,Bernie Williams,G,6-3,175.0,23.0,La Salle,Sr,,2,78540.0,USA,1970,0.0
+1969,3,35,Charley Bonaparte,G,6-1,170.0,21.0,Norfolk State,Sr,,0,,,,
+1969,4,49,Johnny Allen,PF,6-8,,26.0,Bethune-Cookman,Sr,,0,,,,
+1969,5,63,Charles Hentz,F,6-5,210.0,21.0,Arkansas-Pine Bluff,Sr,,0,,,,
+1969,6,77,Bob Tallent,,,,,George Washington,Sr,,0,,,,
+1969,7,91,Lynn Shackelford,F,6-5,,21.0,UCLA,Sr,,0,,,,
+1969,8,105,Bill DeHeer,FC,6-9,240.0,,Indiana,Sr,,0,,,,
+1969,9,119,Larry Cheatham,,,,,Tulsa,Sr,,0,,,,
+1969,10,133,Lee Sims,,,,,Ashland,Sr,,0,,,,
+1969,11,147,Justus Thigpen,G,6-1,160.0,21.0,Weber State,Sr,,2,78313.0,USA,1973,0.0
+1969,12,160,Raul Duarte,,,,,South Dakota State,Sr,,0,,,,
+1969,13,173,Joe McBride,,,,,Augusta University,Sr,,0,,,,
+1969,14,184,Mike Heckman,,,,,UC Irvine,Sr,,0,,,,
+1969,15,192,Jerry Nickens,,,,,Tougaloo,Sr,,0,,,,
+1969,16,198,Dick Groves,,,,,San Jose State,Sr,,0,,,,
+1969,17,204,Steve Howell,,,,,Ohio State,Sr,,0,,,,
+1969,18,209,Joe Pridgen,,,,,North Carolina Central,Sr,,0,,,,
+1969,19,213,Blaine Royer,,,,,Illinois State,Sr,,0,,,,
+1968,1,1,Elvin Hayes,FC,6-9,235.0,22.0,Houston,Sr,,16,76979.0,USA,1983,0.0
+1968,2,15,John Q. Trapp,SF,6-7,210.0,22.0,UNLV,Sr,,5,,,,
+1968,3,23,Stu Lantz,G,6-3,175.0,21.0,Nebraska,Sr,,8,77338.0,USA,1975,0.0
+1968,4,37,Harry Barnes,G,6-3,205.0,22.0,Northeastern,Sr,,1,76103.0,USA,1968,0.0
+1968,4,48,Darryl Jones,F,6-5,,,Benedictine College (KS),Sr,,0,,,,
+1968,5,51,Glen Combs,G,6-2,185.0,21.0,Virginia Tech,Sr,,0,,,,
+1968,6,65,Eldridge Webb,,,,,Tulsa,Sr,,0,,,,
+1968,7,79,Rick Adelman,PG,6-1,175.0,21.0,Loyola Marymount,Sr,,7,76015.0,USA,1974,0.0
+1968,8,93,Aaron Sellers,F,,,22.0,Jackson State,Sr,,0,,,,
+1968,9,107,John Schetzsle,,,,,Ashland,Sr,,0,,,,
+1968,10,121,Mike Butler,G,6-2,170.0,21.0,Memphis,Sr,,0,,,,
+1968,11,135,Leonardo Epps,,,,,Clark Atlanta,Sr,,0,,,,
+1968,12,148,Roy Manning,,,,,Lane,Sr,,0,,,,
+1968,13,161,Marshall Evans,,,,,Lincoln (MO),Sr,,0,,,,
+1968,14,172,Bobby Lewis,,,,,NC State,Sr,,0,77385.0,USA,1970,0.0
+1968,15,182,Bill Gaines,G,6-4,185.0,22.0,East Texas A&M,Sr,,0,,,,
+1968,16,190,Chuck Caldwell,,,,,Missouri-St. Louis,Sr,,0,,,,
+1968,17,198,Dave Miller,G,6-4,,,San Diego State,Sr,,0,,,,
+1968,18,204,Harold Grant,,,,,Pepperdine,Sr,,0,,,,
+1968,19,208,Bill Corley,F,6-7,195.0,,UConn,Sr,,0,,,,
+1967,1,7,Pat Riley,SG,6-4,205.0,22.0,Kentucky,Sr,,9,77962.0,USA,1975,0.0
+1967,2,18,Bob Netolicky,PF,6-9,220.0,24.0,Drake,Sr,,0,,,,
+1967,3,29,Rich Moore,G,6-2,190.0,,Hiram College,Jr,,0,,,,
+1967,3,31,Nick Jones,G,6-2,190.0,22.0,Oregon,Sr,,3,77195.0,USA,1971,0.0
+1967,4,41,Ron Kozlicki,F,6-7,215.0,22.0,Northwestern,Sr,,0,,,,
+1967,4,42,Craig Dill,C,6-11,215.0,22.0,Michigan,Sr,,0,,,,
+1967,5,55,Herb McPherson,,,,,Murray State,Sr,,0,,,,
+1967,6,66,Robert Cole,,,,,Saint Louis,Sr,,0,,,,
+1967,7,79,Elbert Miller,,,,,College of Southern Nevada,Jr,,0,,,,
+1967,8,90,Al Grundy,,,,,Saint Joseph's,Sr,,0,,,,
+1967,9,102,Ron Coleman,,,,,Missouri,Sr,,0,,,,
+1967,10,112,John Duncan,,,,,Murray State,Sr,,0,,,,
+1967,11,123,Al Razutis,,,,,California Western,Sr,,0,,,,
+1967,12,132,Martin Navia,,,,,New Mexico Highlands,Sr,,0,,,,
+1967,13,141,Bob Chlupsa,,,,,Manhattan,Sr,,0,,,,
+1967,14,146,John Tolbert,,,,,South Carolina State,Sr,,0,,,,

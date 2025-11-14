@@ -39,7 +39,10 @@ export function exportDraftPicksToCSV(picks: DraftPick[]): string {
     'Draft Trades',
     'Years of Service',
     'Team',
-    'nba_id'
+    'nba_id',
+    'origin_country',
+    'played_until_year',
+    'is_defunct'
   ]
 
   // Create header row
@@ -61,7 +64,10 @@ export function exportDraftPicksToCSV(picks: DraftPick[]): string {
       pick.draftTrades ?? '',
       pick.yearsOfService ?? '',
       pick.team ?? '',
-      pick.nba_id ?? ''
+      pick.nba_id ?? '',
+      pick.origin_country ?? '',
+      pick.played_until_year ?? '',
+      pick.is_defunct ?? ''
     ].map(escapeCSVValue).join(',')
   })
 

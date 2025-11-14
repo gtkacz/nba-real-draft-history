@@ -14,7 +14,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2022,2,45,Josh Minott,F,6-8,205,19.0,Memphis,Fr *,CHA to MIN,3
 2021,1,11,James Bouknight,G,6-5,190,20.0,UConn,So *,,3
 2021,2,56,Scottie Lewis,SF,6-5,185,21.0,Florida,So *,,1
-2021,2,57,Balsa Koprivica,C,7-1,240,21.0,Florida State,So *,CHA to DET DET to LAC LAC to UTH,0
+2021,2,57,Balsa Koprivica,C,7-1,240,21.0,Florida State,So *,CHA to DET DET to LAC LAC to UTA,0
 2020,1,3,LaMelo Ball,G,6-7,180,19.0,Illawarra (Australia),2001 DOB,,5
 2020,2,32,"Vernon Carey, Jr.",PF,6-10,270,19.0,Duke,Fr *,,3
 2020,2,56,Grant Riller,SG,6-0,195,23.0,Charleston,Sr,,2
@@ -27,7 +27,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2017,2,31,Frank Jackson,SG,6-3,205,19.0,Duke,Fr *,CHA to NOP,6
 2016,1,22,Malachi Richardson,SF,6-6,205,20.0,Syracuse,Fr *,CHA to SAC,3
 2015,1,9,Frank Kaminsky,F,7-0,240,22.0,Wisconsin,Sr,,8
-2015,2,39,Juan Vaulet,F,6-6,200,19.0,Weber Bahia Estudiantes (Argentina),1996 DOB *,CHA to BRK BRK to IND IND to BRK BRK to NYK,0
+2015,2,39,Juan Vaulet,F,6-6,200,19.0,Weber Bahia Estudiantes (Argentina),1996 DOB *,CHA to BKN BKN to IND IND to BKN BKN to NYK,0
 2014,1,9,Noah Vonleh,FC,6-10,257,18.0,Indiana,Fr *,,8
 2014,1,24,Shabazz Napier,PG,6-1,180,22.0,UConn,Sr,CHA to MIA,6
 2014,2,45,Dwight Powell,PF,6-10,240,22.0,Stanford,Sr,CHA to CLE,11
@@ -36,14 +36,14 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2012,2,31,Jeffery Taylor,SF,6-7,225,23.0,Vanderbilt,Sr,,3
 2011,1,9,Kemba Walker,G,6-0,184,21.0,UConn,Jr *,,12
 2011,1,19,Tobias Harris,F,6-8,226,18.0,Tennessee,Fr *,CHA to MIL,14
-2011,2,39,Jeremy Tyler,PF,6-10,260,20.0,Tokyo Apache (Japan),1991 DOB,CHA to GOS,3
+2011,2,39,Jeremy Tyler,PF,6-10,260,20.0,Tokyo Apache (Japan),1991 DOB,CHA to GSW,3
 2009,1,12,Gerald Henderson,SG,6-5,215,21.0,Duke,Jr *,,8
 2009,2,40,Derrick Brown,F,6-7,225,21.0,Xavier,Jr *,,3
 2009,2,54,Robert Vaden,SG,6-5,220,24.0,UAB,Sr,CHA to OKC,1
 2008,1,9,D.J. Augustin,G,6-0,183,20.0,Texas,So *,,15
 2008,1,20,Alexis Ajinca,C,7-2,248,20.0,Hyeres-Toulon (France),1988 DOB *,,8
 2008,2,38,Kyle Weaver,SG,6-6,200,22.0,Washington State,Sr,CHA to OKC,3
-2007,1,8,Brandan Wright,F,6-10,210,19.0,North Carolina,Fr *,CHA to GOS,11
+2007,1,8,Brandan Wright,F,6-10,210,19.0,North Carolina,Fr *,CHA to GSW,11
 2007,1,22,Jared Dudley,PF,6-7,237,21.0,Boston College,Sr,,14
 2006,1,3,Adam Morrison,SF,6-8,198,21.0,Gonzaga,Jr *,,4
 2006,2,50,Ryan Hollins,C,7-0,230,21.0,UCLA,Sr,,10
@@ -62,7 +62,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1996,2,44,Malik Rose,F,6-7,250,21.0,Drexel,Sr,,13
 1995,1,22,George Zidek,C,7-0,266,21.0,UCLA,Sr,,3
 1994,2,38,Darrin Hancock,F,6-7,205,22.0,Maurienne (France),1971 DOB,,6
-1993,1,17,Greg Graham,G,6-4,183,22.0,Indiana,Sr,CHA to PHL,5
+1993,1,17,Greg Graham,G,6-4,183,22.0,Indiana,Sr,CHA to PHI,5
 1993,1,20,Scott Burrell,G-F,6-7,218,22.0,UConn,Sr,,8
 1992,1,2,Alonzo Mourning,C,6-10,240,22.0,Georgetown,Sr,,16
 1992,2,35,Tony Bennett,PG,6-0,175,23.0,Green Bay,Sr,,4

@@ -1,11 +1,11 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2025,1,13,Derik Queen,C,6-9,250.0,20.0,Maryland,Fr *,ATL to NOP,0
-2025,1,22,Drake Powell,F,6-5,195.0,19.0,North Carolina,Fr *,ATL to BRK,0
+2025,1,22,Drake Powell,F,6-5,195.0,19.0,North Carolina,Fr *,ATL to BKN,0
 2024,1,1,Zaccharie Risacher,F,6-8,200.0,19.0,JL Bourg-en-Bresse (France),2005 DOB *,,1
 2023,1,15,Kobe Bufkin,G,6-4,195.0,19.0,Michigan,So *,,2
 2023,2,46,Seth Lundy,GF,6-4,220.0,23.0,Penn State,Sr *,,2
 2022,1,16,"A.J. Griffin, Jr.",SG,6-6,220.0,18.0,Duke,Fr *,,2
-2022,2,44,Ryan Rollins,G,6-3,180.0,19.0,Toledo,So *,ATL to GOS,3
+2022,2,44,Ryan Rollins,G,6-3,180.0,19.0,Toledo,So *,ATL to GSW,3
 2021,1,20,Jalen Johnson,PF,6-8,219.0,19.0,Duke,Fr *,,4
 2021,2,48,Sharife Cooper,PG,6-0,176.0,20.0,Auburn,Fr *,,2
 2020,1,6,Onyeka Okongwu,PF,6-10,240.0,19.0,USC,Fr *,,5
@@ -21,7 +21,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2017,2,41,Tyler Dorsey,SG,6-5,183.0,21.0,Oregon,So *,,3
 2017,2,60,Alpha Kaba,PF,6-10,242.0,21.0,KK Mega Bemax (Serbia),1996 DOB *,ATL to HOU HOU to ATL,0
 2016,1,21,DeAndre' Bembry,GF,6-5,210.0,21.0,Saint Joseph's,Jr *,,6
-2016,2,44,Isaia Cordinier,G,6-5,197.0,19.0,Denain ASC Voltaire (France),1996 DOB *,ATL to BRK,0
+2016,2,44,Isaia Cordinier,G,6-5,197.0,19.0,Denain ASC Voltaire (France),1996 DOB *,ATL to BKN,0
 2016,2,54,Kay Felder,PG,5-9,176.0,21.0,Oakland,Jr *,ATL to CLE,2
 2015,1,15,"Kelly Oubre, Jr.",SF,6-8,203.0,19.0,Kansas,Fr *,ATL to WAS,10
 2015,2,50,Marcus Eriksson,GF,6-7,178.0,21.0,BAXI Manresa (Spain),1993 DOB,,0
@@ -30,7 +30,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2014,2,43,Edy Tavares,C,7-3,265.0,22.0,Dreamland Gran Canaria (Spain),1992 DOB,,2
 2013,1,17,Dennis Schroder,PG,6-1,175.0,19.0,Basketball Lowen Braunschweig (Germany),1993 DOB *,,12
 2013,1,18,Shane Larkin,PG,5-11,175.0,20.0,Miami (FL),So *,ATL to DAL,4
-2013,2,47,Raulzinho Neto,PG,6-2,180.0,21.0,Gipuzkoa Basket (Spain),1992 DOB *,ATL to UTH,8
+2013,2,47,Raulzinho Neto,PG,6-2,180.0,21.0,Gipuzkoa Basket (Spain),1992 DOB *,ATL to UTA,8
 2013,2,50,James Ennis,GF,6-6,215.0,22.0,Long Beach State,Sr,ATL to MIA,8
 2012,1,23,John Jenkins,SG,6-4,206.0,21.0,Vanderbilt,Jr *,,6
 2012,2,43,Mike Scott,PF,6-8,237.0,23.0,Virginia,Sr,,9
@@ -45,12 +45,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2006,2,33,Solomon Jones,C,6-10,230.0,21.0,South Florida,Sr,,8
 2005,1,2,Marvin Williams,SF,6-9,237.0,19.0,North Carolina,Fr *,,15
 2005,2,31,Salim Stoudamire,G,6-1,186.0,22.0,Arizona,Sr,,4
-2005,2,59,Cenk Akyol,G,6-4,200.0,18.0,Anadolu Efes (Turkey),1987 DOB *,ATL to LAC LAC to PHL PHL to DEN DEN to ATL ATL to PHX,0
+2005,2,59,Cenk Akyol,G,6-4,200.0,18.0,Anadolu Efes (Turkey),1987 DOB *,ATL to LAC LAC to PHI PHI to DEN DEN to ATL ATL to PHX,0
 2004,1,6,Josh Childress,SF,6-8,210.0,21.0,Stanford,Jr *,,8
 2004,1,17,Josh Smith,PF,6-9,225.0,18.0,Oak Hill Academy (Virginia),1985 DOB *,,13
 2004,2,34,Donta Smith,GF,6-7,215.0,20.0,Southeastern Illinois,So *,,2
 2004,2,37,Royal Ivey,G,6-4,215.0,22.0,Texas,Sr,,10
-2004,2,42,Viktor Sanikidze,F,6-7,194.0,18.0,JDA Dijon Basket (France),1986 DOB *,ATL to SAN,0
+2004,2,42,Viktor Sanikidze,F,6-7,194.0,18.0,JDA Dijon Basket (France),1986 DOB *,ATL to SAS,0
 2003,1,21,Boris Diaw,PF,6-8,250.0,21.0,Pau-Orthez (France),1982 DOB *,,14
 2003,2,37,Travis Hansen,G-F,6-6,205.0,25.0,Brigham Young,Sr,,1
 2002,2,36,David Andersen,F,7-0,242.0,22.0,Virtus Bologna (Italy),1980 DOB,ATL to HOU,2
@@ -62,7 +62,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1999,1,10,Jason Terry,G,6-2,185.0,21.0,Arizona,Sr,,19
 1999,1,17,Cal Bowdler,PF,6-10,245.0,22.0,Old Dominion,Sr,,3
 1999,1,20,Dion Glover,GF,6-5,228.0,20.0,Georgia Tech,RS-Fr *,,6
-1999,1,27,Jumaine Jones,SF,6-8,218.0,20.0,Georgia,So *,ATL to PHL,8
+1999,1,27,Jumaine Jones,SF,6-8,218.0,20.0,Georgia,So *,ATL to PHI,8
 1999,2,52,Roberto Bergersen,G,6-6,210.0,23.0,Boise State,Sr,ATL to POR,3
 1998,1,20,Roshown McLeod,F,6-8,221.0,22.0,Duke,Sr,,4
 1998,2,49,Corry Carr,G,6-3,212.0,22.0,Texas Tech,Sr,ATL to CHI,2

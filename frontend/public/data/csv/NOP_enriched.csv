@@ -1,45 +1,45 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year
-2025,1,7,Jeremiah Fears,G,6-3,190,18,Oklahoma,Fr *,,0,1642847.0,USA,2025
-2025,1,23,Asa Newell,PF,6-10,220,19,Georgia,Fr *,NOP to ATL,0,1642854.0,USA,2025
-2024,1,21,Yves Missi,C,6-11,235,20,Baylor,Fr *,,1,1642274.0,Cameroon,2025
-2023,1,14,Jordan Hawkins,G,6-5,190,21,UConn,So *,,2,1641722.0,USA,2025
-2022,1,8,Dyson Daniels,GF,6-7,199,19,NBA G League Ignite,2003 DOB,,3,1630700.0,Australia,2025
-2022,2,41,E.J. Liddell,PF,6-6,240,21,Ohio State,Jr *,,3,1630604.0,USA,2025
-2022,2,52,Karlo Matkovic,PF,6-10,231,21,KK Mega Bemax (Serbia),2001 DOB *,,1,1631255.0,Bosnia and Herzegovina,2025
-2021,1,10,Ziaire Williams,F,6-9,185,19,Stanford,Fr *,NOP to MEM,4,1630533.0,USA,2025
-2021,2,35,Herb Jones,SF,6-7,206,22,Alabama,Sr *,,4,,,
-2021,2,40,Jared Butler,PG,6-3,193,20,Baylor,Jr *,NOP to MEM MEM to UTH,4,1630215.0,USA,2024
-2021,2,43,Greg Brown III,SF,6-7,206,19,Texas,Fr *,NOP to POR,3,1630535.0,USA,2023
-2020,1,13,"Kira Lewis, Jr.",PG,6-1,170,19,Alabama,So *,,4,1630184.0,USA,2023
-2020,2,39,Elijah Hughes,SF,6-5,215,22,Syracuse,Jr *,NOP to UTH,2,1630190.0,USA,2021
-2020,2,42,Nick Richards,C,6-11,245,22,Kentucky,Jr *,NOP to CHA,5,1630208.0,Jamaica,2025
-2020,2,60,Sam Merrill,G,6-4,205,24,Utah State,Sr,NOP to MIL,5,1630241.0,USA,2025
-2019,1,1,Zion Williamson,PF,6-6,284,18,Duke,Fr *,,6,1629627.0,USA,2025
-2019,2,39,Alen Smailagic,PF,6-10,215,18,Santa Cruz Warriors,2000 DOB,NOP to GOS,2,1629346.0,Serbia,2020
-2019,2,57,Jordan Bone,SG,6-2,180,21,Tennessee,Jr *,NOP to ATL ATL to PHL PHL to DET,2,1629648.0,USA,2020
-2018,2,51,Tony Carr,PG,6-5,200,20,Penn State,So *,,0,,,
-2017,2,40,Dwayne Bacon,SF,6-6,221,21,Florida State,So *,NOP to CHA,4,1628407.0,USA,2020
-2017,2,52,Edmond Sumner,G,6-4,196,21,Xavier,So *,NOP to IND,6,1628410.0,USA,2022
-2016,1,6,Buddy Hield,G,6-4,220,23,Oklahoma,Sr,,9,1627741.0,Bahamas,2025
-2016,2,39,David Michineau,PG,6-4,180,22,Chalon-Sur-Saone (France),1994 DOB,NOP to LAC LAC to SAC SAC to BRK,0,,,
-2016,2,40,Diamond Stone,C,6-11,255,19,Maryland,Fr *,NOP to LAC,1,1627754.0,USA,2016
-2015,2,56,Branden Dawson,F,6-6,230,22,Michigan State,Sr,NOP to LAC,1,1626183.0,USA,2015
-2013,1,6,Nerlens Noel,FC,6-10,220,19,Kentucky,Fr *,NOP to PHL,10,203457.0,USA,2022
-2012,1,1,Anthony Davis,PF,6-10,253,19,Kentucky,Fr *,,13,203076.0,USA,2025
-2012,1,10,Austin Rivers,SG,6-4,200,19,Duke,Fr *,,11,203085.0,USA,2022
-2012,2,46,Darius Miller,GF,6-8,225,22,Kentucky,Sr,,7,203121.0,USA,2020
-2011,2,45,Josh Harrellson,F,6-10,275,22,Kentucky,Sr,NOP to NYK,3,202725.0,USA,2013
-2010,1,11,Cole Aldrich,C,6-11,253,21,Kansas,Jr *,NOP to OKC,8,202332.0,USA,2017
-2009,1,21,Darren Collison,PG,6-0,175,21,UCLA,Sr,,11,201954.0,USA,2021
-2008,1,27,Darrell Arthur,PF,6-9,235,20,Kansas,So *,NOP to POR POR to MEM,10,201589.0,USA,2017
-2007,1,13,Julian Wright,F,6-8,225,20,Kansas,So *,,4,201153.0,USA,2010
-2007,2,43,Adam Haluska,G,6-5,210,23,Iowa,Sr,,1,,,
-2006,1,12,Hilton Armstrong,C,6-11,235,21,UConn,Sr,,6,200756.0,USA,2013
-2006,1,15,Cedric Simmons,FC,6-9,235,20,NC State,So *,,3,200759.0,USA,2008
-2006,2,43,Marquinhos Vinicius,F,6-9,225,22,Objetivo Sao Carlos (Brazil),1984 DOB,,2,,,
-2005,1,4,Chris Paul,PG,6-0,175,20,Wake Forest,So *,,20,101108.0,USA,2025
-2005,2,33,Brandon Bass,PF,6-8,250,20,LSU,So *,,12,101138.0,USA,2016
-2004,1,18,J.R. Smith,SG,6-6,225,18,Saint Benedict's Preparatory School (New Jersey),1985 DOB *,,15,2747.0,USA,2019
-2004,2,44,Tim Pickett,G,6-4,207,23,Florida State,Sr,,1,,,
-2003,1,18,David West,PF,6-9,250,22,Xavier,Sr,,15,2561.0,USA,2017
-2003,2,48,James Lang,C,6-10,285,19,Central Park Christian High School (Alabama),1983 DOB *,,4,2591.0,USA,2006
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
+2025,1,7,Jeremiah Fears,G,6-3,190,18,Oklahoma,Fr *,,0,1642847.0,USA,2025,0.0
+2025,1,23,Asa Newell,PF,6-10,220,19,Georgia,Fr *,NOP to ATL,0,1642854.0,USA,2025,0.0
+2024,1,21,Yves Missi,C,6-11,235,20,Baylor,Fr *,,1,1642274.0,Cameroon,2025,0.0
+2023,1,14,Jordan Hawkins,G,6-5,190,21,UConn,So *,,2,1641722.0,USA,2025,0.0
+2022,1,8,Dyson Daniels,GF,6-7,199,19,NBA G League Ignite,2003 DOB,,3,1630700.0,Australia,2025,0.0
+2022,2,41,E.J. Liddell,PF,6-6,240,21,Ohio State,Jr *,,3,1630604.0,USA,2025,0.0
+2022,2,52,Karlo Matkovic,PF,6-10,231,21,KK Mega Bemax (Serbia),2001 DOB *,,1,1631255.0,Bosnia and Herzegovina,2025,0.0
+2021,1,10,Ziaire Williams,F,6-9,185,19,Stanford,Fr *,NOP to MEM,4,1630533.0,USA,2025,0.0
+2021,2,35,Herb Jones,SF,6-7,206,22,Alabama,Sr *,,4,,,,
+2021,2,40,Jared Butler,PG,6-3,193,20,Baylor,Jr *,NOP to MEM MEM to UTA,4,1630215.0,USA,2024,0.0
+2021,2,43,Greg Brown III,SF,6-7,206,19,Texas,Fr *,NOP to POR,3,1630535.0,USA,2023,0.0
+2020,1,13,"Kira Lewis, Jr.",PG,6-1,170,19,Alabama,So *,,4,1630184.0,USA,2023,0.0
+2020,2,39,Elijah Hughes,SF,6-5,215,22,Syracuse,Jr *,NOP to UTA,2,1630190.0,USA,2021,0.0
+2020,2,42,Nick Richards,C,6-11,245,22,Kentucky,Jr *,NOP to CHA,5,1630208.0,Jamaica,2025,0.0
+2020,2,60,Sam Merrill,G,6-4,205,24,Utah State,Sr,NOP to MIL,5,1630241.0,USA,2025,0.0
+2019,1,1,Zion Williamson,PF,6-6,284,18,Duke,Fr *,,6,1629627.0,USA,2025,0.0
+2019,2,39,Alen Smailagic,PF,6-10,215,18,Santa Cruz Warriors,2000 DOB,NOP to GSW,2,1629346.0,Serbia,2020,0.0
+2019,2,57,Jordan Bone,SG,6-2,180,21,Tennessee,Jr *,NOP to ATL ATL to PHI PHI to DET,2,1629648.0,USA,2020,0.0
+2018,2,51,Tony Carr,PG,6-5,200,20,Penn State,So *,,0,,,,
+2017,2,40,Dwayne Bacon,SF,6-6,221,21,Florida State,So *,NOP to CHA,4,1628407.0,USA,2020,0.0
+2017,2,52,Edmond Sumner,G,6-4,196,21,Xavier,So *,NOP to IND,6,1628410.0,USA,2022,0.0
+2016,1,6,Buddy Hield,G,6-4,220,23,Oklahoma,Sr,,9,1627741.0,Bahamas,2025,0.0
+2016,2,39,David Michineau,PG,6-4,180,22,Chalon-Sur-Saone (France),1994 DOB,NOP to LAC LAC to SAC SAC to BKN,0,,,,
+2016,2,40,Diamond Stone,C,6-11,255,19,Maryland,Fr *,NOP to LAC,1,1627754.0,USA,2016,0.0
+2015,2,56,Branden Dawson,F,6-6,230,22,Michigan State,Sr,NOP to LAC,1,1626183.0,USA,2015,0.0
+2013,1,6,Nerlens Noel,FC,6-10,220,19,Kentucky,Fr *,NOP to PHI,10,203457.0,USA,2022,0.0
+2012,1,1,Anthony Davis,PF,6-10,253,19,Kentucky,Fr *,,13,203076.0,USA,2025,0.0
+2012,1,10,Austin Rivers,SG,6-4,200,19,Duke,Fr *,,11,203085.0,USA,2022,0.0
+2012,2,46,Darius Miller,GF,6-8,225,22,Kentucky,Sr,,7,203121.0,USA,2020,0.0
+2011,2,45,Josh Harrellson,F,6-10,275,22,Kentucky,Sr,NOP to NYK,3,202725.0,USA,2013,0.0
+2010,1,11,Cole Aldrich,C,6-11,253,21,Kansas,Jr *,NOP to OKC,8,202332.0,USA,2017,0.0
+2009,1,21,Darren Collison,PG,6-0,175,21,UCLA,Sr,,11,201954.0,USA,2021,0.0
+2008,1,27,Darrell Arthur,PF,6-9,235,20,Kansas,So *,NOP to POR POR to MEM,10,201589.0,USA,2017,0.0
+2007,1,13,Julian Wright,F,6-8,225,20,Kansas,So *,,4,201153.0,USA,2010,0.0
+2007,2,43,Adam Haluska,G,6-5,210,23,Iowa,Sr,,1,,,,
+2006,1,12,Hilton Armstrong,C,6-11,235,21,UConn,Sr,,6,200756.0,USA,2013,0.0
+2006,1,15,Cedric Simmons,FC,6-9,235,20,NC State,So *,,3,200759.0,USA,2008,0.0
+2006,2,43,Marquinhos Vinicius,F,6-9,225,22,Objetivo Sao Carlos (Brazil),1984 DOB,,2,,,,
+2005,1,4,Chris Paul,PG,6-0,175,20,Wake Forest,So *,,20,101108.0,USA,2025,0.0
+2005,2,33,Brandon Bass,PF,6-8,250,20,LSU,So *,,12,101138.0,USA,2016,0.0
+2004,1,18,J.R. Smith,SG,6-6,225,18,Saint Benedict's Preparatory School (New Jersey),1985 DOB *,,15,2747.0,USA,2019,0.0
+2004,2,44,Tim Pickett,G,6-4,207,23,Florida State,Sr,,1,,,,
+2003,1,18,David West,PF,6-9,250,22,Xavier,Sr,,15,2561.0,USA,2017,0.0
+2003,2,48,James Lang,C,6-10,285,19,Central Park Christian High School (Alabama),1983 DOB *,,4,2591.0,USA,2006,0.0

@@ -6,6 +6,7 @@ import type { TeamAbbreviation } from '@/types/team'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getDataUrl } from '@/utils/dataUrl'
 import { exportDraftPicksToCSV, downloadCSV as downloadCSVFile } from '@/utils/csvExporter'
+import { alpha3ToAlpha2 } from '@/utils/countryCodeConverter'
 import PlayerCard from './PlayerCard.vue'
 
 const display = useDisplay()
@@ -654,6 +655,12 @@ function handlePageInput(event: Event) {
   } else {
     pageInput.value = ''
   }
+}
+
+function isPlayerRetired(playedUntilYear: number | undefined): boolean {
+  if (playedUntilYear === undefined) return false
+  const currentYear = new Date().getFullYear()
+  return playedUntilYear < currentYear
 }
 
 
@@ -1316,7 +1323,34 @@ watch(currentPage, () => {
               </template>
             </v-img>
           </v-avatar>
-          <span class="font-weight-bold text-primary">{{ item.player }}</span>
+          <div class="d-flex align-center flex-wrap gap-1">
+            <span class="font-weight-bold text-primary">{{ item.player }}</span>
+            <!-- Nationality Flag -->
+            <span
+              v-if="item.origin_country"
+              :class="`fi fi-${(alpha3ToAlpha2(item.origin_country) || '').toLowerCase()}`"
+              :title="item.origin_country"
+              class="player-flag-icon"
+            />
+            <!-- Retired/Active Indicator -->
+            <v-icon
+              v-if="item.played_until_year !== undefined"
+              :icon="isPlayerRetired(item.played_until_year) ? 'mdi-account-off' : 'mdi-account-check'"
+              :title="isPlayerRetired(item.played_until_year) ? 'Retired' : 'Active'"
+              size="16"
+              :color="isPlayerRetired(item.played_until_year) ? 'grey' : 'success'"
+              class="player-status-icon"
+            />
+            <!-- Deceased Indicator -->
+            <v-icon
+              v-if="item.is_defunct === 1"
+              icon="mdi-close-circle"
+              title="Deceased"
+              size="16"
+              color="error"
+              class="player-deceased-icon"
+            />
+          </div>
         </div>
       </template>
 
@@ -1638,6 +1672,23 @@ watch(currentPage, () => {
   // Ensure player column has enough width for headshot
   :deep(.v-data-table__td:nth-child(2)) {
     min-width: 200px;
+  }
+
+  // Player flag and status icons
+  .player-flag-icon {
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-left: 4px;
+    flex-shrink: 0;
+  }
+
+  .player-status-icon,
+  .player-deceased-icon {
+    margin-left: 4px;
+    flex-shrink: 0;
   }
 
   // Allow Pre-Draft Team column to wrap

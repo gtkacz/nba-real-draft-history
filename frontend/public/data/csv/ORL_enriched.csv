@@ -1,79 +1,79 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year
-2025,1,25,Jase Richardson,G,6-1,180,19,Michigan State,Fr *,,0,1642859.0,USA,2025
-2025,2,46,Amari Williams,PF,6-11,250,23,Kentucky,Sr,ORL to BOS,0,1642873.0,United Kingdom,2025
-2025,2,57,Max Shulga,G,6-4,210,23,VCU,Sr,ORL to BOS,0,1642917.0,Ukraine,2025
-2024,1,18,Tristan Da Silva,F,6-8,217,23,Colorado,Sr *,,1,,,
-2024,2,47,Antonio Reeves,GF,6-5,205,23,Kentucky,Sr,ORL to NOP,1,1641810.0,USA,2025
-2023,1,6,Anthony Black,G,6-7,200,19,Arkansas,Fr *,,2,1641710.0,USA,2025
-2023,1,11,Jett Howard,GF,6-8,215,19,Michigan,Fr *,,2,1641724.0,USA,2025
-2023,2,36,"Andre Jackson, Jr.",G,6-6,209,21,UConn,Jr *,ORL to MIL,2,1641748.0,USA,2025
-2022,1,1,Paolo Banchero,C,6-10,250,19,Duke,Fr *,,3,1631094.0,USA,2025
-2022,2,32,Caleb Houstan,SF,6-8,205,19,Michigan,Fr *,,3,1631216.0,Canada,2025
-2021,1,5,Jalen Suggs,SG,6-5,205,20,Gonzaga,Fr *,,4,1630591.0,USA,2025
-2021,1,8,Franz Wagner,SF,6-10,220,19,Michigan,So *,,4,1630532.0,Germany,2025
-2021,2,33,Jason Preston,G,6-3,181,21,Ohio,Jr *,ORL to LAC,4,1630554.0,USA,2023
-2020,1,15,Cole Anthony,PG,6-2,185,20,North Carolina,Fr *,,5,1630175.0,USA,2025
-2019,1,16,Chuma Okeke,PF,6-7,229,20,Auburn,So *,,5,1629643.0,USA,2024
-2019,2,46,Talen Horton-Tucker,SF,6-4,234,18,Iowa State,Fr *,ORL to LAL,6,1629659.0,USA,2024
-2018,1,6,Mo Bamba,C,7-0,231,20,Texas,Fr *,,7,1628964.0,USA,2024
-2018,2,35,"Melvin Frazier, Jr.",SF,6-5,215,21,Tulane,Jr *,,3,1628982.0,USA,2021
-2018,2,41,Jarred Vanderbilt,PF,6-8,214,19,Kentucky,Fr *,ORL to DEN,7,1629020.0,USA,2025
-2017,1,6,Jonathan Isaac,SF,6-10,230,19,Florida State,Fr *,,8,1628371.0,USA,2025
-2017,1,25,Anzejs Pasecniks,C,7-1,229,21,Dreamland Gran Canaria (Spain),1995 DOB,ORL to PHL,2,1628394.0,Latvia,2020
-2017,2,33,Wesley Iwundu,F,6-6,195,22,Kansas State,Sr,,5,,,
-2017,2,35,Ivan Rabb,PF,6-10,220,20,California,So *,ORL to MEM,3,1628397.0,USA,2018
-2016,1,11,Domantas Sabonis,PF,6-10,240,20,Gonzaga,So *,ORL to OKC,9,1627734.0,Lithuania,2025
-2016,2,41,Stephen Zimmerman,C,6-11,240,19,UNLV,Fr *,,1,1627757.0,USA,2016
-2016,2,47,Jake Layman,SF,6-8,209,22,Maryland,Sr,ORL to POR,6,1627774.0,USA,2021
-2015,1,5,Mario Hezonja,SG,6-8,220,20,FC Barcelona II (Spain),1995 DOB *,,5,1626209.0,Croatia,2019
-2015,2,51,Tyler Harvey,G,6-4,185,21,Eastern Washington,Jr *,ORL to MEM MEM to CHA,0,,,
-2014,1,4,Aaron Gordon,F,6-8,235,18,Arizona,Fr *,,11,203932.0,USA,2025
-2014,1,12,Dario Saric,SF,6-10,225,20,KK Cibona (Croatia),1994 DOB *,ORL to PHL,9,203967.0,Croatia,2025
-2013,1,2,Victor Oladipo,G,6-3,213,21,Indiana,Jr *,,11,203506.0,USA,2022
-2013,2,51,Romero Osby,PF,6-8,240,23,Oklahoma,Sr,,0,,,
-2012,1,19,Andrew Nicholson,F,6-9,250,22,St. Bonaventure,Sr,,5,203094.0,Canada,2016
-2012,2,49,Kyle O'Quinn,F,6-10,250,22,Norfolk State,Sr,,8,203124.0,USA,2019
-2011,2,53,DeAndre Liggins,G,6-6,210,23,Kentucky,Jr *,,5,202732.0,USA,2017
-2010,1,29,Daniel Orton,PF,6-10,255,19,Kentucky,Fr *,,4,202350.0,USA,2013
-2010,2,59,Stanley Robinson,F,6-9,220,21,UConn,Sr,,0,,,
-2008,1,22,Courtney Lee,SG,6-5,215,22,Western Kentucky,Sr,,12,201584.0,USA,2019
-2007,2,44,Reyshawn Terry,PF,6-8,235,23,North Carolina,Sr,ORL to DAL,0,,,
-2006,1,11,J.J. Redick,G,6-4,200,22,Duke,Sr,,15,200755.0,USA,2020
-2006,2,41,James Augustine,FC,6-10,235,22,Illinois,Sr,,2,200788.0,USA,2007
-2006,2,44,Lior Eliyahu,PF,6-7,225,20,Hapoel Galil Gilboa (Israel),1985 DOB *,ORL to HOU HOU to MIN MIN to GOS,0,,,
-2005,1,11,Fran Vazquez,FC,6-10,230,22,Unicaja (Spain),1983 DOB,,0,,,
-2005,2,38,Travis Diener,PG,6-1,174,23,Marquette,Sr,,5,101143.0,USA,2009
-2005,2,44,Martynas Andriuskevicius,C,7-2,240,19,Zalgiris (Lithuania),1986 DOB *,ORL to CLE,2,101149.0,Lithuania,2006
-2004,1,1,Dwight Howard,C,6-11,265,18,Southwest Atlanta Christian Academy (Georgia),1985 DOB *,,18,2730.0,USA,2021
-2004,2,30,Anderson Varejao,C,6-10,273,21,Barca (Spain),1982 DOB,ORL to CLE,14,2760.0,Brazil,2020
-2004,2,36,Antonio Burks,G,6-1,200,24,Memphis,Sr,ORL to MEM,2,2766.0,USA,2005
-2003,1,15,Reece Gaines,G,6-6,210,22,Louisville,Sr,,3,2558.0,USA,2005
-2003,2,42,Zaza Pachulia,C,6-11,270,19,Alpella B.K. (Turkey),1984 DOB *,,16,2585.0,Georgia,2018
-2002,1,18,Curtis Borchardt,C,7-0,240,21,Stanford,Jr *,ORL to UTH,3,2414.0,USA,2004
-2001,1,15,Steven Hunter,F-C,7-0,240,19,DePaul,So *,,9,2212.0,USA,2009
-2001,1,22,Jeryl Sasser,SG,6-6,200,22,Southern Methodist,Sr,,3,2219.0,USA,2002
-2001,2,31,Omar Cook,PG,6-2,190,19,St. John's,Fr *,ORL to DEN,4,2241.0,USA,2004
-2000,1,5,Mike Miller,GF,6-8,218,20,Florida,So *,,17,2034.0,USA,2016
-2000,1,10,Keyon Dooling,G,6-3,196,20,Missouri,So *,ORL to LAC,13,2039.0,USA,2012
-2000,1,13,Courtney Alexander,SG,6-5,205,23,Fresno State,Sr,ORL to DAL,5,2042.0,USA,2003
-1999,2,38,Laron Profit,G-F,6-5,204,21,Maryland,Sr,ORL to WAS,6,1919.0,USA,2005
-1998,1,12,Michael Doleac,C,6-11,262,21,Utah,Sr,,10,1720.0,USA,2007
-1998,1,13,Keon Clark,C,6-11,221,23,UNLV,Sr,ORL to DEN,6,1721.0,USA,2003
-1998,1,15,Matt Harpring,F,6-7,230,22,Georgia Tech,Sr,,12,1723.0,USA,2008
-1998,2,42,Miles Simon,G,6-3,202,22,Arizona,Sr,,3,1750.0,USA,2002
-1997,1,17,Johnny Taylor,F,6-9,220,23,Chattanooga,Sr,,5,1511.0,USA,1999
-1997,2,46,Eric Washington,G,6-4,190,23,Alabama,Sr,ORL to DEN,4,1540.0,USA,1998
-1996,1,27,Brian Evans,F,6-8,220,22,Indiana,Sr,,3,967.0,USA,1998
-1996,2,49,Amal McCaskill,C,6-11,235,22,Marquette,Sr,,8,1043.0,USA,2003
-1995,1,25,David Vaughn,F,6-9,240,22,Memphis,Jr *,,4,710.0,USA,1998
-1994,1,27,Brooks Thompson,G,6-4,193,23,Oklahoma State,Sr,,4,240.0,USA,1997
-1994,2,31,Rodney Dent,PF,6-9,256,23,Kentucky,Sr,,1,,,
-1993,1,1,Chris Webber,F-C,6-9,245,20,Michigan,So *,ORL to GOS,15,185.0,USA,2007
-1993,1,26,Geert Hammink,C,7-0,262,23,LSU,Sr,,3,903.0,Netherlands,1995
-1992,1,1,Shaquille O'Neal,C,7-1,325,20,LSU,Jr *,,19,406.0,USA,2010
-1991,1,10,Bison Dele,C,6-11,235,22,Arizona,Jr *,,8,183.0,USA,1998
-1991,1,23,Stanley Roberts,C,7-0,285,21,LSU,So,,9,914.0,USA,1999
-1991,2,36,Chris Corchiani,PG,6-0,185,23,NC State,Sr,,3,76450.0,USA,1993
-1990,1,4,Dennis Scott,SF,6-8,229,21,Georgia Tech,Jr *,,12,192.0,USA,1999
-1989,1,11,Nick Anderson,GF,6-6,228,21,Illinois,So *,,14,98.0,USA,2002
-1989,2,37,Michael Ansley,F,6-7,225,22,Alabama,Sr,,3,76050.0,USA,1991
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
+2025,1,25,Jase Richardson,G,6-1,180,19,Michigan State,Fr *,,0,1642859.0,USA,2025,0.0
+2025,2,46,Amari Williams,PF,6-11,250,23,Kentucky,Sr,ORL to BOS,0,1642873.0,United Kingdom,2025,0.0
+2025,2,57,Max Shulga,G,6-4,210,23,VCU,Sr,ORL to BOS,0,1642917.0,Ukraine,2025,0.0
+2024,1,18,Tristan Da Silva,F,6-8,217,23,Colorado,Sr *,,1,,,,
+2024,2,47,Antonio Reeves,GF,6-5,205,23,Kentucky,Sr,ORL to NOP,1,1641810.0,USA,2025,0.0
+2023,1,6,Anthony Black,G,6-7,200,19,Arkansas,Fr *,,2,1641710.0,USA,2025,0.0
+2023,1,11,Jett Howard,GF,6-8,215,19,Michigan,Fr *,,2,1641724.0,USA,2025,0.0
+2023,2,36,"Andre Jackson, Jr.",G,6-6,209,21,UConn,Jr *,ORL to MIL,2,1641748.0,USA,2025,0.0
+2022,1,1,Paolo Banchero,C,6-10,250,19,Duke,Fr *,,3,1631094.0,USA,2025,0.0
+2022,2,32,Caleb Houstan,SF,6-8,205,19,Michigan,Fr *,,3,1631216.0,Canada,2025,0.0
+2021,1,5,Jalen Suggs,SG,6-5,205,20,Gonzaga,Fr *,,4,1630591.0,USA,2025,0.0
+2021,1,8,Franz Wagner,SF,6-10,220,19,Michigan,So *,,4,1630532.0,Germany,2025,0.0
+2021,2,33,Jason Preston,G,6-3,181,21,Ohio,Jr *,ORL to LAC,4,1630554.0,USA,2023,0.0
+2020,1,15,Cole Anthony,PG,6-2,185,20,North Carolina,Fr *,,5,1630175.0,USA,2025,0.0
+2019,1,16,Chuma Okeke,PF,6-7,229,20,Auburn,So *,,5,1629643.0,USA,2024,0.0
+2019,2,46,Talen Horton-Tucker,SF,6-4,234,18,Iowa State,Fr *,ORL to LAL,6,1629659.0,USA,2024,0.0
+2018,1,6,Mo Bamba,C,7-0,231,20,Texas,Fr *,,7,1628964.0,USA,2024,0.0
+2018,2,35,"Melvin Frazier, Jr.",SF,6-5,215,21,Tulane,Jr *,,3,1628982.0,USA,2021,0.0
+2018,2,41,Jarred Vanderbilt,PF,6-8,214,19,Kentucky,Fr *,ORL to DEN,7,1629020.0,USA,2025,0.0
+2017,1,6,Jonathan Isaac,SF,6-10,230,19,Florida State,Fr *,,8,1628371.0,USA,2025,0.0
+2017,1,25,Anzejs Pasecniks,C,7-1,229,21,Dreamland Gran Canaria (Spain),1995 DOB,ORL to PHI,2,1628394.0,Latvia,2020,0.0
+2017,2,33,Wesley Iwundu,F,6-6,195,22,Kansas State,Sr,,5,,,,
+2017,2,35,Ivan Rabb,PF,6-10,220,20,California,So *,ORL to MEM,3,1628397.0,USA,2018,0.0
+2016,1,11,Domantas Sabonis,PF,6-10,240,20,Gonzaga,So *,ORL to OKC,9,1627734.0,Lithuania,2025,0.0
+2016,2,41,Stephen Zimmerman,C,6-11,240,19,UNLV,Fr *,,1,1627757.0,USA,2016,0.0
+2016,2,47,Jake Layman,SF,6-8,209,22,Maryland,Sr,ORL to POR,6,1627774.0,USA,2021,0.0
+2015,1,5,Mario Hezonja,SG,6-8,220,20,FC Barcelona II (Spain),1995 DOB *,,5,1626209.0,Croatia,2019,0.0
+2015,2,51,Tyler Harvey,G,6-4,185,21,Eastern Washington,Jr *,ORL to MEM MEM to CHA,0,,,,
+2014,1,4,Aaron Gordon,F,6-8,235,18,Arizona,Fr *,,11,203932.0,USA,2025,0.0
+2014,1,12,Dario Saric,SF,6-10,225,20,KK Cibona (Croatia),1994 DOB *,ORL to PHI,9,203967.0,Croatia,2025,0.0
+2013,1,2,Victor Oladipo,G,6-3,213,21,Indiana,Jr *,,11,203506.0,USA,2022,0.0
+2013,2,51,Romero Osby,PF,6-8,240,23,Oklahoma,Sr,,0,,,,
+2012,1,19,Andrew Nicholson,F,6-9,250,22,St. Bonaventure,Sr,,5,203094.0,Canada,2016,0.0
+2012,2,49,Kyle O'Quinn,F,6-10,250,22,Norfolk State,Sr,,8,203124.0,USA,2019,0.0
+2011,2,53,DeAndre Liggins,G,6-6,210,23,Kentucky,Jr *,,5,202732.0,USA,2017,0.0
+2010,1,29,Daniel Orton,PF,6-10,255,19,Kentucky,Fr *,,4,202350.0,USA,2013,0.0
+2010,2,59,Stanley Robinson,F,6-9,220,21,UConn,Sr,,0,,,,
+2008,1,22,Courtney Lee,SG,6-5,215,22,Western Kentucky,Sr,,12,201584.0,USA,2019,0.0
+2007,2,44,Reyshawn Terry,PF,6-8,235,23,North Carolina,Sr,ORL to DAL,0,,,,
+2006,1,11,J.J. Redick,G,6-4,200,22,Duke,Sr,,15,200755.0,USA,2020,0.0
+2006,2,41,James Augustine,FC,6-10,235,22,Illinois,Sr,,2,200788.0,USA,2007,0.0
+2006,2,44,Lior Eliyahu,PF,6-7,225,20,Hapoel Galil Gilboa (Israel),1985 DOB *,ORL to HOU HOU to MIN MIN to GSW,0,,,,
+2005,1,11,Fran Vazquez,FC,6-10,230,22,Unicaja (Spain),1983 DOB,,0,,,,
+2005,2,38,Travis Diener,PG,6-1,174,23,Marquette,Sr,,5,101143.0,USA,2009,0.0
+2005,2,44,Martynas Andriuskevicius,C,7-2,240,19,Zalgiris (Lithuania),1986 DOB *,ORL to CLE,2,101149.0,Lithuania,2006,0.0
+2004,1,1,Dwight Howard,C,6-11,265,18,Southwest Atlanta Christian Academy (Georgia),1985 DOB *,,18,2730.0,USA,2021,0.0
+2004,2,30,Anderson Varejao,C,6-10,273,21,Barca (Spain),1982 DOB,ORL to CLE,14,2760.0,Brazil,2020,0.0
+2004,2,36,Antonio Burks,G,6-1,200,24,Memphis,Sr,ORL to MEM,2,2766.0,USA,2005,0.0
+2003,1,15,Reece Gaines,G,6-6,210,22,Louisville,Sr,,3,2558.0,USA,2005,0.0
+2003,2,42,Zaza Pachulia,C,6-11,270,19,Alpella B.K. (Turkey),1984 DOB *,,16,2585.0,Georgia,2018,0.0
+2002,1,18,Curtis Borchardt,C,7-0,240,21,Stanford,Jr *,ORL to UTA,3,2414.0,USA,2004,0.0
+2001,1,15,Steven Hunter,F-C,7-0,240,19,DePaul,So *,,9,2212.0,USA,2009,0.0
+2001,1,22,Jeryl Sasser,SG,6-6,200,22,Southern Methodist,Sr,,3,2219.0,USA,2002,0.0
+2001,2,31,Omar Cook,PG,6-2,190,19,St. John's,Fr *,ORL to DEN,4,2241.0,USA,2004,0.0
+2000,1,5,Mike Miller,GF,6-8,218,20,Florida,So *,,17,2034.0,USA,2016,0.0
+2000,1,10,Keyon Dooling,G,6-3,196,20,Missouri,So *,ORL to LAC,13,2039.0,USA,2012,0.0
+2000,1,13,Courtney Alexander,SG,6-5,205,23,Fresno State,Sr,ORL to DAL,5,2042.0,USA,2003,0.0
+1999,2,38,Laron Profit,G-F,6-5,204,21,Maryland,Sr,ORL to WAS,6,1919.0,USA,2005,0.0
+1998,1,12,Michael Doleac,C,6-11,262,21,Utah,Sr,,10,1720.0,USA,2007,0.0
+1998,1,13,Keon Clark,C,6-11,221,23,UNLV,Sr,ORL to DEN,6,1721.0,USA,2003,0.0
+1998,1,15,Matt Harpring,F,6-7,230,22,Georgia Tech,Sr,,12,1723.0,USA,2008,0.0
+1998,2,42,Miles Simon,G,6-3,202,22,Arizona,Sr,,3,1750.0,USA,2002,0.0
+1997,1,17,Johnny Taylor,F,6-9,220,23,Chattanooga,Sr,,5,1511.0,USA,1999,0.0
+1997,2,46,Eric Washington,G,6-4,190,23,Alabama,Sr,ORL to DEN,4,1540.0,USA,1998,0.0
+1996,1,27,Brian Evans,F,6-8,220,22,Indiana,Sr,,3,967.0,USA,1998,0.0
+1996,2,49,Amal McCaskill,C,6-11,235,22,Marquette,Sr,,8,1043.0,USA,2003,0.0
+1995,1,25,David Vaughn,F,6-9,240,22,Memphis,Jr *,,4,710.0,USA,1998,0.0
+1994,1,27,Brooks Thompson,G,6-4,193,23,Oklahoma State,Sr,,4,240.0,USA,1997,0.0
+1994,2,31,Rodney Dent,PF,6-9,256,23,Kentucky,Sr,,1,,,,
+1993,1,1,Chris Webber,F-C,6-9,245,20,Michigan,So *,ORL to GSW,15,185.0,USA,2007,0.0
+1993,1,26,Geert Hammink,C,7-0,262,23,LSU,Sr,,3,903.0,Netherlands,1995,0.0
+1992,1,1,Shaquille O'Neal,C,7-1,325,20,LSU,Jr *,,19,406.0,USA,2010,0.0
+1991,1,10,Bison Dele,C,6-11,235,22,Arizona,Jr *,,8,183.0,USA,1998,0.0
+1991,1,23,Stanley Roberts,C,7-0,285,21,LSU,So,,9,914.0,USA,1999,0.0
+1991,2,36,Chris Corchiani,PG,6-0,185,23,NC State,Sr,,3,76450.0,USA,1993,0.0
+1990,1,4,Dennis Scott,SF,6-8,229,21,Georgia Tech,Jr *,,12,192.0,USA,1999,0.0
+1989,1,11,Nick Anderson,GF,6-6,228,21,Illinois,So *,,14,98.0,USA,2002,0.0
+1989,2,37,Michael Ansley,F,6-7,225,22,Alabama,Sr,,3,76050.0,USA,1991,0.0

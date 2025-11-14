@@ -14,6 +14,9 @@ export interface DraftPick {
   team: string
   teamLogo?: string
   nba_id?: string | number
+  origin_country?: string
+  played_until_year?: number
+  is_defunct?: number
 }
 
 export interface TradeStep {

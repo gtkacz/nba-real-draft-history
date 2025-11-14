@@ -11,7 +11,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2018,1,7,"Wendell Carter, Jr.",PF,6-10,270.0,19.0,Duke,Fr *,,7
 2018,1,22,Chandler Hutchison,SG,6-6,210.0,22.0,Boise State,Sr,,4
 2017,1,16,Justin Patton,C,7-0,241.0,20.0,Creighton,Fr *,CHI to MIN,4
-2017,2,38,Jordan Bell,PF,6-7,216.0,22.0,Oregon,Jr *,CHI to GOS,5
+2017,2,38,Jordan Bell,PF,6-7,216.0,22.0,Oregon,Jr *,CHI to GSW,5
 2016,1,14,Denzel Valentine,F,6-4,220.0,22.0,Michigan State,Sr,,6
 2016,2,48,Paul Zipser,F,6-8,226.0,22.0,Next Generation Team Munich (Germany),1994 DOB,,2
 2015,1,22,Bobby Portis,PF,6-9,250.0,20.0,Arkansas,So *,,10
@@ -33,12 +33,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2007,2,49,Aaron Gray,C,7-0,270.0,22.0,Pittsburgh,Sr,,7
 2007,2,51,JamesOn Curry,G,6-4,200.0,21.0,Oklahoma State,Jr *,,2
 2006,1,2,LaMarcus Aldridge,FC,6-11,265.0,20.0,Texas,So *,CHI to POR,16
-2006,1,16,Rodney Carney,F,6-7,205.0,22.0,Memphis,Sr,CHI to PHL,5
+2006,1,16,Rodney Carney,F,6-7,205.0,22.0,Memphis,Sr,CHI to PHI,5
 2004,1,3,Ben Gordon,SG,6-3,200.0,21.0,UConn,Jr *,,11
 2004,2,31,Jackson Vroman,FC,6-10,220.0,23.0,Iowa State,Sr,CHI to PHX,2
 2004,2,38,Chris Duhon,G,6-1,190.0,21.0,Duke,Sr,,9
 2003,1,7,Kirk Hinrich,G,6-4,190.0,22.0,Kansas,Sr,,13
-2003,2,36,Mario Austin,F,6-10,260.0,21.0,Mississippi State,Jr *,CHI to UTH,0
+2003,2,36,Mario Austin,F,6-10,260.0,21.0,Mississippi State,Jr *,CHI to UTA,0
 2003,2,45,Matt Bonner,FC,6-10,235.0,23.0,Florida,Sr,CHI to TOR,12
 2003,2,53,Tommy Smith,F,6-10,215.0,22.0,Arizona State,Sr,,1
 2002,1,2,Jay Williams,G,6-2,195.0,20.0,Duke,Jr *,,2
@@ -90,7 +90,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1987,6,125,Doug Altenberger,G,6-1,179.0,,Illinois,Sr,,1
 1987,7,148,Earvin Leavy,G,6-3,175.0,,Central Michigan,Sr,,1
 1986,1,9,Brad Sellers,FC,7-0,210.0,23.0,Ohio State,Sr,,7
-1986,2,28,Larry Krystkowiak,PF,6-9,220.0,21.0,Montana,Sr,CHI to POR POR to SAN,11
+1986,2,28,Larry Krystkowiak,PF,6-9,220.0,21.0,Montana,Sr,CHI to POR POR to SAS,11
 1986,3,52,Ricky Wilson,G,6-3,195.0,21.0,George Mason,Sr,,2
 1986,4,74,Scott Meents,FC,6-10,225.0,22.0,Illinois,Sr,,6
 1986,5,98,Jimmy Gilbert,C,6-9,,,Texas A&M,Sr,,0
@@ -282,7 +282,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1970,13,201,Charles Bloodworth,,,,,Northwestern State,Sr,,0
 1970,14,211,Paul Funkhouser,F,,,,McKendree,Sr,,0
 1970,15,220,Paul Otay,,,,,Boise State,Sr,,0
-1969,1,5,Larry Cannon,SG,6-4,195.0,21.0,La Salle,Sr,CHI to PHL,2
+1969,1,5,Larry Cannon,SG,6-4,195.0,21.0,La Salle,Sr,CHI to PHI,2
 1969,2,16,Simmie Hill,F,6-6,230.0,22.0,Texas State,Sr,,0
 1969,2,20,Ken Spain,C,6-9,225.0,22.0,Houston,Sr,,1
 1969,2,23,Johnny Baum,F,6-5,200.0,22.0,Temple,Jr,,2

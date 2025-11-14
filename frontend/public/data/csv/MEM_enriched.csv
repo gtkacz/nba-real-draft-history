@@ -1,63 +1,63 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year
-2025,1,16,Yang Hansen,C,7-1,270,19,Qingdao (China),2005 DOB *,MEM to POR,0,1642905.0,China,2025
-2025,2,48,Javon Small,G,6-1,190,22,West Virginia,Sr,,0,1642914.0,USA,2025
-2025,2,56,Will Richard,F,6-3,206,22,Florida,Sr,MEM to GOS,0,1642954.0,USA,2025
-2024,1,9,Zach Edey,C,7-3,305,22,Purdue,Sr *,,1,1641744.0,Canada,2025
-2024,2,39,Jaylen Wells,F,6-7,206,20,Washington State,Jr *,,1,1642377.0,USA,2025
-2024,2,57,Ulrich Chomche,PF,6-11,235,18,NBA Academy Africa (Senegal),2005 DOB *,MEM to TOR,1,1642279.0,Cameroon,2024
-2023,1,25,Marcus Sasser,G,6-1,195,22,Houston,Sr *,MEM to BOS BOS to DET,2,1631204.0,USA,2025
-2023,2,45,G.G. Jackson,PF,6-9,210,18,South Carolina,Fr *,,2,1641713.0,USA,2025
-2023,2,56,Tarik Biberovic,G,6-7,218,22,Fenerbahce Beko (Turkey),2001 DOB,,0,,,
-2022,1,22,Walker Kessler,C,7-2,245,20,Auburn,So *,MEM to MIN MIN to UTH,3,1631117.0,USA,2025
-2022,1,29,"TyTy Washington, Jr.",PG,6-3,195,20,Kentucky,Fr *,MEM to MIN MIN to HOU,3,1631102.0,USA,2024
-2022,2,47,"Vincent Williams, Jr.",SF,6-4,205,21,VCU,Sr *,,3,,,
-2021,1,17,Trey Murphy III,G,6-8,206,21,Virginia,Jr *,MEM to NOP,4,1630530.0,USA,2025
-2021,2,51,"B.J. Boston, Jr.",SG,6-6,188,19,Kentucky,Fr *,MEM to NOP NOP to LAC,4,,,
-2020,2,40,Robert Woodard II,G,6-7,230,21,Mississippi State,So *,MEM to SAC,2,1630218.0,USA,2021
-2019,1,2,Ja Morant,G,6-2,174,19,Murray State,So *,,6,1629630.0,USA,2025
-2018,1,4,"Jaren Jackson, Jr.",PF,6-10,242,18,Michigan State,Fr *,,7,1114.0,USA,2001
-2018,1,4,"Jaren Jackson, Jr.",PF,6-10,242,18,Michigan State,Fr *,,7,1628991.0,USA,2025
-2018,2,32,Jevon Carter,PG,6-0,200,22,West Virginia,Sr,,7,1628975.0,USA,2025
-2016,1,17,Wade Baldwin IV,G,6-4,220,20,Vanderbilt,So *,,3,1627735.0,USA,2018
-2016,2,57,Zhelin Wang,C,7-0,251,22,Fujian (China),1994 DOB,MEM to LAL LAL to NYK,0,,,
-2015,1,25,Jarell Martin,F,6-10,239,21,LSU,So *,,4,1626185.0,USA,2018
-2014,1,22,Jordan Adams,SG,6-5,209,19,UCLA,So *,,2,203919.0,USA,2015
-2013,2,41,Jamaal Franklin,G,6-5,190,21,San Diego State,Jr *,,2,203479.0,USA,2014
-2013,2,55,Joffrey Lauvergne,PF,6-11,260,21,KK Partizan (Serbia),1991 DOB,MEM to DEN,4,203530.0,France,2017
-2013,2,60,Janis Timma,SF,6-7,226,20,BK Ventspils (Latvia),1992 DOB *,MEM to ORL,0,,,
-2012,1,25,Tony Wroten,PG,6-6,205,19,Washington,Fr *,,4,203100.0,USA,2015
-2011,2,49,Josh Selby,G,6-2,195,20,Kansas,Fr *,,2,202729.0,USA,2012
-2010,1,12,Xavier Henry,G,6-6,220,19,Kansas,Fr *,,5,202333.0,USA,2014
-2010,1,25,Dominique Jones,G,6-4,215,21,South Florida,Jr *,MEM to DAL,3,202346.0,USA,2012
-2010,1,28,Greivis Vasquez,G,6-6,217,23,Maryland,Sr,,7,202349.0,Venezuela,2016
-2009,1,2,Hasheem Thabeet,C,7-3,267,22,UConn,Jr *,,5,201934.0,Tanzania,2013
-2009,1,27,DeMarre Carroll,F,6-8,215,22,Missouri,Sr,,11,201960.0,USA,2019
-2009,2,36,Sam Young,F,6-6,225,24,Pittsburgh,Sr,,4,201970.0,USA,2012
-2008,1,5,Kevin Love,FC,6-10,251,19,UCLA,Fr *,MEM to MIN,17,201567.0,USA,2025
-2008,1,28,Donte Greene,F,6-11,226,20,Syracuse,Fr *,MEM to HOU,5,201590.0,USA,2012
-2007,1,4,Mike Conley,PG,6-1,175,19,Ohio State,Fr *,,18,201144.0,USA,2025
-2006,1,24,Kyle Lowry,PG,6-0,196,20,Villanova,So *,,19,200768.0,USA,2025
-2005,1,19,Hakim Warrick,F,6-9,219,22,Syracuse,Sr,,8,101124.0,USA,2012
-2004,2,49,Sergei Lishouk,FC,6-11,250,22,Khimik Yuzhny (Ukraine),1982 DOB,MEM to HOU HOU to LAL LAL to HOU HOU to PHL PHL to LAC LAC to HOU,0,,,
-2003,1,13,Marcus Banks,G,6-2,200,21,UNLV,Sr,MEM to BOS,8,2556.0,USA,2010
-2003,1,27,Kendrick Perkins,C,6-10,270,18,Ozen High School (Texas),1984 DOB *,MEM to BOS,14,2570.0,USA,2017
-2002,1,4,Drew Gooden,FC,6-10,250,20,Kansas,Jr *,,14,2400.0,USA,2015
-2002,2,31,Robert Archibald,PF,6-11,250,22,Illinois,Sr,,2,2425.0,Scotland,2003
-2002,2,45,Matt Barnes,GF,6-7,226,22,UCLA,Sr,MEM to CLE,15,2440.0,USA,2016
-2001,1,6,Shane Battier,F,6-8,220,22,Duke,Sr,,13,2203.0,USA,2013
-2001,1,27,Jamaal Tinsley,PG,6-3,188,23,Iowa State,Sr,MEM to ATL ATL to IND,12,2224.0,USA,2013
-2001,2,32,Will Solomon,G,6-1,181,22,Clemson,Jr *,,2,2226.0,USA,2008
-2001,2,47,Antonis Fotsis,PF,6-8,248,20,AX Armani Exchange Milan (Italy),1981 DOB *,,1,2238.0,Greece,2001
-2000,1,2,Stromile Swift,F-C,6-9,225,20,LSU,So *,,9,2031.0,USA,2008
-1999,1,2,Steve Francis,G,6-3,195,22,Maryland,Jr *,VAN to HOU,10,1883.0,USA,2007
-1999,2,37,Obinna Ekezie,C,6-9,270,23,Maryland,Sr,,6,1918.0,Nigeria,2004
-1999,2,51,Antwain Smith,F,6-8,220,24,Saint Paul's,Sr,,1,,,
-1998,1,2,Mike Bibby,G,6-2,195,20,Arizona,So *,,14,1710.0,USA,2011
-1998,2,56,J.R. Henderson,F,6-8,226,21,UCLA,Sr,,3,1764.0,USA,1998
-1997,1,4,Antonio Daniels,G,6-4,195,22,Bowling Green,Sr,,13,1498.0,USA,2010
-1997,2,52,C.J. Bruton,G,6-2,195,21,Indian Hills,So *,VAN to POR,1,,,
-1996,1,3,Shareef Abdur-Rahim,F,6-9,225,19,California,Fr *,,12,949.0,USA,2007
-1996,1,22,"Roy Rogers, Jr.",F,6-10,235,22,Alabama,Sr,,5,964.0,USA,1999
-1996,2,51,Chris Robinson,G,6-5,205,22,Western Kentucky,Sr,,5,997.0,USA,1997
-1995,1,6,Bryant Reeves,C,7-0,275,22,Oklahoma State,Sr,,7,735.0,USA,2000
-1995,2,36,Lawrence Moten,G,6-5,185,23,Syracuse,Sr,,3,734.0,USA,1997
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
+2025,1,16,Yang Hansen,C,7-1,270,19,Qingdao (China),2005 DOB *,MEM to POR,0,1642905.0,China,2025,0.0
+2025,2,48,Javon Small,G,6-1,190,22,West Virginia,Sr,,0,1642914.0,USA,2025,0.0
+2025,2,56,Will Richard,F,6-3,206,22,Florida,Sr,MEM to GSW,0,1642954.0,USA,2025,0.0
+2024,1,9,Zach Edey,C,7-3,305,22,Purdue,Sr *,,1,1641744.0,Canada,2025,0.0
+2024,2,39,Jaylen Wells,F,6-7,206,20,Washington State,Jr *,,1,1642377.0,USA,2025,0.0
+2024,2,57,Ulrich Chomche,PF,6-11,235,18,NBA Academy Africa (Senegal),2005 DOB *,MEM to TOR,1,1642279.0,Cameroon,2024,0.0
+2023,1,25,Marcus Sasser,G,6-1,195,22,Houston,Sr *,MEM to BOS BOS to DET,2,1631204.0,USA,2025,0.0
+2023,2,45,G.G. Jackson,PF,6-9,210,18,South Carolina,Fr *,,2,1641713.0,USA,2025,0.0
+2023,2,56,Tarik Biberovic,G,6-7,218,22,Fenerbahce Beko (Turkey),2001 DOB,,0,,,,
+2022,1,22,Walker Kessler,C,7-2,245,20,Auburn,So *,MEM to MIN MIN to UTA,3,1631117.0,USA,2025,0.0
+2022,1,29,"TyTy Washington, Jr.",PG,6-3,195,20,Kentucky,Fr *,MEM to MIN MIN to HOU,3,1631102.0,USA,2024,0.0
+2022,2,47,"Vincent Williams, Jr.",SF,6-4,205,21,VCU,Sr *,,3,,,,
+2021,1,17,Trey Murphy III,G,6-8,206,21,Virginia,Jr *,MEM to NOP,4,1630530.0,USA,2025,0.0
+2021,2,51,"B.J. Boston, Jr.",SG,6-6,188,19,Kentucky,Fr *,MEM to NOP NOP to LAC,4,,,,
+2020,2,40,Robert Woodard II,G,6-7,230,21,Mississippi State,So *,MEM to SAC,2,1630218.0,USA,2021,0.0
+2019,1,2,Ja Morant,G,6-2,174,19,Murray State,So *,,6,1629630.0,USA,2025,0.0
+2018,1,4,"Jaren Jackson, Jr.",PF,6-10,242,18,Michigan State,Fr *,,7,1114.0,USA,2001,0.0
+2018,1,4,"Jaren Jackson, Jr.",PF,6-10,242,18,Michigan State,Fr *,,7,1628991.0,USA,2025,0.0
+2018,2,32,Jevon Carter,PG,6-0,200,22,West Virginia,Sr,,7,1628975.0,USA,2025,0.0
+2016,1,17,Wade Baldwin IV,G,6-4,220,20,Vanderbilt,So *,,3,1627735.0,USA,2018,0.0
+2016,2,57,Zhelin Wang,C,7-0,251,22,Fujian (China),1994 DOB,MEM to LAL LAL to NYK,0,,,,
+2015,1,25,Jarell Martin,F,6-10,239,21,LSU,So *,,4,1626185.0,USA,2018,0.0
+2014,1,22,Jordan Adams,SG,6-5,209,19,UCLA,So *,,2,203919.0,USA,2015,0.0
+2013,2,41,Jamaal Franklin,G,6-5,190,21,San Diego State,Jr *,,2,203479.0,USA,2014,0.0
+2013,2,55,Joffrey Lauvergne,PF,6-11,260,21,KK Partizan (Serbia),1991 DOB,MEM to DEN,4,203530.0,France,2017,0.0
+2013,2,60,Janis Timma,SF,6-7,226,20,BK Ventspils (Latvia),1992 DOB *,MEM to ORL,0,,,,
+2012,1,25,Tony Wroten,PG,6-6,205,19,Washington,Fr *,,4,203100.0,USA,2015,0.0
+2011,2,49,Josh Selby,G,6-2,195,20,Kansas,Fr *,,2,202729.0,USA,2012,0.0
+2010,1,12,Xavier Henry,G,6-6,220,19,Kansas,Fr *,,5,202333.0,USA,2014,0.0
+2010,1,25,Dominique Jones,G,6-4,215,21,South Florida,Jr *,MEM to DAL,3,202346.0,USA,2012,0.0
+2010,1,28,Greivis Vasquez,G,6-6,217,23,Maryland,Sr,,7,202349.0,Venezuela,2016,0.0
+2009,1,2,Hasheem Thabeet,C,7-3,267,22,UConn,Jr *,,5,201934.0,Tanzania,2013,0.0
+2009,1,27,DeMarre Carroll,F,6-8,215,22,Missouri,Sr,,11,201960.0,USA,2019,0.0
+2009,2,36,Sam Young,F,6-6,225,24,Pittsburgh,Sr,,4,201970.0,USA,2012,0.0
+2008,1,5,Kevin Love,FC,6-10,251,19,UCLA,Fr *,MEM to MIN,17,201567.0,USA,2025,0.0
+2008,1,28,Donte Greene,F,6-11,226,20,Syracuse,Fr *,MEM to HOU,5,201590.0,USA,2012,0.0
+2007,1,4,Mike Conley,PG,6-1,175,19,Ohio State,Fr *,,18,201144.0,USA,2025,0.0
+2006,1,24,Kyle Lowry,PG,6-0,196,20,Villanova,So *,,19,200768.0,USA,2025,0.0
+2005,1,19,Hakim Warrick,F,6-9,219,22,Syracuse,Sr,,8,101124.0,USA,2012,0.0
+2004,2,49,Sergei Lishouk,FC,6-11,250,22,Khimik Yuzhny (Ukraine),1982 DOB,MEM to HOU HOU to LAL LAL to HOU HOU to PHI PHI to LAC LAC to HOU,0,,,,
+2003,1,13,Marcus Banks,G,6-2,200,21,UNLV,Sr,MEM to BOS,8,2556.0,USA,2010,0.0
+2003,1,27,Kendrick Perkins,C,6-10,270,18,Ozen High School (Texas),1984 DOB *,MEM to BOS,14,2570.0,USA,2017,0.0
+2002,1,4,Drew Gooden,FC,6-10,250,20,Kansas,Jr *,,14,2400.0,USA,2015,0.0
+2002,2,31,Robert Archibald,PF,6-11,250,22,Illinois,Sr,,2,2425.0,Scotland,2003,0.0
+2002,2,45,Matt Barnes,GF,6-7,226,22,UCLA,Sr,MEM to CLE,15,2440.0,USA,2016,0.0
+2001,1,6,Shane Battier,F,6-8,220,22,Duke,Sr,,13,2203.0,USA,2013,0.0
+2001,1,27,Jamaal Tinsley,PG,6-3,188,23,Iowa State,Sr,MEM to ATL ATL to IND,12,2224.0,USA,2013,0.0
+2001,2,32,Will Solomon,G,6-1,181,22,Clemson,Jr *,,2,2226.0,USA,2008,0.0
+2001,2,47,Antonis Fotsis,PF,6-8,248,20,AX Armani Exchange Milan (Italy),1981 DOB *,,1,2238.0,Greece,2001,0.0
+2000,1,2,Stromile Swift,F-C,6-9,225,20,LSU,So *,,9,2031.0,USA,2008,0.0
+1999,1,2,Steve Francis,G,6-3,195,22,Maryland,Jr *,VAN to HOU,10,1883.0,USA,2007,0.0
+1999,2,37,Obinna Ekezie,C,6-9,270,23,Maryland,Sr,,6,1918.0,Nigeria,2004,0.0
+1999,2,51,Antwain Smith,F,6-8,220,24,Saint Paul's,Sr,,1,,,,
+1998,1,2,Mike Bibby,G,6-2,195,20,Arizona,So *,,14,1710.0,USA,2011,0.0
+1998,2,56,J.R. Henderson,F,6-8,226,21,UCLA,Sr,,3,1764.0,USA,1998,0.0
+1997,1,4,Antonio Daniels,G,6-4,195,22,Bowling Green,Sr,,13,1498.0,USA,2010,0.0
+1997,2,52,C.J. Bruton,G,6-2,195,21,Indian Hills,So *,VAN to POR,1,,,,
+1996,1,3,Shareef Abdur-Rahim,F,6-9,225,19,California,Fr *,,12,949.0,USA,2007,0.0
+1996,1,22,"Roy Rogers, Jr.",F,6-10,235,22,Alabama,Sr,,5,964.0,USA,1999,0.0
+1996,2,51,Chris Robinson,G,6-5,205,22,Western Kentucky,Sr,,5,997.0,USA,1997,0.0
+1995,1,6,Bryant Reeves,C,7-0,275,22,Oklahoma State,Sr,,7,735.0,USA,2000,0.0
+1995,2,36,Lawrence Moten,G,6-5,185,23,Syracuse,Sr,,3,734.0,USA,1997,0.0

@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "flag-icons": "^7.5.0",
     "pinia": "^3.0.3",
     "sass": "^1.94.0",
     "vue": "^3.5.22",

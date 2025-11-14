@@ -1,92 +1,92 @@
-Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year
-2025,1,17,Joan Beringer,C,6-11,230,18,Cedevita (Croatia),2006 DOB *,,0,1642866.0,France,2025
-2025,2,31,Rasheer Fleming,F,6-9,240,20,Saint Joseph's,Jr *,MIN to PHX,0,1642853.0,USA,2025
-2024,1,27,"Terrence Shannon, Jr.",F,6-6,215,23,Illinois,Sr,,1,1630545.0,USA,2025
-2024,2,37,Bobi Klintman,F,6-9,225,21,Cairns (Australia),2003 DOB *,MIN to DET,1,1641752.0,Sweden,2025
-2023,2,53,Jaylen Clark,G,6-5,205,21,UCLA,Jr *,,2,1641740.0,USA,2025
-2022,1,19,Jake LaRavia,F,6-7,235,20,Wake Forest,Jr *,MIN to MEM,3,1631222.0,USA,2025
-2022,2,40,Bryce McGowens,GF,6-6,190,19,Nebraska,Fr *,MIN to CHA,3,1631121.0,USA,2025
-2022,2,48,Kendall Brown,G,6-6,205,19,Baylor,Fr *,MIN to IND,3,1631112.0,USA,2023
-2022,2,50,Matteo Spagnolo,SG,6-6,196,19,Vanoli Cremona (Italy),2003 DOB *,,0,,,
-2020,1,1,Anthony Edwards,SF,6-4,225,19,Georgia,Fr *,,5,1630162.0,USA,2025
-2020,1,17,Aleksej Pokusevski,C,7-0,210,18,Olympiacos U18 (Greece),2001 DOB *,MIN to OKC,4,1630197.0,Serbia,2023
-2020,2,33,Daniel Oturu,FC,6-8,240,21,Minnesota,So *,MIN to LAC,2,1630187.0,USA,2021
-2019,1,11,Cameron Johnson,G,6-8,210,23,North Carolina,Sr,MIN to PHX,6,1629661.0,USA,2025
-2019,2,43,Jaylen Nowell,SG,6-4,201,19,Washington,So *,,6,1629669.0,USA,2024
-2018,1,20,Josh Okogie,SG,6-4,213,19,Georgia Tech,So *,,7,1629006.0,Nigeria,2025
-2018,2,48,Keita Bates-Diop,SF,6-8,229,22,Ohio State,Jr *,,6,1628966.0,USA,2023
-2017,1,7,Lauri Markkanen,SF,7-1,240,20,Arizona,Fr *,MIN to CHI,8,1628374.0,Finland,2025
-2016,1,5,Kris Dunn,SG,6-3,205,22,Providence,Jr *,,9,1627739.0,USA,2025
-2015,1,1,Karl-Anthony Towns,C,7-0,248,19,Kentucky,Fr *,,10,1626157.0,USA,2025
-2015,2,31,Cedi Osman,GF,6-7,230,20,Anadolu Efes (Turkey),1995 DOB *,MIN to CLE,7,1626224.0,Turkey,2023
-2015,2,36,Rakeem Christmas,PF,6-9,255,23,Syracuse,Sr,MIN to CLE CLE to IND,2,1626176.0,USA,2016
-2014,1,13,Zach LaVine,SG,6-5,200,19,UCLA,Fr *,,11,203897.0,USA,2025
-2014,2,40,Glenn Robinson,SF,6-6,222,20,Michigan,So *,,7,299.0,USA,2004
-2014,2,40,Glenn Robinson,SF,6-6,222,20,Michigan,So *,,7,203922.0,USA,2020
-2014,2,44,Markel Brown,SG,6-3,190,22,Oklahoma State,Sr,MIN to BRK,3,203900.0,USA,2017
-2014,2,53,Alessandro Gentile,SF,6-6,228,21,AX Armani Exchange Milan (Italy),1992 DOB,MIN to HOU,0,,,
-2013,1,9,Trey Burke,G,6-0,185,20,Michigan,So *,MIN to UTH,9,203504.0,USA,2021
-2013,1,26,Andre Roberson,SG,6-7,210,21,Colorado,Jr *,MIN to GOS GOS to OKC,8,203460.0,USA,2020
-2013,2,52,Lorenzo Brown,SG,6-5,189,22,NC State,Jr *,,5,203485.0,USA,2018
-2013,2,59,Bojan Dubljevic,FC,6-9,242,21,Valencia Basket (Spain),1991 DOB,MIN to POR POR to NYK,0,,,
-2012,2,58,Robbie Hummel,F,6-8,220,23,Purdue,Sr,,2,203133.0,USA,2014
-2011,1,2,Derrick Williams,F,6-8,240,20,Arizona,So *,,7,202682.0,USA,2017
-2011,1,20,Donatas Motiejunas,C,7-0,222,20,Universo De'Longhi Treviso (Italy),1990 DOB *,MIN to HOU,6,202700.0,Lithuania,2018
-2010,1,4,Wesley Johnson,GF,6-7,215,22,Syracuse,Jr *,,9,202325.0,USA,2018
-2010,1,16,Luke Babbitt,SF,6-9,225,21,Nevada,So *,MIN to POR,8,202337.0,USA,2017
-2010,1,23,Trevor Booker,PF,6-8,228,22,Clemson,Sr,MIN to WAS,8,202344.0,USA,2017
-2010,2,45,Paulao Prestes,C,6-11,260,22,UCAM Murcia CB (Spain),1988 DOB,,0,,,
-2010,2,56,Hamady Ndiaye,C,7-0,235,23,Rutgers,Sr,MIN to WAS,3,202380.0,Senegal,2013
-2009,1,5,Ricky Rubio,G,6-2,190,18,Joventut Badalona (Spain),1990 DOB *,,13,201937.0,Spain,2022
-2009,1,6,Jonny Flynn,PG,5-10,196,20,Syracuse,So *,,3,201938.0,USA,2011
-2009,1,18,Ty Lawson,PG,5-11,195,21,North Carolina,Jr *,MIN to DEN,9,201951.0,USA,2017
-2009,1,28,Wayne Ellington,SG,6-4,207,21,North Carolina,Jr *,,13,201961.0,USA,2021
-2009,2,45,Nick Calathes,PG,6-6,213,20,Florida,So *,MIN to DAL DAL to MEM,2,201979.0,USA,2014
-2009,2,47,Henk Norel,C,7-0,230,21,Joventut Badalona (Spain),1987 DOB,,0,,,
-2008,1,3,O.J. Mayo,SG,6-5,210,20,USC,Fr *,MIN to MEM,8,201564.0,USA,2015
-2008,2,31,Nikola Pekovic,PF,6-11,307,22,Panathinaikos (Greece),1986 DOB,,7,201593.0,Montenegro,2016
-2008,2,34,Mario Chalmers,G,6-2,190,22,Kansas,Jr *,MIN to MIA,10,201596.0,USA,2017
-2007,1,7,Corey Brewer,GF,6-9,186,21,Florida,Jr *,,13,201147.0,USA,2019
-2007,2,41,Chris Richard,F,6-9,255,22,Florida,Sr,,2,201181.0,USA,2009
-2006,1,6,Brandon Roy,G,6-6,211,21,Washington,Sr,MIN to POR,6,200750.0,USA,2012
-2006,2,36,Craig Smith,PF,6-7,250,22,Boston College,Sr,,6,200783.0,USA,2011
-2006,2,37,Bobby Jones,F,6-7,215,22,Washington,Sr,MIN to PHL,2,77193.0,USA,1985
-2006,2,37,Bobby Jones,F,6-7,215,22,Washington,Sr,MIN to PHL,2,200784.0,USA,2007
-2006,2,57,Loukas Mavrokefalidis,C,6-10,260,21,PAOK BC (Greece),1984 DOB,,0,,,
-2005,1,14,Rashad McCants,G,6-4,200,20,North Carolina,Jr *,,4,101119.0,USA,2008
-2005,2,47,Bracey Wright,G,6-3,210,20,Indiana,Jr *,,2,101152.0,USA,2006
-2004,2,58,Blake Stepp,G,6-4,192,22,Gonzaga,Sr,,1,,,
-2003,1,26,Ndudi Ebi,F,6-9,231,19,Westbury Christian School (Texas),1984 DOB *,,2,2569.0,USA,2004
-2003,2,55,Rick Rickert,PF,6-11,215,20,Minnesota,So *,,1,,,
-2002,2,51,Marcus Taylor,G,6-3,195,20,Michigan State,So *,,1,,,
-2001,2,45,Loren Woods,C,7-1,245,23,Arizona,Sr,,6,2254.0,USA,2007
-2000,2,51,Igor Rakocevic,G,6-3,183,22,KK Crvena Zvezda (Serbia),1978 DOB,,1,2080.0,Serbia,2002
-1999,1,6,Wally Szczerbiak,F,6-7,240,22,Miami (OH),Sr,,10,1887.0,USA,2008
-1999,1,14,William Avery,PG,6-2,197,19,Duke,So *,,4,1895.0,USA,2002
-1999,2,42,Louis Bullock,G,6-1,180,23,Michigan,Sr,MIN to ORL,1,,,
-1998,1,17,Rasho Nesterovic,C,7-0,255,22,Virtus Bologna (Italy),1976 DOB,,12,1725.0,Slovenia,2009
-1998,2,46,Andrae Patterson,F-C,6-9,255,22,Indiana,Sr,,3,1754.0,USA,1999
-1997,1,20,Paul Grant,C,7-0,245,23,Wisconsin,Sr,,7,1514.0,USA,2003
-1997,2,43,Gordon Malone,C,6-11,215,22,West Virginia,Jr *,,1,,,
-1996,1,5,Ray Allen,SG,6-5,205,20,UConn,Jr *,MIN to MIL,18,951.0,USA,2013
-1995,1,5,Kevin Garnett,PF,6-11,240,19,Farragut Career Academy (Illinois),1976 DOB *,,21,708.0,USA,2015
-1995,2,48,Mark Davis,G-F,6-7,210,22,Texas Tech,Sr,,6,707.0,USA,1999
-1995,2,48,Mark Davis,G-F,6-7,210,22,Texas Tech,Sr,,6,76528.0,USA,1988
-1995,2,49,Jerome Allen,G,6-4,185,22,Pennsylvania,Sr,,4,706.0,USA,1996
-1994,1,4,Donyell Marshall,F,6-9,245,21,UConn,Jr *,,15,923.0,USA,2008
-1994,2,30,Howard Eisley,G,6-2,177,21,Boston College,Sr,,12,458.0,USA,2005
-1993,1,5,J.R. Rider,SG,6-5,215,22,UNLV,Sr,,9,,,
-1993,2,29,Sherron Mills,F,6-8,220,21,VCU,Sr,,1,,,
-1992,1,3,Christian Laettner,PF,6-11,245,22,Duke,Sr,,13,363.0,USA,2004
-1992,2,28,Marlon Maxey,F,6-8,250,23,UTEP,Sr,,2,77486.0,USA,1993
-1992,2,34,Chris Smith,G,6-3,190,22,UConn,Sr,,4,1814.0,USA,1994
-1992,2,34,Chris Smith,G,6-3,190,22,UConn,Sr,,4,203147.0,USA,2013
-1992,2,51,Tim Burroughs,PF,6-8,250,22,Jacksonville,Sr,MIN to WAS,0,,,
-1991,1,7,Luc Longley,C,7-3,298,22,New Mexico,Sr,,10,26.0,USA,2000
-1991,2,34,Myron Brown,SG,6-3,180,21,Slippery Rock,Sr,,1,76277.0,USA,1991
-1990,1,6,Felton Spencer,C,7-0,265,22,Louisville,Sr,,12,280.0,USA,2001
-1990,1,20,Gerald Glass,F,6-5,240,22,Ole Miss,Sr,,5,76821.0,USA,1995
-1989,1,10,Pooh Richardson,PG,6-1,180,23,UCLA,Sr,,11,71.0,USA,1998
-1989,2,34,Gary Leonard,C,7-1,250,22,Missouri,Sr,,3,77370.0,USA,1991
-1989,2,38,Doug West,G-F,6-6,200,22,Villanova,Sr,,12,28.0,USA,2000
-1985,1,22,Jerry Reynolds,PF,6-8,200,22,LSU,Jr *,,8,77946.0,USA,1995
+Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
+2025,1,17,Joan Beringer,C,6-11,230,18,Cedevita (Croatia),2006 DOB *,,0,1642866.0,France,2025,0.0
+2025,2,31,Rasheer Fleming,F,6-9,240,20,Saint Joseph's,Jr *,MIN to PHX,0,1642853.0,USA,2025,0.0
+2024,1,27,"Terrence Shannon, Jr.",F,6-6,215,23,Illinois,Sr,,1,1630545.0,USA,2025,0.0
+2024,2,37,Bobi Klintman,F,6-9,225,21,Cairns (Australia),2003 DOB *,MIN to DET,1,1641752.0,Sweden,2025,0.0
+2023,2,53,Jaylen Clark,G,6-5,205,21,UCLA,Jr *,,2,1641740.0,USA,2025,0.0
+2022,1,19,Jake LaRavia,F,6-7,235,20,Wake Forest,Jr *,MIN to MEM,3,1631222.0,USA,2025,0.0
+2022,2,40,Bryce McGowens,GF,6-6,190,19,Nebraska,Fr *,MIN to CHA,3,1631121.0,USA,2025,0.0
+2022,2,48,Kendall Brown,G,6-6,205,19,Baylor,Fr *,MIN to IND,3,1631112.0,USA,2023,0.0
+2022,2,50,Matteo Spagnolo,SG,6-6,196,19,Vanoli Cremona (Italy),2003 DOB *,,0,,,,
+2020,1,1,Anthony Edwards,SF,6-4,225,19,Georgia,Fr *,,5,1630162.0,USA,2025,0.0
+2020,1,17,Aleksej Pokusevski,C,7-0,210,18,Olympiacos U18 (Greece),2001 DOB *,MIN to OKC,4,1630197.0,Serbia,2023,0.0
+2020,2,33,Daniel Oturu,FC,6-8,240,21,Minnesota,So *,MIN to LAC,2,1630187.0,USA,2021,0.0
+2019,1,11,Cameron Johnson,G,6-8,210,23,North Carolina,Sr,MIN to PHX,6,1629661.0,USA,2025,0.0
+2019,2,43,Jaylen Nowell,SG,6-4,201,19,Washington,So *,,6,1629669.0,USA,2024,0.0
+2018,1,20,Josh Okogie,SG,6-4,213,19,Georgia Tech,So *,,7,1629006.0,Nigeria,2025,0.0
+2018,2,48,Keita Bates-Diop,SF,6-8,229,22,Ohio State,Jr *,,6,1628966.0,USA,2023,0.0
+2017,1,7,Lauri Markkanen,SF,7-1,240,20,Arizona,Fr *,MIN to CHI,8,1628374.0,Finland,2025,0.0
+2016,1,5,Kris Dunn,SG,6-3,205,22,Providence,Jr *,,9,1627739.0,USA,2025,0.0
+2015,1,1,Karl-Anthony Towns,C,7-0,248,19,Kentucky,Fr *,,10,1626157.0,USA,2025,0.0
+2015,2,31,Cedi Osman,GF,6-7,230,20,Anadolu Efes (Turkey),1995 DOB *,MIN to CLE,7,1626224.0,Turkey,2023,0.0
+2015,2,36,Rakeem Christmas,PF,6-9,255,23,Syracuse,Sr,MIN to CLE CLE to IND,2,1626176.0,USA,2016,0.0
+2014,1,13,Zach LaVine,SG,6-5,200,19,UCLA,Fr *,,11,203897.0,USA,2025,0.0
+2014,2,40,Glenn Robinson,SF,6-6,222,20,Michigan,So *,,7,299.0,USA,2004,0.0
+2014,2,40,Glenn Robinson,SF,6-6,222,20,Michigan,So *,,7,203922.0,USA,2020,0.0
+2014,2,44,Markel Brown,SG,6-3,190,22,Oklahoma State,Sr,MIN to BKN,3,203900.0,USA,2017,0.0
+2014,2,53,Alessandro Gentile,SF,6-6,228,21,AX Armani Exchange Milan (Italy),1992 DOB,MIN to HOU,0,,,,
+2013,1,9,Trey Burke,G,6-0,185,20,Michigan,So *,MIN to UTA,9,203504.0,USA,2021,0.0
+2013,1,26,Andre Roberson,SG,6-7,210,21,Colorado,Jr *,MIN to GSW GSW to OKC,8,203460.0,USA,2020,0.0
+2013,2,52,Lorenzo Brown,SG,6-5,189,22,NC State,Jr *,,5,203485.0,USA,2018,0.0
+2013,2,59,Bojan Dubljevic,FC,6-9,242,21,Valencia Basket (Spain),1991 DOB,MIN to POR POR to NYK,0,,,,
+2012,2,58,Robbie Hummel,F,6-8,220,23,Purdue,Sr,,2,203133.0,USA,2014,0.0
+2011,1,2,Derrick Williams,F,6-8,240,20,Arizona,So *,,7,202682.0,USA,2017,0.0
+2011,1,20,Donatas Motiejunas,C,7-0,222,20,Universo De'Longhi Treviso (Italy),1990 DOB *,MIN to HOU,6,202700.0,Lithuania,2018,0.0
+2010,1,4,Wesley Johnson,GF,6-7,215,22,Syracuse,Jr *,,9,202325.0,USA,2018,0.0
+2010,1,16,Luke Babbitt,SF,6-9,225,21,Nevada,So *,MIN to POR,8,202337.0,USA,2017,0.0
+2010,1,23,Trevor Booker,PF,6-8,228,22,Clemson,Sr,MIN to WAS,8,202344.0,USA,2017,0.0
+2010,2,45,Paulao Prestes,C,6-11,260,22,UCAM Murcia CB (Spain),1988 DOB,,0,,,,
+2010,2,56,Hamady Ndiaye,C,7-0,235,23,Rutgers,Sr,MIN to WAS,3,202380.0,Senegal,2013,0.0
+2009,1,5,Ricky Rubio,G,6-2,190,18,Joventut Badalona (Spain),1990 DOB *,,13,201937.0,Spain,2022,0.0
+2009,1,6,Jonny Flynn,PG,5-10,196,20,Syracuse,So *,,3,201938.0,USA,2011,0.0
+2009,1,18,Ty Lawson,PG,5-11,195,21,North Carolina,Jr *,MIN to DEN,9,201951.0,USA,2017,0.0
+2009,1,28,Wayne Ellington,SG,6-4,207,21,North Carolina,Jr *,,13,201961.0,USA,2021,0.0
+2009,2,45,Nick Calathes,PG,6-6,213,20,Florida,So *,MIN to DAL DAL to MEM,2,201979.0,USA,2014,0.0
+2009,2,47,Henk Norel,C,7-0,230,21,Joventut Badalona (Spain),1987 DOB,,0,,,,
+2008,1,3,O.J. Mayo,SG,6-5,210,20,USC,Fr *,MIN to MEM,8,201564.0,USA,2015,0.0
+2008,2,31,Nikola Pekovic,PF,6-11,307,22,Panathinaikos (Greece),1986 DOB,,7,201593.0,Montenegro,2016,0.0
+2008,2,34,Mario Chalmers,G,6-2,190,22,Kansas,Jr *,MIN to MIA,10,201596.0,USA,2017,0.0
+2007,1,7,Corey Brewer,GF,6-9,186,21,Florida,Jr *,,13,201147.0,USA,2019,0.0
+2007,2,41,Chris Richard,F,6-9,255,22,Florida,Sr,,2,201181.0,USA,2009,0.0
+2006,1,6,Brandon Roy,G,6-6,211,21,Washington,Sr,MIN to POR,6,200750.0,USA,2012,0.0
+2006,2,36,Craig Smith,PF,6-7,250,22,Boston College,Sr,,6,200783.0,USA,2011,0.0
+2006,2,37,Bobby Jones,F,6-7,215,22,Washington,Sr,MIN to PHI,2,77193.0,USA,1985,0.0
+2006,2,37,Bobby Jones,F,6-7,215,22,Washington,Sr,MIN to PHI,2,200784.0,USA,2007,0.0
+2006,2,57,Loukas Mavrokefalidis,C,6-10,260,21,PAOK BC (Greece),1984 DOB,,0,,,,
+2005,1,14,Rashad McCants,G,6-4,200,20,North Carolina,Jr *,,4,101119.0,USA,2008,0.0
+2005,2,47,Bracey Wright,G,6-3,210,20,Indiana,Jr *,,2,101152.0,USA,2006,0.0
+2004,2,58,Blake Stepp,G,6-4,192,22,Gonzaga,Sr,,1,,,,
+2003,1,26,Ndudi Ebi,F,6-9,231,19,Westbury Christian School (Texas),1984 DOB *,,2,2569.0,USA,2004,0.0
+2003,2,55,Rick Rickert,PF,6-11,215,20,Minnesota,So *,,1,,,,
+2002,2,51,Marcus Taylor,G,6-3,195,20,Michigan State,So *,,1,,,,
+2001,2,45,Loren Woods,C,7-1,245,23,Arizona,Sr,,6,2254.0,USA,2007,0.0
+2000,2,51,Igor Rakocevic,G,6-3,183,22,KK Crvena Zvezda (Serbia),1978 DOB,,1,2080.0,Serbia,2002,0.0
+1999,1,6,Wally Szczerbiak,F,6-7,240,22,Miami (OH),Sr,,10,1887.0,USA,2008,0.0
+1999,1,14,William Avery,PG,6-2,197,19,Duke,So *,,4,1895.0,USA,2002,0.0
+1999,2,42,Louis Bullock,G,6-1,180,23,Michigan,Sr,MIN to ORL,1,,,,
+1998,1,17,Rasho Nesterovic,C,7-0,255,22,Virtus Bologna (Italy),1976 DOB,,12,1725.0,Slovenia,2009,0.0
+1998,2,46,Andrae Patterson,F-C,6-9,255,22,Indiana,Sr,,3,1754.0,USA,1999,0.0
+1997,1,20,Paul Grant,C,7-0,245,23,Wisconsin,Sr,,7,1514.0,USA,2003,0.0
+1997,2,43,Gordon Malone,C,6-11,215,22,West Virginia,Jr *,,1,,,,
+1996,1,5,Ray Allen,SG,6-5,205,20,UConn,Jr *,MIN to MIL,18,951.0,USA,2013,0.0
+1995,1,5,Kevin Garnett,PF,6-11,240,19,Farragut Career Academy (Illinois),1976 DOB *,,21,708.0,USA,2015,0.0
+1995,2,48,Mark Davis,G-F,6-7,210,22,Texas Tech,Sr,,6,707.0,USA,1999,0.0
+1995,2,48,Mark Davis,G-F,6-7,210,22,Texas Tech,Sr,,6,76528.0,USA,1988,0.0
+1995,2,49,Jerome Allen,G,6-4,185,22,Pennsylvania,Sr,,4,706.0,USA,1996,0.0
+1994,1,4,Donyell Marshall,F,6-9,245,21,UConn,Jr *,,15,923.0,USA,2008,0.0
+1994,2,30,Howard Eisley,G,6-2,177,21,Boston College,Sr,,12,458.0,USA,2005,0.0
+1993,1,5,J.R. Rider,SG,6-5,215,22,UNLV,Sr,,9,,,,
+1993,2,29,Sherron Mills,F,6-8,220,21,VCU,Sr,,1,,,,
+1992,1,3,Christian Laettner,PF,6-11,245,22,Duke,Sr,,13,363.0,USA,2004,0.0
+1992,2,28,Marlon Maxey,F,6-8,250,23,UTEP,Sr,,2,77486.0,USA,1993,0.0
+1992,2,34,Chris Smith,G,6-3,190,22,UConn,Sr,,4,1814.0,USA,1994,0.0
+1992,2,34,Chris Smith,G,6-3,190,22,UConn,Sr,,4,203147.0,USA,2013,0.0
+1992,2,51,Tim Burroughs,PF,6-8,250,22,Jacksonville,Sr,MIN to WAS,0,,,,
+1991,1,7,Luc Longley,C,7-3,298,22,New Mexico,Sr,,10,26.0,USA,2000,0.0
+1991,2,34,Myron Brown,SG,6-3,180,21,Slippery Rock,Sr,,1,76277.0,USA,1991,0.0
+1990,1,6,Felton Spencer,C,7-0,265,22,Louisville,Sr,,12,280.0,USA,2001,0.0
+1990,1,20,Gerald Glass,F,6-5,240,22,Ole Miss,Sr,,5,76821.0,USA,1995,0.0
+1989,1,10,Pooh Richardson,PG,6-1,180,23,UCLA,Sr,,11,71.0,USA,1998,0.0
+1989,2,34,Gary Leonard,C,7-1,250,22,Missouri,Sr,,3,77370.0,USA,1991,0.0
+1989,2,38,Doug West,G-F,6-6,200,22,Villanova,Sr,,12,28.0,USA,2000,0.0
+1985,1,22,Jerry Reynolds,PF,6-8,200,22,LSU,Jr *,,8,77946.0,USA,1995,0.0

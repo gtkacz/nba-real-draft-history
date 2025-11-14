@@ -49,7 +49,7 @@ def main() -> None:  # noqa: D103
 
         # For all matched players, copy the nba_id to the current DataFrame
         curr_df = curr_df.merge(
-            nba_df[["nba_id", "treated_name", "COUNTRY", "TO_YEAR"]],
+            nba_df[["nba_id", "treated_name", "COUNTRY", "TO_YEAR", "IS_DEFUNCT"]],
             on="treated_name",
             how="left",
         )
@@ -60,6 +60,7 @@ def main() -> None:  # noqa: D103
             columns={
                 "COUNTRY": "origin_country",
                 "TO_YEAR": "played_until_year",
+                "IS_DEFUNCT": "is_defunct",
             },
         )
 

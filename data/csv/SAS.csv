@@ -1,18 +1,18 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2025,1,2,Dylan Harper,GF,6-5,215.0,19.0,Rutgers,Fr *,,0
 2025,1,14,Carter Bryant,F,6-6,220.0,19.0,Arizona,Fr *,,0
-2025,2,38,Kam Jones,F,6-4,200.0,23.0,Marquette,Sr,SAN to IND,0
+2025,2,38,Kam Jones,F,6-4,200.0,23.0,Marquette,Sr,SAS to IND,0
 2024,1,4,Stephon Castle,G,6-6,215.0,19.0,UConn,Fr *,,1
-2024,1,8,Rob Dillingham,G,6-2,175.0,19.0,Kentucky,Fr *,SAN to MIN,1
-2024,2,35,Johnny Furphy,F,6-8,200.0,19.0,Kansas,Fr *,SAN to IND,1
+2024,1,8,Rob Dillingham,G,6-2,175.0,19.0,Kentucky,Fr *,SAS to MIN,1
+2024,2,35,Johnny Furphy,F,6-8,200.0,19.0,Kansas,Fr *,SAS to IND,1
 2024,2,48,Harrison Ingram,F,6-5,230.0,21.0,North Carolina,Jr *,,1
 2023,1,1,Victor Wembanyama,F,7-4,235.0,19.0,Boulogne-Levallois (France),2004 DOB *,,2
-2023,2,33,Leonard Miller,F,6-10,220.0,19.0,NBA G League Ignite,2003 DOB,SAN to MIN,2
+2023,2,33,Leonard Miller,F,6-10,220.0,19.0,NBA G League Ignite,2003 DOB,SAS to MIN,2
 2023,2,44,Sidy Cissoko,GF,6-6,220.0,19.0,NBA G League Ignite,2004 DOB,,2
 2022,1,9,Jeremy Sochan,SG,6-8,230.0,19.0,Baylor,Fr *,,3
 2022,1,20,Malaki Branham,GF,6-4,180.0,19.0,Ohio State,Fr *,,3
 2022,1,25,Blake Wesley,SG,6-4,190.0,19.0,Notre Dame,Fr *,,3
-2022,2,38,Kennedy Chandler,PG,6-0,170.0,19.0,Tennessee,Fr *,SAN to MEM,1
+2022,2,38,Kennedy Chandler,PG,6-0,170.0,19.0,Tennessee,Fr *,SAS to MEM,1
 2021,1,12,Joshua Primo,G,6-4,189.0,18.0,Alabama,Fr *,,3
 2021,2,41,Joe Wieskamp,SF,6-6,212.0,21.0,Iowa,Jr *,,2
 2020,1,11,Devin Vassell,SG,6-5,200.0,20.0,Florida State,So *,,5
@@ -25,11 +25,11 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2017,1,29,Derrick White,G,6-4,190.0,22.0,Colorado,Sr,,8
 2017,2,59,Jaron Blossomgame,F,6-8,220.0,23.0,Clemson,Sr,,1
 2016,1,29,Dejounte Murray,SG,6-4,180.0,19.0,Washington,Fr *,,9
-2015,1,26,Nikola Milutinov,C,7-0,220.0,20.0,KK Partizan (Serbia),1994 DOB *,SAN to BRK,0
-2015,2,55,Cady Lalanne,FC,6-9,242.0,23.0,Massachusetts,Sr,SAN to GOS,0
+2015,1,26,Nikola Milutinov,C,7-0,220.0,20.0,KK Partizan (Serbia),1994 DOB *,SAS to BKN,0
+2015,2,55,Cady Lalanne,FC,6-9,242.0,23.0,Massachusetts,Sr,SAS to GSW,0
 2014,1,30,Kyle Anderson,PF,6-8,230.0,20.0,UCLA,So *,,11
-2014,2,58,Jordan McRae,G,6-5,179.0,23.0,Tennessee,Sr,SAN to PHL,4
-2014,2,60,Cory Jefferson,PF,6-9,215.0,23.0,Baylor,Sr,SAN to PHL PHL to BRK,2
+2014,2,58,Jordan McRae,G,6-5,179.0,23.0,Tennessee,Sr,SAS to PHI,4
+2014,2,60,Cory Jefferson,PF,6-9,215.0,23.0,Baylor,Sr,SAS to PHI PHI to BKN,2
 2013,1,28,Livio Jean-Charles,SF,6-9,230.0,19.0,ASVEL Basket (France),1993 DOB *,,0
 2013,2,58,Deshaun Thomas,F,6-7,220.0,21.0,Ohio State,Jr *,,0
 2012,2,59,Marcus Denmon,G,6-3,185.0,22.0,Missouri,Sr,,0
@@ -41,32 +41,32 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2009,2,51,Jack McClinton,G,6-1,185.0,24.0,Miami (FL),Sr,,0
 2009,2,53,Nando De Colo,G,6-5,195.0,22.0,Cholet Basket (France),1987 DOB,,2
 2008,1,26,George Hill,G,6-3,188.0,22.0,IU Indy,Jr *,,15
-2008,2,45,Goran Dragic,G,6-4,190.0,22.0,Union Olimpija (Slovenia),1986 DOB,SAN to PHX,15
+2008,2,45,Goran Dragic,G,6-4,190.0,22.0,Union Olimpija (Slovenia),1986 DOB,SAS to PHX,15
 2008,2,57,James Gist,PF,6-9,235.0,21.0,Maryland,Sr,,0
 2007,1,28,Tiago Splitter,F,6-11,245.0,22.0,Baskonia (Spain),1985 DOB,,7
 2007,2,33,Marcus E. Williams,F,6-7,207.0,20.0,Arizona,So *,,2
-2007,2,58,Georgios Printezis,F,6-9,235.0,22.0,Ifestos Limnou (Greece),1985 DOB,SAN to TOR TOR to DAL DAL to NYK NYK to POR POR to OKC OKC to ATL ATL to SAN,0
-2006,2,59,Damir Markota,PF,6-10,260.0,20.0,KK Cibona (Croatia),1985 DOB *,SAN to MIL,1
+2007,2,58,Georgios Printezis,F,6-9,235.0,22.0,Ifestos Limnou (Greece),1985 DOB,SAS to TOR TOR to DAL DAL to NYK NYK to POR POR to OKC OKC to ATL ATL to SAS,0
+2006,2,59,Damir Markota,PF,6-10,260.0,20.0,KK Cibona (Croatia),1985 DOB *,SAS to MIL,1
 2005,1,28,Ian Mahinmi,C,6-11,262.0,18.0,STB Le Havre (France),1986 DOB *,,13
 2004,1,28,Beno Udrih,G,6-4,205.0,21.0,AX Armani Exchange Milan (Italy),1982 DOB,,13
 2004,2,52,Romain Sato,GF,6-5,205.0,23.0,Xavier,Sr,,1
 2004,2,57,Sergei Karaulov,C,6-10,254.0,22.0,Sakha-Yakutia Yakutsk (Russia),1982 DOB,,0
-2003,1,28,Leandro Barbosa,G,6-3,194.0,20.0,Bauru (Brazil),1982 DOB *,SAN to PHX,14
-2002,1,26,John Salmons,GF,6-7,210.0,22.0,Miami (FL),Sr,SAN to PHL,13
-2002,2,55,Luis Scola,PF,6-9,241.0,22.0,Baskonia (Spain),1980 DOB,SAN to HOU,10
-2002,2,56,Raed Farid Elhamali,F,6-9,225.0,22.0,San Diego State,Sr,SAN to PHL PHL to ATL,3
+2003,1,28,Leandro Barbosa,G,6-3,194.0,20.0,Bauru (Brazil),1982 DOB *,SAS to PHX,14
+2002,1,26,John Salmons,GF,6-7,210.0,22.0,Miami (FL),Sr,SAS to PHI,13
+2002,2,55,Luis Scola,PF,6-9,241.0,22.0,Baskonia (Spain),1980 DOB,SAS to HOU,10
+2002,2,56,Raed Farid Elhamali,F,6-9,225.0,22.0,San Diego State,Sr,SAS to PHI PHI to ATL,3
 2001,1,28,Tony Parker,G,6-2,185.0,19.0,Paris Basket Racing (France),1982 DOB *,,18
 2001,2,55,Robertas Javtokas,PF,6-11,247.0,21.0,Lietuvos Rytas (Lithuania),1980 DOB *,,0
 2001,2,57,Bryan Bracey,F,6-7,210.0,22.0,Oregon,Sr,,1
 2000,2,41,Chris Carrawell,F,6-6,215.0,22.0,Duke,Sr,,1
-2000,2,54,Cory Hightower,G-F,6-8,200.0,20.0,Indian Hills,So *,SAN to LAL,2
-1999,1,29,Leon Smith,PF,6-10,235.0,18.0,King College Prep High School (Illinois),1980 DOB *,SAN to DAL,5
+2000,2,54,Cory Hightower,G-F,6-8,200.0,20.0,Indian Hills,So *,SAS to LAL,2
+1999,1,29,Leon Smith,PF,6-10,235.0,18.0,King College Prep High School (Illinois),1980 DOB *,SAS to DAL,5
 1999,2,57,Manu Ginobili,SG,6-6,205.0,21.0,Viola Reggio Calabria (Italy),1977 DOB,,16
-1998,1,24,Felipe Lopez,SF,6-5,199.0,23.0,St. John's,Sr,SAN to VAN,6
+1998,1,24,Felipe Lopez,SF,6-5,199.0,23.0,St. John's,Sr,SAS to VAN,6
 1998,2,52,Derrick Dial,G,6-4,184.0,22.0,Eastern Michigan,Sr,,5
 1997,1,1,Tim Duncan,FC,6-11,250.0,21.0,Wake Forest,Sr,,19
 1995,1,29,Cory Alexander,G,6-1,185.0,22.0,Virginia,Jr *,,7
-1994,1,22,Bill Curley,F,6-9,220.0,22.0,Boston College,Sr,SAN to DET,8
+1994,1,22,Bill Curley,F,6-9,220.0,22.0,Boston College,Sr,SAS to DET,8
 1993,2,47,Chris Whitney,PG,6-0,168.0,21.0,Clemson,Sr,,11
 1992,2,44,Henry Williams,G,6-1,170.0,22.0,Charlotte,Sr,,1
 1991,2,49,Greg Sutton,G,6-2,170.0,23.0,Oral Roberts,Sr,,5
@@ -143,7 +143,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1980,1,15,Reggie Johnson,F,6-9,205.0,22.0,Tennessee,Sr,,4
 1980,2,39,Michael Wiley,PF,6-9,200.0,22.0,Long Beach State,Sr,,2
 1980,3,60,Lavon Mercer,PF,6-10,220.0,21.0,Georgia,Sr,,0
-1980,3,61,Rich Yonakor,PF,6-9,220.0,21.0,North Carolina,Sr,SAN to CLE,2
+1980,3,61,Rich Yonakor,PF,6-9,220.0,21.0,North Carolina,Sr,SAS to CLE,2
 1980,4,83,Calvin Roberts,F,6-7,220.0,24.0,Cal State Fullerton,Sr,,0
 1980,5,107,Gib Hinz,,,,,Wisconsin-Eau Claire,Sr,,0
 1980,6,129,Dean Uthoff,C,6-11,,,Iowa State,Sr,,0

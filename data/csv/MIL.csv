@@ -13,7 +13,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2017,2,48,Sindarius Thornwell,SG,6-4,215.0,22.0,South Carolina,Sr,MIL to LAC,3
 2016,1,10,Thon Maker,C,7-0,221.0,19.0,Athlete Institute Prep (Ontario),1997 DOB *,,5
 2016,2,36,Malcolm Brogdon,SG,6-5,229.0,23.0,Virginia,Sr,,9
-2016,2,38,Patrick McCaw,G,6-7,181.0,20.0,UNLV,So *,MIL to GOS,5
+2016,2,38,Patrick McCaw,G,6-7,181.0,20.0,UNLV,So *,MIL to GSW,5
 2015,1,17,Rashad Vaughn,SF,6-6,210.0,18.0,UNLV,Fr *,,3
 2015,2,46,Norman Powell,SG,6-3,215.0,22.0,UCLA,Sr,MIL to TOR,10
 2014,1,2,Jabari Parker,F,6-8,245.0,19.0,Duke,Fr *,,8
@@ -21,7 +21,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2014,2,36,Johnny O'Bryant,FC,6-9,257.0,21.0,LSU,Jr *,,4
 2014,2,48,Lamar Patterson,F,6-5,225.0,22.0,Pittsburgh,Sr,MIL to ATL,2
 2013,1,15,Giannis Antetokounmpo,F,6-11,243.0,18.0,Filathlitikos Div II Greece (Greece),1994 DOB *,,12
-2013,2,43,Ricky Ledo,GF,6-7,197.0,20.0,Providence,Fr *,MIL to PHL PHL to DAL,2
+2013,2,43,Ricky Ledo,GF,6-7,197.0,20.0,Providence,Fr *,MIL to PHI PHI to DAL,2
 2012,1,14,John Henson,PF,6-11,219.0,21.0,North Carolina,Jr *,,9
 2012,2,42,Doron Lamb,SG,6-4,210.0,20.0,Kentucky,So *,,2
 2011,1,10,Jimmer Fredette,G,6-2,195.0,22.0,Brigham Young,Sr,MIL to SAC,6
@@ -67,7 +67,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1994,2,46,Voshon Lenard,SG,6-4,205.0,21.0,Minnesota,Jr *,,11
 1993,1,8,Vin Baker,PF,6-11,240.0,21.0,Hartford,Sr,,14
 1992,1,8,Todd Day,GF,6-6,188.0,22.0,Arkansas,Sr,,8
-1992,1,18,Tracy Murray,F,6-7,225.0,20.0,UCLA,Jr *,MIL to SAN SAN to POR,13
+1992,1,18,Tracy Murray,F,6-7,225.0,20.0,UCLA,Jr *,MIL to SAS SAS to POR,13
 1992,1,23,Lee Mayberry,G,6-1,172.0,22.0,Arkansas,Sr,,8
 1991,1,18,Kevin Brooks,PF,6-8,210.0,21.0,Louisiana,Sr,MIL to DEN,3
 1991,2,45,Bobby Phills,SG,6-5,215.0,21.0,Southern,Sr,,8
@@ -115,7 +115,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1983,9,202,Bill Varner,,,,,Notre Dame,Sr,,1
 1983,10,223,Bob Kelly,,,,,St. John's,Sr,,0
 1982,1,20,Paul Pressey,SF,6-5,185.0,23.0,Tulsa,Sr,,11
-1982,2,27,Fred Roberts,FC,6-10,218.0,21.0,Brigham Young,Sr,MIL to NJN NJN to SAN,14
+1982,2,27,Fred Roberts,FC,6-10,218.0,21.0,Brigham Young,Sr,MIL to NJN NJN to SAS,14
 1982,4,89,Jerry Beck,PF,6-7,200.0,,Middle Tennessee State,Sr,,0
 1982,6,135,Tony Carr,,,,,Wisconsin-Eau Claire,Sr,,0
 1982,7,158,Bobby Austin,,,,,Cincinnati,Sr,,0

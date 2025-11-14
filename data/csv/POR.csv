@@ -8,7 +8,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2023,1,23,Kris Murray,F,6-8,218.0,22.0,Iowa,Jr *,,2
 2023,2,43,Rayan Rupert,G,6-7,205.0,19.0,New Zealand (New Zealand),2004 DOB *,,2
 2022,1,7,Shaedon Sharpe,F,6-5,210.0,19.0,Kentucky,RS-Fr *,,3
-2022,2,36,Gabriele Procida,SG,6-6,191.0,20.0,Fortituto Kontatto Bologna (Italy),2002 DOB *,POR to DET DET to UTH,0
+2022,2,36,Gabriele Procida,SG,6-6,191.0,20.0,Fortituto Kontatto Bologna (Italy),2002 DOB *,POR to DET DET to UTA,0
 2022,2,57,Jabari Walker,F,6-7,237.0,19.0,Colorado,So *,,3
 2020,1,16,Isaiah Stewart II,C,6-8,250.0,19.0,Washington,Fr *,POR to HOU HOU to DET,5
 2020,2,46,C.J. Elleby,SF,6-6,200.0,20.0,Washington State,So *,,2
@@ -17,7 +17,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2017,1,15,Justin Jackson,F,6-8,220.0,22.0,North Carolina,Jr *,POR to SAC,7
 2017,1,20,Harry Giles,PF,6-10,240.0,19.0,Duke,Fr *,POR to SAC,5
 2017,1,26,Caleb Swanigan,C,6-9,260.0,20.0,Purdue,So *,,3
-2015,1,23,Rondae Hollis-Jefferson,SF,6-6,217.0,20.0,Arizona,So *,POR to BRK,6
+2015,1,23,Rondae Hollis-Jefferson,SF,6-6,217.0,20.0,Arizona,So *,POR to BKN,6
 2013,1,10,C.J. McCollum,G,6-3,190.0,21.0,Lehigh,Sr,,12
 2013,2,39,Jeff Withey,C,7-0,230.0,23.0,Kansas,Sr,POR to NOP,5
 2013,2,40,Grant Jerrett,PF,6-10,232.0,19.0,Arizona,Fr *,POR to OKC,2
@@ -25,7 +25,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2012,1,6,Damian Lillard,G,6-2,200.0,21.0,Weber State,Jr *,,13
 2012,1,11,Meyers Leonard,C,7-0,260.0,20.0,Illinois,So *,,10
 2012,2,40,Will Barton,GF,6-5,181.0,21.0,Memphis,So *,,11
-2012,2,41,Tyshawn Taylor,G,6-3,185.0,22.0,Kansas,Sr,POR to BRK,2
+2012,2,41,Tyshawn Taylor,G,6-3,185.0,22.0,Kansas,Sr,POR to BKN,2
 2011,1,21,Nolan Smith,G,6-2,190.0,22.0,Duke,Sr,,2
 2011,2,51,Jon Diebler,SF,6-6,205.0,23.0,Ohio State,Sr,POR to HOU HOU to CHI,0
 2010,1,22,Elliot Williams,G,6-5,190.0,21.0,Memphis,So *,,6
@@ -40,7 +40,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2008,2,55,Mike Taylor,PG,6-2,165.0,22.0,Idaho Stampede,1986 DOB,POR to LAC,1
 2007,1,1,Greg Oden,C,7-0,273.0,19.0,Ohio State,Fr *,,6
 2007,2,37,Josh McRoberts,PF,6-10,240.0,20.0,Duke,So *,,11
-2007,2,42,Derrick Byars,SF,6-7,220.0,23.0,Vanderbilt,Sr,POR to PHL,2
+2007,2,42,Derrick Byars,SF,6-7,220.0,23.0,Vanderbilt,Sr,POR to PHI,2
 2007,2,52,Taurean Green,PG,6-0,177.0,20.0,Florida,Jr *,,1
 2007,2,53,Demetris Nichols,SF,6-8,216.0,22.0,Syracuse,Sr,POR to NYK,2
 2006,1,4,Tyrus Thomas,F,6-9,215.0,19.0,LSU,Fr *,POR to CHI,8
@@ -48,7 +48,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2006,2,31,James White,SF,6-7,215.0,23.0,Cincinnati,Sr,POR to IND,3
 2005,1,6,Martell Webster,SF,6-7,230.0,18.0,Seattle Preparatory School (Washington),1986 DOB *,,11
 2005,1,27,Linas Kleiza,F,6-8,234.0,20.0,Missouri,So *,POR to DEN,7
-2005,2,35,Ricky Sanchez,F,7-0,220.0,17.0,IMG Academy (Florida),1987 DOB,POR to DEN DEN to PHL PHL to MEM MEM to MIA,0
+2005,2,35,Ricky Sanchez,F,7-0,220.0,17.0,IMG Academy (Florida),1987 DOB,POR to DEN DEN to PHI PHI to MEM MEM to MIA,0
 2004,1,13,Sebastian Telfair,PG,6-0,170.0,19.0,Abraham Lincoln High School (New York),1985 DOB *,,10
 2004,1,23,Sergei Monia,PF,6-8,220.0,21.0,Dynamo Saint Petersburg (Russia),1983 DOB *,,1
 2004,2,46,Ha Seung-Jin,C,7-3,305.0,18.0,Yonsei University (South Korea),1985 DOB *,,2

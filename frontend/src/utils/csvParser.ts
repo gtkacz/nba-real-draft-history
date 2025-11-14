@@ -52,11 +52,13 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
   const classIndex = getColumnIndex('Class')
   const draftTradesIndex = getColumnIndex('Draft Trades')
   const yosIndex = getColumnIndex('YOS')
-  const teamIndex = getColumnIndex('Team')
   const nbaIdIndex = getColumnIndex('nba_id')
+  const originCountryIndex = getColumnIndex('origin_country')
+  const playedUntilYearIndex = getColumnIndex('played_until_year')
+  const isDefunctIndex = getColumnIndex('is_defunct')
   
-  // Check if we have the minimum required columns
-  const requiredIndices = [yearIndex, roundIndex, pickIndex, playerIndex, posIndex, htIndex, wtIndex, ageIndex, preDraftTeamIndex, classIndex, draftTradesIndex, yosIndex, teamIndex]
+  // Check if we have the minimum required columns (Team is no longer required)
+  const requiredIndices = [yearIndex, roundIndex, pickIndex, playerIndex, posIndex, htIndex, wtIndex, ageIndex, preDraftTeamIndex, classIndex, draftTradesIndex, yosIndex]
   const missingColumns = requiredIndices.filter(idx => idx === -1)
   
   if (missingColumns.length > 0) {
@@ -91,6 +93,25 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
     // Extract nba_id if available (check index is valid and value exists and is not empty)
     const nbaId = nbaIdIndex >= 0 && nbaIdIndex < values.length && values[nbaIdIndex] && values[nbaIdIndex].trim() !== '' 
       ? values[nbaIdIndex].trim() 
+      : undefined
+    
+    // Extract new columns if available
+    const originCountry = originCountryIndex >= 0 && originCountryIndex < values.length && values[originCountryIndex] && values[originCountryIndex].trim() !== ''
+      ? values[originCountryIndex].trim()
+      : undefined
+    
+    const playedUntilYear = playedUntilYearIndex >= 0 && playedUntilYearIndex < values.length && values[playedUntilYearIndex] && values[playedUntilYearIndex].trim() !== ''
+      ? (() => {
+          const val = parseFloat(values[playedUntilYearIndex].trim())
+          return !isNaN(val) ? val : undefined
+        })()
+      : undefined
+    
+    const isDefunct = isDefunctIndex >= 0 && isDefunctIndex < values.length && values[isDefunctIndex] && values[isDefunctIndex].trim() !== ''
+      ? (() => {
+          const val = parseFloat(values[isDefunctIndex].trim())
+          return !isNaN(val) ? val : undefined
+        })()
       : undefined
     
     // Skip picks that were traded away from this team (same logic as backend parser)
@@ -132,7 +153,10 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
       yearsOfService: parseInt(values[yosIndex] || '0'),
       team: teamAbbreviation,
       teamLogo: `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${teamAbbreviation.toLowerCase()}.svg`,
-      nba_id: nbaId ? (isNaN(Number(nbaId)) ? nbaId : Number(nbaId)) : undefined
+      nba_id: nbaId ? (isNaN(Number(nbaId)) ? nbaId : Number(nbaId)) : undefined,
+      origin_country: originCountry,
+      played_until_year: playedUntilYear,
+      is_defunct: isDefunct
     })
   }
 

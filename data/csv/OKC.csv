@@ -27,7 +27,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2014,1,21,Mitch McGary,C,6-10,255.0,22.0,Michigan,So *,,2
 2014,1,29,Josh Huestis,SF,6-7,230.0,22.0,Stanford,Sr,,3
 2013,1,12,Steven Adams,C,6-11,265.0,19.0,Pittsburgh,Fr *,,12
-2013,1,29,Archie Goodwin,G,6-5,205.0,18.0,Kentucky,Fr *,OKC to GOS GOS to PHX,4
+2013,1,29,Archie Goodwin,G,6-5,205.0,18.0,Kentucky,Fr *,OKC to GSW GSW to PHX,4
 2013,2,32,Alex Abrines,GF,6-6,190.0,19.0,Barca (Spain),1993 DOB *,,3
 2012,1,28,Perry Jones,PF,6-11,235.0,20.0,Baylor,So *,,3
 2011,1,24,Reggie Jackson,G,6-2,208.0,21.0,Boston College,Jr *,,14
@@ -57,8 +57,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2004,2,41,David Young,G,6-5,205.0,22.0,North Carolina Central,Sr,,1
 2003,1,12,Nick Collison,FC,6-10,255.0,22.0,Kansas,Sr,,15
 2003,1,14,Luke Ridnour,PG,6-2,175.0,22.0,Oregon,Jr *,,12
-2003,2,41,Willie Green,SG,6-3,201.0,21.0,Detroit-Mercy,Sr,SEA to PHL,12
-2002,2,48,Peter Fehse,F,7-0,205.0,19.0,SV Halle (Germany),1983 DOB *,OKC to UTH,0
+2003,2,41,Willie Green,SG,6-3,201.0,21.0,Detroit-Mercy,Sr,SEA to PHI,12
+2002,2,48,Peter Fehse,F,7-0,205.0,19.0,SV Halle (Germany),1983 DOB *,OKC to UTA,0
 2001,1,12,Vladimir Radmanovic,PF,6-10,235.0,20.0,KK FMP (Serbia),1980 DOB *,,12
 2001,2,39,Earl Watson,PG,6-1,199.0,22.0,UCLA,Sr,,13
 2001,2,41,Bobby Simmons,F,6-6,235.0,21.0,DePaul,Jr *,SEA to WAS,11
@@ -78,7 +78,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1996,2,57,Drew Barry,G,6-5,191.0,23.0,Georgia Tech,Sr,,4
 1995,1,26,Sherell Ford,F,6-7,210.0,22.0,Illinois-Chicago,Sr,,3
 1995,2,54,Eurelijus Zukauskas,C,7-2,260.0,21.0,Neptunas (Lithuania),1973 DOB,SEA to MIL,0
-1994,1,11,Carlos Rogers,FC,6-11,220.0,23.0,Tennessee State,Sr,SEA to GOS,8
+1994,1,11,Carlos Rogers,FC,6-11,220.0,23.0,Tennessee State,Sr,SEA to GSW,8
 1994,2,37,Dontonio Wingfield,F,6-8,256.0,20.0,Cincinnati,Fr *,,4
 1994,2,54,Zeljko Rebraca,C,7-0,265.0,22.0,KK Partizan (Serbia),1972 DOB,SEA to MIN MIN to TOR TOR to DET,6
 1993,1,23,Ervin Johnson,C,6-11,245.0,25.0,New Orleans,Sr,,13
@@ -155,7 +155,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1980,10,212,Kent Williams,,,,,Texas Tech,Sr,,0
 1979,1,6,James Bailey,FC,6-9,220.0,22.0,Rutgers,Sr,,9
 1979,1,7,Vinnie Johnson,G,6-2,200.0,22.0,Baylor,Sr,,13
-1979,2,43,Johnny Moore,G,6-1,175.0,21.0,Texas,Sr,SEA to SAN,10
+1979,2,43,Johnny Moore,G,6-1,175.0,21.0,Texas,Sr,SEA to SAS,10
 1979,4,73,James Donaldson,C,7-2,275.0,21.0,Washington State,Sr,,15
 1979,4,87,Richie Allen,SF,6-7,200.0,,Cal State Dominguez Hills,Sr,,0
 1978,2,39,James Lee,SF,6-5,230.0,22.0,Kentucky,Sr,,1
