@@ -27,6 +27,8 @@ def treat_name(name: str) -> str:
         .replace("'", "")
         .replace(".", "")
         .replace(",", "")
+        .replace("-", " ")
+        .replace("  ", " ")
         .strip()
     )
 
@@ -58,6 +60,8 @@ def main() -> None:  # noqa: D103
 
         curr_df = curr_df.drop(columns=["treated_name"])
 
+        curr_df = curr_df.drop_duplicates(subset=["Year", "Round", "Pick"])
+
         curr_df = curr_df.rename(
             columns={
                 "COUNTRY": "origin_country",
@@ -66,8 +70,6 @@ def main() -> None:  # noqa: D103
             },
         )
 
-        # Transform origin_country to ISO codes inline without creating a new column
-        # get_country_isos takes in a set of names and returns a mapping of name to ISO codes
         country_names = set(curr_df["origin_country"].dropna().unique())
         country_to_iso = get_country_isos(country_names)
         curr_df["origin_country"] = curr_df["origin_country"].map(country_to_iso)

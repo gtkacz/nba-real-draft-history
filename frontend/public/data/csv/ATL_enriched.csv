@@ -106,7 +106,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1987,6,136,Riccardo Morandou,F,6-6,220.0,21.0,,1965 DOB,,0,,,,
 1987,7,159,Franjo Arapovic,C,6-11,265.0,22.0,KK Cibona (Croatia),1965 DOB,,0,,,,
 1986,2,32,Cedric Henderson,F,6-8,210.0,20.0,AX Armani Exchange Milan (Italy),1965 DOB *,,1,1538.0,US,2002,0.0
-1986,2,32,Cedric Henderson,F,6-8,210.0,20.0,AX Armani Exchange Milan (Italy),1965 DOB *,,1,76990.0,US,1986,0.0
 1986,2,40,Augusto Binelli,C,7-0,260.0,21.0,Virtus Bologna (Italy),1964 DOB,,0,,,,
 1986,3,65,Dave Hoppen,C,6-11,235.0,22.0,Nebraska,Sr,,6,77053.0,US,1992,0.0
 1986,3,70,Jim Les,G,5-11,165.0,22.0,Bradley,Sr,,9,77372.0,US,1994,0.0
@@ -133,7 +132,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1983,2,31,Doc Rivers,G,6-4,185.0,21.0,Marquette,Jr *,,13,470.0,US,1995,0.0
 1983,3,58,John Pinone,F,6-8,230.0,22.0,Villanova,Sr,,1,77861.0,US,1983,0.0
 1983,5,104,Charles Jones,,,,,Oklahoma,Sr,,0,279.0,US,1997,0.0
-1983,5,104,Charles Jones,,,,,Oklahoma,Sr,,0,77178.0,US,1988,0.0
 1983,6,127,Tom Bethea,,,,,Richmond,Sr,,0,,,,
 1983,7,150,Lex Drum,C,,,,UAB,Sr,,0,,,,
 1983,8,173,George Thomas,,,,,Georgia Tech,Sr,,0,,,,
@@ -186,7 +184,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1977,1,14,Tree Rollins,C,7-1,235.0,23.0,Clemson,Sr,,18,78014.0,US,1994,0.0
 1977,3,48,Sam Smith,SG,6-4,201.0,,UNLV,Sr,,3,,,,
 1977,3,49,"Eddie Johnson, Jr.",G,6-2,180.0,22.0,Auburn,Sr,,10,698.0,US,1998,0.0
-1977,3,49,"Eddie Johnson, Jr.",G,6-2,180.0,22.0,Auburn,Sr,,10,77144.0,US,1986,0.0
 1977,4,70,Dave Bormann,SF,6-7,205.0,,Gardner-Webb,Sr,,0,,,,
 1977,5,92,Bill Gordon,,,,,Chattanooga,Sr,,0,,,,
 1977,6,114,Calvin Crews,,,,,Louisiana,Sr,,0,,,,
@@ -369,7 +366,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1963,13,81,Gary McFarland,,,,,Central Missouri,Sr,,0,,,,
 1962,1,3,Zelmo Beaty,FC,6-9,225.0,22.0,Prairie View A&M,Sr,,8,76133.0,US,1974,0.0
 1962,2,10,Bob Duffy,G,6-3,165.0,21.0,Colgate,Sr,,3,76609.0,US,1946,1.0
-1962,2,10,Bob Duffy,G,6-3,165.0,21.0,Colgate,Sr,,3,76610.0,US,1964,0.0
 1962,3,19,Charlie Hardnett,F,6-8,225.0,23.0,Grambling State,Sr,,3,76946.0,US,1964,0.0
 1962,4,26,Chico Vaughn,G,6-2,190.0,22.0,Southern Illinois,Sr,,5,,,,
 1962,4,28,Jerry Grote,G,6-4,210.0,21.0,Loyola Marymount,Sr,STH to LAL,1,76896.0,US,1964,0.0

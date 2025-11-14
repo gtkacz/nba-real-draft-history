@@ -1,6 +1,5 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
 2019,1,30,"Kevin Porter, Jr.",SF,6-5,203.0,19.0,USC,Fr *,MIL to  DET DET  to CLE,5,77876.0,US,1982,0.0
-2019,1,30,"Kevin Porter, Jr.",SF,6-5,203.0,19.0,USC,Fr *,MIL to  DET DET  to CLE,5,1629645.0,US,2025,0.0
 2016,2,54,Kay Felder,PG,5-9,176.0,21.0,Oakland,Jr *,ATL to  CLE,2,1627770.0,US,2017,0.0
 2015,2,31,Cedi Osman,GF,6-7,230.0,20.0,Anadolu Efes (Turkey),1995 DOB *,MIN to  CLE,7,1626224.0,TR,2023,0.0
 2015,2,47,Arturas Gudaitis,C,6-10,254.0,22.0,Zalgiris (Lithuania),1993 DOB,PHI to  SAC SAC  to CLE,0,,,,
@@ -68,7 +67,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1997,1,13,Derek Anderson,G,6-5,194.0,22.0,Kentucky,Sr,,11,1507.0,US,2007,0.0
 1997,1,16,Brevin Knight,G,5-10,170.0,21.0,Stanford,Sr,,12,1510.0,US,2008,0.0
 1997,2,44,Cedric Henderson,SF,6-7,215.0,22.0,Memphis,Sr,,7,1538.0,US,2002,0.0
-1997,2,44,Cedric Henderson,SF,6-7,215.0,22.0,Memphis,Sr,,7,76990.0,US,1986,0.0
 1996,1,12,Vitaly Potapenko,C-F,6-10,280.0,21.0,Wright State,So *,,11,958.0,UA,2006,0.0
 1996,1,20,Zydrunas Ilgauskas,C,7-3,260.0,21.0,BC Aisciai-Atletas (Lithuania),1975 DOB *,,15,980.0,LT,2010,0.0
 1996,2,56,Reggie Geary,SG,6-2,187.0,22.0,Arizona,Sr,,4,1002.0,US,1997,0.0
@@ -92,7 +90,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1987,7,144,Michael Foster,G,6-2,,,South Carolina,Sr,,0,1630701.0,US,2022,0.0
 1986,1,1,Brad Daugherty,C,7-0,245.0,20.0,North Carolina,Sr,,10,921.0,US,1993,0.0
 1986,1,8,Ron Harper,SG,6-6,185.0,22.0,Miami (OH),Sr,,15,166.0,US,2000,0.0
-1986,1,8,Ron Harper,SG,6-6,185.0,22.0,Miami (OH),Sr,,15,1631199.0,US,2025,0.0
 1986,2,29,Johnny Newman,SF,6-7,190.0,22.0,Richmond,Sr,,16,271.0,US,2001,0.0
 1986,3,50,Kevin Henderson,SG,6-4,195.0,22.0,Cal State Fullerton,Sr,,2,76994.0,US,1987,0.0
 1986,4,73,Warren Martin,C,6-11,240.0,,North Carolina,Sr,,2,,,,
@@ -102,7 +99,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1985,2,45,Hot Rod Williams,FC,6-11,215.0,22.0,Tulane,Sr,,15,73.0,US,1998,0.0
 1985,3,55,Herb Johnson,PF,6-10,220.0,,Tulsa,Sr,,1,,,,
 1985,4,79,Mark Davis,GF,6-6,195.0,22.0,Old Dominion,Sr,,4,707.0,US,1999,0.0
-1985,4,79,Mark Davis,GF,6-6,195.0,22.0,Old Dominion,Sr,,4,76528.0,US,1988,0.0
 1985,6,125,Ricky Johnson,,,,,Illinois State,Sr,,1,,,,
 1985,7,147,Buzz Peterson,G,6-3,175.0,22.0,North Carolina,Sr,,1,,,,
 1984,2,27,Ron Anderson,GF,6-7,215.0,25.0,Fresno State,Sr,,10,76046.0,US,1993,0.0
@@ -251,13 +247,11 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1971,6,86,Mike Childress,,,,,Colorado State,Sr,,0,,,,
 1971,7,103,Tom Bush,,,,,Drake,Sr,,0,,,,
 1971,8,120,Charlie Davis,SG,6-2,160.0,21.0,Wake Forest,Sr,,3,76518.0,US,1989,0.0
-1971,8,120,Charlie Davis,SG,6-2,160.0,21.0,Wake Forest,Sr,,3,76519.0,US,1973,0.0
 1971,9,137,Rich Walker,,,,,Bowling Green,Sr,,0,,,,
 1971,10,153,Jim Meredith,,,,,Washington State,Sr,,0,,,,
 1971,11,169,Mike Casey,G,6-4,187.0,22.0,Kentucky,RS-Jr,,0,,,,
 1971,12,183,Skip Hess,C,7-0,,,Toledo,Jr,,0,,,,
 1971,13,196,Bobby Jones,,,,,Drake,Sr,,0,77193.0,US,1985,0.0
-1971,13,196,Bobby Jones,,,,,Drake,Sr,,0,200784.0,US,2007,0.0
 1971,14,208,Bubbles Harris,G,6-0,175.0,,Indiana,Sr,,1,,,,
 1971,15,217,Larry Baker,,,,,Wittenberg,Sr,,0,,,,
 1971,16,225,Vance Tyree,,,,,Milwaukee,Sr,,0,,,,
@@ -271,7 +265,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1970,8,128,Walter Robertson,,,,,Loyola (IL),Sr,,0,,,,
 1970,9,143,Tom Lagodich,C,,,,Kent State,Sr,,0,,,,
 1970,10,162,Ken Johnson,,,,,Indiana,Sr,,0,2256.0,US,2002,0.0
-1970,10,162,Ken Johnson,,,,,Indiana,Sr,,0,77154.0,US,1985,0.0
 1970,11,175,Dave Schneider,,,,,Wayne State (NEB),Sr,,0,,,,
 1970,12,189,Oliver Taylor,F,6-7,,23.0,Stephen F. Austin,Sr,,0,,,,
 1970,13,198,Kevin Wilson,,,,,Ashland,Sr,,0,,,,

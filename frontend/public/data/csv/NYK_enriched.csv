@@ -55,7 +55,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2014,2,34,Cleanthony Early,F,6-8,210.0,23.0,Wichita State,Sr,,2,203921.0,US,2015,0.0
 2014,2,51,Thanasis Antetokounmpo,SF,6-7,219.0,21.0,Delaware 87ers,1992 DOB,,6,203648.0,GR,2025,0.0
 2013,1,24,Tim Hardaway Jr.,SG,6-5,205.0,21.0,Michigan,Jr *,,12,896.0,US,2002,0.0
-2013,1,24,Tim Hardaway Jr.,SG,6-5,205.0,21.0,Michigan,Jr *,,12,203501.0,US,2025,0.0
 2011,1,17,Iman Shumpert,G,6-5,220.0,20.0,Georgia Tech,Jr *,,10,202697.0,US,2020,0.0
 2010,2,38,Andy Rautins,G,6-4,190.0,23.0,Syracuse,Sr,,1,202360.0,US,2010,0.0
 2010,2,39,Landry Fields,F,6-7,210.0,21.0,Stanford,Sr,,5,202361.0,US,2014,0.0
@@ -102,7 +101,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1986,6,117,Butch Wade,F,,,,Michigan,Sr,,0,,,,
 1986,7,140,Duane Kendall,,,,,South Carolina,Sr,,0,,,,
 1985,1,1,Patrick Ewing,C,7-0,240.0,22.0,Georgetown,Sr,,17,121.0,JM,2001,0.0
-1985,1,1,Patrick Ewing,C,7-0,240.0,22.0,Georgetown,Sr,,17,201607.0,US,2010,0.0
 1985,2,47,Gerald Wilkins,SG,6-6,185.0,21.0,Chattanooga,Jr,,14,786.0,US,1998,0.0
 1985,4,73,Fred Cofield,G,6-3,190.0,23.0,Eastern Michigan,Sr,,2,76411.0,US,1986,0.0
 1985,5,96,Mike Schlegel,C,6-8,,,VCU,Sr,,0,,,,
@@ -117,13 +115,11 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1984,10,223,Mike Henderson,,,,,LIU Post,Sr,,0,,,,
 1983,1,12,Darrell Walker,SG,6-4,180.0,22.0,Arkansas,Sr,,10,78437.0,US,1992,0.0
 1983,4,82,Mark Jones,PG,6-1,175.0,22.0,St. Bonaventure,Sr,,2,2891.0,US,2004,0.0
-1983,4,82,Mark Jones,PG,6-1,175.0,22.0,St. Bonaventure,Sr,,2,90000.0,US,1983,0.0
 1983,5,105,Troy Lee Mikell,,,,,East Tennessee State,Sr,,1,,,,
 1983,6,128,Tony Simms,GF,6-5,,24.0,Boston University,Sr,,0,,,,
 1983,7,151,Desi Barimore,,,,,Fresno State,Sr,,0,,,,
 1983,8,174,Mike Lang,,,,,Penn State,Sr,,2,,,,
 1983,9,196,Charles Jones,,,,,Marshall,Sr,,1,279.0,US,1997,0.0
-1983,9,196,Charles Jones,,,,,Marshall,Sr,,1,77178.0,US,1988,0.0
 1983,10,217,Bernard Randolph,,,,,DePaul,Sr,,0,,,,
 1982,1,6,Trent Tucker,G,6-5,193.0,22.0,Minnesota,Sr,,11,78375.0,US,1992,0.0
 1982,2,29,Scott Hastings,FC,6-10,235.0,22.0,Arkansas,Sr,,11,76968.0,US,1992,0.0
@@ -373,7 +369,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1961,3,24,Tony Jackson,G,6-4,190.0,18.0,St. John's,Sr,,0,77100.0,US,1980,0.0
 1961,4,33,George Blaney,G,6-1,175.0,21.0,Holy Cross,Sr,,1,76182.0,US,1961,0.0
 1961,5,42,Bill Smith,GF,6-5,190.0,21.0,Saint Peter's,Sr,,1,78207.0,US,1972,0.0
-1961,5,42,Bill Smith,GF,6-5,190.0,21.0,Saint Peter's,Sr,,1,78209.0,US,1961,0.0
 1961,6,51,Cleveland Buckner,FC,6-9,210.0,22.0,Jackson State,Sr,,2,76295.0,US,1962,0.0
 1961,7,60,Donnie Butcher,G,6-2,200.0,25.0,Pikeville,Sr,,5,76318.0,US,1965,0.0
 1961,8,69,Cedrick Price,,,,,Kansas State,Sr,,0,,,,
@@ -456,7 +451,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1955,11,82,Charles Stickels,,,,23.0,Hastings College,Sr,,0,,,,
 1955,12,89,Mickey Harrington,,,,,Southern Mississippi,Sr,,0,,,,
 1954,1,8,Jack Turner,G,6-4,170.0,23.0,Western Kentucky,Sr,,1,78380.0,US,1954,0.0
-1954,1,8,Jack Turner,G,6-4,170.0,23.0,Western Kentucky,Sr,,1,78382.0,US,1961,0.0
 1954,2,17,Richie Guerin,SG,6-4,195.0,21.0,Iona,Sr,,13,76902.0,US,1969,0.0
 1954,3,26,Don Anielak,C,6-7,195.0,23.0,Missouri State,Sr,,1,76049.0,US,1954,0.0
 1954,4,35,Don Lange,G,6-4,190.0,,Navy,Sr,,0,,,,

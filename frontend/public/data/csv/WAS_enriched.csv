@@ -9,7 +9,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2017,2,50,Mathias Lessort,F,6-9,250.0,21.0,Nanterre 92 (France),1995 DOB,PHI to  LAC LAC  to MIN MIN  to NYK NYK  to WAS,0,,,,
 2015,1,15,"Kelly Oubre, Jr.",SF,6-8,203.0,19.0,Kansas,Fr *,ATL to  WAS,10,1626162.0,US,2025,0.0
 2013,2,35,Glen Rice,GF,6-6,206.0,22.0,Rio Grande Valley Vipers,1991 DOB,PHI to  WAS,2,779.0,US,2003,0.0
-2013,2,35,Glen Rice,GF,6-6,206.0,22.0,Rio Grande Valley Vipers,1991 DOB,PHI to  WAS,2,203318.0,US,2014,0.0
 2010,1,17,Kevin Seraphin,FC,6-10,278.0,20.0,Cholet Basket (France),1989 DOB *,CHI to  WAS,7,202338.0,FR,2016,0.0
 2010,1,23,Trevor Booker,PF,6-8,228.0,22.0,Clemson,Sr,MIN to  WAS,8,202344.0,US,2017,0.0
 2010,2,56,Hamady Ndiaye,C,7-0,235.0,23.0,Rutgers,Sr,MIN to  WAS,3,202380.0,SN,2013,0.0
@@ -33,7 +32,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2024,1,2,Alex Sarr,FC,7-0,205.0,19.0,Perth (Australia),2005 DOB *,,1,1642259.0,FR,2025,0.0
 2023,2,42,Tristan Vukcevic,F,7-0,220.0,20.0,KK Partizan (Serbia),2003 DOB *,,2,1641774.0,IT,2025,0.0
 2022,1,10,Johnny Davis,F,6-4,195.0,20.0,Wisconsin,So *,,3,76526.0,US,1985,0.0
-2022,1,10,Johnny Davis,F,6-4,195.0,20.0,Wisconsin,So *,,3,1631098.0,US,2024,0.0
 2022,2,54,Yannick Nzosa,C,6-10,174.0,18.0,Unicaja (Spain),2003 DOB *,,0,,,,
 2021,1,15,Corey Kispert,SF,6-6,224.0,22.0,Gonzaga,Sr *,,4,1630557.0,US,2025,0.0
 2020,1,9,Deni Avdija,SG,6-8,228.0,19.0,Maccabi Tel Aviv U18 (Israel),2001 DOB *,,5,1630166.0,IL,2025,0.0
@@ -82,7 +80,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1988,3,60,Ed Davender,PG,6-2,165.0,22.0,Kentucky,Sr,,0,,,,
 1987,1,12,Muggsy Bogues,PG,5-3,136.0,22.0,Wake Forest,Sr,,15,177.0,US,2000,0.0
 1987,2,36,Duane Washington,G,6-4,195.0,22.0,Middle Tennessee State,Sr,,2,78464.0,US,1992,0.0
-1987,2,36,Duane Washington,G,6-4,195.0,22.0,Middle Tennessee State,Sr,,2,1630613.0,DE,2023,0.0
 1987,2,37,Derrick Dowell,F,6-6,210.0,21.0,USC,Sr,,0,,,,
 1987,3,59,Danny Pearson,SF,6-6,210.0,,Jacksonville,Sr,,0,,,,
 1987,4,81,Scott Thompson,C,7-0,260.0,,San Diego,Sr,,0,,,,
@@ -238,7 +235,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1973,15,197,Shorty Simmons,PF,6-8,,,St. Mary's (MD),Sr,,1,,,,
 1972,2,25,Tom Patterson,F,6-6,220.0,23.0,Ouachita Baptist,Sr,,2,,,,
 1972,3,39,Kevin Porter,PG,6-0,170.0,21.0,St. Francis (PA),Sr,,11,77876.0,US,1982,0.0
-1972,3,39,Kevin Porter,PG,6-0,170.0,21.0,St. Francis (PA),Sr,,11,1629645.0,US,2025,0.0
 1972,4,56,Al Saunders,PF,6-8,255.0,22.0,LSU,Sr,,0,,,,
 1972,5,72,Walter Jones,F,6-7,,,Long Island,Sr,,0,,,,
 1972,6,89,Dwaine Dillard,SF,6-6,230.0,23.0,Eastern Michigan,Sr,,1,,,,
@@ -418,7 +414,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1962,16,99,Norman Majors,,,,,Rockhurst,Sr,,0,,,,
 1961,1,1,Walt Bellamy,C,6-11,225.0,21.0,Indiana,Sr,,14,76144.0,US,1974,0.0
 1961,2,18,Jack Turner,F,6-5,220.0,21.0,Louisville,Sr,,1,78380.0,US,1954,0.0
-1961,2,18,Jack Turner,F,6-5,220.0,21.0,Louisville,Sr,,1,78382.0,US,1961,0.0
 1961,2,19,Jerry Graves,F,6-6,190.0,,Mississippi State,Sr,,0,,,,
 1961,2,20,York Larese,G,6-4,190.0,22.0,North Carolina,Jr,,1,77339.0,US,1961,0.0
 1961,2,21,Don Kojis,SF,6-3,202.0,22.0,Marquette,Sr,,12,77295.0,US,1974,0.0

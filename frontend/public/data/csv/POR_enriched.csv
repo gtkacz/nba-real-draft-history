@@ -2,7 +2,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2025,1,16,Yang Hansen,C,7-1,270.0,19.0,Qingdao (China),2005 DOB *,MEM to  POR,0,1642905.0,CN,2025,0.0
 2021,2,43,Greg Brown III,SF,6-7,206.0,19.0,Texas,Fr *,NOP to  POR,3,1630535.0,US,2023,0.0
 2018,2,37,"Gary Trent, Jr.",SG,6-5,204.0,19.0,Duke,Fr *,SAC to  POR,7,718.0,US,2003,0.0
-2018,2,37,"Gary Trent, Jr.",SG,6-5,204.0,19.0,Duke,Fr *,SAC to  POR,7,1629018.0,US,2025,0.0
 2017,1,10,Zach Collins,C,6-9,250.0,19.0,Gonzaga,Fr *,SAC to  POR,8,1628380.0,US,2025,0.0
 2016,2,47,Jake Layman,SF,6-8,209.0,22.0,Maryland,Sr,ORL to  POR,6,1627774.0,US,2021,0.0
 2015,2,41,Pat Connaughton,SF,6-5,209.0,22.0,Notre Dame,Sr,BKN to  POR,10,1626192.0,US,2025,0.0
@@ -27,13 +26,11 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1996,2,36,Doron Sheffer,G,6-5,200.0,24.0,UConn,Sr,LAC to  POR,0,,,,
 1996,2,41,Jason Sasser,F,6-7,225.0,22.0,Texas Tech,Sr,SAC to  POR,6,987.0,US,2002,0.0
 1995,1,11,Gary Trent,PF,6-8,250.0,20.0,Ohio,Jr *,MIL to  POR,10,718.0,US,2003,0.0
-1995,1,11,Gary Trent,PF,6-8,250.0,20.0,Ohio,Jr *,MIL to  POR,10,1629018.0,US,2025,0.0
 1995,1,19,Randolph Childress,SG,6-2,188.0,22.0,Wake Forest,Sr,DET to  POR,2,719.0,US,1996,0.0
 1993,2,50,Marcelo Nicola,F,6-10,225.0,22.0,Baskonia (Spain),1971 DOB,HOU to  POR,0,,,,
 1992,1,18,Tracy Murray,F,6-7,225.0,20.0,UCLA,Jr *,MIL to  SAS SAS  to POR,13,145.0,US,2003,0.0
 1991,2,43,Lamont Strothers,G,6-4,190.0,23.0,Christopher Newport,Sr,GSW to  POR,2,78273.0,US,1992,0.0
 1985,2,28,Ken Johnson,F,6-8,240.0,22.0,Michigan State,Sr,CHI to  POR,1,2256.0,US,2002,0.0
-1985,2,28,Ken Johnson,F,6-8,240.0,22.0,Michigan State,Sr,CHI to  POR,1,77154.0,US,1985,0.0
 1984,2,37,Ben Coleman,F,6-9,235.0,22.0,Maryland,Sr,CHI to  POR,7,76412.0,US,1993,0.0
 1980,1,4,Kelvin Ransey,G,6-1,170.0,22.0,Ohio State,Sr,CHI to  POR,6,77911.0,US,1985,0.0
 1974,7,115,Greg Lee,SG,6-3,190.0,22.0,UCLA,Sr,ATL to  POR,1,77360.0,US,1975,0.0
@@ -169,7 +166,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1980,9,188,Rich Boucher,,,,,Maine,Sr,,0,,,,
 1980,10,205,Dave Kufeld,,,,,Yeshiva,Sr,,0,,,,
 1979,1,12,Jim Paxson,SG,6-6,200.0,21.0,Dayton,Sr,,11,77818.0,US,1957,0.0
-1979,1,12,Jim Paxson,SG,6-6,200.0,21.0,Dayton,Sr,,11,77819.0,US,1989,0.0
 1979,2,40,Andrew Fields,PF,6-8,200.0,,Cheyney (PA),Sr,,0,,,,
 1979,3,56,Mickey Fox,G,6-2,185.0,26.0,Saint Mary's-Halifax,RS-Jr,,0,,,,
 1979,4,78,Daryll Robinson,SG,6-4,195.0,,Appalachian State,Sr,,0,,,,
@@ -202,7 +198,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1976,1,5,Wally Walker,SF,6-7,190.0,21.0,Virginia,Sr,,8,78442.0,US,1983,0.0
 1976,2,20,Major Jones,F,6-9,225.0,22.0,Albany State (GA),Sr,,8,77189.0,US,1984,0.0
 1976,2,22,Johnny Davis,G,6-2,170.0,20.0,Dayton,Jr *,,10,76526.0,US,1985,0.0
-1976,2,22,Johnny Davis,G,6-2,170.0,20.0,Dayton,Jr *,,10,1631098.0,US,2024,0.0
 1976,3,39,Jeff Tyson,SG,6-3,,,Western Michigan,Sr,,2,,,,
 1976,4,56,David Everett,PG,6-1,175.0,,Grand Canyon,Sr,,0,,,,
 1976,5,73,Gary Reddings,,,,,Auburn,Sr,,0,,,,
@@ -265,7 +260,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1971,2,27,Rick Fisher,F,6-5,215.0,22.0,Colorado State,Jr,,0,,,,
 1971,3,37,Larry Steele,G,6-5,180.0,21.0,Kentucky,Sr,,9,78245.0,US,1979,0.0
 1971,3,42,Bill Smith,SF,6-11,220.0,22.0,Syracuse,Sr,,2,78207.0,US,1972,0.0
-1971,3,42,Bill Smith,SF,6-11,220.0,22.0,Syracuse,Sr,,2,78209.0,US,1961,0.0
 1971,4,54,Bobby Fields,G,6-2,175.0,21.0,La Salle,Sr,,1,,,,
 1971,5,71,Hector Blondet,,,,,Murray State,Sr,,0,,,,
 1971,6,88,Jim Day,,,,,Morehead State,Sr,,1,,,,

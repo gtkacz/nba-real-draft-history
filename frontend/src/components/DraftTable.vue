@@ -6,7 +6,7 @@ import type { TeamAbbreviation } from '@/types/team'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getDataUrl } from '@/utils/dataUrl'
 import { exportDraftPicksToCSV, downloadCSV as downloadCSVFile } from '@/utils/csvExporter'
-import { countryToAlpha2 } from '@/utils/countryCodeConverter'
+import { getCountryCode } from '@/utils/countryCodeConverter'
 import PlayerCard from './PlayerCard.vue'
 
 const display = useDisplay()
@@ -641,13 +641,6 @@ const pageInput = ref('')
 const selectedPlayer = ref<DraftPick | null>(null)
 const showPlayerCard = ref(false)
 
-// Cache for country codes (player key -> alpha-2 code)
-// Use a combination of player name, year, and team as the key
-const countryCodes = ref<Map<string, string>>(new Map())
-
-function getPlayerKey(player: DraftPick): string {
-  return `${player.player}-${player.year}-${player.team}`
-}
 
 function openPlayerCard(player: DraftPick) {
   selectedPlayer.value = player
@@ -672,54 +665,6 @@ function isPlayerRetired(playedUntilYear: number | undefined): boolean {
   return playedUntilYear < currentYear
 }
 
-// Get country code for a player (with caching)
-async function getCountryCode(player: DraftPick): Promise<string> {
-  const key = getPlayerKey(player)
-  
-  // Check cache first
-  if (countryCodes.value.has(key)) {
-    return countryCodes.value.get(key) || 'un'
-  }
-  
-  // Fetch country code
-  const code = await countryToAlpha2(player.origin_country)
-  countryCodes.value.set(key, code)
-  return code
-}
-
-// Get country code synchronously (returns cached value or 'un')
-function getCountryCodeSync(player: DraftPick): string {
-  const key = getPlayerKey(player)
-  return countryCodes.value.get(key) || 'un'
-}
-
-// Preload country codes for visible items
-watch(() => items.value, async (newItems) => {
-  // Initialize all players with 'un' first (for immediate display)
-  const newMap = new Map<string, string>()
-  for (const player of newItems) {
-    const key = getPlayerKey(player)
-    // Copy existing value if available, otherwise set to 'un'
-    newMap.set(key, countryCodes.value.get(key) || 'un')
-  }
-  countryCodes.value = newMap
-  
-  // Then load actual country codes asynchronously
-  for (const player of newItems) {
-    const key = getPlayerKey(player)
-    if (player.origin_country) {
-      // Load asynchronously and update when done
-      getCountryCode(player).then((code) => {
-        // Update the map reactively
-        const updatedMap = new Map(countryCodes.value)
-        updatedMap.set(key, code)
-        countryCodes.value = updatedMap
-      }).catch(() => {
-        // Silently handle errors - keep 'un'
-      })
-    }
-  }
-}, { immediate: true })
 
 
 // Watch for page changes to update the input placeholder
@@ -1389,7 +1334,7 @@ watch(currentPage, () => {
             <span class="font-weight-bold text-primary">{{ item.player }}</span>
             <!-- Nationality Flag - always show, fallback to 'un' -->
             <span
-              :class="`fi fi-${getCountryCodeSync(item).toLowerCase()}`"
+              :class="`fi fi-${getCountryCode(item.origin_country)}`"
               :title="item.origin_country || 'Unknown'"
               class="player-flag-icon"
             />
