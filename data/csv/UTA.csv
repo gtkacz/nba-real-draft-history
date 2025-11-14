@@ -1,6 +1,26 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
+2025,1,18,"Walter Clayton, Jr.",G,6-4,195.0,22.0,Florida,Sr,WAS to  UTA,0
+2022,1,22,Walker Kessler,C,7-2,245.0,20.0,Auburn,So *,MEM to  MIN MIN  to UTA,3
+2022,2,36,Gabriele Procida,SG,6-6,191.0,20.0,Fortituto Kontatto Bologna (Italy),2002 DOB *,POR to  DET DET  to UTA,0
+2021,2,40,Jared Butler,PG,6-3,193.0,20.0,Baylor,Jr *,NOP to  MEM MEM  to UTA,4
+2021,2,57,Balsa Koprivica,C,7-1,240.0,21.0,Florida State,So *,CHA to  DET DET  to LAC LAC  to UTA,0
+2020,2,39,Elijah Hughes,SF,6-5,215.0,22.0,Syracuse,Jr *,NOP to  UTA,2
+2019,2,50,Jarrell Brantley,SF,6-5,250.0,23.0,Charleston,Sr,IND to  UTA,3
+2019,2,58,Miye Oni,SF,6-5,206.0,21.0,Yale,Jr *,GSW to  UTA,3
+2017,1,13,Donovan Mitchell,SG,6-2,215.0,20.0,Louisville,So *,DEN to  UTA,8
+2017,1,28,Tony Bradley,C,6-10,248.0,19.0,North Carolina,Fr *,LAL to  UTA,7
+2016,2,55,Marcus Paige,G,6-0,164.0,22.0,North Carolina,Sr,BKN to  UTA,1
+2013,1,9,Trey Burke,G,6-0,185.0,20.0,Michigan,So *,MIN to  UTA,9
+2013,1,27,Rudy Gobert,C,7-1,258.0,21.0,Cholet Basket (France),1992 DOB *,DEN to  UTA,12
+2013,2,47,Raulzinho Neto,PG,6-2,180.0,21.0,Gipuzkoa Basket (Spain),1992 DOB *,ATL to  UTA,8
+2010,2,31,Tibor Pleiss,C,7-3,256.0,20.0,Brose Baskets Bamberg (Germany),1989 DOB *,NJN to  ATL ATL  to OKC OKC  to UTA,1
+2008,2,51,Shan Foster,GF,6-6,195.0,21.0,Vanderbilt,Sr,DAL to  UTA,0
+2007,2,38,Kyrylo Fesenko,C,7-1,280.0,20.0,BK Cherkassy (Ukraine),1986 DOB *,PHI to  UTA,5
+2003,2,36,Mario Austin,F,6-10,260.0,21.0,Mississippi State,Jr *,CHI to  UTA,0
+2002,1,18,Curtis Borchardt,C,7-0,240.0,21.0,Stanford,Jr *,ORL to  UTA,3
+2002,2,48,Peter Fehse,F,7-0,205.0,19.0,SV Halle (Germany),1983 DOB *,OKC to  UTA,0
+1974,4,61,Eddie Palubinskas,PG,6-0,180.0,23.0,LSU Shreveport,Sr,ATL to  NOJ,0
 2025,1,5,Ace Bailey,SF,6-9,200.0,18.0,Rutgers,Fr *,,0
-2025,1,21,Will Riley,F,6-9,180.0,19.0,Illinois,Fr *,UTA to WAS,0
 2025,2,53,John Tonje,GF,6-4,218.0,24.0,Wisconsin,Sr,,0
 2024,1,10,Cody Williams,F,6-8,190.0,19.0,Colorado,Fr *,,1
 2024,1,29,Isaiah Collier,G,6-4,210.0,19.0,USC,Fr *,,1
@@ -8,30 +28,15 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2023,1,9,Taylor Hendricks,F,6-9,215.0,19.0,UCF,Fr *,,2
 2023,1,16,Keyonte George,G,6-4,185.0,19.0,Baylor,Fr *,,2
 2023,1,28,Brice Sensabaugh,F,6-6,235.0,19.0,Ohio State,Fr *,,2
-2021,1,30,Santi Aldama,C,7-0,215.0,20.0,Loyola (MD),So *,UTA to MEM,4
 2020,1,27,Udoka Azubuike,C,6-11,270.0,21.0,Kansas,Sr,,4
-2020,2,38,Saben Lee,G,6-2,183.0,21.0,Vanderbilt,Jr *,UTA to DET,4
-2019,1,23,Darius Bazley,PF,6-9,216.0,19.0,,*,UTA to MEM MEM to OKC,5
 2019,2,53,Justin Wright-Foreman,SG,6-0,190.0,21.0,Hofstra,Sr,,1
 2018,1,21,Grayson Allen,SG,6-3,198.0,22.0,Duke,Sr,,7
-2018,2,52,Vince Edwards,SF,6-8,225.0,22.0,Purdue,Sr,UTA to HOU,1
-2017,1,24,Tyler Lydon,PF,6-10,225.0,21.0,Syracuse,So *,UTA to DEN,2
-2017,1,30,Josh Hart,SG,6-5,215.0,22.0,Villanova,Sr,UTA to LAL,8
-2017,2,42,Thomas Bryant,C,6-9,248.0,19.0,Indiana,So *,UTA to LAL,8
 2017,2,55,Nigel Williams-Goss,SG,6-3,190.0,22.0,Gonzaga,Jr *,,1
-2016,1,12,Taurean Prince,F,6-6,218.0,22.0,Baylor,Sr,UTA to ATL,9
-2016,2,42,Isaiah Whitehead,SG,6-4,213.0,21.0,Seton Hall,So *,UTA to BKN,3
 2016,2,52,Joel Bolomboy,FC,6-9,235.0,22.0,Weber State,Sr,,2
 2016,2,60,Tyrone Wallace,G,6-5,198.0,22.0,California,Sr,,4
 2015,1,12,Trey Lyles,SF,6-9,234.0,19.0,Kentucky,Fr *,,10
-2015,2,42,Olivier Hanlan,G,6-4,190.0,22.0,Boston College,Jr *,UTA to SAS,0
-2015,2,54,Daniel Diez,SF,6-8,216.0,22.0,Gipuzkoa Basket (Spain),1993 DOB,UTA to POR POR to NYK NYK to POR,0
 2014,1,5,Dante Exum,PG,6-5,214.0,18.0,Australian Institute of Sport (Australian Capital Territory),1995 DOB *,,9
 2014,1,23,Rodney Hood,F,6-8,208.0,21.0,Duke,So *,,8
-2014,2,35,Jarnell Stokes,FC,6-9,260.0,20.0,Tennessee,Jr *,UTA to MEM,4
-2013,1,14,Shabazz Muhammad,GF,6-6,222.0,20.0,UCLA,Fr *,UTA to MIN,5
-2013,1,21,Gorgui Dieng,FC,6-10,250.0,23.0,Louisville,Jr *,UTA to MIN,10
-2013,2,46,Erick Green,G,6-3,178.0,22.0,Virginia Tech,Sr,UTA to DEN,2
 2012,2,47,Kevin Murphy,GF,6-5,185.0,22.0,Tennessee Tech,Sr,,1
 2011,1,3,Enes Freedom,F,6-10,250.0,19.0,Kentucky,Fr *,,11
 2011,1,12,Alec Burks,SG,6-5,214.0,19.0,Colorado,So *,,14
@@ -40,10 +45,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2009,1,20,Eric Maynor,G,6-3,175.0,22.0,VCU,Sr,,5
 2009,2,50,Goran Suton,C,6-8,245.0,23.0,Michigan State,Sr,,0
 2008,1,23,Kosta Koufos,C,7-0,265.0,19.0,Ohio State,Fr *,,11
-2008,2,44,Ante Tomic,C,7-1,225.0,21.0,KK Zagreb (Croatia),1987 DOB *,UTA to NYK NYK to POR,0
-2008,2,53,Tadija Dragicevic,PF,6-9,235.0,22.0,KK Crvena Zvezda (Serbia),1986 DOB,UTA to DAL DAL to CHI CHI to HOU HOU to NYK,0
 2007,1,25,Morris Almond,GF,6-6,220.0,22.0,Rice,Sr,,3
-2007,2,55,Herbert Hill,FC,6-10,240.0,22.0,Providence,Sr,UTA to PHI,1
 2006,1,14,Ronnie Brewer,GF,6-7,235.0,21.0,Arkansas,Jr *,,8
 2006,2,46,Dee Brown,G,6-0,185.0,21.0,Illinois,Sr,,2
 2006,2,47,Paul Millsap,FC,6-7,250.0,21.0,Louisiana Tech,Jr *,,16
@@ -52,11 +54,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2005,2,51,Robert Whaley,C,6-10,260.0,23.0,Walsh,Sr,,1
 2004,1,14,Kris Humphries,PF,6-9,235.0,19.0,Minnesota,Fr *,,13
 2004,1,16,Kirk Snyder,F-G,6-6,225.0,21.0,Nevada,Jr *,,4
-2004,1,21,Pavel Podkolzin,C,7-5,260.0,19.0,OpenJobMetis Varese (Italy),1985 DOB *,UTA to DAL,2
 2003,1,19,Sasha Pavlovic,GF,6-7,235.0,19.0,Buducnost Voli Podgorica (Montenegro),1983 DOB *,,10
 2003,2,47,Mo Williams,G,6-1,198.0,20.0,Alabama,So *,,14
-2002,1,19,Ryan Humphrey,F,6-8,235.0,22.0,Notre Dame,Sr,UTA to ORL,3
-2002,2,46,Jamal Sampson,FC,6-11,235.0,19.0,California,Fr *,UTA to ORL ORL to MIL,5
 2001,1,24,Raul Lopez,PG,6-0,175.0,21.0,Real Madrid (Spain),1980 DOB *,,3
 2001,2,52,Jarron Collins,C,6-11,248.0,22.0,Stanford,Sr,,10
 2000,1,23,DeShawn Stevenson,SG,6-5,218.0,19.0,Washington Union High School (California),1981 DOB *,,13
@@ -65,11 +64,9 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1999,1,24,Andrei Kirilenko,PF,6-9,235.0,18.0,CSKA Moscow (Russia),1981 DOB *,,13
 1999,1,28,Scott Padgett,F,6-9,240.0,23.0,Kentucky,Sr,,8
 1999,2,58,Eddie Lucas,G,6-6,200.0,23.0,Virginia Tech,Sr,,1
-1998,1,29,Nazr Mohammed,C,6-10,250.0,20.0,Kentucky,Jr *,UTA to PHI,18
 1998,2,57,Torraye Braggs,F,6-8,245.0,22.0,Xavier,Sr,,5
 1997,1,27,Jacque Vaughn,G,6-1,190.0,22.0,Kansas,Sr,,12
 1997,2,56,Nate Erdmann,F,6-5,195.0,23.0,Oklahoma,Sr,,1
-1996,1,25,Martin Muursepp,F-C,6-10,235.0,21.0,Tallinna Ulikool Kalev (Estonia),1974 DOB,UTA to MIA,3
 1996,2,54,Shandon Anderson,GF,6-6,208.0,22.0,Georgia,Sr,,10
 1995,1,28,Greg Ostertag,C,7-2,280.0,22.0,Kansas,Sr,,11
 1994,2,47,Jamie Watson,F,6-7,190.0,22.0,South Carolina,Sr,,6
@@ -121,7 +118,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1983,8,168,Michael McCombs,,,,,Santa Fe University of Art and Design,Sr,,0
 1983,9,191,Ron Webb,,,,,Oklahoma Christian,Sr,,0
 1983,10,211,Odell Mosteller,,,,,Auburn,Sr,,0
-1982,1,3,Dominique Wilkins,SF,6-7,200.0,22.0,Georgia,Jr *,UTA to ATL,16
 1982,3,49,Steve Trumbo,PF,6-8,240.0,22.0,Brigham Young,Jr,,1
 1982,3,55,Jerry Eaves,G,6-4,180.0,23.0,Louisville,Sr,,4
 1982,4,72,Mark Eaton,C,7-4,275.0,25.0,UCLA,Fr,,12

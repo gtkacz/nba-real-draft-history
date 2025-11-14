@@ -1,40 +1,60 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
-2024,1,28,Ryan Dunn,G,6-7,216.0,21.0,Virginia,So *,DEN to PHX,1,1642346.0,USA,2025,0.0
-2023,2,40,Maxwell Lewis,SF,6-7,215.0,20.0,Pepperdine,So *,DEN to LAL,2,1641721.0,USA,2024,0.0
+2024,1,22,DaRon Holmes II,PF,6-9,225.0,21.0,Dayton,Jr *,PHX to  DEN,1,1641747.0,USA,2025,0.0
+2023,1,29,Julian Strawther,GF,6-6,205.0,21.0,Gonzaga,Jr *,IND to  DEN,2,1631124.0,USA,2025,0.0
+2023,2,32,Jalen Pickett,F,6-2,202.0,23.0,Penn State,Sr,IND to  DEN,2,1629618.0,USA,2025,0.0
+2023,2,37,Hunter Tyson,SF,6-8,215.0,23.0,Clemson,Sr,OKC to  DEN,2,1641816.0,USA,2025,0.0
+2022,1,30,Peyton Watson,GF,6-8,200.0,19.0,UCLA,Fr *,OKC to  DEN,3,1631212.0,USA,2025,0.0
+2020,1,24,R.J. Hampton,G,6-4,175.0,19.0,New Zealand (New Zealand),2001 DOB,MIL to  DEN,4,1630181.0,USA,2023,0.0
+2019,2,44,Bol Bol,C,7-3,220.0,19.0,Oregon,Fr *,MIA to  DEN,6,1629626.0,Sudan,2024,0.0
+2018,2,41,Jarred Vanderbilt,PF,6-8,214.0,19.0,Kentucky,Fr *,ORL to  DEN,7,1629020.0,USA,2025,0.0
+2017,1,24,Tyler Lydon,PF,6-10,225.0,21.0,Syracuse,So *,UTA to  DEN,2,1628399.0,USA,2018,0.0
+2014,1,16,Jusuf Nurkic,FC,6-11,290.0,19.0,Cedevita (Croatia),1994 DOB *,CHI to  DEN,11,203994.0,Bosnia and Herzegovina,2025,0.0
+2014,1,19,Gary Harris,SG,6-4,210.0,19.0,Michigan State,So *,CHI to  DEN,11,203914.0,USA,2025,0.0
+2013,2,46,Erick Green,G,6-3,178.0,22.0,Virginia Tech,Sr,UTA to  DEN,2,203475.0,USA,2015,0.0
+2013,2,55,Joffrey Lauvergne,PF,6-11,260.0,21.0,KK Partizan (Serbia),1991 DOB,MEM to  DEN,4,203530.0,France,2017,0.0
+2011,1,26,Jordan Hamilton,SF,6-7,220.0,20.0,Texas,So *,DAL to  DEN,5,202706.0,USA,2015,0.0
+2009,1,18,Ty Lawson,PG,5-11,195.0,21.0,North Carolina,Jr *,MIN to  DEN,9,201951.0,USA,2017,0.0
+2008,2,39,Sonny Weems,SF,6-6,205.0,21.0,Arkansas,Sr,CHI to  DEN,4,201603.0,USA,2015,0.0
+2005,1,27,Linas Kleiza,F,6-8,234.0,20.0,Missouri,So *,POR to  DEN,7,101132.0,Lithuania,2012,0.0
+2003,2,57,Yuyang Xue,FC,7-0,265.0,20.0,Bay Area Dragons (Hong Kong),1982 DOB *,DAL to  DEN,0,,,,
+2002,1,7,Nene Hilario,C,6-11,250.0,19.0,Vasco da Gama (Brazil),1982 DOB *,NYK to  DEN,18,,,,
+2001,2,31,Omar Cook,PG,6-2,190.0,19.0,St. John's,Fr *,ORL to  DEN,4,2241.0,USA,2004,0.0
+2001,2,53,Kenny Satterfield,PG,6-2,186.0,20.0,Cincinnati,So *,DAL to  DEN,3,2261.0,USA,2002,0.0
+1998,1,13,Keon Clark,C,6-11,221.0,23.0,UNLV,Sr,ORL to  DEN,6,1721.0,USA,2003,0.0
+1998,2,47,Tyson Wheeler,G,5-10,165.0,22.0,Rhode Island,Sr,TOR to  DEN,2,1755.0,USA,1998,0.0
+1997,1,10,Danny Fortson,F,6-7,260.0,21.0,Cincinnati,Jr *,MIL to  DEN,10,1504.0,USA,2006,0.0
+1997,1,23,Bobby Jackson,G,6-1,185.0,24.0,Minnesota,Sr,SEA to  DEN,12,1517.0,USA,2008,0.0
+1997,2,46,Eric Washington,G,6-4,190.0,23.0,Alabama,Sr,ORL to  DEN,4,1540.0,USA,1998,0.0
+1995,1,2,Antonio McDyess,F,6-9,245.0,20.0,Alabama,So *,LAC to  DEN,16,686.0,USA,2010,0.0
+1993,2,34,Darnell Mee,G,6-5,175.0,22.0,Western Kentucky,Sr,GSW to  DEN,3,1577.0,USA,1994,0.0
+1991,1,18,Kevin Brooks,PF,6-8,210.0,21.0,Louisiana,Sr,MIL to  DEN,3,76265.0,USA,1993,0.0
+1990,1,16,Terry Mills,PF,6-10,230.0,22.0,Michigan,Sr,MIL to  DEN,11,371.0,USA,2000,0.0
+1989,1,24,Anthony Cook,FC,6-9,205.0,22.0,Arizona,Sr,POR to  DET DET  to DEN,5,76433.0,USA,1995,0.0
+1980,1,11,Kiki Vandeweghe,SF,6-8,220.0,21.0,UCLA,Sr,DAL to  DEN,13,78404.0,USA,1992,0.0
+1979,3,49,Cedrick Hordges,PF,6-8,220.0,22.0,South Carolina,Sr,CHI to  DEN,2,77056.0,USA,1981,0.0
+1978,4,70,Geff Crompton,C,6-11,280.0,22.0,North Carolina,Sr,KCK to  DEN,5,,,,
+1969,12,167,Fatty Taylor,PG,6-0,175.0,23.0,La Salle,Sr,PHI to  DEN,1,,,,
 2022,1,21,Christian Braun,SF,6-6,220.0,21.0,Kansas,Jr *,,3,1631128.0,USA,2025,0.0
 2021,1,26,Bones Hyland,G,6-2,169.0,20.0,VCU,So *,,4,1630538.0,USA,2025,0.0
 2020,1,22,Zeke Nnaji,PF,6-10,240.0,19.0,Arizona,Fr *,,5,1630192.0,USA,2025,0.0
 2018,1,14,"Michael Porter, Jr.",PF,6-10,218.0,19.0,Missouri,Fr *,,7,1629008.0,USA,2025,0.0
-2018,2,43,Justin Jackson,SF,6-7,225.0,21.0,Maryland,So *,DEN to ORL,0,1628382.0,USA,2023,0.0
 2018,2,58,Thomas Welsh,C,7-0,255.0,22.0,UCLA,Sr,,1,1629118.0,USA,2018,0.0
-2017,1,13,Donovan Mitchell,SG,6-2,215.0,20.0,Louisville,So *,DEN to UTA,8,1628378.0,USA,2025,0.0
 2017,2,49,Vlatko Cancar,SF,6-8,236.0,20.0,KK Mega Bemax (Serbia),1997 DOB *,,6,1628427.0,Slovenia,2024,0.0
 2017,2,51,Monte Morris,G,6-2,183.0,21.0,Iowa State,Sr,,8,1628420.0,USA,2025,0.0
 2016,1,7,Jamal Murray,SG,6-4,215.0,19.0,Kentucky,Fr *,,9,1627750.0,Canada,2025,0.0
 2016,1,15,Juancho Hernangomez,F,6-9,215.0,20.0,Movistar Estudiantes (Spain),1995 DOB *,,7,1627823.0,Spain,2022,0.0
 2016,1,19,Malik Beasley,SG,6-4,187.0,19.0,Florida State,Fr *,,9,1627736.0,USA,2024,0.0
 2016,2,53,Petr Cornelie,C,6-11,220.0,20.0,Le Mans Sarthe Basket (France),1995 DOB *,,1,1627822.0,France,2021,0.0
-2016,2,56,Daniel Hamilton,SG,6-7,195.0,20.0,UConn,So *,DEN to OKC,2,1627772.0,USA,2018,0.0
 2015,1,7,Emmanuel Mudiay,SG,6-5,200.0,19.0,Guangzhou Loong Lions (China),1996 DOB,,6,1626144.0,Democratic Republic of the Congo,2021,0.0
-2015,2,57,Nikola Radicevic,PG,6-5,200.0,21.0,Real Betis Baloncesto (Spain),1994 DOB *,DEN to DET DET to NYK,0,,,,
-2014,1,11,Doug McDermott,F,6-7,225.0,22.0,Creighton,Sr,DEN to CHI,11,203926.0,USA,2025,0.0
 2014,2,41,Nikola Jokic,C,6-11,284.0,19.0,KK Mega Bemax (Serbia),1995 DOB *,,10,203999.0,Serbia,2025,0.0
-2014,2,56,Devyn Marble,GF,6-6,192.0,21.0,Iowa,Sr,DEN to ORL,2,203906.0,USA,2015,0.0
-2013,1,27,Rudy Gobert,C,7-1,258.0,21.0,Cholet Basket (France),1992 DOB *,DEN to UTA,12,203497.0,France,2025,0.0
 2012,1,20,Evan Fournier,SG,6-6,205.0,19.0,Poitiers Basket 86 (France),1992 DOB *,,12,203095.0,France,2023,0.0
 2012,2,38,Quincy Miller,PF,6-11,210.0,19.0,Baylor,Fr *,,3,203113.0,USA,2014,0.0
 2012,2,50,Izzet Turkyilmaz,C,7-0,211.0,22.0,Teksut Bandirma (Turkey),1990 DOB,,0,,,,
 2011,1,22,Kenneth Faried,F,6-8,228.0,21.0,Morehead State,Sr,,8,202702.0,USA,2018,0.0
-2009,2,34,Sergio Llull,PG,6-3,190.0,21.0,Real Madrid (Spain),1987 DOB,DEN to HOU HOU to NYK,0,,,,
-2006,2,49,Leon Powe,F,6-8,240.0,22.0,California,So *,DEN to BOS,5,200796.0,USA,2010,0.0
 2005,1,20,Julius Hodge,SF,6-7,210.0,21.0,NC State,Sr,,2,101125.0,USA,2006,0.0
-2005,1,22,Jarrett Jack,G,6-3,200.0,21.0,Georgia Tech,Jr *,DEN to POR,13,101127.0,USA,2017,0.0
-2005,2,52,Axel Hervelle,PF,6-8,240.0,22.0,Real Madrid (Spain),1983 DOB,DEN to HOU HOU to NYK,0,,,,
-2004,1,20,Jameer Nelson,G,6-0,190.0,22.0,Saint Joseph's,Sr,DEN to ORL,14,2749.0,USA,2017,0.0
 2003,1,3,Carmelo Anthony,F,6-8,240.0,19.0,Syracuse,Fr *,,19,2546.0,USA,2021,0.0
 2003,2,46,Sani Becirovic,SG,6-4,196.0,22.0,Virtus Bologna (Italy),1981 DOB,,0,,,,
 2002,1,5,Nikoloz Tskitishvili,F,7-0,225.0,19.0,Universo De'Longhi Treviso (Italy),1983 DOB *,,4,2401.0,Georgia,2005,0.0
-2002,1,25,Frankie Williams,G,6-3,212.0,22.0,Illinois,Jr *,DEN to NYK,3,,,,
 2002,2,32,Vincent Yarbrough,F,6-7,210.0,21.0,Tennessee,Sr,,2,2428.0,USA,2002,0.0
 2001,2,46,Ousmane Cisse,FC,6-8,225.0,18.0,St. Jude High School (Alabama),1982 DOB *,,2,,,,
 2000,1,26,Mamadou N'Diaye,C,7-0,255.0,25.0,Auburn,Sr,,5,,,,
@@ -43,19 +63,13 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1999,2,33,Chris Herren,G,6-2,197.0,23.0,Fresno State,Sr,,3,1914.0,USA,2000,0.0
 1999,2,41,Francisco Elson,C-F,7-0,235.0,23.0,California,Sr,,9,1922.0,Netherlands,2011,0.0
 1998,1,3,Raef LaFrentz,F,6-11,245.0,22.0,Kansas,Sr,,11,1711.0,USA,2008,0.0
-1998,1,23,Tyronn Lue,G,6-0,170.0,21.0,Nebraska,Jr *,DEN to LAL,11,1731.0,USA,2008,0.0
 1998,2,54,Tremaine Fowlkes,F,6-8,220.0,22.0,Fresno State,Jr *,,5,1762.0,USA,2004,0.0
 1998,2,55,Ryan Bowen,F,6-9,218.0,22.0,Iowa,Sr,,10,1763.0,USA,2009,0.0
 1997,1,5,Tony Battie,PF,6-11,230.0,21.0,Texas Tech,Jr *,,15,1499.0,USA,2011,0.0
-1997,2,32,James Cotton,G,6-5,220.0,21.0,Long Beach State,Jr *,DEN to SEA,3,1526.0,USA,1998,0.0
-1997,2,41,Jason Lawson,F-C,6-11,240.0,22.0,Villanova,Sr,DEN to ORL,4,1535.0,USA,2002,0.0
-1996,1,23,Efthimios Rentzias,C,6-11,260.0,20.0,PAOK BC (Greece),1976 DOB *,DEN to ATL ATL to PHI,1,981.0,Greece,2002,0.0
 1996,2,37,Jeff McInnis,G,6-4,190.0,21.0,North Carolina,Jr *,,11,976.0,USA,2007,0.0
-1995,1,15,Brent Barry,G,6-7,210.0,23.0,Oregon State,Sr,DEN to LAC,14,699.0,USA,2008,0.0
 1995,2,44,Anthony Pelle,C,7-0,260.0,22.0,Fresno State,Sr,,1,,,,
 1994,1,13,Jalen Rose,G,6-8,210.0,21.0,Michigan,Jr *,,13,147.0,USA,2006,0.0
 1993,1,9,Rodney Rogers,F,6-7,235.0,22.0,Wake Forest,Jr *,,12,915.0,USA,2004,0.0
-1993,2,43,Josh Grant,F,6-10,225.0,25.0,Utah,Sr,DEN to GSW,1,76852.0,USA,1993,0.0
 1992,1,5,LaPhonso Ellis,PF,6-8,240.0,22.0,Notre Dame,Sr,,11,111.0,USA,2002,0.0
 1992,1,13,Bryant Stith,SG,6-5,209.0,21.0,Virginia,Sr,,11,179.0,USA,2002,0.0
 1992,2,46,Robert Werdann,C,6-11,250.0,21.0,St. John's,Sr,,8,438.0,USA,1996,0.0
@@ -64,11 +78,9 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1990,1,3,Mahmoud Abdul-Rauf,PG,6-0,162.0,21.0,LSU,So *,,9,51.0,USA,2000,0.0
 1990,2,42,Marcus Liberty,SF,6-8,205.0,21.0,Illinois,Jr *,,5,77386.0,USA,1993,0.0
 1989,1,15,Todd Lichti,G,6-4,205.0,22.0,Stanford,Sr,,5,77387.0,USA,1993,0.0
-1989,2,42,Michael Cutright,SG,6-4,210.0,22.0,McNeese State,Sr,DEN to NJN,0,,,,
 1989,2,47,Reggie Turner,F,6-7,225.0,23.0,UAB,Sr,,0,,,,
 1988,1,23,Jerome Lane,F,6-6,230.0,21.0,Pittsburgh,Jr *,,7,77335.0,USA,1992,0.0
 1988,2,43,Todd Mitchell,F,6-7,205.0,21.0,Purdue,Sr,,3,77614.0,USA,1988,0.0
-1988,2,47,Vernon Maxwell,G,6-4,180.0,22.0,Florida,Sr,DEN to SAS,13,137.0,USA,2000,0.0
 1988,3,66,Dwight Boyd,SG,6-3,195.0,,Memphis,Sr,,0,,,,
 1987,2,31,Andre Moore,PF,6-9,215.0,22.0,Loyola (IL),Sr,,2,77632.0,USA,1987,0.0
 1987,3,54,Tom Schafer,SF,6-7,200.0,,Iowa State,Sr,,0,,,,
@@ -144,7 +156,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1979,8,162,Matt Teahan,,,,,Denver,Sr,,0,,,,
 1979,9,179,Emmett Lewis,G,,,,Colorado,Sr,,0,,,,
 1978,1,17,Rod Griffin,PF,6-7,215.0,22.0,Wake Forest,Sr,,2,,,,
-1978,1,21,Mike Evans,G,6-1,170.0,23.0,Kansas State,Sr,DEN to KCK,10,76686.0,USA,1987,0.0
 1978,3,46,Hollis Copeland,SF,6-6,190.0,22.0,Rutgers,Sr,,3,76447.0,USA,1981,0.0
 1978,5,106,Michael Edwards,,,,,Texas-RGV,Sr,,0,,,,
 1978,6,127,Robert Heard,,,,,Columbus State,Sr,,0,,,,

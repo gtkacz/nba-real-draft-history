@@ -1,4 +1,18 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
+2024,2,45,Jamal Shead,G,6-1,200,21,Houston,Sr *,SAC to  TOR,1
+2024,2,57,Ulrich Chomche,PF,6-11,235,18,NBA Academy Africa (Senegal),2005 DOB *,MEM to  TOR,1
+2015,2,46,Norman Powell,SG,6-3,215,22,UCLA,Sr,MIL to  TOR,10
+2013,1,16,Lucas Nogueira,C,7-0,241,20,Movistar Estudiantes (Spain),1992 DOB *,BOS to  DAL DAL  to ATL ATL  to TOR,4
+2010,2,50,Solomon Alabi,C,7-1,250,22,Florida State,So *,DAL to  TOR,2
+2008,2,41,Nathan Jawai,C,6-10,280,21,Cairns (Australia),1986 DOB,IND to  TOR,2
+2004,2,47,Pape Sow,FC,6-10,224,22,Cal State Fullerton,Sr,MIA to  TOR,3
+2003,2,45,Matt Bonner,FC,6-10,235,23,Florida,Sr,CHI to  TOR,12
+2002,1,27,Chris Jefferies,F,6-8,225,22,Fresno State,Jr *,LAL to  TOR,3
+1998,1,5,Vince Carter,SF,6-6,220,21,North Carolina,Jr *,GSW to  TOR,22
+1998,2,44,Sean Marks,F-C,6-10,250,22,California,Sr,NYK to  TOR,12
+1995,2,40,Dwayne Whitfield,F,6-9,240,22,Jackson State,Sr,GSW to  TOR,2
+1995,2,50,Martin Lewis,F,6-5,210,20,Seward County CC,So *,GSW to  TOR,3
+1995,2,55,Michael McDonald,C,6-10,232,26,New Orleans,Sr,GSW to  TOR,2
 2025,1,9,Collin Murray-Boyles,F,6-7,245,20,South Carolina,So *,,0
 2025,2,39,Alijah Martin,PG,6-2,210,23,Florida,Sr,,0
 2024,1,19,Ja'Kobe Walter,F,6-4,180,19,Baylor,Fr *,,1
@@ -17,33 +31,23 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2015,1,20,Delon Wright,G,6-4,185,23,Utah,Sr,,10
 2014,1,20,Bruno Caboclo,PF,6-9,218,18,Pinheiros Sky (Brazil),1995 DOB *,,7
 2014,2,37,DeAndre Daniels,SF,6-9,196,22,UConn,Jr *,,0
-2014,2,59,Xavier Thames,G,6-3,187,23,San Diego State,Sr,TOR to BKN,0
 2012,1,8,Terrence Ross,SF,6-7,206,21,Washington,So *,,11
 2012,2,37,Quincy Acy,F,6-7,240,21,Baylor,Sr,,7
-2012,2,56,Tomislav Zubcic,C,6-10,230,22,KK Cibona (Croatia),1990 DOB,TOR to OKC,0
 2011,1,5,Jonas Valanciunas,C,6-11,265,19,Lietuvos Rytas (Lithuania),1992 DOB *,,13
 2010,1,13,Ed Davis,PF,6-9,218,21,North Carolina,So *,,12
 2009,1,9,DeMar DeRozan,GF,6-6,220,19,USC,Fr *,,16
-2008,1,17,Roy Hibbert,C,7-2,270,21,Georgetown,Sr,TOR to IND,9
 2006,1,1,Andrea Bargnani,FC,7-0,245,20,Universo De'Longhi Treviso (Italy),1985 DOB *,,10
 2006,2,35,P.J. Tucker,SF,6-5,245,21,Texas,Jr *,,14
-2006,2,56,Edin Bavcic,C,6-8,242,22,KK Bosna (Bosnia and Herzegovina),1984 DOB,TOR to PHI PHI to NOP NOP to BKN BKN to CLE,0
 2005,1,7,Charlie Villanueva,F,6-11,238,20,UConn,So *,,11
 2005,1,16,Joey Graham,G,6-7,225,23,Oklahoma State,Sr,,6
 2005,2,41,Roko Ukic,G,6-5,183,20,Fenerbahce Beko (Turkey),1984 DOB *,,2
 2005,2,58,Uros Slokar,PF,6-11,238,22,Pallalcesto Amatori Udine (Italy),1983 DOB,,1
 2004,1,8,Babby Araujo,C,6-11,280,23,Brigham Young,Sr,,3
-2004,2,39,Albert Miralles,FC,6-10,238,22,Roseto Sharks (Italy),1982 DOB,TOR to MIA MIA to BOS BOS to MIL MIL to CLE CLE to CHI,0
 2003,1,4,Chris Bosh,PF,6-11,235,19,Georgia Tech,Fr *,,14
-2003,2,52,Remon Van de Hare,C,7-2,220,21,Barca (Spain),1982 DOB *,TOR to ORL,0
-2002,1,20,Kareem Rush,G,6-6,201,21,Missouri,Jr *,TOR to LAL,8
 2001,1,17,Michael Bradley,F,6-10,245,22,Villanova,Jr *,,5
 2000,1,21,Morris Peterson,G,6-7,220,22,Michigan State,Sr,,11
 2000,2,46,DeeAndre Hulett,F,6-8,215,19,Las Vegas Silver Bandits (United States),1980 DOB,,0
-1999,1,5,Jonathan Bender,F,6-11,202,18,Picayune High School (Mississippi),1981 DOB *,TOR to IND,8
 1999,1,12,Alek Radojevic,C,7-3,250,22,Barton,So *,,4
-1998,1,4,Antawn Jamison,F,6-9,235,22,North Carolina,Jr *,TOR to GSW,16
-1998,2,47,Tyson Wheeler,G,5-10,165,22,Rhode Island,Sr,TOR to DEN,2
 1997,1,9,Tracy McGrady,GF,6-8,210,18,Mt. Zion Christian Academy (North Carolina),1979 DOB *,,16
 1996,1,2,Marcus Camby,C,6-11,240,22,Massachusetts,Jr *,,17
 1995,1,7,Damon Stoudamire,G,5-10,171,21,Arizona,Sr,,13

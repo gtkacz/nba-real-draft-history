@@ -1,71 +1,79 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
-2025,1,13,Derik Queen,C,6-9,250.0,20.0,Maryland,Fr *,ATL to NOP,0
-2025,1,22,Drake Powell,F,6-5,195.0,19.0,North Carolina,Fr *,ATL to BKN,0
+2025,1,23,Asa Newell,PF,6-10,220.0,19.0,Georgia,Fr *,NOP to  ATL,0
+2024,2,43,Nikola Djurisic,F,6-8,214.0,20.0,KK Mega Bemax (Serbia),2004 DOB *,MIA to  ATL,0
+2023,2,39,Mouhamed Gueye,F,6-11,210.0,20.0,Washington State,So *,CHA to  BOS BOS  to ATL,2
+2022,2,51,Tyrese Martin,GF,6-6,215.0,23.0,UConn,Sr *,GSW to  ATL,2
+2019,1,4,De'Andre Hunter,PF,6-7,221.0,21.0,Virginia,So *,LAL to  NOP NOP  to ATL,6
+2019,2,34,Bruno Fernando,C,6-9,240.0,20.0,Maryland,So *,PHI to  ATL,6
+2018,1,5,Trae Young,PG,6-2,164.0,19.0,Oklahoma,Fr *,DAL to  ATL,7
+2016,1,12,Taurean Prince,F,6-6,218.0,22.0,Baylor,Sr,UTA to  ATL,9
+2015,1,19,Jerian Grant,SG,6-4,198.0,22.0,Notre Dame,Sr,WAS to  ATL ATL  to NYK,4
+2014,2,48,Lamar Patterson,F,6-5,225.0,22.0,Pittsburgh,Sr,MIL to  ATL,2
+2013,2,44,Mike Muscala,FC,6-10,240.0,21.0,Bucknell,Sr,DAL to  ATL,11
+2010,1,27,Jordan Crawford,G,6-5,195.0,21.0,Xavier,So *,NJN to  ATL,6
+2002,1,28,Dan Dickau,G,6-0,190.0,23.0,Gonzaga,Sr,SAC to  ATL,6
+2002,2,56,Raed Farid Elhamali,F,6-9,225.0,22.0,San Diego State,Sr,SAS to  PHI PHI  to ATL,3
+1998,2,34,Shammond Williams,G,6-1,201.0,23.0,North Carolina,Sr,CHI to  ATL,7
+1983,1,8,Antoine Carr,PF,6-9,225.0,21.0,Wichita State,Sr,DET to  ATL,16
+1983,1,22,Randy Wittman,GF,6-6,210.0,23.0,Indiana,Sr,WAS to  ATL,9
+1982,1,3,Dominique Wilkins,SF,6-7,200.0,22.0,Georgia,Jr *,UTA to  ATL,16
+1982,3,51,Jim Johnstone,C,6-11,245.0,21.0,Wake Forest,Sr,KCK to  ATL,1
+1961,3,32,Bill Bridges,FC,6-6,228.0,21.0,Kansas,Sr,CHI to  STH,13
+1953,3,22,Cliff Hagan,GF,6-4,210.0,21.0,Kentucky,Sr,BOS to  STH,10
+1951,1,5,John McConathy,F,6-5,195.0,21.0,Northwestern State,Sr,SYR to  MIL,1
+1951,1,9,Don Sunderlage,SG,6-1,180.0,21.0,Illinois,Sr,PHI to  MIL,2
+1951,4,38,Elmer Behnke,F,6-7,210.0,22.0,Bradley,Sr,ROR to  MIL,1
+1950,2,19,Herb Scherer,F,6-9,212.0,21.0,Long Island,Sr,BOS to  TCB,2
+1949,1,10,Jack Kerris,F,6-6,215.0,24.0,Loyola (IL),Sr,CHI to  TCB,4
+1949,2,21,Red Owens,GF,6-3,185.0,23.0,Baylor,Sr,WAS to  TCB,2
+1949,3,26,Mac Otten,F,6-7,220.0,23.0,Bowling Green,Sr,IND to  TCB,1
+1949,3,34,Dike Eddleman,SF,6-3,189.0,26.0,Illinois,Sr,CHI to  TCB,4
+1949,4,36,Warren Perkins,G,6-3,190.0,25.0,Tulane,Sr,PRO to  TCB,2
+1948,1,11,Don Ray,GF,6-5,190.0,26.0,Western Kentucky,Sr,PHI to  TCB,1
+1948,5,56,Murray Wier,G,5-9,155.0,21.0,Iowa,Jr,FWP to  TCB,1
+1948,5,57,Dee Gibson,G,5-11,175.0,24.0,Western Kentucky,Sr,MIN to  TCB,1
 2024,1,1,Zaccharie Risacher,F,6-8,200.0,19.0,JL Bourg-en-Bresse (France),2005 DOB *,,1
 2023,1,15,Kobe Bufkin,G,6-4,195.0,19.0,Michigan,So *,,2
 2023,2,46,Seth Lundy,GF,6-4,220.0,23.0,Penn State,Sr *,,2
 2022,1,16,"A.J. Griffin, Jr.",SG,6-6,220.0,18.0,Duke,Fr *,,2
-2022,2,44,Ryan Rollins,G,6-3,180.0,19.0,Toledo,So *,ATL to GSW,3
 2021,1,20,Jalen Johnson,PF,6-8,219.0,19.0,Duke,Fr *,,4
 2021,2,48,Sharife Cooper,PG,6-0,176.0,20.0,Auburn,Fr *,,2
 2020,1,6,Onyeka Okongwu,PF,6-10,240.0,19.0,USC,Fr *,,5
 2020,2,50,Skylar Mays,PG,6-3,205.0,23.0,LSU,Sr,,4
-2019,1,8,Jaxson Hayes,PF,7-0,220.0,19.0,Texas,Fr *,ATL to NOP,6
 2019,1,10,Cam Reddish,G,6-7,217.0,19.0,Duke,Fr *,,6
-2019,2,35,Didi Louzada,SF,6-5,215.0,19.0,Franca (Brazil),1999 DOB *,ATL to NOP,2
-2018,1,3,Luka Doncic,SF,6-8,230.0,19.0,Real Madrid (Spain),1999 DOB *,ATL to DAL,7
 2018,1,19,Kevin Huerter,SF,6-6,198.0,19.0,Maryland,So *,,7
 2018,1,30,Omari Spellman,PF,6-8,245.0,20.0,Villanova,Fr *,,3
-2018,2,34,Devonte' Graham,PG,6-1,195.0,23.0,Kansas,Sr,ATL to CHA,6
 2017,1,19,John Collins,PF,6-9,226.0,19.0,Wake Forest,So *,,8
 2017,2,41,Tyler Dorsey,SG,6-5,183.0,21.0,Oregon,So *,,3
-2017,2,60,Alpha Kaba,PF,6-10,242.0,21.0,KK Mega Bemax (Serbia),1996 DOB *,ATL to HOU HOU to ATL,0
 2016,1,21,DeAndre' Bembry,GF,6-5,210.0,21.0,Saint Joseph's,Jr *,,6
-2016,2,44,Isaia Cordinier,G,6-5,197.0,19.0,Denain ASC Voltaire (France),1996 DOB *,ATL to BKN,0
-2016,2,54,Kay Felder,PG,5-9,176.0,21.0,Oakland,Jr *,ATL to CLE,2
-2015,1,15,"Kelly Oubre, Jr.",SF,6-8,203.0,19.0,Kansas,Fr *,ATL to WAS,10
 2015,2,50,Marcus Eriksson,GF,6-7,178.0,21.0,BAXI Manresa (Spain),1993 DOB,,0
-2015,2,59,Dimitrios Agravanis,F,6-10,210.0,20.0,Olympiacos (Greece),1994 DOB *,ATL to CLE CLE to SAC SAC to MIL,0
 2014,1,15,Adreian Payne,C,6-10,237.0,23.0,Michigan State,Sr,,4
 2014,2,43,Edy Tavares,C,7-3,265.0,22.0,Dreamland Gran Canaria (Spain),1992 DOB,,2
 2013,1,17,Dennis Schroder,PG,6-1,175.0,19.0,Basketball Lowen Braunschweig (Germany),1993 DOB *,,12
-2013,1,18,Shane Larkin,PG,5-11,175.0,20.0,Miami (FL),So *,ATL to DAL,4
-2013,2,47,Raulzinho Neto,PG,6-2,180.0,21.0,Gipuzkoa Basket (Spain),1992 DOB *,ATL to UTA,8
-2013,2,50,James Ennis,GF,6-6,215.0,22.0,Long Beach State,Sr,ATL to MIA,8
 2012,1,23,John Jenkins,SG,6-4,206.0,21.0,Vanderbilt,Jr *,,6
 2012,2,43,Mike Scott,PF,6-8,237.0,23.0,Virginia,Sr,,9
 2011,2,48,Keith Benson,C,6-11,240.0,22.0,Oakland,Sr,,1
-2010,1,24,Damion James,SF,6-7,225.0,22.0,Texas,Sr,ATL to NJN,4
 2010,2,53,Pape Sy,SF,6-7,224.0,22.0,STB Le Havre (France),1988 DOB,,1
 2009,1,19,Jeff Teague,PG,6-3,195.0,21.0,Wake Forest,So *,,12
-2009,2,49,Sergii Gladyr,G,6-5,190.0,20.0,MBC Mykolaiv (Ukraine),1988 DOB *,ATL to CLE,0
 2007,1,3,Al Horford,FC,6-8,240.0,21.0,Florida,Jr *,,18
 2007,1,11,Acie Law,SG,6-3,202.0,22.0,Texas A&M,Sr,,4
 2006,1,5,Shelden Williams,PF,6-9,250.0,22.0,Duke,Sr,,6
 2006,2,33,Solomon Jones,C,6-10,230.0,21.0,South Florida,Sr,,8
 2005,1,2,Marvin Williams,SF,6-9,237.0,19.0,North Carolina,Fr *,,15
 2005,2,31,Salim Stoudamire,G,6-1,186.0,22.0,Arizona,Sr,,4
-2005,2,59,Cenk Akyol,G,6-4,200.0,18.0,Anadolu Efes (Turkey),1987 DOB *,ATL to LAC LAC to PHI PHI to DEN DEN to ATL ATL to PHX,0
 2004,1,6,Josh Childress,SF,6-8,210.0,21.0,Stanford,Jr *,,8
 2004,1,17,Josh Smith,PF,6-9,225.0,18.0,Oak Hill Academy (Virginia),1985 DOB *,,13
 2004,2,34,Donta Smith,GF,6-7,215.0,20.0,Southeastern Illinois,So *,,2
 2004,2,37,Royal Ivey,G,6-4,215.0,22.0,Texas,Sr,,10
-2004,2,42,Viktor Sanikidze,F,6-7,194.0,18.0,JDA Dijon Basket (France),1986 DOB *,ATL to SAS,0
 2003,1,21,Boris Diaw,PF,6-8,250.0,21.0,Pau-Orthez (France),1982 DOB *,,14
 2003,2,37,Travis Hansen,G-F,6-6,205.0,25.0,Brigham Young,Sr,,1
-2002,2,36,David Andersen,F,7-0,242.0,22.0,Virtus Bologna (Italy),1980 DOB,ATL to HOU,2
-2001,1,3,Pau Gasol,FC,7-0,250.0,20.0,Barca (Spain),1980 DOB *,ATL to MEM,19
-2001,2,33,Terence Morris,F,6-9,221.0,22.0,Maryland,Sr,ATL to HOU,4
 2000,1,6,DerMarr Johnson,GF,6-9,201.0,20.0,Cincinnati,Fr *,,8
 2000,2,40,Hanno Mottola,FC,6-10,247.0,23.0,Utah,Sr,,2
 2000,2,57,Scoonie Penn,G,5-11,180.0,23.0,Ohio State,Sr,,1
 1999,1,10,Jason Terry,G,6-2,185.0,21.0,Arizona,Sr,,19
 1999,1,17,Cal Bowdler,PF,6-10,245.0,22.0,Old Dominion,Sr,,3
 1999,1,20,Dion Glover,GF,6-5,228.0,20.0,Georgia Tech,RS-Fr *,,6
-1999,1,27,Jumaine Jones,SF,6-8,218.0,20.0,Georgia,So *,ATL to PHI,8
-1999,2,52,Roberto Bergersen,G,6-6,210.0,23.0,Boise State,Sr,ATL to POR,3
 1998,1,20,Roshown McLeod,F,6-8,221.0,22.0,Duke,Sr,,4
-1998,2,49,Corry Carr,G,6-3,212.0,22.0,Texas Tech,Sr,ATL to CHI,2
 1997,1,22,Ed Gray,SG,6-3,210.0,21.0,California,Sr,,3
 1997,2,49,Alain Digbeu,G-F,6-5,210.0,21.0,ASVEL Basket (France),1975 DOB,,0
 1997,2,50,Chris Crawford,PF,6-9,235.0,22.0,Marquette,Sr,,8
@@ -80,7 +88,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1992,1,10,Adam Keefe,F,6-9,230.0,22.0,Stanford,Sr,,9
 1992,2,38,Elmer Bennett,PG,6-0,171.0,22.0,Notre Dame,Sr,,5
 1991,1,9,Stacey Augmon,SF,6-6,205.0,22.0,UNLV,Sr,,15
-1991,1,15,Anthony Avent,F,6-9,235.0,21.0,Seton Hall,Sr,ATL to DEN DEN to MIL,7
 1991,2,30,Rodney Monroe,SF,6-3,185.0,23.0,NC State,Sr,,3
 1990,1,10,Rumeal Robinson,PG,6-2,195.0,23.0,Michigan,Sr,,8
 1990,2,36,Trevor Wilson,F,6-7,210.0,22.0,UCLA,Sr,,5
@@ -98,10 +105,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1987,5,113,Jose Antonio Montero,G,6-3,200.0,22.0,,1965 DOB,,0
 1987,6,136,Riccardo Morandou,F,6-6,220.0,21.0,,1965 DOB,,0
 1987,7,159,Franjo Arapovic,C,6-11,265.0,22.0,KK Cibona (Croatia),1965 DOB,,0
-1986,1,19,Billy Thompson,F,6-7,195.0,22.0,Louisville,Sr,ATL to LAL,7
 1986,2,32,Cedric Henderson,F,6-8,210.0,20.0,AX Armani Exchange Milan (Italy),1965 DOB *,,1
 1986,2,40,Augusto Binelli,C,7-0,260.0,21.0,Virtus Bologna (Italy),1964 DOB,,0
-1986,2,42,Ron Kellogg,GF,6-5,190.0,23.0,Kansas,Sr,ATL to LAL,0
 1986,3,65,Dave Hoppen,C,6-11,235.0,22.0,Nebraska,Sr,,6
 1986,3,70,Jim Les,G,5-11,165.0,22.0,Bradley,Sr,,9
 1986,4,88,Efrem Winters,PF,6-8,240.0,,Illinois,Sr,,0
@@ -209,10 +214,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1974,1,10,Mike Sojourner,FC,6-9,225.0,20.0,Utah,So,,3
 1974,2,25,John Drew,GF,6-6,205.0,19.0,Gardner-Webb,So,,11
 1974,3,43,Darrell Elston,SG,6-4,190.0,21.0,North Carolina,Sr,,1
-1974,4,61,Eddie Palubinskas,PG,6-0,180.0,23.0,LSU Shreveport,Sr,ATL to NOJ,0
 1974,5,79,Tyrone Medley,,,,,Utah,Sr,,0
 1974,6,97,Sam Hervey,,,,,Southern Methodist,Sr,,0
-1974,7,115,Greg Lee,SG,6-3,190.0,22.0,UCLA,Sr,ATL to POR,1
 1974,8,133,Bill Butler,,,,,Louisville,Sr,,0
 1974,9,151,Lon Kruger,G,6-2,,21.0,Kansas State,Sr,,0
 1974,10,168,Brendy Lee,,,,,Nebraska,Sr,,0
@@ -307,7 +310,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1966,3,24,Tommy Kron,G,6-5,200.0,23.0,Kentucky,Sr,,3
 1966,4,34,Bob McIntyre,G,6-6,215.0,22.0,St. John's,Sr,,0
 1966,5,44,Dick Nemelka,G,6-0,175.0,22.0,Brigham Young,Sr,,0
-1966,6,54,Lonnie Wright,G,6-2,205.0,22.0,Colorado State,Sr,ATL to CIN,0
 1966,7,63,Jay Neary,SG,,,,UNC Wilmington,Jr,,0
 1966,8,72,Brian Williams,,,,,Xavier,Sr,,0
 1966,9,79,Al Grant,,,,,Long Island,Sr,,0

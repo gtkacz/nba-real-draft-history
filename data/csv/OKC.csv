@@ -1,24 +1,46 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
+2024,1,26,Dillon Jones,PG,6-5,235.0,22.0,Weber State,Sr *,WAS to  NYK NYK  to OKC,1
+2024,2,38,Ajay Mitchell,PG,6-4,190.0,22.0,UC Santa Barbara,Jr *,NYK to  OKC,1
+2023,1,10,Cason Wallace,G,6-3,195.0,19.0,Kentucky,Fr *,DAL to  OKC,2
+2022,1,11,Ousmane Dieng,SG,6-9,185.0,19.0,New Zealand (New Zealand),2003 DOB *,NYK to  OKC,3
+2021,2,32,Jeremiah Robinson-Earl,PF,6-9,240.0,20.0,Villanova,So *,NYK to  OKC,4
+2020,1,17,Aleksej Pokusevski,C,7-0,210.0,18.0,Olympiacos U18 (Greece),2001 DOB *,MIN to  OKC,4
+2020,2,34,Theo Maledon,PG,6-4,175.0,19.0,ASVEL Basket (France),2001 DOB *,PHI to  OKC,4
+2020,2,37,Vit Krejci,PG,6-8,195.0,20.0,Zaragoza U18 (Spain),2000 DOB *,WAS to  OKC,4
+2019,1,23,Darius Bazley,PF,6-9,216.0,19.0,,*,UTA to  MEM MEM  to OKC,5
+2018,2,45,Hamidou Diallo,SG,6-5,202.0,19.0,Kentucky,Fr *,BKN to  CHA CHA  to OKC,6
+2016,1,11,Domantas Sabonis,PF,6-10,240.0,20.0,Gonzaga,So *,ORL to  OKC,9
+2016,2,56,Daniel Hamilton,SG,6-7,195.0,20.0,UConn,So *,DEN to  OKC,2
+2014,2,52,Vasilije Micic,PG,6-3,188.0,20.0,KK Mega Bemax (Serbia),1994 DOB *,PHI to  OKC,2
+2014,2,55,Semaj Christon,PG,6-3,190.0,21.0,Xavier,So *,MIA to  CHA CHA  to OKC,1
+2013,1,26,Andre Roberson,SG,6-7,210.0,21.0,Colorado,Jr *,MIN to  GSW GSW  to OKC,8
+2013,2,40,Grant Jerrett,PF,6-10,232.0,19.0,Arizona,Fr *,POR to  OKC,2
+2012,2,56,Tomislav Zubcic,C,6-10,230.0,22.0,KK Cibona (Croatia),1990 DOB,TOR to  OKC,0
+2010,1,11,Cole Aldrich,C,6-11,253.0,21.0,Kansas,Jr *,NOP to  OKC,8
+2010,2,57,Ryan Reid,PF,6-8,235.0,23.0,Florida State,Sr,IND to  OKC,1
+2009,1,24,Byron Mullens,C,7-0,270.0,20.0,Ohio State,Fr *,DAL to  OKC,5
+2009,2,54,Robert Vaden,SG,6-5,220.0,24.0,UAB,Sr,CHA to  OKC,1
+2008,1,29,D.J. White,PF,6-9,250.0,21.0,Indiana,Sr,DET to  SEA,6
+2008,2,38,Kyle Weaver,SG,6-6,200.0,22.0,Washington State,Sr,CHA to  OKC,3
+2007,1,5,Jeff Green,F,6-8,235.0,20.0,Georgetown,Jr *,BOS to  SEA,17
+2003,2,34,Sofoklis Schortsanitis,FC,6-8,375.0,18.0,Maccabi FOX Tel Aviv (Israel),1985 DOB *,LAC to  ATL ATL  to OKC,0
+2003,2,35,Szymon Szewczyk,F,6-9,245.0,20.0,Basketball Lowen Braunschweig (Germany),1982 DOB *,MIL to  OKC,0
+2003,2,50,Paccelis Morlende,G,6-3,185.0,22.0,JDA Dijon Basket (France),1981 DOB,PHI to  SEA,0
+1997,2,32,James Cotton,G,6-5,220.0,21.0,Long Beach State,Jr *,DEN to  SEA,3
+1997,2,48,Peja Drobnjak,FC,6-11,270.0,21.0,KK Partizan (Serbia),1975 DOB,WAS to  SEA,4
+1995,2,43,Eric Snow,G,6-3,190.0,22.0,Michigan State,Sr,MIL to  SEA,14
+1987,1,8,Olden Polynice,C,6-11,220.0,22.0,RivieraBanca Rimini (Italy),1964 DOB *,CHI to  SEA,16
+1984,1,12,Tim McCormick,C,6-11,240.0,22.0,Michigan,Jr *,CLE to  SEA,10
 2025,1,15,Thomas Sorber,FC,6-9,250.0,19.0,Georgetown,Fr *,,0
-2025,1,24,Nique Clifford,F,6-5,175.0,23.0,Colorado State,Sr,OKC to SAC,0
 2025,2,44,Brooks Barnhizer,SF,6-5,230.0,23.0,Northwestern,Sr,,0
 2024,1,12,Nikola Topic,PG,6-6,200.0,18.0,KK Crvena Zvezda (Serbia),2005 DOB *,,1
-2023,1,12,Dereck Lively II,C,7-1,230.0,19.0,Duke,Fr *,OKC to DAL,2
-2023,2,37,Hunter Tyson,SF,6-8,215.0,23.0,Clemson,Sr,OKC to DEN,2
 2023,2,50,Keyontae Johnson,F,6-4,230.0,23.0,Kansas State,Sr *,,1
 2022,1,2,Chet Holmgren,C,7-1,208.0,20.0,Gonzaga,Fr *,,3
 2022,1,12,Jalen Williams,G,6-5,211.0,21.0,Santa Clara,Jr *,,3
-2022,1,30,Peyton Watson,GF,6-8,200.0,19.0,UCLA,Fr *,OKC to DEN,3
 2022,2,34,Jaylin Williams,C,6-9,240.0,19.0,Arkansas,So *,,3
 2021,1,6,Josh Giddey,G,6-7,216.0,18.0,Adelaide (Australia),2002 DOB *,,4
-2021,1,16,Alperen Sengun,C,6-11,243.0,19.0,Besiktas Icrypex (Turkey),2002 DOB *,OKC to HOU,4
 2021,1,18,Tre Mann,PG,6-4,178.0,20.0,Florida,So *,,4
-2021,2,34,Rokas Jokubaitis,PG,6-4,182.0,20.0,Zalgiris (Lithuania),2000 DOB *,OKC to NYK,0
-2021,2,36,Miles McBride,G,6-2,195.0,20.0,West Virginia,So *,OKC to NYK,4
 2021,2,55,Aaron Wiggins,F,6-5,190.0,22.0,Maryland,Jr *,,4
-2020,1,25,Immanuel Quickley,PG,6-2,190.0,21.0,Kentucky,So *,OKC to NYK,5
-2020,2,53,Cassius Winston,PG,6-1,185.0,22.0,Michigan State,Sr,OKC to WAS,2
-2019,1,21,Brandon Clarke,PF,6-8,215.0,22.0,Gonzaga,Jr *,OKC to MEM,6
 2018,2,53,Devon Hall,SG,6-5,215.0,22.0,Virginia,Sr,,1
 2018,2,57,Kevin Hervey,PF,6-9,230.0,21.0,Texas-Arlington,Sr,,1
 2017,1,21,Terrance Ferguson,SG,6-7,190.0,19.0,Adelaide (Australia),1998 DOB,,4
@@ -27,16 +49,10 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2014,1,21,Mitch McGary,C,6-10,255.0,22.0,Michigan,So *,,2
 2014,1,29,Josh Huestis,SF,6-7,230.0,22.0,Stanford,Sr,,3
 2013,1,12,Steven Adams,C,6-11,265.0,19.0,Pittsburgh,Fr *,,12
-2013,1,29,Archie Goodwin,G,6-5,205.0,18.0,Kentucky,Fr *,OKC to GSW GSW to PHX,4
 2013,2,32,Alex Abrines,GF,6-6,190.0,19.0,Barca (Spain),1993 DOB *,,3
 2012,1,28,Perry Jones,PF,6-11,235.0,20.0,Baylor,So *,,3
 2011,1,24,Reggie Jackson,G,6-2,208.0,21.0,Boston College,Jr *,,14
-2010,1,18,Eric Bledsoe,PG,6-1,214.0,20.0,Kentucky,Fr *,OKC to LAC,12
-2010,1,21,Craig Brackins,F,6-10,230.0,22.0,Iowa State,Jr *,OKC to NOP,2
-2010,1,26,Quincy Pondexter,F,6-7,230.0,22.0,Washington,Sr,OKC to NOP,9
-2010,2,51,Magnum Rolle,F,6-11,235.0,24.0,Louisiana Tech,Sr,OKC to IND,1
 2009,1,3,James Harden,SG,6-5,220.0,19.0,Arizona State,So *,,16
-2009,1,25,Rodrigue Beaubois,G,6-1,183.0,21.0,Cholet Basket (France),1988 DOB *,OKC to DAL,4
 2008,1,4,Russell Westbrook,G,6-4,200.0,19.0,UCLA,So *,,17
 2008,1,24,Serge Ibaka,C,6-10,235.0,18.0,CB L'Hospitalet (Spain),1989 DOB *,,14
 2008,2,32,Walter Sharpe,F,6-9,245.0,21.0,UAB,Jr *,SEA to DET,1
@@ -58,7 +74,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2003,1,12,Nick Collison,FC,6-10,255.0,22.0,Kansas,Sr,,15
 2003,1,14,Luke Ridnour,PG,6-2,175.0,22.0,Oregon,Jr *,,12
 2003,2,41,Willie Green,SG,6-3,201.0,21.0,Detroit-Mercy,Sr,SEA to PHI,12
-2002,2,48,Peter Fehse,F,7-0,205.0,19.0,SV Halle (Germany),1983 DOB *,OKC to UTA,0
 2001,1,12,Vladimir Radmanovic,PF,6-10,235.0,20.0,KK FMP (Serbia),1980 DOB *,,12
 2001,2,39,Earl Watson,PG,6-1,199.0,22.0,UCLA,Sr,,13
 2001,2,41,Bobby Simmons,F,6-6,235.0,21.0,DePaul,Jr *,SEA to WAS,11

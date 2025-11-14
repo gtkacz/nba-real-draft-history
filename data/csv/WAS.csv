@@ -1,66 +1,72 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
+2025,1,21,Will Riley,F,6-9,180.0,19.0,Illinois,Fr *,UTA to  WAS,0
+2024,1,14,Bub Carrington,G,6-4,190.0,18.0,Pittsburgh,Fr *,POR to  WAS,1
+2024,1,24,Kyshawn George,F,6-8,200.0,20.0,Miami (FL),Fr *,NYK to  WAS,1
+2023,1,7,Bilal Coulibaly,GF,6-7,195.0,18.0,Boulogne-Levallois (France),2004 DOB *,IND to  WAS,2
+2021,2,31,Isaiah Todd,PF,6-10,220.0,19.0,NBA G League Ignite,2001 DOB,MIL to  IND IND  to WAS,2
+2020,2,53,Cassius Winston,PG,6-1,185.0,22.0,Michigan State,Sr,OKC to  WAS,2
+2019,2,42,Admiral Schofield,SF,6-5,241.0,22.0,Tennessee,Sr,PHI to  WAS,4
+2017,2,50,Mathias Lessort,F,6-9,250.0,21.0,Nanterre 92 (France),1995 DOB,PHI to  LAC LAC  to MIN MIN  to NYK NYK  to WAS,0
+2015,1,15,"Kelly Oubre, Jr.",SF,6-8,203.0,19.0,Kansas,Fr *,ATL to  WAS,10
+2013,2,35,Glen Rice,GF,6-6,206.0,22.0,Rio Grande Valley Vipers,1991 DOB,PHI to  WAS,2
+2010,1,17,Kevin Seraphin,FC,6-10,278.0,20.0,Cholet Basket (France),1989 DOB *,CHI to  WAS,7
+2010,1,23,Trevor Booker,PF,6-8,228.0,22.0,Clemson,Sr,MIN to  WAS,8
+2010,2,56,Hamady Ndiaye,C,7-0,235.0,23.0,Rutgers,Sr,MIN to  WAS,3
+2001,1,20,Brendan Haywood,C,7-0,263.0,21.0,North Carolina,Sr,CLE to  ORL ORL  to WAS,14
+2001,2,41,Bobby Simmons,F,6-6,235.0,21.0,DePaul,Jr *,SEA to  WAS,11
+1999,2,38,Laron Profit,G-F,6-5,204.0,21.0,Maryland,Sr,ORL to  WAS,6
+1994,2,40,Jeff Webster,F,6-8,232.0,23.0,Oklahoma,Sr,MIA to  WAS,2
+1993,2,35,Ed Stokes,C,7-0,264.0,21.0,Arizona,Sr,MIA to  WAS,4
+1992,1,19,Don MacLean,PF,6-10,235.0,22.0,UCLA,Sr,DET to  LAC LAC  to WAS,10
+1992,2,51,Tim Burroughs,PF,6-8,250.0,22.0,Jacksonville,Sr,MIN to  WAS,0
+1984,1,22,Tom Sewell,G,6-5,185.0,22.0,Lamar,Sr,PHI to  WAS,1
+1980,2,25,Jeff Ruland,C,6-10,240.0,21.0,Iona,Sr *,GSW to  WAS,8
+1978,7,149,Steve Malovic,FC,6-10,230.0,21.0,San Diego State,Jr,PHX to  WAS,1
+1964,2,9,Les Hunter,F,6-7,210.0,21.0,Loyola (IL),Sr,DET to  WAS,1
+1964,3,18,Wali Jones,G,6-2,180.0,22.0,Villanova,Sr,DET to  WAS,10
+1964,3,24,Steve Courtin,G,6-1,188.0,21.0,Saint Joseph's,Sr,CIN to  WAS,1
+1962,4,27,Cliff Luyk,F,6-7,,20.0,Florida,Sr,NYK to  CHI,0
+1960,4,30,Horace Walker,F,6-3,210.0,22.0,Michigan State,Sr,STH to  WAS,1
 2025,1,6,Tre Johnson,SG,6-5,190.0,19.0,Texas,Fr *,,0
-2025,1,18,"Walter Clayton, Jr.",G,6-4,195.0,22.0,Florida,Sr,WAS to UTA,0
-2025,2,40,Micah Peavy,SF,6-7,215.0,23.0,Georgetown,Sr,WAS to NOP,0
 2025,2,43,Jamir Watkins,F,6-6,210.0,23.0,Florida State,Sr *,,0
 2024,1,2,Alex Sarr,FC,7-0,205.0,19.0,Perth (Australia),2005 DOB *,,1
-2024,1,26,Dillon Jones,PG,6-5,235.0,22.0,Weber State,Sr *,WAS to NYK NYK to OKC,1
-2023,1,8,Jarace Walker,G,6-7,235.0,19.0,Houston,Fr *,WAS to IND,2
 2023,2,42,Tristan Vukcevic,F,7-0,220.0,20.0,KK Partizan (Serbia),2003 DOB *,,2
-2023,2,57,Trayce Jackson-Davis,F,6-9,245.0,23.0,Indiana,Sr *,WAS to GSW,2
 2022,1,10,Johnny Davis,F,6-4,195.0,20.0,Wisconsin,So *,,3
 2022,2,54,Yannick Nzosa,C,6-10,174.0,18.0,Unicaja (Spain),2003 DOB *,,0
 2021,1,15,Corey Kispert,SF,6-6,224.0,22.0,Gonzaga,Sr *,,4
 2020,1,9,Deni Avdija,SG,6-8,228.0,19.0,Maccabi Tel Aviv U18 (Israel),2001 DOB *,,5
-2020,2,37,Vit Krejci,PG,6-8,195.0,20.0,Zaragoza U18 (Spain),2000 DOB *,WAS to OKC,4
 2019,1,9,Rui Hachimura,F,6-8,230.0,21.0,Gonzaga,Jr *,,6
 2018,1,15,"Troy Brown, Jr.",SF,6-7,215.0,18.0,Oregon,Fr *,,6
-2018,2,44,Yusuf Sanon,SG,6-4,185.0,18.0,Union Olimpija (Slovenia),1999 DOB *,WAS to NYK NYK to HOU,0
-2015,1,19,Jerian Grant,SG,6-4,198.0,22.0,Notre Dame,Sr,WAS to ATL ATL to NYK,4
-2015,2,49,Aaron White,F,6-9,220.0,22.0,Iowa,Sr,WAS to BKN,0
-2014,2,46,Jordan Clarkson,G,6-5,194.0,22.0,Missouri,Jr *,WAS to LAL,11
 2013,1,3,Otto Porter,SF,6-8,230.0,20.0,Georgetown,So *,,11
-2013,2,38,Nate Wolters,PG,6-4,190.0,22.0,South Dakota State,Sr,WAS to PHI PHI to MIL,3
-2013,2,54,Arsalan Kazemi,F,6-7,226.0,23.0,Oregon,Sr,WAS to PHI,0
 2012,1,3,Bradley Beal,SG,6-4,207.0,19.0,Florida,Fr *,,13
 2012,2,32,Tomas Satoransky,PG,6-7,210.0,20.0,Real Betis Baloncesto (Spain),1991 DOB *,,6
 2011,1,6,Jan Vesely,PF,6-11,240.0,21.0,KK Partizan (Serbia),1990 DOB *,,3
 2011,1,18,Chris Singleton,FC,6-8,228.0,21.0,Florida State,Jr *,,3
 2011,2,34,Shelvin Mack,G,6-3,203.0,21.0,Butler,Jr *,,8
 2010,1,1,John Wall,PG,6-3,210.0,19.0,Kentucky,Fr *,,13
-2010,1,30,Lazar Hayward,F,6-6,225.0,23.0,Marquette,Sr,WAS to MIN,3
-2010,2,35,Nemanja Bjelica,PF,6-10,235.0,22.0,KK Crvena Zvezda (Serbia),1988 DOB,WAS to MIN,7
-2009,2,32,Jermaine Taylor,G,6-5,205.0,22.0,UCF,Sr,WAS to HOU,2
 2008,1,18,JaVale McGee,C,7-0,270.0,20.0,Nevada,So *,,16
-2008,2,47,Henry Walker,GF,6-6,235.0,20.0,Kansas State,Fr *,WAS to BOS,5
 2007,1,16,Nick Young,SG,6-7,210.0,22.0,USC,Jr *,,12
 2007,2,47,Dominic McGuire,F,6-9,235.0,21.0,Fresno State,Jr *,,6
 2006,1,18,Oleksiy Pecherov,C,7-0,232.0,20.0,Paris Basket Racing (France),1985 DOB *,,3
-2006,2,48,Vladimir Veremeenko,PF,6-8,229.0,21.0,Dynamo Saint Petersburg (Russia),1984 DOB,WAS to CHI CHI to CLE CLE to LAC,0
 2005,2,49,Andray Blatche,PF,6-11,260.0,18.0,South Kent School (Connecticut),1986 DOB *,,9
-2004,1,5,Devin Harris,G,6-3,185.0,21.0,Wisconsin,Jr *,WAS to DAL,15
 2004,2,32,Peter John Ramos,C,7-3,276.0,19.0,Criollos de Caguas (United States),1985 DOB *,,2
 2003,1,10,Jarvis Hayes,SF,6-6,220.0,21.0,Georgia,Jr *,,7
 2003,2,38,Steve Blake,G,6-3,172.0,23.0,Maryland,Sr,,13
 2002,1,11,Jared Jeffries,PF,6-11,240.0,20.0,Indiana,So *,,11
 2002,1,17,Juan Dixon,G,6-3,164.0,23.0,Maryland,Sr,,7
 2002,2,38,Rod Grizzard,G,6-8,200.0,22.0,Alabama,Jr *,,2
-2002,2,39,Juan Carlos Navarro,SG,6-4,170.0,22.0,Barca (Spain),1980 DOB,WAS to MEM,1
 2001,1,1,Kwame Brown,C,6-11,290.0,19.0,Glynn Academy (Georgia),1982 DOB *,,12
 2000,2,35,Mike Smith,F,6-8,195.0,24.0,Louisiana-Monroe,Sr,,3
 1999,1,7,Richard Hamilton,SG,6-7,193.0,21.0,UConn,Jr *,,14
 1999,2,35,Calvin Booth,C,6-11,230.0,23.0,Penn State,Sr,,10
 1998,2,43,Jahidi White,FC,6-9,290.0,22.0,Georgetown,Sr,,7
 1997,2,45,God Shammgod,G,6-0,169.0,21.0,Providence,So *,,2
-1997,2,48,Peja Drobnjak,FC,6-11,270.0,21.0,KK Partizan (Serbia),1975 DOB,WAS to SEA,4
 1996,2,55,Ronnie Henderson,G,6-4,206.0,22.0,LSU,Jr *,,1
 1995,1,4,Rasheed Wallace,FC,6-11,230.0,20.0,North Carolina,So *,,16
-1995,2,32,Terrence Rencher,G,6-3,185.0,22.0,Texas,Sr,WAS to MIA,2
 1994,1,5,Juwan Howard,PF,6-9,240.0,21.0,Michigan,Jr *,,19
 1994,2,32,Jim McIlvaine,C,7-1,240.0,21.0,Marquette,Sr,,8
 1993,1,6,Calbert Cheaney,GF,6-7,209.0,21.0,Indiana,Sr,,13
 1993,2,30,George Muresan,C,7-7,303.0,22.0,Pau-Orthez (France),1971 DOB,,7
-1993,2,38,Conrad McRae,F,6-9,222.0,22.0,Syracuse,Sr,WAS to MIN,1
 1992,1,6,Tom Gugliotta,PF,6-10,240.0,22.0,NC State,Sr,,13
 1992,2,32,Brent Price,PG,6-1,165.0,23.0,Oklahoma,Sr,,11
 1991,1,19,LaBradford Smith,SG,6-3,200.0,22.0,Louisville,Sr,,4
@@ -97,7 +103,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1985,6,127,Matt England,,,,,Houston Christian,Sr,,0
 1985,7,146,"Bob Ferry, Jr.",,,,,Harvard,Sr,,0
 1985,7,150,Keith Gray,,,,,Detroit-Mercy,Sr,,0
-1984,1,6,Mel Turpin,C,6-11,240.0,23.0,Kentucky,Sr,WAS to CLE,5
 1984,2,34,Tony Costner,FC,6-10,250.0,21.0,Saint Joseph's,Sr,,0
 1984,2,44,Fred Reynolds,SF,6-6,195.0,23.0,UTEP,Sr,,1
 1984,3,53,Ricky Ross,SF,6-6,185.0,,Tulsa,Jr,,0
@@ -109,7 +114,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1984,9,190,Mike Emanuel,,,,,UNC-Pembroke,Sr,,0
 1984,10,212,Glynn Myrick,,,,,Stetson,Sr,,0
 1983,1,10,Jeff Malone,SG,6-4,205.0,21.0,Mississippi State,Sr,,13
-1983,1,22,Randy Wittman,GF,6-6,210.0,23.0,Indiana,Sr,WAS to ATL,9
 1983,2,32,Michael Britt,SF,6-6,175.0,22.0,District of Columbia,Sr,,0
 1983,2,34,Guy Williams,F,6-9,200.0,22.0,Washington State,Sr,,2
 1983,3,57,Darren Daye,FC,6-8,220.0,22.0,UCLA,Sr,,5
@@ -336,7 +340,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1967,19,161,George Spencer,,,,,Washington,Sr,,0
 1966,8,73,Roland West,GF,6-4,178.0,21.0,Cincinnati,Jr,,1
 1966,1,5,Jack Marin,GF,6-7,200.0,21.0,Duke,Sr,,11
-1966,2,15,Neil Johnson,F,6-7,220.0,23.0,Creighton,Sr,WAS to NYK,4
 1966,3,25,Dave Wagnon,G,6-2,,,Idaho State,Sr,,0
 1966,4,35,George Peeples,F,6-8,190.0,22.0,Iowa,Sr,,0
 1966,5,45,John Beasley,FC,6-9,225.0,22.0,Texas A&M,Sr,,0

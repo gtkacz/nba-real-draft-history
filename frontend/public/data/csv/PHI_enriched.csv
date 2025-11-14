@@ -1,70 +1,67 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
+2019,1,20,Matisse Thybulle,SF,6-5,202.0,22.0,Washington,Sr,BOS to  PHI,6,1629680.0,USA,2025,0.0
+2018,1,16,Zhaire Smith,SG,6-4,205.0,19.0,Texas Tech,Fr *,PHX to  PHI,3,1629015.0,USA,2019,0.0
+2018,2,54,Shake Milton,SG,6-5,205.0,21.0,Southern Methodist,Jr *,DAL to  PHI,7,1629003.0,USA,2024,0.0
+2017,1,25,Anzejs Pasecniks,C,7-1,229.0,21.0,Dreamland Gran Canaria (Spain),1995 DOB,ORL to  PHI,2,1628394.0,Latvia,2020,0.0
+2014,1,12,Dario Saric,SF,6-10,225.0,20.0,KK Cibona (Croatia),1994 DOB *,ORL to  PHI,9,203967.0,Croatia,2025,0.0
+2014,2,58,Jordan McRae,G,6-5,179.0,23.0,Tennessee,Sr,SAS to  PHI,4,203895.0,USA,2019,0.0
+2013,1,6,Nerlens Noel,FC,6-10,220.0,19.0,Kentucky,Fr *,NOP to  PHI,10,203457.0,USA,2022,0.0
+2013,2,54,Arsalan Kazemi,F,6-7,226.0,23.0,Oregon,Sr,WAS to  PHI,0,,,,
+2012,1,27,Arnett Moultrie,PF,6-11,250.0,21.0,Mississippi State,Jr *,MIA to  PHI,2,203102.0,USA,2013,0.0
+2012,2,53,Furkan Aldemir,PF,6-10,240.0,20.0,Galatasaray (Turkey),1991 DOB *,LAC to  HOU HOU  to PHI,1,203128.0,Turkey,2014,0.0
+2007,1,20,Jason Smith,PF,7-0,240.0,21.0,Colorado State,Jr *,MIA to  PHI,12,201160.0,USA,2018,0.0
+2007,2,42,Derrick Byars,SF,6-7,220.0,23.0,Vanderbilt,Sr,POR to  PHI,2,201182.0,USA,2011,0.0
+2007,2,55,Herbert Hill,FC,6-10,240.0,22.0,Providence,Sr,UTA to  PHI,1,201195.0,USA,2007,0.0
+2006,1,16,Rodney Carney,F,6-7,205.0,22.0,Memphis,Sr,CHI to  PHI,5,200760.0,USA,2010,0.0
+2006,2,37,Bobby Jones,F,6-7,215.0,22.0,Washington,Sr,MIN to  PHI,2,77193.0,USA,1985,0.0
+2006,2,37,Bobby Jones,F,6-7,215.0,22.0,Washington,Sr,MIN to  PHI,2,200784.0,USA,2007,0.0
+2003,2,41,Willie Green,SG,6-3,201.0,21.0,Detroit-Mercy,Sr,SEA to  PHI,12,2584.0,USA,2014,0.0
+2003,2,51,Kyle Korver,SF,6-7,212.0,22.0,Creighton,Sr,NJN to  PHI,17,2594.0,USA,2019,0.0
+2002,1,26,John Salmons,GF,6-7,210.0,22.0,Miami (FL),Sr,SAS to  PHI,13,2422.0,USA,2014,0.0
+1999,1,27,Jumaine Jones,SF,6-8,218.0,20.0,Georgia,So *,ATL to  PHI,8,1908.0,USA,2006,0.0
+1998,1,29,Nazr Mohammed,C,6-10,250.0,20.0,Kentucky,Jr *,UTA to  PHI,18,1737.0,USA,2015,0.0
+1997,1,7,Tim Thomas,F,6-10,240.0,20.0,Villanova,Fr *,NJN to  PHI,13,1501.0,USA,2009,0.0
+1997,1,21,Anthony Parker,GF,6-6,215.0,22.0,Bradley,Sr,NJN to  PHI,9,1515.0,USA,2011,0.0
+1996,1,23,Efthimios Rentzias,C,6-11,260.0,20.0,PAOK BC (Greece),1976 DOB *,DEN to  ATL ATL  to PHI,1,981.0,Greece,2002,0.0
+1993,1,17,Greg Graham,G,6-4,183.0,22.0,Indiana,Sr,CHA to  PHI,5,37.0,USA,1997,0.0
+1990,1,21,Jayson Williams,FC,6-10,245.0,22.0,St. John's,Sr,PHX to  PHI,10,420.0,USA,1998,0.0
+1988,1,6,Hersey Hawkins,SG,6-3,190.0,21.0,Bradley,Sr,LAC to  PHI,13,765.0,USA,2000,0.0
+1975,1,14,Joe Bryant,PF,6-9,185.0,20.0,La Salle,Sr,GSW to  PHI,8,76290.0,USA,1982,0.0
+1969,1,5,Larry Cannon,SG,6-4,195.0,21.0,La Salle,Sr,CHI to  PHI,2,76339.0,USA,1973,0.0
+1948,4,40,Ed Peterson,FC,6-9,220.0,23.0,Cornell,Jr,NYK to  SYR,2,77841.0,USA,1950,0.0
 2025,1,3,V.J. Edgecombe,F,6-4,180.0,19.0,Baylor,Fr *,,0,1642845.0,USA,2025,0.0
 2025,2,35,Johni Broome,C,6-10,235.0,22.0,Auburn,Sr,,0,1641780.0,USA,2025,0.0
 2024,1,16,Jared McCain,G,6-3,195.0,20.0,Duke,Fr *,,1,1642272.0,USA,2025,0.0
 2024,2,41,Adem Bona,C,6-10,235.0,21.0,UCLA,So *,,1,1641737.0,Nigeria,2025,0.0
-2022,1,23,David Roddy,F,6-5,255.0,21.0,Colorado State,Jr *,PHI to MEM,3,1631223.0,USA,2024,0.0
 2021,1,28,Jaden Springer,SG,6-4,202.0,18.0,Tennessee,Fr *,,4,1630531.0,USA,2024,0.0
 2021,2,50,Filip Petrusev,FC,6-11,225.0,21.0,KK Mega Bemax (Serbia),2000 DOB,,1,1630196.0,Serbia,2023,0.0
 2021,2,53,Charles Bassey,PF,6-10,230.0,20.0,Western Kentucky,Jr *,,4,1629646.0,Nigeria,2025,0.0
 2020,1,21,Tyrese Maxey,PG,6-2,200.0,20.0,Kentucky,Fr *,,5,1630178.0,USA,2025,0.0
-2020,2,34,Theo Maledon,PG,6-4,175.0,19.0,ASVEL Basket (France),2001 DOB *,PHI to OKC,4,1630177.0,France,2023,0.0
-2020,2,36,Tyler Bey,PF,6-7,215.0,22.0,Colorado,Jr *,PHI to DAL,1,1630189.0,USA,2020,0.0
 2020,2,49,Isaiah Joe,SG,6-4,165.0,21.0,Arkansas,So *,,5,1630198.0,USA,2025,0.0
 2020,2,58,"Paul Reed, Jr.",F,6-9,210.0,21.0,DePaul,Jr *,,5,1630194.0,USA,2025,0.0
-2019,1,24,Ty Jerome,PG,6-5,195.0,21.0,Virginia,Jr *,PHI to BOS BOS to PHX,6,1629660.0,USA,2025,0.0
-2019,2,33,Carsen Edwards,PG,5-11,200.0,21.0,Purdue,Jr *,PHI to BOS,3,1629035.0,USA,2021,0.0
-2019,2,34,Bruno Fernando,C,6-9,240.0,20.0,Maryland,So *,PHI to ATL,6,1628981.0,Angola,2024,0.0
-2019,2,42,Admiral Schofield,SF,6-5,241.0,22.0,Tennessee,Sr,PHI to WAS,4,1629678.0,United Kingdom,2023,0.0
 2019,2,54,Marial Shayok,G,6-5,198.0,23.0,Iowa State,Sr,,1,1629621.0,Canada,2019,0.0
-2018,1,10,Mikal Bridges,SG,6-6,209.0,21.0,Villanova,Jr *,PHI to PHX,7,1628969.0,USA,2025,0.0
 2018,1,26,Landry Shamet,PG,6-5,190.0,21.0,Wichita State,So *,,7,1629013.0,USA,2025,0.0
-2018,2,38,Khyri Thomas,SG,6-3,210.0,22.0,Creighton,Jr *,PHI to DET,3,1629017.0,USA,2020,0.0
-2018,2,39,Isaac Bonga,SG,6-8,180.0,18.0,Fraport Skyliners (Germany),1999 DOB *,PHI to LAL,4,1629067.0,Germany,2021,0.0
-2018,2,56,Raymond Spalding,PF,6-9,225.0,21.0,Louisville,Jr *,PHI to DAL,3,,,,
-2018,2,60,Kostas Antetokounmpo,PF,6-10,200.0,20.0,Dayton,Fr *,PHI to DAL,4,1628961.0,Greece,2020,0.0
 2017,1,1,Markelle Fultz,PG,6-4,209.0,19.0,Washington,Fr *,,8,1628365.0,USA,2024,0.0
 2017,2,36,Jonah Bolden,SF,6-10,220.0,21.0,FMP Beograd (Serbia),1996 DOB,,2,1628413.0,Australia,2019,0.0
-2017,2,39,Jawun Evans,PG,6-0,190.0,20.0,Oklahoma State,So *,PHI to LAC,2,1628393.0,USA,2018,0.0
-2017,2,46,Sterling Brown,G,6-5,219.0,22.0,Southern Methodist,Sr,PHI to MIL,6,1628425.0,USA,2022,0.0
-2017,2,50,Mathias Lessort,F,6-9,250.0,21.0,Nanterre 92 (France),1995 DOB,PHI to LAC LAC to MIN MIN to NYK NYK to WAS,0,,,,
 2016,1,1,Ben Simmons,PF,6-10,240.0,19.0,LSU,Fr *,,9,1627732.0,Australia,2024,0.0
 2016,1,24,Timothe Luwawu-Cabarrot,F,6-7,210.0,21.0,KK Mega Bemax (Serbia),1995 DOB *,,6,1627789.0,France,2021,0.0
 2016,1,26,Furkan Korkmaz,SG,6-7,202.0,18.0,Anadolu Efes (Turkey),1997 DOB *,,7,1627788.0,Turkey,2023,0.0
 2015,1,3,Jahlil Okafor,C,6-10,270.0,19.0,Duke,Fr *,,7,1626143.0,USA,2024,0.0
-2015,2,35,Willy Hernangomez,C,6-11,250.0,21.0,Cajasol Seville U18 (Spain),1994 DOB *,PHI to NYK,7,1626195.0,Spain,2022,0.0
 2015,2,37,Richaun Holmes,F,6-9,235.0,21.0,Bowling Green,Sr,,10,1626158.0,USA,2024,0.0
-2015,2,47,Arturas Gudaitis,C,6-10,254.0,22.0,Zalgiris (Lithuania),1993 DOB,PHI to SAC SAC to CLE,0,,,,
 2015,2,58,J.P. Tokoto,GF,6-6,200.0,21.0,North Carolina,Jr *,,0,,,,
-2015,2,60,Luka Mitrovic,PF,6-8,200.0,22.0,KK Crvena Zvezda (Serbia),1993 DOB,PHI to SAC SAC to LAC LAC to NYK,0,,,,
 2014,1,3,Joel Embiid,C,7-0,280.0,20.0,Kansas,Fr *,,11,203954.0,Cameroon,2025,0.0
-2014,1,10,Elfrid Payton,G,6-3,195.0,20.0,Louisiana,Jr *,PHI to ORL,9,203901.0,USA,2024,0.0
 2014,2,32,K.J. McDaniels,GF,6-6,205.0,21.0,Clemson,Jr *,,4,203909.0,USA,2016,0.0
 2014,2,39,Jerami Grant,F,6-7,213.0,20.0,Syracuse,So *,,11,203924.0,USA,2025,0.0
-2014,2,47,Russ Smith,G,6-0,165.0,23.0,Louisville,Sr,PHI to NOP,2,203893.0,USA,2015,0.0
-2014,2,52,Vasilije Micic,PG,6-3,188.0,20.0,KK Mega Bemax (Serbia),1994 DOB *,PHI to OKC,2,203995.0,Serbia,2024,0.0
-2014,2,54,Nemanja Dangubic,SF,6-9,176.0,21.0,KK Mega Bemax (Serbia),1993 DOB *,PHI to SAS SAS to BKN BKN to MEM,0,,,,
 2013,1,11,Michael Carter-Williams,PG,6-5,190.0,21.0,Syracuse,So *,,10,203487.0,USA,2022,0.0
-2013,2,35,Glen Rice,GF,6-6,206.0,22.0,Rio Grande Valley Vipers,1991 DOB,PHI to WAS,2,779.0,USA,2003,0.0
-2013,2,35,Glen Rice,GF,6-6,206.0,22.0,Rio Grande Valley Vipers,1991 DOB,PHI to WAS,2,203318.0,USA,2014,0.0
-2013,2,42,Pierre Jackson,PG,5-10,180.0,21.0,Baylor,Sr,PHI to NOP NOP to PHI,1,203510.0,USA,2016,0.0
 2012,1,15,Maurice Harkless,F,6-7,220.0,19.0,St. John's,Fr *,,10,203090.0,USA,2021,0.0
-2012,2,45,Justin Hamilton,C,7-0,255.0,22.0,LSU,Jr *,PHI to MIA,3,203120.0,USA,2016,0.0
-2012,2,54,Tornike Shengelia,PF,6-9,220.0,20.0,Proximus Spirou Charleroi (Belgium),1991 DOB *,PHI to BKN,2,203129.0,Georgia,2013,0.0
 2011,1,16,Nikola Vucevic,PF,6-9,260.0,20.0,USC,Jr *,,14,202696.0,Montenegro,2025,0.0
 2011,2,50,Lavoy Allen,PF,6-9,260.0,22.0,Temple,Sr,,6,202730.0,USA,2016,0.0
 2010,1,2,Evan Turner,GF,6-7,220.0,21.0,Ohio State,Jr *,,10,202323.0,USA,2019,0.0
 2009,1,17,Jrue Holiday,G,6-4,220.0,19.0,UCLA,Fr *,,16,201950.0,USA,2025,0.0
 2008,1,16,Marreese Speights,C,6-10,255.0,20.0,Florida,So *,,10,201578.0,USA,2017,0.0
 2007,1,12,Thaddeus Young,F,6-8,225.0,19.0,Georgia Tech,Fr *,,17,201152.0,USA,2023,0.0
-2007,1,21,Daequan Cook,G,6-5,205.0,20.0,Ohio State,Fr *,PHI to MIA,6,201161.0,USA,2012,0.0
-2007,1,30,Petteri Koponen,G,6-4,195.0,19.0,Tapiolan Honka (Finland),1988 DOB *,PHI to POR POR to DAL DAL to NYK,0,,,,
-2007,2,38,Kyrylo Fesenko,C,7-1,280.0,20.0,BK Cherkassy (Ukraine),1986 DOB *,PHI to UTA,5,201178.0,Ukraine,2011,0.0
-2006,1,13,Thabo Sefolosha,GF,6-7,220.0,22.0,Edilnol Pallacanestro Biella (Italy),1984 DOB,PHI to CHI,14,200757.0,Switzerland,2019,0.0
 2005,2,45,Lou Williams,G,6-1,175.0,18.0,South Gwinnett High School (Georgia),1986 DOB *,,17,101150.0,USA,2021,0.0
 2004,1,9,Andre Iguodala,SF,6-6,215.0,20.0,Arizona,So *,,19,2738.0,USA,2022,0.0
-2003,2,50,Paccelis Morlende,G,6-3,185.0,22.0,JDA Dijon Basket (France),1981 DOB,PHI to SEA,0,,,,
-2002,1,16,Jiri Welsch,F,6-6,208.0,22.0,Union Olimpija (Slovenia),1980 DOB,PHI to GSW,4,2412.0,Czech Republic,2005,0.0
 2002,2,44,Sam Clancy,F,6-7,240.0,22.0,USC,Sr,,2,,,,
 2001,1,26,Samuel Dalembert,C,6-11,250.0,21.0,Seton Hall,So *,,14,2223.0,Haiti,2014,0.0
 2001,2,36,Damone Brown,F,6-9,200.0,21.0,Syracuse,Sr,,4,2245.0,USA,2004,0.0
@@ -74,10 +71,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1999,2,47,Todd MacCulloch,C,7-0,280.0,23.0,Washington,Sr,,6,1928.0,Canada,2003,0.0
 1998,1,8,Larry Hughes,G,6-5,184.0,19.0,Saint Louis,Fr *,,13,1716.0,USA,2011,0.0
 1998,2,37,Casey Shaw,C,6-11,260.0,22.0,Toledo,Sr,,2,1745.0,USA,2002,0.0
-1997,1,2,Keith Van Horn,F,6-10,220.0,21.0,Utah,Sr,PHI to NJN,10,1496.0,USA,2005,0.0
 1997,2,33,Marko Milic,SF,6-6,235.0,20.0,Union Olimpija (Slovenia),1977 DOB *,,2,1527.0,Slovenia,1998,0.0
 1997,2,35,Kebu Stewart,F,6-8,239.0,23.0,Cal State Bakersfield,Sr,,3,1529.0,USA,1997,0.0
-1997,2,36,James Collins,SG,6-4,196.0,23.0,Florida State,Sr,PHI to LAC,4,1530.0,USA,1997,0.0
 1996,1,1,Allen Iverson,G,6-0,165.0,21.0,Georgetown,So *,,14,947.0,USA,2009,0.0
 1996,2,31,Mark Hendrickson,F,6-9,220.0,22.0,Washington State,Sr,,4,971.0,USA,1999,0.0
 1996,2,32,Ryan Minor,F,6-7,220.0,22.0,Oklahoma,Sr,,1,,,,
@@ -95,8 +90,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1989,1,19,Kenny Payne,F,6-8,195.0,22.0,Louisville,Sr,,4,77822.0,USA,1992,0.0
 1989,2,44,Reggie Cross,PF,6-8,245.0,22.0,Hawaii,Sr,,2,,,,
 1989,2,54,Toney Mack,G,6-4,205.0,22.0,Georgia,RS-Jr *,,1,,,,
-1988,1,3,Charles Daniel Smith,PF,6-10,230.0,22.0,Pittsburgh,Sr,PHI to LAC,10,,,,
-1988,2,31,Everette Stephens,G,6-2,175.0,21.0,Purdue,Sr,PHI to IND,3,78247.0,USA,1990,0.0
 1988,3,57,Herman Montenegro,PF,6-9,210.0,21.0,,1966 DOB *,,1,,,,
 1987,1,16,Chris Welp,C,7-0,245.0,23.0,Washington,Sr,,4,1846.0,USA,1989,0.0
 1987,2,39,Vincent Askew,GF,6-6,210.0,21.0,Memphis,Jr *,,10,355.0,USA,1997,0.0
@@ -124,7 +117,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1985,7,159,Jaye Andrews,,,,,Bucknell,Sr,,0,,,,
 1984,1,5,Charles Barkley,PF,6-6,252.0,21.0,Auburn,Jr *,,16,787.0,USA,1999,0.0
 1984,1,10,Leon Wood,G,6-3,185.0,22.0,Cal State Fullerton,Sr,,6,78611.0,USA,1990,0.0
-1984,1,22,Tom Sewell,G,6-5,185.0,22.0,Lamar,Sr,PHI to WAS,1,78116.0,USA,1984,0.0
 1984,3,48,James Banks,SF,6-6,210.0,,Georgia,Sr,,2,,,,
 1984,3,68,Butch Graves,G,6-3,200.0,22.0,Yale,Sr,,2,76855.0,USA,1984,0.0
 1984,4,91,Earl Harrison,SF,6-7,210.0,,Morehead State,Sr,,1,,,,
@@ -298,7 +290,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1969,9,126,Larry Lewis,FC,,,,St. Francis (PA),Sr,,0,,,,
 1969,10,140,Bill Justus,,,,,Tennessee,Sr,,0,,,,
 1969,11,154,Bruce Sloan,GF,6-5,180.0,,Kansas,Sr,,1,,,,
-1969,12,167,Fatty Taylor,PG,6-0,175.0,23.0,La Salle,Sr,PHI to DEN,1,,,,
 1968,1,14,Shaler Halimon,F,6-5,199.0,23.0,Utah State,Sr,,4,76922.0,USA,1971,0.0
 1968,5,62,Larry Miller,GF,6-4,,21.0,North Carolina,Sr,,0,,,,
 1968,6,76,Chuck Williams,PG,6-2,175.0,21.0,Colorado,Sr,,2,78547.0,USA,1977,0.0
@@ -372,7 +363,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1962,2,12,Chet Walker,F,6-6,212.0,22.0,Bradley,Sr,,13,78435.0,USA,1974,0.0
 1962,3,21,Porter Meriwether,G,6-2,180.0,22.0,Tennessee State,Sr,,1,77583.0,USA,1962,0.0
 1962,4,30,Bob McCully,F,6-9,,,St. Bonaventure,Sr,,0,,,,
-1962,5,39,John Windsor,F,6-8,215.0,21.0,Stanford,Sr,PHI to GSW,1,78591.0,USA,1963,0.0
 1962,6,48,Lanny Van Eman,,,,,Wichita State,Sr,,0,,,,
 1962,7,57,Bob Sharpenter,C,6-7,230.0,,Georgetown,Sr,,0,,,,
 1962,8,65,Jerry Harkness,G,6-2,175.0,21.0,Loyola (IL),Jr,,1,76950.0,USA,1963,0.0

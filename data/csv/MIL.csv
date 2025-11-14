@@ -1,34 +1,46 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
+2023,2,36,"Andre Jackson, Jr.",G,6-6,209.0,21.0,UConn,Jr *,ORL to  MIL,2
+2021,2,54,Sandro Mamukelashvili,F,6-9,240.0,22.0,Seton Hall,Sr *,IND to  MIL,4
+2021,2,60,Georgios Kalaitzakis,F,6-7,205.0,22.0,Panathinaikos (Greece),1999 DOB,IND to  MIL,1
+2020,2,60,Sam Merrill,G,6-4,205.0,24.0,Utah State,Sr,NOP to  MIL,5
+2017,2,46,Sterling Brown,G,6-5,219.0,22.0,Southern Methodist,Sr,PHI to  MIL,6
+2015,2,59,Dimitrios Agravanis,F,6-10,210.0,20.0,Olympiacos (Greece),1994 DOB *,ATL to  CLE CLE  to SAC SAC  to MIL,0
+2013,2,38,Nate Wolters,PG,6-4,190.0,22.0,South Dakota State,Sr,WAS to  PHI PHI  to MIL,3
+2011,1,19,Tobias Harris,F,6-8,226.0,18.0,Tennessee,Fr *,CHA to  MIL,14
+2006,2,59,Damir Markota,PF,6-10,260.0,20.0,KK Cibona (Croatia),1985 DOB *,SAS to  MIL,1
+2002,2,46,Jamal Sampson,FC,6-11,235.0,19.0,California,Fr *,UTA to  ORL ORL  to MIL,5
+2000,1,9,Joel Przybilla,C,7-1,245.0,20.0,Minnesota,So *,HOU to  MIL,13
+1998,1,6,Robert Traylor,F-C,6-8,284.0,21.0,Michigan,Jr *,DAL to  MIL,7
+1996,1,5,Ray Allen,SG,6-5,205.0,20.0,UConn,Jr *,MIN to  MIL,18
+1995,1,8,Shawn Respert,G,6-1,195.0,23.0,Michigan State,Sr,POR to  MIL,5
+1995,2,54,Eurelijus Zukauskas,C,7-2,260.0,21.0,Neptunas (Lithuania),1973 DOB,SEA to  MIL,0
+1994,2,36,Andrei Fetisov,F,6-10,220.0,22.0,UEMC Real Valladolid Baloncesto (Spain),1972 DOB,BOS to  MIL,0
+1992,1,21,Jon Barry,SG,6-4,195.0,22.0,Georgia Tech,Sr,BOS to  MIL,14
+1991,1,15,Anthony Avent,F,6-9,235.0,21.0,Seton Hall,Sr,ATL to  DEN DEN  to MIL,7
+1989,2,35,Pat Durham,F,6-7,210.0,22.0,Colorado State,Sr,DAL to  MIL,4
+1978,4,74,Mel Davis,PF,6-8,220.0,,North Texas,Sr,NOJ to  MIL,1
+1975,1,8,Junior Bridgeman,GF,6-5,210.0,21.0,Louisville,Sr,LAL to  MIL,12
+1969,5,66,George Thompson,PG,6-2,200.0,21.0,Marquette,Sr,BOS to  MIL,1
 2025,2,47,Bogoljub Markovic,PF,6-11,210.0,19.0,OKK Beograd (Serbia),2005 DOB *,,0
 2024,1,23,A.J. Johnson,G,6-5,160.0,19.0,Illawarra (Australia),2004 DOB *,,1
 2024,2,33,Tyler Smith,F,6-9,224.0,19.0,NBA G League Ignite,2004 DOB *,,1
 2023,2,58,Chris Livingston,F,6-6,220.0,19.0,Kentucky,Fr *,,2
 2022,1,24,MarJon Beauchamp,SG,6-7,199.0,21.0,NBA G League Ignite,2000 DOB,,3
-2021,2,31,Isaiah Todd,PF,6-10,220.0,19.0,NBA G League Ignite,2001 DOB,MIL to IND IND to WAS,2
-2020,1,24,R.J. Hampton,G,6-4,175.0,19.0,New Zealand (New Zealand),2001 DOB,MIL to DEN,4
 2020,2,45,Jordan Nwora,F,6-8,225.0,22.0,Louisville,Jr *,,4
-2019,1,30,"Kevin Porter, Jr.",SF,6-5,203.0,19.0,USC,Fr *,MIL to DET DET to CLE,5
 2018,1,17,Donte DiVincenzo,SG,6-4,203.0,21.0,Villanova,So *,,7
 2017,1,17,D.J. Wilson,F,6-10,231.0,21.0,Michigan,So *,,6
-2017,2,48,Sindarius Thornwell,SG,6-4,215.0,22.0,South Carolina,Sr,MIL to LAC,3
 2016,1,10,Thon Maker,C,7-0,221.0,19.0,Athlete Institute Prep (Ontario),1997 DOB *,,5
 2016,2,36,Malcolm Brogdon,SG,6-5,229.0,23.0,Virginia,Sr,,9
-2016,2,38,Patrick McCaw,G,6-7,181.0,20.0,UNLV,So *,MIL to GSW,5
 2015,1,17,Rashad Vaughn,SF,6-6,210.0,18.0,UNLV,Fr *,,3
-2015,2,46,Norman Powell,SG,6-3,215.0,22.0,UCLA,Sr,MIL to TOR,10
 2014,1,2,Jabari Parker,F,6-8,245.0,19.0,Duke,Fr *,,8
 2014,2,31,Damien Inglis,PF,6-8,246.0,19.0,Chorale Roanne Basket (France),1995 DOB *,,2
 2014,2,36,Johnny O'Bryant,FC,6-9,257.0,21.0,LSU,Jr *,,4
-2014,2,48,Lamar Patterson,F,6-5,225.0,22.0,Pittsburgh,Sr,MIL to ATL,2
 2013,1,15,Giannis Antetokounmpo,F,6-11,243.0,18.0,Filathlitikos Div II Greece (Greece),1994 DOB *,,12
-2013,2,43,Ricky Ledo,GF,6-7,197.0,20.0,Providence,Fr *,MIL to PHI PHI to DAL,2
 2012,1,14,John Henson,PF,6-11,219.0,21.0,North Carolina,Jr *,,9
 2012,2,42,Doron Lamb,SG,6-4,210.0,20.0,Kentucky,So *,,2
-2011,1,10,Jimmer Fredette,G,6-2,195.0,22.0,Brigham Young,Sr,MIL to SAC,6
 2011,2,40,Jon Leuer,PF,6-10,228.0,22.0,Wisconsin,Sr,,8
 2010,1,15,Larry Sanders,PF,6-11,235.0,21.0,VCU,Jr *,,6
 2010,2,37,Darington Hobson,GF,6-7,210.0,22.0,New Mexico,Jr *,,2
-2010,2,44,Jerome Jordan,C,7-0,253.0,23.0,Tulsa,Sr,MIL to NYK,2
 2010,2,47,Tiny Gallon,C,6-9,290.0,19.0,Oklahoma,Fr *,,0
 2009,1,10,Brandon Jennings,G,6-1,170.0,19.0,Virtus Roma (Italy),1989 DOB,,9
 2009,2,41,Jodie Meeks,G,6-4,210.0,21.0,Kentucky,Jr *,,10
@@ -40,38 +52,24 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 2005,1,1,Andrew Bogut,C,7-0,260.0,20.0,Utah,So *,,14
 2005,2,36,Ersan Ilyasova,F,6-10,235.0,18.0,Alpella B.K. (Turkey),1987 DOB *,,15
 2003,1,8,T.J. Ford,PG,6-0,165.0,20.0,Texas,So *,,9
-2003,2,35,Szymon Szewczyk,F,6-9,245.0,20.0,Basketball Lowen Braunschweig (Germany),1982 DOB *,MIL to OKC,0
-2003,2,43,Keith Bogans,GF,6-5,215.0,23.0,Kentucky,Sr,MIL to ORL,11
 2002,1,13,Marcus Haislip,FC,6-10,230.0,21.0,Tennessee,Jr *,,4
 2002,2,33,Dan Gadzuric,FC,6-11,240.0,24.0,UCLA,Sr,,10
 2002,2,41,Flip Murray,SG,6-3,200.0,22.0,Shaw,Sr,,8
-2002,2,47,Chris Owens,SF,6-7,245.0,23.0,Texas,Sr,MIL to MEM,1
 2001,2,51,Andre Hutson,F,6-8,240.0,22.0,Michigan State,Sr,,1
-2000,1,15,Jason Collier,F-C,7-0,260.0,22.0,Georgia Tech,Sr,MIL to HOU,5
 2000,2,43,Michael Redd,G,6-6,220.0,20.0,Ohio State,Jr *,,12
 2000,2,49,Jason Hart,G,6-3,180.0,22.0,Syracuse,Sr,,9
 1999,2,48,Galen Young,F,6-6,209.0,23.0,Charlotte,Sr,,4
-1998,1,9,Dirk Nowitzki,PF,7-0,245.0,20.0,DJK Wurzburg (Germany),1978 DOB *,MIL to DAL,21
-1998,1,19,Pat Garrity,F,6-9,238.0,21.0,Notre Dame,Sr,MIL to DAL DAL to PHX,10
 1998,2,39,Rafer Alston,G,6-2,175.0,21.0,Fresno State,Jr *,,11
-1997,1,10,Danny Fortson,F,6-7,260.0,21.0,Cincinnati,Jr *,MIL to DEN,10
 1997,2,38,Jerald Honeycutt,F,6-9,265.0,22.0,Tulane,Sr,,3
-1996,1,4,Stephon Marbury,G,6-2,180.0,19.0,Georgia Tech,Fr *,MIL to MIN,13
 1996,2,33,Moochie Norris,G,6-1,175.0,22.0,West Florida,Sr,,9
 1996,2,53,Jeff Nordgaard,F,6-7,225.0,23.0,Green Bay,Sr,,2
-1995,1,11,Gary Trent,PF,6-8,250.0,20.0,Ohio,Jr *,MIL to POR,10
-1995,2,38,Rashard Griffith,C,6-11,275.0,20.0,Wisconsin,So *,MIL to ORL,0
-1995,2,43,Eric Snow,G,6-3,190.0,22.0,Michigan State,Sr,MIL to SEA,14
 1994,1,1,Glenn Robinson,SF,6-7,225.0,21.0,Purdue,Jr *,,11
 1994,1,18,Eric Mobley,F-C,6-11,250.0,24.0,Pittsburgh,Sr,,4
 1994,2,46,Voshon Lenard,SG,6-4,205.0,21.0,Minnesota,Jr *,,11
 1993,1,8,Vin Baker,PF,6-11,240.0,21.0,Hartford,Sr,,14
 1992,1,8,Todd Day,GF,6-6,188.0,22.0,Arkansas,Sr,,8
-1992,1,18,Tracy Murray,F,6-7,225.0,20.0,UCLA,Jr *,MIL to SAS SAS to POR,13
 1992,1,23,Lee Mayberry,G,6-1,172.0,22.0,Arkansas,Sr,,8
-1991,1,18,Kevin Brooks,PF,6-8,210.0,21.0,Louisiana,Sr,MIL to DEN,3
 1991,2,45,Bobby Phills,SG,6-5,215.0,21.0,Southern,Sr,,8
-1990,1,16,Terry Mills,PF,6-10,230.0,22.0,Michigan,Sr,MIL to DEN,11
 1990,2,44,Steve Henson,G,6-1,180.0,22.0,Kansas State,Sr,,7
 1989,2,30,Frank Kornet,F,6-9,225.0,22.0,Vanderbilt,Sr,,3
 1988,1,13,Jeff Grayer,GF,6-5,200.0,22.0,Iowa State,Sr,,10
@@ -115,7 +113,6 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS
 1983,9,202,Bill Varner,,,,,Notre Dame,Sr,,1
 1983,10,223,Bob Kelly,,,,,St. John's,Sr,,0
 1982,1,20,Paul Pressey,SF,6-5,185.0,23.0,Tulsa,Sr,,11
-1982,2,27,Fred Roberts,FC,6-10,218.0,21.0,Brigham Young,Sr,MIL to NJN NJN to SAS,14
 1982,4,89,Jerry Beck,PF,6-7,200.0,,Middle Tennessee State,Sr,,0
 1982,6,135,Tony Carr,,,,,Wisconsin-Eau Claire,Sr,,0
 1982,7,158,Bobby Austin,,,,,Cincinnati,Sr,,0
