@@ -7,10 +7,12 @@ import AppFooter from './components/AppFooter.vue'
 import { useSplashScreen } from './composables/useSplashScreen'
 import { useDraftData } from './composables/useDraftData'
 import { useFilterUrlSync } from './composables/useFilterUrlSync'
+import { useCountryData } from './composables/useCountryData'
 import { getDataUrl } from './utils/dataUrl'
 import type { TeamAbbreviation } from './types/team'
 
 const { showSplash, markSplashSeen } = useSplashScreen()
+const { loadCountryData } = useCountryData()
 const {
   selectedTeam,
   selectedYear,
@@ -22,6 +24,7 @@ const {
   selectedPositions,
   ageRange,
   tradeFilter,
+  selectedNationalities,
   sortBy,
   currentPage,
   itemsPerPage,
@@ -29,6 +32,7 @@ const {
   allPreDraftTeams,
   availableYears,
   availableAges,
+  availableNationalities,
   loading,
   loadAllTeamData
 } = useDraftData()
@@ -45,6 +49,7 @@ useFilterUrlSync({
   selectedPositions,
   ageRange,
   tradeFilter,
+  selectedNationalities,
   sortBy,
   currentPage,
   itemsPerPage
@@ -68,6 +73,7 @@ async function loadData() {
 
 onMounted(() => {
   loadData()
+  loadCountryData()
 })
 </script>
 
@@ -102,6 +108,7 @@ onMounted(() => {
               v-model:selected-positions="selectedPositions"
               v-model:age-range="ageRange"
               v-model:trade-filter="tradeFilter"
+              v-model:selected-nationalities="selectedNationalities"
               v-model:sort-by="sortBy"
               v-model:current-page="currentPage"
               v-model:items-per-page="itemsPerPage"
@@ -109,6 +116,7 @@ onMounted(() => {
               :available-years="availableYears"
               :all-pre-draft-teams="allPreDraftTeams"
               :available-ages="availableAges"
+              :available-nationalities="availableNationalities"
             />
           </v-col>
         </v-row>

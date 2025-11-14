@@ -7,10 +7,12 @@ import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/t
 import { getDataUrl } from '@/utils/dataUrl'
 import { exportDraftPicksToCSV, downloadCSV as downloadCSVFile } from '@/utils/csvExporter'
 import { getCountryCode } from '@/utils/countryCodeConverter'
+import { useCountryData } from '@/composables/useCountryData'
 import PlayerCard from './PlayerCard.vue'
 
 const display = useDisplay()
 const isMobile = computed(() => display.mobile.value)
+const { getFormattedCountryName } = useCountryData()
 
 type SortItem = { key: string; order: 'asc' | 'desc' }
 
@@ -27,12 +29,14 @@ interface DraftTableProps {
   selectedPositions?: string[]
   ageRange?: [number, number]
   tradeFilter?: 'all' | 'traded' | 'not-traded'
+  selectedNationalities?: string[]
   sortBy?: SortItem[]
   currentPage?: number
   itemsPerPage?: number
   availableYears?: number[]
   allPreDraftTeams?: string[]
   availableAges?: number[]
+  availableNationalities?: string[]
   showPlayerMeasurements?: boolean
 }
 
@@ -48,6 +52,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   selectedPositions: () => [],
   ageRange: () => [17, 50],
   tradeFilter: () => 'all',
+  selectedNationalities: () => [],
   sortBy: () => [
     { key: 'year', order: 'desc' },
     { key: 'pick', order: 'asc' }
@@ -57,6 +62,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   availableYears: () => [],
   allPreDraftTeams: () => [],
   availableAges: () => [],
+  availableNationalities: () => [],
   showPlayerMeasurements: false
 })
 
@@ -71,6 +77,7 @@ const emit = defineEmits<{
   'update:selectedPositions': [value: string[]]
   'update:ageRange': [value: [number, number]]
   'update:tradeFilter': [value: 'all' | 'traded' | 'not-traded']
+  'update:selectedNationalities': [value: string[]]
   'update:sortBy': [value: SortItem[]]
   'update:currentPage': [value: number]
   'update:itemsPerPage': [value: number]
@@ -151,6 +158,20 @@ const roundOptions = [
   { value: 2, title: 'Round 2' },
   { value: '3+', title: 'Round 3+' }
 ]
+
+interface NationalityOption {
+  value: string
+  title: string
+  flag?: string
+}
+
+const nationalityOptions = computed<NationalityOption[]>(() => {
+  return props.availableNationalities.map((cca2) => ({
+    value: cca2,
+    title: getFormattedCountryName(cca2),
+    flag: cca2
+  })).sort((a, b) => a.title.localeCompare(b.title))
+})
 
 const positionOptions = [
   { value: 'G', title: 'Guard (G)' },
@@ -341,6 +362,9 @@ const hasActiveFilters = computed(() => {
   
   // Trade filter active
   if (props.tradeFilter !== 'all') return true
+  
+  // Nationality filter active
+  if (props.selectedNationalities && props.selectedNationalities.length > 0) return true
   
   return false
 })
@@ -1006,6 +1030,55 @@ watch(currentPage, () => {
                     />
                   </v-col>
 
+                  <!-- Nationality Filter -->
+                  <v-col cols="12" md="6" class="mb-2">
+                    <v-select
+                      :model-value="props.selectedNationalities"
+                      @update:model-value="emit('update:selectedNationalities', $event)"
+                      :items="nationalityOptions"
+                      :loading="false"
+                      label="Nationality"
+                      variant="outlined"
+                      hide-details
+                      multiple
+                      chips
+                      clearable
+                      closable-chips
+                    >
+                      <template #prepend-inner>
+                        <v-icon icon="mdi-flag" size="20" class="mr-2" />
+                      </template>
+                      <template #item="{ props: itemProps, item }">
+                        <v-list-item v-bind="itemProps">
+                          <template #prepend v-if="item.raw.flag">
+                            <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                              <span
+                                :class="`fi fi-${getCountryCode(item.raw.flag)}`"
+                                style="font-size: 24px;"
+                              />
+                            </div>
+                          </template>
+                        </v-list-item>
+                      </template>
+
+                      <template #selection="{ item }">
+                        <v-chip
+                          v-if="item.raw"
+                          size="small"
+                          class="mr-1"
+                        >
+                          <span
+                            v-if="item.raw.flag"
+                            :class="`fi fi-${getCountryCode(item.raw.flag)}`"
+                            class="mr-1"
+                            style="font-size: 16px; vertical-align: middle;"
+                          />
+                          <span>{{ item.raw.title }}</span>
+                        </v-chip>
+                      </template>
+                    </v-select>
+                  </v-col>
+
                   <!-- Player Measurements Toggle -->
                   <v-col cols="12" md="6" class="mb-2">
                     <v-checkbox
@@ -1245,6 +1318,60 @@ watch(currentPage, () => {
                 />
               </v-col>
 
+              <!-- Nationality Filter -->
+              <v-col cols="12" md="6" class="mb-2">
+                <v-select
+                  :model-value="props.selectedNationalities"
+                  @update:model-value="emit('update:selectedNationalities', $event)"
+                  :items="nationalityOptions"
+                  :loading="false"
+                  label="Nationality"
+                  variant="outlined"
+                  hide-details
+                  multiple
+                  chips
+                  clearable
+                  closable-chips
+                >
+                  <template #prepend-inner>
+                    <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                      <span
+                        :class="`fi fi-xx`"
+                        style="font-size: 20px;"
+                      />
+                    </div>
+                  </template>
+                  <template #item="{ props: itemProps, item }">
+                    <v-list-item v-bind="itemProps">
+                      <template #prepend v-if="item.raw.flag">
+                        <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                          <span
+                            :class="`fi fi-${getCountryCode(item.raw.flag)}`"
+                            style="font-size: 24px;"
+                          />
+                        </div>
+                      </template>
+                    </v-list-item>
+                  </template>
+
+                  <template #selection="{ item }">
+                    <v-chip
+                      v-if="item.raw"
+                      size="small"
+                      class="mr-1"
+                    >
+                      <span
+                        v-if="item.raw.flag"
+                        :class="`fi fi-${getCountryCode(item.raw.flag)}`"
+                        class="mr-1"
+                        style="font-size: 16px; vertical-align: middle;"
+                      />
+                      <span>{{ item.raw.title }}</span>
+                    </v-chip>
+                  </template>
+                </v-select>
+              </v-col>
+
               <!-- Player Measurements Toggle -->
               <v-col cols="12" class="mb-2">
                 <v-checkbox
@@ -1358,13 +1485,29 @@ watch(currentPage, () => {
             </v-img>
           </v-avatar>
           <div class="d-flex align-center flex-wrap gap-1">
-            <span class="font-weight-bold text-primary">{{ item.player }}</span>
+            <span class="font-weight-bold text-primary">
+              {{ item.player }}
+              <!-- Deceased Indicator -->
+              <v-icon
+                v-if="item.is_defunct === 1"
+                icon="mdi-cross"
+                title="Deceased"
+                size="16"
+                color="error"
+                class="player-deceased-icon"
+              />
+            </span>
             <!-- Nationality Flag - always show, fallback to 'un' -->
-            <span
-              :class="`fi fi-${getCountryCode(item.origin_country)}`"
-              :title="item.origin_country || 'Unknown'"
-              class="player-flag-icon"
-            />
+            <v-tooltip location="top">
+              <template #activator="{ props: tooltipProps }">
+                <span
+                  v-bind="tooltipProps"
+                  :class="`fi fi-${getCountryCode(item.origin_country)}`"
+                  class="player-flag-icon"
+                />
+              </template>
+              <span>{{ getFormattedCountryName(item.origin_country) }}</span>
+            </v-tooltip>
             <!-- Retired/Active Indicator - always show -->
             <v-tooltip location="top">
               <template #activator="{ props: tooltipProps }">
@@ -1378,15 +1521,6 @@ watch(currentPage, () => {
               </template>
               <span>{{ getRetirementTooltipText(item.played_until_year) }}</span>
             </v-tooltip>
-            <!-- Deceased Indicator -->
-            <v-icon
-              v-if="item.is_defunct === 1"
-              icon="mdi-close-circle"
-              title="Deceased"
-              size="16"
-              color="error"
-              class="player-deceased-icon"
-            />
           </div>
         </div>
       </template>
@@ -1722,8 +1856,7 @@ watch(currentPage, () => {
     flex-shrink: 0;
   }
 
-  .player-status-icon,
-  .player-deceased-icon {
+  .player-status-icon {
     margin-left: 4px;
     flex-shrink: 0;
   }

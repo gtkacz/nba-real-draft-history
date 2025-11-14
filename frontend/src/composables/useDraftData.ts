@@ -19,6 +19,7 @@ export function useDraftData() {
   const selectedPositions = ref<string[]>([])
   const ageRange = ref<[number, number]>([17, 50])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
+  const selectedNationalities = ref<string[]>([])
   
   // Sort state - initial multi-sort by year (desc) and pick (asc)
   type SortItem = { key: string; order: 'asc' | 'desc' }
@@ -55,6 +56,16 @@ export function useDraftData() {
       }
     })
     return Array.from(ages).sort((a, b) => a - b)
+  })
+
+  const availableNationalities = computed(() => {
+    const nationalities = new Set<string>()
+    allDraftPicks.value.forEach((pick) => {
+      if (pick.origin_country && pick.origin_country.trim() !== '') {
+        nationalities.add(pick.origin_country.toLowerCase().trim())
+      }
+    })
+    return Array.from(nationalities).sort()
   })
 
   const filteredData = computed(() => {
@@ -145,6 +156,15 @@ export function useDraftData() {
       filtered = filtered.filter((pick) => !pick.draftTrades || pick.draftTrades.trim() === '')
     }
 
+    // Nationality filter - multiple selection
+    if (selectedNationalities.value.length > 0) {
+      filtered = filtered.filter((pick) => {
+        if (!pick.origin_country) return false
+        const normalizedCountry = pick.origin_country.toLowerCase().trim()
+        return selectedNationalities.value.includes(normalizedCountry)
+      })
+    }
+
     return filtered
   })
 
@@ -216,6 +236,7 @@ export function useDraftData() {
     selectedPositions,
     ageRange,
     tradeFilter,
+    selectedNationalities,
     sortBy,
     currentPage,
     itemsPerPage,
@@ -223,6 +244,7 @@ export function useDraftData() {
     allPreDraftTeams,
     availableYears,
     availableAges,
+    availableNationalities,
     loading,
     error,
     loadAllTeamData,

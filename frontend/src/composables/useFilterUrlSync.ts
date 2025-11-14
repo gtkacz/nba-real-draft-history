@@ -15,6 +15,7 @@ interface FilterDefaults {
   selectedPositions: string[]
   ageRange: [number, number]
   tradeFilter: 'all' | 'traded' | 'not-traded'
+  selectedNationalities: string[]
   sortBy: SortItem[]
   currentPage: number
   itemsPerPage: number
@@ -31,6 +32,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
   selectedPositions: [],
   ageRange: [17, 50],
   tradeFilter: 'all',
+  selectedNationalities: [],
   sortBy: [
     { key: 'year', order: 'desc' },
     { key: 'pick', order: 'asc' }
@@ -51,6 +53,7 @@ export function useFilterUrlSync(
     selectedPositions: Ref<string[]>
     ageRange: Ref<[number, number]>
     tradeFilter: Ref<'all' | 'traded' | 'not-traded'>
+    selectedNationalities: Ref<string[]>
     sortBy: Ref<SortItem[]>
     currentPage: Ref<number>
     itemsPerPage: Ref<number>
@@ -137,6 +140,7 @@ export function useFilterUrlSync(
       filters.selectedPositions.value = [...DEFAULT_FILTERS.selectedPositions]
       filters.ageRange.value = [...DEFAULT_FILTERS.ageRange]
       filters.tradeFilter.value = DEFAULT_FILTERS.tradeFilter
+      filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
       filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
       filters.currentPage.value = DEFAULT_FILTERS.currentPage
       filters.itemsPerPage.value = DEFAULT_FILTERS.itemsPerPage
@@ -214,6 +218,14 @@ export function useFilterUrlSync(
     // Load tradeFilter
     if (query.tradeFilter && (query.tradeFilter === 'traded' || query.tradeFilter === 'not-traded' || query.tradeFilter === 'all')) {
       filters.tradeFilter.value = query.tradeFilter as 'all' | 'traded' | 'not-traded'
+    }
+
+    // Load selectedNationalities
+    if (query.nationalities) {
+      const nationalities = deserializeArray(query.nationalities, 'string')
+      if (nationalities.length > 0) {
+        filters.selectedNationalities.value = nationalities as string[]
+      }
     }
 
     // Load sortBy
@@ -313,6 +325,10 @@ export function useFilterUrlSync(
       query.tradeFilter = filters.tradeFilter.value
     }
 
+    if (isNonDefault(filters.selectedNationalities.value, DEFAULT_FILTERS.selectedNationalities)) {
+      query.nationalities = serializeArray(filters.selectedNationalities.value)
+    }
+
     // Only add sortBy if it's different from default
     if (isNonDefault(filters.sortBy.value, DEFAULT_FILTERS.sortBy)) {
       // Serialize as JSON for complex structure
@@ -346,6 +362,7 @@ export function useFilterUrlSync(
       filters.selectedPositions.value,
       filters.ageRange.value,
       filters.tradeFilter.value,
+      filters.selectedNationalities.value,
       filters.sortBy.value,
       filters.currentPage.value,
       filters.itemsPerPage.value
