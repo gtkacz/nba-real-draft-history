@@ -1,4 +1,5 @@
-import json, pathlib
+import json  # noqa: CPY001, D100
+import pathlib
 
 import pandas as pd
 import unidecode
@@ -48,17 +49,26 @@ def main() -> None:  # noqa: D103
 
         # For all matched players, copy the nba_id to the current DataFrame
         curr_df = curr_df.merge(
-            nba_df[["nba_id", "treated_name"]],
+            nba_df[["nba_id", "treated_name", "COUNTRY", "TO_YEAR"]],
             on="treated_name",
             how="left",
         )
 
         curr_df = curr_df.drop(columns=["treated_name"])
 
+        curr_df = curr_df.rename(
+            columns={
+                "COUNTRY": "origin_country",
+                "TO_YEAR": "played_until_year",
+            },
+        )
+
         total_matched = curr_df["nba_id"].notna().sum()
         total_players = len(curr_df)
 
-        print(f"Team: {team} - Matched players: {total_matched}/{total_players} ({(total_matched/total_players)*100:.2f}%)")
+        print(
+            f"Team: {team} - Matched players: {total_matched}/{total_players} ({(total_matched / total_players) * 100:.2f}%)"
+        )
 
         curr_df.to_csv(f"data/csv/{team}_enriched.csv", index=False)
 
