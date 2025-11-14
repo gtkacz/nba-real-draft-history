@@ -8,7 +8,15 @@ export interface CountryInfo {
 type CountryDataMap = Record<string, CountryInfo>
 
 const COUNTRY_DATA_CACHE_KEY = 'nba_whodunit_country_data'
-const COUNTRY_DATA_VERSION = '1.0.0' // Increment if data structure changes
+const COUNTRY_DATA_VERSION = '1.2.0' // Increment if data structure changes
+
+/**
+ * Language preference map for countries with multiple official languages
+ * Maps country code (cca2) to preferred language code(s) - will try each in order
+ */
+const LANGUAGE_PREFERENCES: Record<string, string[]> = {
+  il: ['heb', 'he'], // Israel -> Hebrew (try both 'heb' and 'he' codes)
+}
 
 const countryDataMap = ref<CountryDataMap>({})
 const loading = ref(false)
@@ -42,15 +50,45 @@ async function fetchCountryData(): Promise<CountryDataMap> {
 
       const officialEnglish = country.name.official || country.name.common || ''
 
-      // Get native official name - the language key is the only one in nativeName
+      // Get native official name - check for language preference first, then use first available
       let nativeOfficial = ''
       if (country.name.nativeName) {
         const languageKeys = Object.keys(country.name.nativeName)
         if (languageKeys.length > 0) {
-          const firstLanguage = languageKeys[0]
-          const nativeNameEntry =
-            country.name.nativeName[firstLanguage as keyof typeof country.name.nativeName]
-          nativeOfficial = nativeNameEntry?.official || ''
+          // Check if there's a language preference for this country
+          const preferredLanguages = LANGUAGE_PREFERENCES[cca2]
+          let selectedLanguage: string | undefined
+
+          if (preferredLanguages && preferredLanguages.length > 0) {
+            // Try each preferred language in order until we find one that's available
+            for (const preferredLang of preferredLanguages) {
+              if (languageKeys.includes(preferredLang)) {
+                selectedLanguage = preferredLang
+                break
+              }
+            }
+          }
+
+          // If no preferred language found or no preference set, use first language as fallback
+          if (!selectedLanguage) {
+            selectedLanguage = languageKeys[0]
+          }
+
+          if (selectedLanguage) {
+            const nativeNameEntry =
+              country.name.nativeName[selectedLanguage as keyof typeof country.name.nativeName]
+            nativeOfficial = nativeNameEntry?.official || ''
+
+            // Debug log for Israel to verify language selection
+            if (cca2 === 'il') {
+              console.log('Israel language selection:', {
+                preferredLanguages,
+                availableLanguages: languageKeys,
+                selectedLanguage,
+                nativeOfficial,
+              })
+            }
+          }
         }
       }
 

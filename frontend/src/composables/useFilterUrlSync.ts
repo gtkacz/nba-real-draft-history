@@ -346,7 +346,7 @@ export function useFilterUrlSync(
     }
 
     // Update URL without triggering navigation
-    router.replace({ query })
+    router.replace({ path: route.path, query })
   }
 
   // Watch all filters and update URL
