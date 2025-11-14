@@ -1,55 +1,55 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
-2024,2,45,Jamal Shead,G,6-1,200,21,Houston,Sr *,SAC to  TOR,1,1642347.0,USA,2025,0.0
-2024,2,57,Ulrich Chomche,PF,6-11,235,18,NBA Academy Africa (Senegal),2005 DOB *,MEM to  TOR,1,1642279.0,Cameroon,2024,0.0
-2015,2,46,Norman Powell,SG,6-3,215,22,UCLA,Sr,MIL to  TOR,10,1626181.0,USA,2025,0.0
-2013,1,16,Lucas Nogueira,C,7-0,241,20,Movistar Estudiantes (Spain),1992 DOB *,BOS to  DAL DAL  to ATL ATL  to TOR,4,203512.0,Brazil,2017,0.0
-2010,2,50,Solomon Alabi,C,7-1,250,22,Florida State,So *,DAL to  TOR,2,202374.0,Nigeria,2011,0.0
-2008,2,41,Nathan Jawai,C,6-10,280,21,Cairns (Australia),1986 DOB,IND to  TOR,2,201605.0,Australia,2009,0.0
-2004,2,47,Pape Sow,FC,6-10,224,22,Cal State Fullerton,Sr,MIA to  TOR,3,2776.0,Senegal,2006,0.0
-2003,2,45,Matt Bonner,FC,6-10,235,23,Florida,Sr,CHI to  TOR,12,2588.0,USA,2015,0.0
-2002,1,27,Chris Jefferies,F,6-8,225,22,Fresno State,Jr *,LAL to  TOR,3,2423.0,USA,2003,0.0
-1998,1,5,Vince Carter,SF,6-6,220,21,North Carolina,Jr *,GSW to  TOR,22,1713.0,USA,2019,0.0
-1998,2,44,Sean Marks,F-C,6-10,250,22,California,Sr,NYK to  TOR,12,1752.0,New Zealand,2010,0.0
-1995,2,40,Dwayne Whitfield,F,6-9,240,22,Jackson State,Sr,GSW to  TOR,2,730.0,USA,1995,0.0
-1995,2,50,Martin Lewis,F,6-5,210,20,Seward County CC,So *,GSW to  TOR,3,729.0,USA,1996,0.0
-1995,2,55,Michael McDonald,C,6-10,232,26,New Orleans,Sr,GSW to  TOR,2,1075.0,USA,1997,0.0
-2025,1,9,Collin Murray-Boyles,F,6-7,245,20,South Carolina,So *,,0,1642867.0,USA,2025,0.0
-2025,2,39,Alijah Martin,PG,6-2,210,23,Florida,Sr,,0,1642918.0,USA,2025,0.0
-2024,1,19,Ja'Kobe Walter,F,6-4,180,19,Baylor,Fr *,,1,1642266.0,USA,2025,0.0
-2024,2,31,Jonathan Mogbo,F,6-9,225,22,San Francisco,Jr *,,1,1642367.0,USA,2025,0.0
-2023,1,13,Gradey Dick,GF,6-7,200,19,Kansas,Fr *,,2,1641711.0,USA,2025,0.0
-2022,2,33,Christian Koloko,C,6-11,225,22,Arizona,Jr *,,3,1631132.0,Cameroon,2025,0.0
-2021,1,4,Scottie Barnes,SF,6-8,237,19,Florida State,Fr *,,4,1630567.0,USA,2025,0.0
-2021,2,46,Dalano Banton,PG,6-8,203,21,Nebraska,So *,,4,1630625.0,Canada,2024,0.0
-2021,2,47,David Johnson,SG,6-4,203,20,Louisville,So *,,1,77139.0,USA,1952,0.0
-2021,2,47,David Johnson,SG,6-4,203,20,Louisville,So *,,1,1630525.0,USA,2021,0.0
-2020,1,29,Malachi Flynn,PG,6-1,185,22,San Diego State,Jr *,,5,1630201.0,USA,2024,0.0
-2020,2,59,Jalen Harris,SG,6-5,195,22,Nevada,Jr *,,1,1630223.0,USA,2020,0.0
-2019,2,59,Dewan Hernandez,FC,6-10,235,22,Miami (FL),Jr *,,1,1629608.0,USA,2019,0.0
-2017,1,23,OG Anunoby,SF,6-7,240,19,Indiana,So *,,8,1628384.0,United Kingdom,2025,0.0
-2016,1,9,Jakob Poeltl,C,7-0,253,20,Utah,So *,,9,1627751.0,Austria,2025,0.0
-2016,1,27,Pascal Siakam,F,6-8,245,22,New Mexico State,So *,,9,1627783.0,Cameroon,2025,0.0
-2015,1,20,Delon Wright,G,6-4,185,23,Utah,Sr,,10,1626153.0,USA,2024,0.0
-2014,1,20,Bruno Caboclo,PF,6-9,218,18,Pinheiros Sky (Brazil),1995 DOB *,,7,203998.0,Brazil,2020,0.0
+2024,2,45,Jamal Shead,G,6-1,200,21,Houston,Sr *,SAC to  TOR,1,1642347.0,US,2025,0.0
+2024,2,57,Ulrich Chomche,PF,6-11,235,18,NBA Academy Africa (Senegal),2005 DOB *,MEM to  TOR,1,1642279.0,CM,2024,0.0
+2015,2,46,Norman Powell,SG,6-3,215,22,UCLA,Sr,MIL to  TOR,10,1626181.0,US,2025,0.0
+2013,1,16,Lucas Nogueira,C,7-0,241,20,Movistar Estudiantes (Spain),1992 DOB *,BOS to  DAL DAL  to ATL ATL  to TOR,4,203512.0,BR,2017,0.0
+2010,2,50,Solomon Alabi,C,7-1,250,22,Florida State,So *,DAL to  TOR,2,202374.0,NG,2011,0.0
+2008,2,41,Nathan Jawai,C,6-10,280,21,Cairns (Australia),1986 DOB,IND to  TOR,2,201605.0,AU,2009,0.0
+2004,2,47,Pape Sow,FC,6-10,224,22,Cal State Fullerton,Sr,MIA to  TOR,3,2776.0,SN,2006,0.0
+2003,2,45,Matt Bonner,FC,6-10,235,23,Florida,Sr,CHI to  TOR,12,2588.0,US,2015,0.0
+2002,1,27,Chris Jefferies,F,6-8,225,22,Fresno State,Jr *,LAL to  TOR,3,2423.0,US,2003,0.0
+1998,1,5,Vince Carter,SF,6-6,220,21,North Carolina,Jr *,GSW to  TOR,22,1713.0,US,2019,0.0
+1998,2,44,Sean Marks,F-C,6-10,250,22,California,Sr,NYK to  TOR,12,1752.0,NZ,2010,0.0
+1995,2,40,Dwayne Whitfield,F,6-9,240,22,Jackson State,Sr,GSW to  TOR,2,730.0,US,1995,0.0
+1995,2,50,Martin Lewis,F,6-5,210,20,Seward County CC,So *,GSW to  TOR,3,729.0,US,1996,0.0
+1995,2,55,Michael McDonald,C,6-10,232,26,New Orleans,Sr,GSW to  TOR,2,1075.0,US,1997,0.0
+2025,1,9,Collin Murray-Boyles,F,6-7,245,20,South Carolina,So *,,0,1642867.0,US,2025,0.0
+2025,2,39,Alijah Martin,PG,6-2,210,23,Florida,Sr,,0,1642918.0,US,2025,0.0
+2024,1,19,Ja'Kobe Walter,F,6-4,180,19,Baylor,Fr *,,1,1642266.0,US,2025,0.0
+2024,2,31,Jonathan Mogbo,F,6-9,225,22,San Francisco,Jr *,,1,1642367.0,US,2025,0.0
+2023,1,13,Gradey Dick,GF,6-7,200,19,Kansas,Fr *,,2,1641711.0,US,2025,0.0
+2022,2,33,Christian Koloko,C,6-11,225,22,Arizona,Jr *,,3,1631132.0,CM,2025,0.0
+2021,1,4,Scottie Barnes,SF,6-8,237,19,Florida State,Fr *,,4,1630567.0,US,2025,0.0
+2021,2,46,Dalano Banton,PG,6-8,203,21,Nebraska,So *,,4,1630625.0,CA,2024,0.0
+2021,2,47,David Johnson,SG,6-4,203,20,Louisville,So *,,1,77139.0,US,1952,0.0
+2021,2,47,David Johnson,SG,6-4,203,20,Louisville,So *,,1,1630525.0,US,2021,0.0
+2020,1,29,Malachi Flynn,PG,6-1,185,22,San Diego State,Jr *,,5,1630201.0,US,2024,0.0
+2020,2,59,Jalen Harris,SG,6-5,195,22,Nevada,Jr *,,1,1630223.0,US,2020,0.0
+2019,2,59,Dewan Hernandez,FC,6-10,235,22,Miami (FL),Jr *,,1,1629608.0,US,2019,0.0
+2017,1,23,OG Anunoby,SF,6-7,240,19,Indiana,So *,,8,1628384.0,GB,2025,0.0
+2016,1,9,Jakob Poeltl,C,7-0,253,20,Utah,So *,,9,1627751.0,AT,2025,0.0
+2016,1,27,Pascal Siakam,F,6-8,245,22,New Mexico State,So *,,9,1627783.0,CM,2025,0.0
+2015,1,20,Delon Wright,G,6-4,185,23,Utah,Sr,,10,1626153.0,US,2024,0.0
+2014,1,20,Bruno Caboclo,PF,6-9,218,18,Pinheiros Sky (Brazil),1995 DOB *,,7,203998.0,BR,2020,0.0
 2014,2,37,DeAndre Daniels,SF,6-9,196,22,UConn,Jr *,,0,,,,
-2012,1,8,Terrence Ross,SF,6-7,206,21,Washington,So *,,11,203082.0,USA,2022,0.0
-2012,2,37,Quincy Acy,F,6-7,240,21,Baylor,Sr,,7,203112.0,USA,2018,0.0
-2011,1,5,Jonas Valanciunas,C,6-11,265,19,Lietuvos Rytas (Lithuania),1992 DOB *,,13,202685.0,Lithuania,2025,0.0
-2010,1,13,Ed Davis,PF,6-9,218,21,North Carolina,So *,,12,202334.0,USA,2021,0.0
-2009,1,9,DeMar DeRozan,GF,6-6,220,19,USC,Fr *,,16,201942.0,USA,2025,0.0
-2006,1,1,Andrea Bargnani,FC,7-0,245,20,Universo De'Longhi Treviso (Italy),1985 DOB *,,10,200745.0,Italy,2015,0.0
-2006,2,35,P.J. Tucker,SF,6-5,245,21,Texas,Jr *,,14,200782.0,USA,2024,0.0
-2005,1,7,Charlie Villanueva,F,6-11,238,20,UConn,So *,,11,101111.0,USA,2015,0.0
-2005,1,16,Joey Graham,G,6-7,225,23,Oklahoma State,Sr,,6,101121.0,USA,2010,0.0
-2005,2,41,Roko Ukic,G,6-5,183,20,Fenerbahce Beko (Turkey),1984 DOB *,,2,101146.0,Croatia,2009,0.0
-2005,2,58,Uros Slokar,PF,6-11,238,22,Pallalcesto Amatori Udine (Italy),1983 DOB,,1,101166.0,Slovenia,2006,0.0
+2012,1,8,Terrence Ross,SF,6-7,206,21,Washington,So *,,11,203082.0,US,2022,0.0
+2012,2,37,Quincy Acy,F,6-7,240,21,Baylor,Sr,,7,203112.0,US,2018,0.0
+2011,1,5,Jonas Valanciunas,C,6-11,265,19,Lietuvos Rytas (Lithuania),1992 DOB *,,13,202685.0,LT,2025,0.0
+2010,1,13,Ed Davis,PF,6-9,218,21,North Carolina,So *,,12,202334.0,US,2021,0.0
+2009,1,9,DeMar DeRozan,GF,6-6,220,19,USC,Fr *,,16,201942.0,US,2025,0.0
+2006,1,1,Andrea Bargnani,FC,7-0,245,20,Universo De'Longhi Treviso (Italy),1985 DOB *,,10,200745.0,IT,2015,0.0
+2006,2,35,P.J. Tucker,SF,6-5,245,21,Texas,Jr *,,14,200782.0,US,2024,0.0
+2005,1,7,Charlie Villanueva,F,6-11,238,20,UConn,So *,,11,101111.0,US,2015,0.0
+2005,1,16,Joey Graham,G,6-7,225,23,Oklahoma State,Sr,,6,101121.0,US,2010,0.0
+2005,2,41,Roko Ukic,G,6-5,183,20,Fenerbahce Beko (Turkey),1984 DOB *,,2,101146.0,HR,2009,0.0
+2005,2,58,Uros Slokar,PF,6-11,238,22,Pallalcesto Amatori Udine (Italy),1983 DOB,,1,101166.0,SI,2006,0.0
 2004,1,8,Babby Araujo,C,6-11,280,23,Brigham Young,Sr,,3,,,,
-2003,1,4,Chris Bosh,PF,6-11,235,19,Georgia Tech,Fr *,,14,2547.0,USA,2016,0.0
-2001,1,17,Michael Bradley,F,6-10,245,22,Villanova,Jr *,,5,2214.0,USA,2005,0.0
-2000,1,21,Morris Peterson,G,6-7,220,22,Michigan State,Sr,,11,2050.0,USA,2010,0.0
+2003,1,4,Chris Bosh,PF,6-11,235,19,Georgia Tech,Fr *,,14,2547.0,US,2016,0.0
+2001,1,17,Michael Bradley,F,6-10,245,22,Villanova,Jr *,,5,2214.0,US,2005,0.0
+2000,1,21,Morris Peterson,G,6-7,220,22,Michigan State,Sr,,11,2050.0,US,2010,0.0
 2000,2,46,DeeAndre Hulett,F,6-8,215,19,Las Vegas Silver Bandits (United States),1980 DOB,,0,,,,
 1999,1,12,Alek Radojevic,C,7-3,250,22,Barton,So *,,4,,,,
-1997,1,9,Tracy McGrady,GF,6-8,210,18,Mt. Zion Christian Academy (North Carolina),1979 DOB *,,16,1503.0,USA,2012,0.0
-1996,1,2,Marcus Camby,C,6-11,240,22,Massachusetts,Jr *,,17,948.0,USA,2012,0.0
-1995,1,7,Damon Stoudamire,G,5-10,171,21,Arizona,Sr,,13,757.0,USA,2007,0.0
-1995,2,35,Jimmy King,GF,6-5,210,21,Michigan,Sr,,5,728.0,USA,1996,0.0
+1997,1,9,Tracy McGrady,GF,6-8,210,18,Mt. Zion Christian Academy (North Carolina),1979 DOB *,,16,1503.0,US,2012,0.0
+1996,1,2,Marcus Camby,C,6-11,240,22,Massachusetts,Jr *,,17,948.0,US,2012,0.0
+1995,1,7,Damon Stoudamire,G,5-10,171,21,Arizona,Sr,,13,757.0,US,2007,0.0
+1995,2,35,Jimmy King,GF,6-5,210,21,Michigan,Sr,,5,728.0,US,1996,0.0

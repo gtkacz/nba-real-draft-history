@@ -1,67 +1,67 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct
-2024,2,44,Pelle Larsson,SG,6-5,215,23.0,Arizona,Sr *,HOU to  MIA,1,1641796.0,Sweden,2025,0.0
-2019,2,32,KZ Okpala,SG,6-8,215,20.0,Stanford,So *,PHX to  MIA,4,1629644.0,USA,2022,0.0
-2014,1,24,Shabazz Napier,PG,6-1,180,22.0,UConn,Sr,CHA to  MIA,6,203894.0,USA,2019,0.0
-2013,2,50,James Ennis,GF,6-6,215,22.0,Long Beach State,Sr,ATL to  MIA,8,203516.0,USA,2021,0.0
-2012,2,45,Justin Hamilton,C,7-0,255,22.0,LSU,Jr *,PHI to  MIA,3,203120.0,USA,2016,0.0
-2011,1,28,Norris Cole,G,6-2,170,22.0,Cleveland State,Sr,CHI to  MIN MIN  to MIA,6,202708.0,USA,2016,0.0
-2009,2,42,Patrick Beverley,PG,6-2,180,20.0,Dnipro Dnipropetrovsk (Ukraine),1988 DOB,LAL to  MIA,12,201976.0,USA,2023,0.0
-2008,2,34,Mario Chalmers,G,6-2,190,22.0,Kansas,Jr *,MIN to  MIA,10,201596.0,USA,2017,0.0
-2007,1,21,Daequan Cook,G,6-5,205,20.0,Ohio State,Fr *,PHI to  MIA,6,201161.0,USA,2012,0.0
+2024,2,44,Pelle Larsson,SG,6-5,215,23.0,Arizona,Sr *,HOU to  MIA,1,1641796.0,SE,2025,0.0
+2019,2,32,KZ Okpala,SG,6-8,215,20.0,Stanford,So *,PHX to  MIA,4,1629644.0,US,2022,0.0
+2014,1,24,Shabazz Napier,PG,6-1,180,22.0,UConn,Sr,CHA to  MIA,6,203894.0,US,2019,0.0
+2013,2,50,James Ennis,GF,6-6,215,22.0,Long Beach State,Sr,ATL to  MIA,8,203516.0,US,2021,0.0
+2012,2,45,Justin Hamilton,C,7-0,255,22.0,LSU,Jr *,PHI to  MIA,3,203120.0,US,2016,0.0
+2011,1,28,Norris Cole,G,6-2,170,22.0,Cleveland State,Sr,CHI to  MIN MIN  to MIA,6,202708.0,US,2016,0.0
+2009,2,42,Patrick Beverley,PG,6-2,180,20.0,Dnipro Dnipropetrovsk (Ukraine),1988 DOB,LAL to  MIA,12,201976.0,US,2023,0.0
+2008,2,34,Mario Chalmers,G,6-2,190,22.0,Kansas,Jr *,MIN to  MIA,10,201596.0,US,2017,0.0
+2007,1,21,Daequan Cook,G,6-5,205,20.0,Ohio State,Fr *,PHI to  MIA,6,201161.0,US,2012,0.0
 2005,2,35,Ricky Sanchez,F,7-0,220,17.0,IMG Academy (Florida),1987 DOB,POR to  DEN DEN  to PHI PHI  to MEM MEM  to MIA,0,,,,
-2001,2,44,Sean Lampley,F-G,6-6,213,21.0,California,Sr,CHI to  MIA,3,2253.0,USA,2003,0.0
+2001,2,44,Sean Lampley,F-G,6-6,213,21.0,California,Sr,CHI to  MIA,3,2253.0,US,2003,0.0
 1997,2,57,Roberto Duenas,C,7-2,280,21.0,Barca (Spain),1975 DOB,CHI to  CHA NOP  to MIA,0,,,,
-1996,1,25,Martin Muursepp,F-C,6-10,235,21.0,Tallinna Ulikool Kalev (Estonia),1974 DOB,UTA to  MIA,3,982.0,Estonia,1997,0.0
-1995,2,32,Terrence Rencher,G,6-3,185,22.0,Texas,Sr,WAS to  MIA,2,720.0,USA,1995,0.0
-1992,2,43,Sasha Danilovic,SF,6-5,200,22.0,,1970 DOB,GSW to  MIA,2,390.0,Serbia,1996,0.0
-1990,1,12,Alec Kessler,C,6-11,230,23.0,Georgia,Sr,HOU to  MIA,4,77251.0,USA,1993,0.0
-1990,2,40,Bimbo Coles,SG,6-1,180,22.0,Virginia Tech,Sr,SAC to  MIA,14,902.0,USA,2003,0.0
-2025,1,20,Kasparas Jakucionis,G,6-5,200,19.0,Illinois,Fr *,,0,1642857.0,Lithuania,2025,0.0
-2024,1,15,Kel'el Ware,PF,7-0,230,20.0,Indiana,So *,,1,1642276.0,USA,2025,0.0
-2023,1,18,"Jaime Jaquez, Jr.",GF,6-6,225,22.0,UCLA,Sr *,,2,1631170.0,USA,2025,0.0
-2022,1,27,Nikola Jovic,F,6-10,205,19.0,KK Mega Bemax (Serbia),2003 DOB *,,3,1631107.0,Serbia,2025,0.0
-2020,1,20,Precious Achiuwa,SF,6-8,243,21.0,Memphis,Fr *,,5,1630173.0,Nigeria,2025,0.0
-2019,1,13,Tyler Herro,SG,6-5,195,19.0,Kentucky,Fr *,,6,1629639.0,USA,2025,0.0
-2017,1,14,Bam Adebayo,C,6-9,255,19.0,Kentucky,Fr *,,8,1628389.0,USA,2025,0.0
-2015,1,10,Justise Winslow,SF,6-6,222,19.0,Duke,Fr *,,9,1626159.0,USA,2022,0.0
-2015,2,40,Josh Richardson,G,6-5,200,21.0,Tennessee,Sr,,10,1626196.0,USA,2024,0.0
-2010,2,32,Dexter Pittman,C,6-11,285,22.0,Texas,Sr,,4,202354.0,USA,2013,0.0
-2010,2,41,Jarvis Varnado,FC,6-9,230,22.0,Mississippi State,Sr,,2,202363.0,USA,2013,0.0
-2010,2,42,Da'Sean Butler,F,6-7,230,22.0,West Virginia,Sr,,1,202364.0,USA,2010,0.0
+1996,1,25,Martin Muursepp,F-C,6-10,235,21.0,Tallinna Ulikool Kalev (Estonia),1974 DOB,UTA to  MIA,3,982.0,EE,1997,0.0
+1995,2,32,Terrence Rencher,G,6-3,185,22.0,Texas,Sr,WAS to  MIA,2,720.0,US,1995,0.0
+1992,2,43,Sasha Danilovic,SF,6-5,200,22.0,,1970 DOB,GSW to  MIA,2,390.0,RS,1996,0.0
+1990,1,12,Alec Kessler,C,6-11,230,23.0,Georgia,Sr,HOU to  MIA,4,77251.0,US,1993,0.0
+1990,2,40,Bimbo Coles,SG,6-1,180,22.0,Virginia Tech,Sr,SAC to  MIA,14,902.0,US,2003,0.0
+2025,1,20,Kasparas Jakucionis,G,6-5,200,19.0,Illinois,Fr *,,0,1642857.0,LT,2025,0.0
+2024,1,15,Kel'el Ware,PF,7-0,230,20.0,Indiana,So *,,1,1642276.0,US,2025,0.0
+2023,1,18,"Jaime Jaquez, Jr.",GF,6-6,225,22.0,UCLA,Sr *,,2,1631170.0,US,2025,0.0
+2022,1,27,Nikola Jovic,F,6-10,205,19.0,KK Mega Bemax (Serbia),2003 DOB *,,3,1631107.0,RS,2025,0.0
+2020,1,20,Precious Achiuwa,SF,6-8,243,21.0,Memphis,Fr *,,5,1630173.0,NG,2025,0.0
+2019,1,13,Tyler Herro,SG,6-5,195,19.0,Kentucky,Fr *,,6,1629639.0,US,2025,0.0
+2017,1,14,Bam Adebayo,C,6-9,255,19.0,Kentucky,Fr *,,8,1628389.0,US,2025,0.0
+2015,1,10,Justise Winslow,SF,6-6,222,19.0,Duke,Fr *,,9,1626159.0,US,2022,0.0
+2015,2,40,Josh Richardson,G,6-5,200,21.0,Tennessee,Sr,,10,1626196.0,US,2024,0.0
+2010,2,32,Dexter Pittman,C,6-11,285,22.0,Texas,Sr,,4,202354.0,US,2013,0.0
+2010,2,41,Jarvis Varnado,FC,6-9,230,22.0,Mississippi State,Sr,,2,202363.0,US,2013,0.0
+2010,2,42,Da'Sean Butler,F,6-7,230,22.0,West Virginia,Sr,,1,202364.0,US,2010,0.0
 2009,2,60,Robert Dozier,PF,6-9,215,23.0,Memphis,Sr,,0,,,,
-2008,1,2,Michael Beasley,PF,6-9,235,19.0,Kansas State,Fr *,,11,201563.0,USA,2018,0.0
-2005,1,29,Wayne Simien,F,6-9,255,22.0,Kansas,Sr,,2,101134.0,USA,2006,0.0
-2004,1,19,Dorell Wright,F,6-9,205,18.0,Leuzinger High School (California),1985 DOB *,,12,2748.0,USA,2015,0.0
-2004,2,53,Matt Freije,FC,6-10,240,22.0,Vanderbilt,Sr,,2,2782.0,USA,2006,0.0
-2003,1,5,Dwyane Wade,SG,6-4,220,21.0,Marquette,Jr *,,16,2548.0,USA,2018,0.0
-2003,2,33,Jerome Beasley,PF,6-10,237,23.0,North Dakota,Sr,,2,2602.0,USA,2003,0.0
-2002,1,10,Caron Butler,SF,6-7,228,22.0,UConn,So *,,14,2406.0,USA,2015,0.0
-2002,2,52,Rasual Butler,GF,6-7,215,23.0,La Salle,Sr,,13,2446.0,USA,2015,0.0
-2001,2,48,Ken Johnson,C,6-11,240,23.0,Ohio State,Sr,,2,2256.0,USA,2002,0.0
-2001,2,48,Ken Johnson,C,6-11,240,23.0,Ohio State,Sr,,2,77154.0,USA,1985,0.0
-2000,2,37,Eddie House,G,6-1,190,22.0,Arizona State,Sr,,11,2067.0,USA,2010,0.0
-2000,2,52,Ernest Brown,C,7-0,244,21.0,Indian Hills,So *,,4,2081.0,USA,2003,0.0
-1999,1,25,Tim James,F,6-7,212,22.0,Miami (FL),Sr,,4,1906.0,USA,2002,0.0
-1999,2,53,Rodney Buford,SF,6-5,189,21.0,Creighton,Sr,,5,1934.0,USA,2004,0.0
+2008,1,2,Michael Beasley,PF,6-9,235,19.0,Kansas State,Fr *,,11,201563.0,US,2018,0.0
+2005,1,29,Wayne Simien,F,6-9,255,22.0,Kansas,Sr,,2,101134.0,US,2006,0.0
+2004,1,19,Dorell Wright,F,6-9,205,18.0,Leuzinger High School (California),1985 DOB *,,12,2748.0,US,2015,0.0
+2004,2,53,Matt Freije,FC,6-10,240,22.0,Vanderbilt,Sr,,2,2782.0,US,2006,0.0
+2003,1,5,Dwyane Wade,SG,6-4,220,21.0,Marquette,Jr *,,16,2548.0,US,2018,0.0
+2003,2,33,Jerome Beasley,PF,6-10,237,23.0,North Dakota,Sr,,2,2602.0,US,2003,0.0
+2002,1,10,Caron Butler,SF,6-7,228,22.0,UConn,So *,,14,2406.0,US,2015,0.0
+2002,2,52,Rasual Butler,GF,6-7,215,23.0,La Salle,Sr,,13,2446.0,US,2015,0.0
+2001,2,48,Ken Johnson,C,6-11,240,23.0,Ohio State,Sr,,2,2256.0,US,2002,0.0
+2001,2,48,Ken Johnson,C,6-11,240,23.0,Ohio State,Sr,,2,77154.0,US,1985,0.0
+2000,2,37,Eddie House,G,6-1,190,22.0,Arizona State,Sr,,11,2067.0,US,2010,0.0
+2000,2,52,Ernest Brown,C,7-0,244,21.0,Indian Hills,So *,,4,2081.0,US,2003,0.0
+1999,1,25,Tim James,F,6-7,212,22.0,Miami (FL),Sr,,4,1906.0,US,2002,0.0
+1999,2,53,Rodney Buford,SF,6-5,189,21.0,Creighton,Sr,,5,1934.0,US,2004,0.0
 1998,2,51,Corey L. Brewer,SG,6-2,190,23.0,Oklahoma,Sr,,1,,,,
 1997,1,26,Charles Cornelius Smith,SG,6-4,194,21.0,New Mexico,Sr,,6,,,,
 1997,2,30,Mark Sanford,F,6-9,210,21.0,Washington,Jr *,,3,,,,
-1995,1,10,Kurt Thomas,FC,6-9,240,22.0,TCU,Sr,,18,703.0,USA,2012,0.0
+1995,1,10,Kurt Thomas,FC,6-9,240,22.0,TCU,Sr,,18,703.0,US,2012,0.0
 1995,2,46,George Banks,PF,6-7,210,22.0,UTEP,Sr,,0,,,,
-1994,1,12,Khalid Reeves,G,6-3,200,21.0,Arizona,Sr,,7,234.0,USA,1999,0.0
-1992,1,12,Harold Miner,SG,6-5,210,21.0,USC,Jr *,,5,114.0,USA,1995,0.0
-1992,2,42,Matt Geiger,C,7-0,243,22.0,Georgia Tech,Sr,,10,761.0,USA,2001,0.0
+1994,1,12,Khalid Reeves,G,6-3,200,21.0,Arizona,Sr,,7,234.0,US,1999,0.0
+1992,1,12,Harold Miner,SG,6-5,210,21.0,USC,Jr *,,5,114.0,US,1995,0.0
+1992,2,42,Matt Geiger,C,7-0,243,22.0,Georgia Tech,Sr,,10,761.0,US,2001,0.0
 1991,1,5,Steve Smith,SG,6-7,200,22.0,Michigan State,Sr,,14,,,,
 1991,2,29,George Ackles,PF,6-9,215,23.0,UNLV,Sr,,2,,,,
-1990,1,9,Willie Burton,G,6-6,210,22.0,Minnesota,Sr,,9,416.0,USA,1998,0.0
-1989,1,4,Glen Rice,SF,6-8,228,22.0,Michigan,Sr,,15,779.0,USA,2003,0.0
-1989,1,4,Glen Rice,SF,6-8,228,22.0,Michigan,Sr,,15,203318.0,USA,2014,0.0
-1989,2,28,Sherman Douglas,PG,6-0,180,22.0,Syracuse,Sr,,12,428.0,USA,2000,0.0
-1989,2,45,Scott Haffner,G,6-3,180,23.0,Evansville,Sr,,2,76911.0,USA,1990,0.0
-1988,1,9,Rony Seikaly,C,6-11,230,23.0,Syracuse,Sr,,11,938.0,USA,1998,0.0
-1988,1,20,Kevin Edwards,PG,6-3,190,22.0,DePaul,Sr,,12,236.0,USA,2000,0.0
-1988,2,33,Grant Long,PF,6-8,225,22.0,Eastern Michigan,Sr,,15,3.0,USA,2002,0.0
-1988,2,35,Sylvester Gray,F,6-6,230,20.0,Memphis,So *,,1,76862.0,USA,1988,0.0
-1988,2,40,Orlando Graham,F,6-8,220,23.0,Auburn-Montgomery,Sr,,3,76841.0,USA,1988,0.0
-1988,3,59,Nate Johnston,F,6-8,210,21.0,Tampa,Sr,,4,77170.0,USA,1989,0.0
+1990,1,9,Willie Burton,G,6-6,210,22.0,Minnesota,Sr,,9,416.0,US,1998,0.0
+1989,1,4,Glen Rice,SF,6-8,228,22.0,Michigan,Sr,,15,779.0,US,2003,0.0
+1989,1,4,Glen Rice,SF,6-8,228,22.0,Michigan,Sr,,15,203318.0,US,2014,0.0
+1989,2,28,Sherman Douglas,PG,6-0,180,22.0,Syracuse,Sr,,12,428.0,US,2000,0.0
+1989,2,45,Scott Haffner,G,6-3,180,23.0,Evansville,Sr,,2,76911.0,US,1990,0.0
+1988,1,9,Rony Seikaly,C,6-11,230,23.0,Syracuse,Sr,,11,938.0,US,1998,0.0
+1988,1,20,Kevin Edwards,PG,6-3,190,22.0,DePaul,Sr,,12,236.0,US,2000,0.0
+1988,2,33,Grant Long,PF,6-8,225,22.0,Eastern Michigan,Sr,,15,3.0,US,2002,0.0
+1988,2,35,Sylvester Gray,F,6-6,230,20.0,Memphis,So *,,1,76862.0,US,1988,0.0
+1988,2,40,Orlando Graham,F,6-8,220,23.0,Auburn-Montgomery,Sr,,3,76841.0,US,1988,0.0
+1988,3,59,Nate Johnston,F,6-8,210,21.0,Tampa,Sr,,4,77170.0,US,1989,0.0
 1985,3,68,Eugene McDowell,PF,6-8,230,,Florida,Sr,,1,,,,

@@ -4,6 +4,8 @@ import pathlib
 import pandas as pd
 import unidecode
 
+from backend.python.services.country_to_iso import get_country_isos
+
 
 def treat_name(name: str) -> str:
     """
@@ -64,11 +66,17 @@ def main() -> None:  # noqa: D103
             },
         )
 
+        # Transform origin_country to ISO codes inline without creating a new column
+        # get_country_isos takes in a set of names and returns a mapping of name to ISO codes
+        country_names = set(curr_df["origin_country"].dropna().unique())
+        country_to_iso = get_country_isos(country_names)
+        curr_df["origin_country"] = curr_df["origin_country"].map(country_to_iso)
+
         total_matched = curr_df["nba_id"].notna().sum()
         total_players = len(curr_df)
 
         print(
-            f"Team: {team} - Matched players: {total_matched}/{total_players} ({(total_matched / total_players) * 100:.2f}%)"
+            f"Team: {team} - Matched players: {total_matched}/{total_players} ({(total_matched / total_players) * 100:.2f}%)",
         )
 
         curr_df.to_csv(f"frontend/public/data/csv/{team}_enriched.csv", index=False)

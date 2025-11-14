@@ -6,7 +6,7 @@ import type { TeamAbbreviation } from '@/types/team'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getDataUrl } from '@/utils/dataUrl'
 import { exportDraftPicksToCSV, downloadCSV as downloadCSVFile } from '@/utils/csvExporter'
-import { alpha3ToAlpha2 } from '@/utils/countryCodeConverter'
+import { countryToAlpha2 } from '@/utils/countryCodeConverter'
 import PlayerCard from './PlayerCard.vue'
 
 const display = useDisplay()
@@ -641,6 +641,14 @@ const pageInput = ref('')
 const selectedPlayer = ref<DraftPick | null>(null)
 const showPlayerCard = ref(false)
 
+// Cache for country codes (player key -> alpha-2 code)
+// Use a combination of player name, year, and team as the key
+const countryCodes = ref<Map<string, string>>(new Map())
+
+function getPlayerKey(player: DraftPick): string {
+  return `${player.player}-${player.year}-${player.team}`
+}
+
 function openPlayerCard(player: DraftPick) {
   selectedPlayer.value = player
   showPlayerCard.value = true
@@ -658,10 +666,60 @@ function handlePageInput(event: Event) {
 }
 
 function isPlayerRetired(playedUntilYear: number | undefined): boolean {
-  if (playedUntilYear === undefined) return false
+  // If no retirement data, assume retired
+  if (playedUntilYear === undefined) return true
   const currentYear = new Date().getFullYear()
   return playedUntilYear < currentYear
 }
+
+// Get country code for a player (with caching)
+async function getCountryCode(player: DraftPick): Promise<string> {
+  const key = getPlayerKey(player)
+  
+  // Check cache first
+  if (countryCodes.value.has(key)) {
+    return countryCodes.value.get(key) || 'un'
+  }
+  
+  // Fetch country code
+  const code = await countryToAlpha2(player.origin_country)
+  countryCodes.value.set(key, code)
+  return code
+}
+
+// Get country code synchronously (returns cached value or 'un')
+function getCountryCodeSync(player: DraftPick): string {
+  const key = getPlayerKey(player)
+  return countryCodes.value.get(key) || 'un'
+}
+
+// Preload country codes for visible items
+watch(() => items.value, async (newItems) => {
+  // Initialize all players with 'un' first (for immediate display)
+  const newMap = new Map<string, string>()
+  for (const player of newItems) {
+    const key = getPlayerKey(player)
+    // Copy existing value if available, otherwise set to 'un'
+    newMap.set(key, countryCodes.value.get(key) || 'un')
+  }
+  countryCodes.value = newMap
+  
+  // Then load actual country codes asynchronously
+  for (const player of newItems) {
+    const key = getPlayerKey(player)
+    if (player.origin_country) {
+      // Load asynchronously and update when done
+      getCountryCode(player).then((code) => {
+        // Update the map reactively
+        const updatedMap = new Map(countryCodes.value)
+        updatedMap.set(key, code)
+        countryCodes.value = updatedMap
+      }).catch(() => {
+        // Silently handle errors - keep 'un'
+      })
+    }
+  }
+}, { immediate: true })
 
 
 // Watch for page changes to update the input placeholder
@@ -1298,13 +1356,14 @@ watch(currentPage, () => {
       <template #item.player="{ item }">
         <div class="d-flex align-center player-cell">
           <v-avatar 
-            v-if="item.nba_id" 
             :size="isMobile ? 32 : 40" 
-            class="mr-3 player-headshot player-headshot-clickable"
+            class="mr-3 player-headshot"
+            :class="{ 'player-headshot-clickable': item.nba_id }"
             color="grey-lighten-4"
-            @click.stop="openPlayerCard(item)"
+            @click.stop="item.nba_id ? openPlayerCard(item) : undefined"
           >
             <v-img
+              v-if="item.nba_id"
               :src="getPlayerHeadshotUrl(item.nba_id)"
               :alt="item.player"
               cover
@@ -1322,19 +1381,20 @@ watch(currentPage, () => {
                 </div>
               </template>
             </v-img>
+            <div v-else class="d-flex align-center justify-center fill-height">
+              <v-icon icon="mdi-account" size="24" color="grey-lighten-1" />
+            </div>
           </v-avatar>
           <div class="d-flex align-center flex-wrap gap-1">
             <span class="font-weight-bold text-primary">{{ item.player }}</span>
-            <!-- Nationality Flag -->
+            <!-- Nationality Flag - always show, fallback to 'un' -->
             <span
-              v-if="item.origin_country"
-              :class="`fi fi-${(alpha3ToAlpha2(item.origin_country) || '').toLowerCase()}`"
-              :title="item.origin_country"
+              :class="`fi fi-${getCountryCodeSync(item).toLowerCase()}`"
+              :title="item.origin_country || 'Unknown'"
               class="player-flag-icon"
             />
-            <!-- Retired/Active Indicator -->
+            <!-- Retired/Active Indicator - always show -->
             <v-icon
-              v-if="item.played_until_year !== undefined"
               :icon="isPlayerRetired(item.played_until_year) ? 'mdi-account-off' : 'mdi-account-check'"
               :title="isPlayerRetired(item.played_until_year) ? 'Retired' : 'Active'"
               size="16"

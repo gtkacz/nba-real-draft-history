@@ -14,8 +14,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 def scrape_draft_history(
-    team_abbreviation: str, team_name: str, team_id: int, save_to: str = "data/csv"
-) -> pd.DataFrame:  # noqa: PLR0915
+    team_abbreviation: str, team_name: str, team_id: int, save_to: str = "data/csv",
+) -> pd.DataFrame:
     """
     Scrape draft history data for a given NBA team from RealGM.
 
@@ -104,13 +104,13 @@ def scrape_draft_history(
                 print(f"Could not find next button on page {page_num - 1}, stopping pagination")
                 break
             except Exception as e:
-                print(f"Error on page {page_num}: {str(e)}")
+                print(f"Error on page {page_num}: {e!s}")
                 break
 
         # Clean up the dataframe (remove duplicates if any)
         all_data = all_data.drop_duplicates().reset_index(drop=True)
 
-        print(f"\nScraping completed successfully!")
+        print("\nScraping completed successfully!")
         print(f"Total rows collected: {len(all_data)}")
         print(f"Columns: {list(all_data.columns)}")
 
@@ -122,7 +122,7 @@ def scrape_draft_history(
         return all_data
 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        print(f"An error occurred: {e!s}")
         return None
 
     finally:
