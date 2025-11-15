@@ -138,6 +138,11 @@ function handlePlayerClick() {
     emit('playerClick', props.item)
   }
 }
+
+// Remove "NBA" prefix from award names for display
+function formatAwardName(award: string): string {
+  return award.replace(/^NBA\s+/i, '').trim()
+}
 </script>
 
 <template>
@@ -368,7 +373,7 @@ function handlePlayerClick() {
             </div>
             <ul class="text-body-1 font-weight-medium" style="margin: 0; padding-left: 20px;">
               <li v-for="(times, awardName) in item.awards" :key="awardName">
-                {{ awardName }} ({{ times }} {{ times === 1 ? 'time' : 'times' }})
+                {{ formatAwardName(awardName) }} ({{ times }} {{ times === 1 ? 'time' : 'times' }})
               </li>
             </ul>
           </div>

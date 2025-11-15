@@ -215,7 +215,13 @@ const awardOptions = computed(() => {
 function handleAwardCheckboxChange(award: string, checked: boolean) {
   const current = { ...(props.selectedAwards || {}) }
   if (checked) {
-    current[award] = 1 // Default to 1
+    // For priority awards (All-Rookie Team, Rookie of the Year), don't set a count
+    // They're just boolean filters
+    if (shouldShowAwardCount(award)) {
+      current[award] = 1 // Default to 1 for awards that need counts
+    } else {
+      current[award] = 1 // Still set to 1 for filtering logic, but won't show input
+    }
   } else {
     delete current[award]
   }
@@ -227,6 +233,40 @@ function handleAwardCountChange(award: string, count: number) {
   const current = { ...(props.selectedAwards || {}) }
   current[award] = count
   emit('update:selectedAwards', current)
+}
+
+// Remove "NBA" prefix from award names for display
+function formatAwardName(award: string): string {
+  return award.replace(/^NBA\s+/i, '').trim()
+}
+
+// Sort awards: "All-Rookie Team" and "Rookie of the Year" first, then alphabetically
+const sortedAwards = computed(() => {
+  if (!props.availableAwards || props.availableAwards.length === 0) {
+    return []
+  }
+  const priorityAwardNames = ['All-Rookie Team', 'Rookie of the Year', 'NBA All-Rookie Team', 'NBA Rookie of the Year']
+  const priorityAwards = props.availableAwards.filter(a => 
+    priorityAwardNames.some(priority => a.toLowerCase().includes(priority.toLowerCase().replace('nba ', '')))
+  )
+  const otherAwards = props.availableAwards.filter(a => !priorityAwards.includes(a))
+  return [
+    ...priorityAwards.sort((a, b) => {
+      // Sort priority awards: All-Rookie Team first, then Rookie of the Year
+      const aIsRookieTeam = a.toLowerCase().includes('all-rookie')
+      const bIsRookieTeam = b.toLowerCase().includes('all-rookie')
+      if (aIsRookieTeam && !bIsRookieTeam) return -1
+      if (!aIsRookieTeam && bIsRookieTeam) return 1
+      return 0
+    }),
+    ...otherAwards.sort()
+  ]
+})
+
+// Check if award should show count selector (exclude priority awards)
+function shouldShowAwardCount(award: string): boolean {
+  const awardLower = award.toLowerCase()
+  return !(awardLower.includes('all-rookie team') || awardLower.includes('rookie of the year'))
 }
 
 const nationalityOptions = computed<NationalityOption[]>(() => {
@@ -1364,34 +1404,34 @@ const shareTooltipText = computed(() => {
                     <v-icon icon="mdi-star" size="20" class="mr-2" />
                     Awards
                   </div>
-                  <div class="awards-filter-list">
-                    <div
-                      v-for="award in props.availableAwards"
-                      :key="award"
-                      class="d-flex align-center mb-2"
-                    >
-                      <v-checkbox
-                        :model-value="award in (props.selectedAwards || {})"
-                        @update:model-value="handleAwardCheckboxChange(award, $event)"
-                        :label="award"
-                        hide-details
-                        density="comfortable"
-                        class="flex-grow-1 mr-2"
-                      />
-                      <v-text-field
-                        v-if="award in (props.selectedAwards || {})"
-                        :model-value="(props.selectedAwards || {})[award] || 1"
-                        @update:model-value="handleAwardCountChange(award, Number($event))"
-                        type="number"
-                        variant="outlined"
-                        density="compact"
-                        hide-details
-                        :min="1"
-                        style="max-width: 80px;"
-                        class="award-count-input"
-                      />
-                    </div>
-                  </div>
+              <div class="awards-filter-list">
+                <div
+                  v-for="award in sortedAwards"
+                  :key="award"
+                  class="d-flex align-center mb-2"
+                >
+                  <v-checkbox
+                    :model-value="award in (props.selectedAwards || {})"
+                    @update:model-value="handleAwardCheckboxChange(award, $event)"
+                    :label="formatAwardName(award)"
+                    hide-details
+                    density="comfortable"
+                    class="flex-grow-1 mr-2"
+                  />
+                  <v-text-field
+                    v-if="award in (props.selectedAwards || {}) && shouldShowAwardCount(award)"
+                    :model-value="(props.selectedAwards || {})[award] || 1"
+                    @update:model-value="handleAwardCountChange(award, Number($event))"
+                    type="number"
+                    variant="outlined"
+                    density="compact"
+                    hide-details
+                    :min="1"
+                    style="max-width: 80px;"
+                    class="award-count-input"
+                  />
+                </div>
+              </div>
                 </div>
 
                 <v-divider v-if="props.availableAwards && props.availableAwards.length > 0"></v-divider>
@@ -1848,20 +1888,20 @@ const shareTooltipText = computed(() => {
               </div>
               <div class="awards-filter-list">
                 <div
-                  v-for="award in props.availableAwards"
+                  v-for="award in sortedAwards"
                   :key="award"
                   class="d-flex align-center mb-2"
                 >
                   <v-checkbox
                     :model-value="award in (props.selectedAwards || {})"
                     @update:model-value="handleAwardCheckboxChange(award, $event)"
-                    :label="award"
+                    :label="formatAwardName(award)"
                     hide-details
                     density="comfortable"
                     class="flex-grow-1 mr-2"
                   />
                   <v-text-field
-                    v-if="award in (props.selectedAwards || {})"
+                    v-if="award in (props.selectedAwards || {}) && shouldShowAwardCount(award)"
                     :model-value="(props.selectedAwards || {})[award] || 1"
                     @update:model-value="handleAwardCountChange(award, Number($event))"
                     type="number"
@@ -2493,7 +2533,7 @@ const shareTooltipText = computed(() => {
               <div>
                 <ul style="margin: 0; padding-left: 20px; text-align: left;">
                   <li v-for="(times, awardName) in item.awards" :key="awardName">
-                    {{ awardName }} ({{ times }} {{ times === 1 ? 'time' : 'times' }})
+                    {{ formatAwardName(awardName) }} ({{ times }} {{ times === 1 ? 'time' : 'times' }})
                   </li>
                 </ul>
               </div>

@@ -67,6 +67,11 @@ const teamColorAccent = computed(() => {
   if (!props.player) return 'var(--team-default-accent, #FFFFFF)'
   return `var(--team-${teamCode.value.toLowerCase()}-accent, #FFFFFF)`
 })
+
+// Remove "NBA" prefix from award names for display
+function formatAwardName(award: string): string {
+  return award.replace(/^NBA\s+/i, '').trim()
+}
 </script>
 
 <template>
@@ -113,7 +118,7 @@ const teamColorAccent = computed(() => {
                 <div>
                   <ul style="margin: 0; padding-left: 20px; text-align: left;">
                     <li v-for="(times, awardName) in player.awards" :key="awardName">
-                      {{ awardName }} ({{ times }} {{ times === 1 ? 'time' : 'times' }})
+                      {{ formatAwardName(awardName) }} ({{ times }} {{ times === 1 ? 'time' : 'times' }})
                     </li>
                   </ul>
                 </div>
