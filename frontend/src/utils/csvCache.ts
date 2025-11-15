@@ -1,6 +1,7 @@
 /**
  * CSV Cache utility with version-based invalidation
  * Caches CSV data in localStorage and invalidates when app version changes
+ * Only invalidates on major/minor version changes, not patch versions
  */
 
 const CACHE_VERSION_KEY = 'nba_draft_csv_cache_version'
@@ -18,18 +19,45 @@ function getAppVersion(): string {
 }
 
 /**
- * Check if cache is valid (version matches)
+ * Extract major.minor version from a semver string
+ * Examples: "1.1.0" -> "1.1", "2.0.5" -> "2.0", "1.0.0-beta" -> "1.0"
+ */
+function getMajorMinorVersion(version: string): string {
+  const parts = version.split('.')
+  if (parts.length >= 2) {
+    return `${parts[0]}.${parts[1]}`
+  }
+  // Fallback for malformed versions
+  return version
+}
+
+/**
+ * Check if cache is valid (major.minor version matches)
+ * Patch version changes don't invalidate the cache
  */
 function isCacheValid(): boolean {
   const cachedVersion = localStorage.getItem(CACHE_VERSION_KEY)
   const currentVersion = getAppVersion()
-  return cachedVersion === currentVersion
+  
+  // If no cached version, cache is invalid
+  if (!cachedVersion) {
+    return false
+  }
+  
+  // Compare only major.minor versions, ignoring patch
+  const cachedMajorMinor = getMajorMinorVersion(cachedVersion)
+  const currentMajorMinor = getMajorMinorVersion(currentVersion)
+  
+  return cachedMajorMinor === currentMajorMinor
 }
 
 /**
- * Invalidate all cache if version changed
+ * Invalidate all cache if version changed (only on major/minor changes)
  */
 function invalidateCacheIfNeeded(): void {
+  const currentVersion = getAppVersion()
+  const cachedVersion = localStorage.getItem(CACHE_VERSION_KEY)
+  
   if (!isCacheValid()) {
     // Clear all cache entries
     const keysToRemove: string[] = []
@@ -41,11 +69,11 @@ function invalidateCacheIfNeeded(): void {
     }
     keysToRemove.forEach((key) => localStorage.removeItem(key))
 
-    // Update cache version
-    localStorage.setItem(CACHE_VERSION_KEY, getAppVersion())
-  } else if (!localStorage.getItem(CACHE_VERSION_KEY)) {
+    // Update cache version with full version (for reference, but we compare major.minor)
+    localStorage.setItem(CACHE_VERSION_KEY, currentVersion)
+  } else if (!cachedVersion) {
     // Initialize cache version if not set
-    localStorage.setItem(CACHE_VERSION_KEY, getAppVersion())
+    localStorage.setItem(CACHE_VERSION_KEY, currentVersion)
   }
 }
 
