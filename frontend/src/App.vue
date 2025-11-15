@@ -28,6 +28,7 @@ const {
   ageRange,
   tradeFilter,
   selectedNationalities,
+  playerSearch,
   sortBy,
   currentPage,
   itemsPerPage,
@@ -41,7 +42,7 @@ const {
 } = useDraftData()
 
 // Sync filters with URL query strings
-const { resetFilters } = useFilterUrlSync({
+const { resetFilters: resetFiltersFromUrl } = useFilterUrlSync({
   selectedTeam,
   selectedPlaysFor,
   selectedYear,
@@ -54,10 +55,14 @@ const { resetFilters } = useFilterUrlSync({
   ageRange,
   tradeFilter,
   selectedNationalities,
+  playerSearch,
   sortBy,
   currentPage,
   itemsPerPage
 })
+
+// Use the resetFilters from URL sync (it now includes playerSearch)
+const resetFilters = resetFiltersFromUrl
 
 const showPlayerMeasurements = ref(false)
 
@@ -112,6 +117,7 @@ onMounted(() => {
               v-model:age-range="ageRange"
               v-model:trade-filter="tradeFilter"
               v-model:selected-nationalities="selectedNationalities"
+              v-model:player-search="playerSearch"
               v-model:sort-by="sortBy"
               v-model:current-page="currentPage"
               v-model:items-per-page="itemsPerPage"

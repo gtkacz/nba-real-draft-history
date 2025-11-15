@@ -33,6 +33,7 @@ interface DraftTableProps {
   ageRange?: [number, number]
   tradeFilter?: 'all' | 'traded' | 'not-traded'
   selectedNationalities?: string[]
+  playerSearch?: string
   sortBy?: SortItem[]
   currentPage?: number
   itemsPerPage?: number
@@ -58,6 +59,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   ageRange: () => [17, 50],
   tradeFilter: () => 'all',
   selectedNationalities: () => [],
+  playerSearch: '',
   sortBy: () => [
     { key: 'year', order: 'desc' },
     { key: 'pick', order: 'asc' }
@@ -85,6 +87,7 @@ const emit = defineEmits<{
   'update:ageRange': [value: [number, number]]
   'update:tradeFilter': [value: 'all' | 'traded' | 'not-traded']
   'update:selectedNationalities': [value: string[]]
+  'update:playerSearch': [value: string]
   'update:sortBy': [value: SortItem[]]
   'update:currentPage': [value: number]
   'update:itemsPerPage': [value: number]
@@ -151,6 +154,11 @@ const currentPage = computed({
 const itemsPerPage = computed({
   get: () => props.itemsPerPage ?? 30,
   set: (value) => emit('update:itemsPerPage', value)
+})
+
+const playerSearch = computed({
+  get: () => props.playerSearch ?? '',
+  set: (value) => emit('update:playerSearch', value)
 })
 
 interface TeamOption {
@@ -375,6 +383,9 @@ const hasActiveFilters = computed(() => {
   
   // Nationality filter active
   if (props.selectedNationalities && props.selectedNationalities.length > 0) return true
+  
+  // Player search active
+  if (props.playerSearch && props.playerSearch.trim() !== '') return true
   
   return false
 })
@@ -755,6 +766,20 @@ watch(currentPage, () => {
         </v-chip>
       </div>
       <div class="d-flex align-center gap-2">
+        <!-- Player Search Bar -->
+        <v-text-field
+          v-model="playerSearch"
+          placeholder="Search players..."
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
+          density="compact"
+          hide-details
+          clearable
+          class="player-search-field"
+          :style="isMobile ? 'max-width: 175px; min-width: 120px;' : 'max-width: 250px; min-width: 200px;'"
+          rounded="xl"
+        />
+        
         <!-- Mobile: Single menu button with all actions -->
         <template v-if="isMobile">
           <v-menu v-model="actionsMenu" location="bottom end">

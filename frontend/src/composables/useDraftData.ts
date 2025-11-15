@@ -22,12 +22,13 @@ export function useDraftData() {
   const ageRange = ref<[number, number]>([17, 50])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
   const selectedNationalities = ref<string[]>([])
-  
+  const playerSearch = ref<string>('')
+
   // Sort state - initial multi-sort by year (desc) and pick (asc)
   type SortItem = { key: string; order: 'asc' | 'desc' }
   const sortBy = ref<SortItem[]>([
     { key: 'year', order: 'desc' },
-    { key: 'pick', order: 'asc' }
+    { key: 'pick', order: 'asc' },
   ])
 
   // Pagination state
@@ -84,9 +85,10 @@ export function useDraftData() {
       filtered = filtered.filter((pick) => {
         // First check if player is active (not retired)
         const currentYear = new Date().getFullYear()
-        const isRetired = pick.played_until_year !== undefined && pick.played_until_year < currentYear
+        const isRetired =
+          pick.played_until_year !== undefined && pick.played_until_year < currentYear
         if (isRetired) return false
-        
+
         // Check if plays_for exists, is not empty, and matches one of the selected teams
         const playsFor = pick.plays_for?.trim()
         if (playsFor && playsFor !== '') {
@@ -185,6 +187,15 @@ export function useDraftData() {
       })
     }
 
+    // Player name search filter
+    if (playerSearch.value && playerSearch.value.trim() !== '') {
+      const searchTerm = playerSearch.value.toLowerCase().trim()
+      filtered = filtered.filter((pick) => {
+        if (!pick.player) return false
+        return pick.player.toLowerCase().includes(searchTerm)
+      })
+    }
+
     return filtered
   })
 
@@ -202,10 +213,10 @@ export function useDraftData() {
         try {
           let csvText = ''
           let isEnriched = true
-          
+
           // Try to get from cache first (enriched)
           csvText = getCachedCSV(team, true)
-          
+
           if (csvText) {
             // Found enriched CSV in cache
             isEnriched = true
@@ -216,7 +227,7 @@ export function useDraftData() {
             if (response.ok) {
               csvText = await response.text()
               isEnriched = true
-              
+
               // Check if we got HTML instead of CSV
               if (csvText.trim().startsWith('<!DOCTYPE') || csvText.trim().startsWith('<html')) {
                 csvText = ''
@@ -227,7 +238,7 @@ export function useDraftData() {
             if (!csvText) {
               // Try cache for regular CSV
               csvText = getCachedCSV(team, false)
-              
+
               if (csvText) {
                 isEnriched = false
               } else {
@@ -237,10 +248,10 @@ export function useDraftData() {
                   console.error(`Failed to fetch ${team}.csv:`, response.status)
                   continue
                 }
-                
+
                 csvText = await response.text()
                 isEnriched = false
-                
+
                 // Check if we got HTML instead of CSV
                 if (csvText.trim().startsWith('<!DOCTYPE') || csvText.trim().startsWith('<html')) {
                   console.error(`Received HTML for ${team}.csv, skipping`)
@@ -248,7 +259,7 @@ export function useDraftData() {
                 }
               }
             }
-            
+
             // Cache the fetched CSV if it came from network
             if (csvText && !getCachedCSV(team, isEnriched)) {
               setCachedCSV(team, isEnriched, csvText)
@@ -288,6 +299,7 @@ export function useDraftData() {
     ageRange,
     tradeFilter,
     selectedNationalities,
+    playerSearch,
     sortBy,
     currentPage,
     itemsPerPage,

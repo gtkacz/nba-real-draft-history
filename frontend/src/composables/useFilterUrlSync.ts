@@ -17,6 +17,7 @@ interface FilterDefaults {
   ageRange: [number, number]
   tradeFilter: 'all' | 'traded' | 'not-traded'
   selectedNationalities: string[]
+  playerSearch: string
   sortBy: SortItem[]
   currentPage: number
   itemsPerPage: number
@@ -35,6 +36,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
   ageRange: [17, 50],
   tradeFilter: 'all',
   selectedNationalities: [],
+  playerSearch: '',
   sortBy: [
     { key: 'year', order: 'desc' },
     { key: 'pick', order: 'asc' }
@@ -57,6 +59,7 @@ export function useFilterUrlSync(
     ageRange: Ref<[number, number]>
     tradeFilter: Ref<'all' | 'traded' | 'not-traded'>
     selectedNationalities: Ref<string[]>
+    playerSearch: Ref<string>
     sortBy: Ref<SortItem[]>
     currentPage: Ref<number>
     itemsPerPage: Ref<number>
@@ -66,6 +69,7 @@ export function useFilterUrlSync(
   const router = useRouter()
   let isInitializing = true
   let isLoadingFromUrl = false
+  let playerSearchDebounceTimer: ReturnType<typeof setTimeout> | null = null
 
   // Helper function to check if a value is different from default
   function isNonDefault<T>(value: T, defaultValue: T): boolean {
@@ -145,6 +149,7 @@ export function useFilterUrlSync(
       filters.ageRange.value = [...DEFAULT_FILTERS.ageRange]
       filters.tradeFilter.value = DEFAULT_FILTERS.tradeFilter
       filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
+      filters.playerSearch.value = DEFAULT_FILTERS.playerSearch
       filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
       filters.currentPage.value = DEFAULT_FILTERS.currentPage
       filters.itemsPerPage.value = DEFAULT_FILTERS.itemsPerPage
@@ -237,6 +242,14 @@ export function useFilterUrlSync(
       const nationalities = deserializeArray(query.nationalities, 'string')
       if (nationalities.length > 0) {
         filters.selectedNationalities.value = nationalities as string[]
+      }
+    }
+
+    // Load playerSearch
+    if (query.playerSearch) {
+      const searchStr = Array.isArray(query.playerSearch) ? query.playerSearch[0] : query.playerSearch
+      if (typeof searchStr === 'string' && searchStr.trim() !== '') {
+        filters.playerSearch.value = searchStr.trim()
       }
     }
 
@@ -345,6 +358,11 @@ export function useFilterUrlSync(
       query.nationalities = serializeArray(filters.selectedNationalities.value)
     }
 
+    // Only add playerSearch if it's different from default (non-empty)
+    if (filters.playerSearch.value && filters.playerSearch.value.trim() !== '') {
+      query.playerSearch = filters.playerSearch.value.trim()
+    }
+
     // Only add sortBy if it's different from default
     if (isNonDefault(filters.sortBy.value, DEFAULT_FILTERS.sortBy)) {
       // Serialize as JSON for complex structure
@@ -365,7 +383,7 @@ export function useFilterUrlSync(
     router.replace({ path: route.path, query })
   }
 
-  // Watch all filters and update URL
+  // Watch all filters and update URL (except playerSearch which is debounced separately)
   watch(
     () => [
       filters.selectedTeam.value,
@@ -388,6 +406,26 @@ export function useFilterUrlSync(
       updateUrlFromFilters()
     },
     { deep: true }
+  )
+
+  // Debounced watch for playerSearch - only updates URL after user stops typing
+  watch(
+    () => filters.playerSearch.value,
+    () => {
+      // Don't update URL during initialization
+      if (isInitializing || isLoadingFromUrl) return
+      
+      // Clear existing timer
+      if (playerSearchDebounceTimer) {
+        clearTimeout(playerSearchDebounceTimer)
+      }
+      
+      // Set new timer to update URL after 500ms of no typing
+      playerSearchDebounceTimer = setTimeout(() => {
+        updateUrlFromFilters()
+        playerSearchDebounceTimer = null
+      }, 500)
+    }
   )
 
   // Watch route query changes (for browser back/forward navigation)
@@ -415,9 +453,16 @@ export function useFilterUrlSync(
     filters.ageRange.value = [...DEFAULT_FILTERS.ageRange]
     filters.tradeFilter.value = DEFAULT_FILTERS.tradeFilter
     filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
+    filters.playerSearch.value = DEFAULT_FILTERS.playerSearch
     filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
     filters.currentPage.value = DEFAULT_FILTERS.currentPage
     filters.itemsPerPage.value = DEFAULT_FILTERS.itemsPerPage
+    
+    // Clear any pending debounce timer
+    if (playerSearchDebounceTimer) {
+      clearTimeout(playerSearchDebounceTimer)
+      playerSearchDebounceTimer = null
+    }
     
     // Update URL to reflect defaults (which will be empty query string)
     updateUrlFromFilters()
