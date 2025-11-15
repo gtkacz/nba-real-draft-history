@@ -17,6 +17,7 @@ const { loadCountryData } = useCountryData()
 const { loadTeamData, getAllTeamAbbreviations } = useTeamData()
 const {
   selectedTeam,
+  selectedPlaysFor,
   selectedYear,
   yearRange,
   useYearRange,
@@ -42,6 +43,7 @@ const {
 // Sync filters with URL query strings
 const { resetFilters } = useFilterUrlSync({
   selectedTeam,
+  selectedPlaysFor,
   selectedYear,
   yearRange,
   useYearRange,
@@ -99,6 +101,7 @@ onMounted(() => {
               :data="filteredData"
               :loading="loading"
               v-model:selected-team="selectedTeam"
+              v-model:selected-plays-for="selectedPlaysFor"
               v-model:year-range="yearRange"
               v-model:selected-year="selectedYear"
               v-model:use-year-range="useYearRange"

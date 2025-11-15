@@ -6,6 +6,7 @@ type SortItem = { key: string; order: 'asc' | 'desc' }
 
 interface FilterDefaults {
   selectedTeam: TeamAbbreviation[]
+  selectedPlaysFor: TeamAbbreviation[]
   selectedYear: number | null
   yearRange: [number, number]
   useYearRange: boolean
@@ -23,6 +24,7 @@ interface FilterDefaults {
 
 const DEFAULT_FILTERS: FilterDefaults = {
   selectedTeam: [],
+  selectedPlaysFor: [],
   selectedYear: null,
   yearRange: [1947, 2025],
   useYearRange: true,
@@ -44,6 +46,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
 export function useFilterUrlSync(
   filters: {
     selectedTeam: Ref<TeamAbbreviation[]>
+    selectedPlaysFor: Ref<TeamAbbreviation[]>
     selectedYear: Ref<number | null>
     yearRange: Ref<[number, number]>
     useYearRange: Ref<boolean>
@@ -131,6 +134,7 @@ export function useFilterUrlSync(
     // If not initializing (i.e., this is a navigation event), reset all filters to defaults first
     if (!isInitializing) {
       filters.selectedTeam.value = [...DEFAULT_FILTERS.selectedTeam]
+      filters.selectedPlaysFor.value = [...DEFAULT_FILTERS.selectedPlaysFor]
       filters.selectedYear.value = DEFAULT_FILTERS.selectedYear
       filters.yearRange.value = [...DEFAULT_FILTERS.yearRange]
       filters.useYearRange.value = DEFAULT_FILTERS.useYearRange
@@ -151,6 +155,14 @@ export function useFilterUrlSync(
       const teams = deserializeArray(query.teams, 'string') as TeamAbbreviation[]
       if (teams.length > 0) {
         filters.selectedTeam.value = teams
+      }
+    }
+
+    // Load selectedPlaysFor
+    if (query.playsFor) {
+      const teams = deserializeArray(query.playsFor, 'string') as TeamAbbreviation[]
+      if (teams.length > 0) {
+        filters.selectedPlaysFor.value = teams
       }
     }
 
@@ -289,6 +301,10 @@ export function useFilterUrlSync(
       query.teams = serializeArray(filters.selectedTeam.value)
     }
 
+    if (isNonDefault(filters.selectedPlaysFor.value, DEFAULT_FILTERS.selectedPlaysFor)) {
+      query.playsFor = serializeArray(filters.selectedPlaysFor.value)
+    }
+
     if (filters.selectedYear.value !== null && filters.selectedYear.value !== DEFAULT_FILTERS.selectedYear) {
       query.year = String(filters.selectedYear.value)
     }
@@ -353,6 +369,7 @@ export function useFilterUrlSync(
   watch(
     () => [
       filters.selectedTeam.value,
+      filters.selectedPlaysFor.value,
       filters.selectedYear.value,
       filters.yearRange.value,
       filters.useYearRange.value,
@@ -387,6 +404,7 @@ export function useFilterUrlSync(
   // Reset all filters to default values
   function resetFilters() {
     filters.selectedTeam.value = [...DEFAULT_FILTERS.selectedTeam]
+    filters.selectedPlaysFor.value = [...DEFAULT_FILTERS.selectedPlaysFor]
     filters.selectedYear.value = DEFAULT_FILTERS.selectedYear
     filters.yearRange.value = [...DEFAULT_FILTERS.yearRange]
     filters.useYearRange.value = DEFAULT_FILTERS.useYearRange

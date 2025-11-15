@@ -11,6 +11,7 @@ const error = ref<string | null>(null)
 
 export function useDraftData() {
   const selectedTeam = ref<TeamAbbreviation[]>([])
+  const selectedPlaysFor = ref<TeamAbbreviation[]>([])
   const selectedYear = ref<number | null>(null)
   const yearRange = ref<[number, number]>([1947, 2025])
   const useYearRange = ref(true)
@@ -75,6 +76,24 @@ export function useDraftData() {
     // Team filter - multiple selection
     if (selectedTeam.value.length > 0) {
       filtered = filtered.filter((pick) => selectedTeam.value.includes(pick.team))
+    }
+
+    // Currently plays for filter - multiple selection
+    // Only includes active players (excludes retired players)
+    if (selectedPlaysFor.value.length > 0) {
+      filtered = filtered.filter((pick) => {
+        // First check if player is active (not retired)
+        const currentYear = new Date().getFullYear()
+        const isRetired = pick.played_until_year !== undefined && pick.played_until_year < currentYear
+        if (isRetired) return false
+        
+        // Check if plays_for exists, is not empty, and matches one of the selected teams
+        const playsFor = pick.plays_for?.trim()
+        if (playsFor && playsFor !== '') {
+          return selectedPlaysFor.value.includes(playsFor as TeamAbbreviation)
+        }
+        return false
+      })
     }
 
     // Year filter
@@ -258,6 +277,7 @@ export function useDraftData() {
 
   return {
     selectedTeam,
+    selectedPlaysFor,
     selectedYear,
     yearRange,
     useYearRange,

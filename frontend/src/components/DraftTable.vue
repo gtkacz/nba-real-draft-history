@@ -22,6 +22,7 @@ interface DraftTableProps {
   data: DraftPick[]
   loading?: boolean
   selectedTeam?: TeamAbbreviation[]
+  selectedPlaysFor?: TeamAbbreviation[]
   yearRange?: [number, number]
   selectedYear?: number | null
   useYearRange?: boolean
@@ -46,6 +47,7 @@ interface DraftTableProps {
 const props = withDefaults(defineProps<DraftTableProps>(), {
   loading: false,
   selectedTeam: () => [],
+  selectedPlaysFor: () => [],
   yearRange: () => [1947, 2025],
   selectedYear: null,
   useYearRange: () => true,
@@ -72,6 +74,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
 
 const emit = defineEmits<{
   'update:selectedTeam': [value: TeamAbbreviation[]]
+  'update:selectedPlaysFor': [value: TeamAbbreviation[]]
   'update:yearRange': [value: [number, number]]
   'update:selectedYear': [value: number | null]
   'update:useYearRange': [value: boolean]
@@ -344,6 +347,9 @@ const items = computed(() => {
 const hasActiveFilters = computed(() => {
   // Team filter active
   if (props.selectedTeam.length > 0) return true
+  
+  // Currently plays for filter active
+  if (props.selectedPlaysFor.length > 0) return true
   
   // Year filter active
   if (!props.useYearRange && props.selectedYear !== null) return true
@@ -916,6 +922,64 @@ watch(currentPage, () => {
                       </v-autocomplete>
                     </v-col>
 
+                    <!-- Currently Plays For Filter -->
+                    <v-col cols="12" md="6" class="mb-2">
+                      <v-autocomplete
+                        :model-value="props.selectedPlaysFor"
+                        @update:model-value="emit('update:selectedPlaysFor', $event)"
+                        :items="teamOptions"
+                        :loading="loadingTeams"
+                        label="Currently Plays For"
+                        variant="outlined"
+                        hide-details
+                        multiple
+                        chips
+                        clearable
+                        persistent-clear
+                        closable-chips
+                      >
+                        <template #prepend-inner>
+                          <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            <img
+                              src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
+                              alt="NBA"
+                              style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                            />
+                          </div>
+                        </template>
+                        <template #item="{ props: itemProps, item }">
+                          <v-list-item v-bind="itemProps">
+                            <template #prepend v-if="item.raw.logo">
+                              <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                                <img 
+                                  :src="item.raw.logo" 
+                                  :alt="item.raw.title" 
+                                  style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                                />
+                              </div>
+                            </template>
+                          </v-list-item>
+                        </template>
+
+                        <template #selection="{ item }">
+                          <v-chip
+                            v-if="item.raw"
+                            size="small"
+                            class="mr-1"
+                          >
+                            <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                              <img 
+                                :src="item.raw.logo" 
+                                :alt="item.raw.title" 
+                                style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                              />
+                            </div>
+                            <span>{{ item.raw.title }}</span>
+                          </v-chip>
+                        </template>
+                      </v-autocomplete>
+                    </v-col>
+
                     <v-col cols="12" md="6" class="mb-2">
                       <v-autocomplete
                         :model-value="props.selectedNationalities"
@@ -1185,6 +1249,64 @@ watch(currentPage, () => {
                     :items="teamOptions"
                     :loading="loadingTeams"
                     label="Team"
+                    variant="outlined"
+                    hide-details
+                    multiple
+                    chips
+                    clearable
+                    persistent-clear
+                    closable-chips
+                  >
+                    <template #prepend-inner>
+                      <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                        <img
+                          src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
+                          alt="NBA"
+                          style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                        />
+                      </div>
+                    </template>
+                    <template #item="{ props: itemProps, item }">
+                      <v-list-item v-bind="itemProps">
+                        <template #prepend v-if="item.raw.logo">
+                          <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            <img 
+                              :src="item.raw.logo" 
+                              :alt="item.raw.title" 
+                              style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                            />
+                          </div>
+                        </template>
+                      </v-list-item>
+                    </template>
+
+                    <template #selection="{ item }">
+                      <v-chip
+                        v-if="item.raw"
+                        size="small"
+                        class="mr-1"
+                      >
+                        <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                          <img 
+                            :src="item.raw.logo" 
+                            :alt="item.raw.title" 
+                            style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                          />
+                        </div>
+                        <span>{{ item.raw.title }}</span>
+                      </v-chip>
+                    </template>
+                  </v-autocomplete>
+                </v-col>
+
+                <!-- Currently Plays For Filter -->
+                <v-col cols="12" md="6" class="mb-2">
+                  <v-autocomplete
+                    :model-value="props.selectedPlaysFor"
+                    @update:model-value="emit('update:selectedPlaysFor', $event)"
+                    :items="teamOptions"
+                    :loading="loadingTeams"
+                    label="Currently Plays For"
                     variant="outlined"
                     hide-details
                     multiple
