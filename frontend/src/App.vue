@@ -28,6 +28,7 @@ const {
   ageRange,
   heightRange,
   weightRange,
+  yearsOfServiceRange,
   tradeFilter,
   retiredFilter,
   selectedNationalities,
@@ -46,6 +47,8 @@ const {
   maxHeight,
   minWeight,
   maxWeight,
+  minYearsOfService,
+  maxYearsOfService,
   loading,
   loadAllTeamData
 } = useDraftData()
@@ -66,6 +69,7 @@ const { resetFilters: resetFiltersFromUrl } = useFilterUrlSync({
   ageRange,
   heightRange,
   weightRange,
+  yearsOfServiceRange,
   tradeFilter,
   retiredFilter,
   selectedNationalities,
@@ -131,6 +135,7 @@ onMounted(() => {
               v-model:age-range="ageRange"
               v-model:height-range="heightRange"
               v-model:weight-range="weightRange"
+              v-model:years-of-service-range="yearsOfServiceRange"
               v-model:trade-filter="tradeFilter"
               v-model:retired-filter="retiredFilter"
               v-model:selected-nationalities="selectedNationalities"
@@ -149,6 +154,8 @@ onMounted(() => {
               :max-height="maxHeight"
               :min-weight="minWeight"
               :max-weight="maxWeight"
+              :min-years-of-service="minYearsOfService"
+              :max-years-of-service="maxYearsOfService"
               :reset-filters="resetFilters"
             />
           </v-col>

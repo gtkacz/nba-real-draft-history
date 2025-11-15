@@ -17,6 +17,7 @@ interface FilterDefaults {
   ageRange: [number, number]
   heightRange: [number, number]
   weightRange: [number, number]
+  yearsOfServiceRange: [number, number]
   tradeFilter: 'all' | 'traded' | 'not-traded'
   retiredFilter: 'all' | 'retired' | 'not-retired'
   selectedNationalities: string[]
@@ -41,6 +42,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
   ageRange: [17, 50],
   heightRange: [60, 96],
   weightRange: [140, 350],
+  yearsOfServiceRange: [0, 30],
   tradeFilter: 'all',
   retiredFilter: 'all',
   selectedNationalities: [],
@@ -69,6 +71,7 @@ export function useFilterUrlSync(
     ageRange: Ref<[number, number]>
     heightRange: Ref<[number, number]>
     weightRange: Ref<[number, number]>
+    yearsOfServiceRange: Ref<[number, number]>
     tradeFilter: Ref<'all' | 'traded' | 'not-traded'>
     retiredFilter: Ref<'all' | 'retired' | 'not-retired'>
     selectedNationalities: Ref<string[]>
@@ -164,6 +167,7 @@ export function useFilterUrlSync(
       filters.ageRange.value = [...DEFAULT_FILTERS.ageRange]
       filters.heightRange.value = [...DEFAULT_FILTERS.heightRange]
       filters.weightRange.value = [...DEFAULT_FILTERS.weightRange]
+      filters.yearsOfServiceRange.value = [...DEFAULT_FILTERS.yearsOfServiceRange]
       filters.tradeFilter.value = DEFAULT_FILTERS.tradeFilter
       filters.retiredFilter.value = DEFAULT_FILTERS.retiredFilter
       filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
@@ -265,6 +269,14 @@ export function useFilterUrlSync(
       const range = deserializeTuple(query.weightRange, DEFAULT_FILTERS.weightRange)
       if (isNonDefault(range, DEFAULT_FILTERS.weightRange)) {
         filters.weightRange.value = range
+      }
+    }
+
+    // Load yearsOfServiceRange
+    if (query.yearsOfServiceRange) {
+      const range = deserializeTuple(query.yearsOfServiceRange, DEFAULT_FILTERS.yearsOfServiceRange)
+      if (isNonDefault(range, DEFAULT_FILTERS.yearsOfServiceRange)) {
+        filters.yearsOfServiceRange.value = range
       }
     }
 
@@ -439,6 +451,10 @@ export function useFilterUrlSync(
       query.weightRange = serializeArray(filters.weightRange.value)
     }
 
+    if (isNonDefault(filters.yearsOfServiceRange.value, DEFAULT_FILTERS.yearsOfServiceRange)) {
+      query.yearsOfServiceRange = serializeArray(filters.yearsOfServiceRange.value)
+    }
+
     if (filters.tradeFilter.value !== DEFAULT_FILTERS.tradeFilter) {
       query.tradeFilter = filters.tradeFilter.value
     }
@@ -501,6 +517,7 @@ export function useFilterUrlSync(
       filters.ageRange.value,
       filters.heightRange.value,
       filters.weightRange.value,
+      filters.yearsOfServiceRange.value,
       filters.tradeFilter.value,
       filters.retiredFilter.value,
       filters.selectedNationalities.value,
@@ -561,6 +578,7 @@ export function useFilterUrlSync(
     filters.ageRange.value = [...DEFAULT_FILTERS.ageRange]
     filters.heightRange.value = [...DEFAULT_FILTERS.heightRange]
     filters.weightRange.value = [...DEFAULT_FILTERS.weightRange]
+    filters.yearsOfServiceRange.value = [...DEFAULT_FILTERS.yearsOfServiceRange]
     filters.tradeFilter.value = DEFAULT_FILTERS.tradeFilter
     filters.retiredFilter.value = DEFAULT_FILTERS.retiredFilter
     filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]

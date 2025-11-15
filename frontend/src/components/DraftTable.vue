@@ -33,6 +33,7 @@ interface DraftTableProps {
   ageRange?: [number, number]
   heightRange?: [number, number]
   weightRange?: [number, number]
+  yearsOfServiceRange?: [number, number]
   tradeFilter?: 'all' | 'traded' | 'not-traded'
   retiredFilter?: 'all' | 'retired' | 'not-retired'
   selectedNationalities?: string[]
@@ -50,6 +51,8 @@ interface DraftTableProps {
   maxHeight?: number
   minWeight?: number
   maxWeight?: number
+  minYearsOfService?: number
+  maxYearsOfService?: number
   showPlayerMeasurements?: boolean
   resetFilters?: () => void
 }
@@ -68,6 +71,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   ageRange: () => [17, 50],
   heightRange: () => [60, 96],
   weightRange: () => [140, 350],
+  yearsOfServiceRange: () => [0, 30],
   tradeFilter: () => 'all',
   retiredFilter: () => 'all',
   selectedNationalities: () => [],
@@ -88,6 +92,8 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   maxHeight: 96,
   minWeight: 140,
   maxWeight: 350,
+  minYearsOfService: 0,
+  maxYearsOfService: 30,
   showPlayerMeasurements: false,
   resetFilters: undefined
 })
@@ -105,6 +111,7 @@ const emit = defineEmits<{
   'update:ageRange': [value: [number, number]]
   'update:heightRange': [value: [number, number]]
   'update:weightRange': [value: [number, number]]
+  'update:yearsOfServiceRange': [value: [number, number]]
   'update:tradeFilter': [value: 'all' | 'traded' | 'not-traded']
   'update:retiredFilter': [value: 'all' | 'retired' | 'not-retired']
   'update:selectedNationalities': [value: string[]]
@@ -515,6 +522,9 @@ const hasActiveFilters = computed(() => {
   
   // Weight range filter active
   if (props.weightRange && (props.weightRange[0] !== 140 || props.weightRange[1] !== 350)) return true
+  
+  // Years of service range filter active
+  if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== 0 || props.yearsOfServiceRange[1] !== 30)) return true
   
   // Trade filter active
   if (props.tradeFilter !== 'all') return true
@@ -987,6 +997,10 @@ function getActiveFiltersDescription(): string {
   
   if (props.weightRange && (props.weightRange[0] !== 140 || props.weightRange[1] !== 350)) {
     filters.push(`Weight: ${props.weightRange[0]}-${props.weightRange[1]} lbs`)
+  }
+  
+  if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== 0 || props.yearsOfServiceRange[1] !== 30)) {
+    filters.push(`Years of Service: ${props.yearsOfServiceRange[0]}-${props.yearsOfServiceRange[1]}`)
   }
   
   if (props.tradeFilter !== 'all') {
@@ -1651,6 +1665,32 @@ const shareTooltipText = computed(() => {
                         </v-range-slider>
                       </div>
                     </v-col>
+                    <v-col cols="12" md="6" class="mb-2">
+                      <div class="px-1">
+                        <label class="text-caption text-medium-emphasis mb-3 d-block">
+                          Years of Service Range
+                          <span class="ml-2 text-primary">
+                            ({{ props.yearsOfServiceRange[0] }} - {{ props.yearsOfServiceRange[1] }} years)
+                          </span>
+                        </label>
+                        <v-range-slider
+                          :model-value="props.yearsOfServiceRange"
+                          @update:model-value="emit('update:yearsOfServiceRange', $event)"
+                          :min="props.minYearsOfService || 0"
+                          :max="props.maxYearsOfService || 30"
+                          :step="1"
+                          thumb-label="always"
+                          thumb-label-location="bottom"
+                          hide-details
+                          color="primary"
+                          class="mt-2"
+                        >
+                          <template v-slot:thumb-label="{ modelValue }">
+                            <span>{{ modelValue }} {{ modelValue === 1 ? 'year' : 'years' }}</span>
+                          </template>
+                        </v-range-slider>
+                      </div>
+                    </v-col>
                     <v-col cols="12" class="mb-2">
                       <v-checkbox
                         :model-value="props.showPlayerMeasurements"
@@ -2262,6 +2302,32 @@ const shareTooltipText = computed(() => {
                     >
                       <template v-slot:thumb-label="{ modelValue }">
                         <span>{{ modelValue }} lbs</span>
+                      </template>
+                    </v-range-slider>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="6" class="mb-2">
+                  <div class="px-1">
+                    <label class="text-caption text-medium-emphasis mb-3 d-block">
+                      Years of Service Range
+                      <span class="ml-2 text-primary">
+                        ({{ props.yearsOfServiceRange[0] }} - {{ props.yearsOfServiceRange[1] }} years)
+                      </span>
+                    </label>
+                    <v-range-slider
+                      :model-value="props.yearsOfServiceRange"
+                      @update:model-value="emit('update:yearsOfServiceRange', $event)"
+                      :min="props.minYearsOfService || 0"
+                      :max="props.maxYearsOfService || 30"
+                      :step="1"
+                      thumb-label="always"
+                      thumb-label-location="bottom"
+                      hide-details
+                      color="primary"
+                      class="mt-2"
+                    >
+                      <template v-slot:thumb-label="{ modelValue }">
+                        <span>{{ modelValue }} {{ modelValue === 1 ? 'year' : 'years' }}</span>
                       </template>
                     </v-range-slider>
                   </div>

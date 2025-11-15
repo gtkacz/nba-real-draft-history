@@ -51,6 +51,7 @@ export function useDraftData() {
   const ageRange = ref<[number, number]>([17, 50])
   const heightRange = ref<[number, number]>([60, 96]) // Default: 5'0" to 8'0" in inches
   const weightRange = ref<[number, number]>([140, 350]) // Default: 140 to 350 lbs
+  const yearsOfServiceRange = ref<[number, number]>([0, 30]) // Default: 0 to 30 years
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
   const retiredFilter = ref<'all' | 'retired' | 'not-retired'>('all')
   const selectedNationalities = ref<string[]>([])
@@ -163,6 +164,26 @@ export function useDraftData() {
       }
     })
     return max > 140 ? max : 350 // Default to 350 if no valid data
+  })
+
+  const minYearsOfService = computed(() => {
+    let min = 30 // default max
+    allDraftPicks.value.forEach((pick) => {
+      if (pick.yearsOfService !== undefined && pick.yearsOfService >= 0 && pick.yearsOfService < min) {
+        min = pick.yearsOfService
+      }
+    })
+    return min < 30 ? min : 0 // Default to 0 if no valid data
+  })
+
+  const maxYearsOfService = computed(() => {
+    let max = 0 // default min
+    allDraftPicks.value.forEach((pick) => {
+      if (pick.yearsOfService !== undefined && pick.yearsOfService > max) {
+        max = pick.yearsOfService
+      }
+    })
+    return max > 0 ? max : 30 // Default to 30 if no valid data
   })
 
   const filteredData = computed(() => {
@@ -282,6 +303,15 @@ export function useDraftData() {
       filtered = filtered.filter((pick) => {
         if (!pick.weight || pick.weight <= 0) return false
         return pick.weight >= minWeight && pick.weight <= maxWeight
+      })
+    }
+
+    // Years of service range filter
+    if (yearsOfServiceRange.value && yearsOfServiceRange.value.length === 2) {
+      const [minYears, maxYears] = yearsOfServiceRange.value
+      filtered = filtered.filter((pick) => {
+        if (pick.yearsOfService === undefined) return false
+        return pick.yearsOfService >= minYears && pick.yearsOfService <= maxYears
       })
     }
 
@@ -445,6 +475,7 @@ export function useDraftData() {
     ageRange,
     heightRange,
     weightRange,
+    yearsOfServiceRange,
     tradeFilter,
     retiredFilter,
     selectedNationalities,
@@ -463,6 +494,8 @@ export function useDraftData() {
     maxHeight,
     minWeight,
     maxWeight,
+    minYearsOfService,
+    maxYearsOfService,
     loading,
     error,
     loadAllTeamData,

@@ -1,5 +1,6 @@
 import json  # noqa: CPY001, D100
 import pathlib
+import time
 from functools import cache
 
 import pandas as pd
@@ -21,8 +22,14 @@ def get_award_data(player_nba_id: int) -> dict[str, int]:
     """
     base_url = "https://www.nba.com/player/{}"
 
-    data = requests.get(base_url.format(player_nba_id), timeout=60)
-    data.raise_for_status()
+    try:
+        data = requests.get(base_url.format(player_nba_id), timeout=60)
+        data.raise_for_status()
+    except requests.RequestException:
+        # If the request fails, wait 30 seconds and try once more.
+        time.sleep(30)
+        data = requests.get(base_url.format(player_nba_id), timeout=60)
+        data.raise_for_status()
 
     soup = BeautifulSoup(data.text, "lxml")
 
