@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, watch } from 'vue'
+import { computed, ref, onMounted, watch, onUnmounted } from 'vue'
 import { useDisplay } from 'vuetify'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
@@ -503,6 +503,18 @@ const headerTitle = computed(() => {
   return 'Real NBA Draft History'
 })
 
+function handleScroll() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+  showBackToTop.value = scrollTop > 300
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
 onMounted(() => {
   loadTeams()
   // Set initial items per page based on mobile state
@@ -513,6 +525,13 @@ onMounted(() => {
   setTimeout(() => {
     injectPageInput()
   }, 100)
+  // Add scroll listener for back-to-top button
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Check initial scroll position
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 
 function injectPageInput() {
@@ -787,6 +806,7 @@ const itemsPerPageOptions = computed(() => {
 const pageInput = ref('')
 const selectedPlayer = ref<DraftPick | null>(null)
 const showPlayerCard = ref(false)
+const showBackToTop = ref(false)
 
 
 function openPlayerCard(player: DraftPick) {
@@ -946,7 +966,7 @@ const shareTooltipText = computed(() => {
 
 <template>
   <v-card elevation="2" class="draft-table">
-    <v-card-title :class="isMobile ? 'd-flex flex-column align-start pa-3' : 'd-flex align-center justify-space-between pa-4'">
+    <v-card-title :class="['draft-table-header', 'sticky-table-header', isMobile ? 'd-flex flex-column align-start pa-3' : 'd-flex align-center justify-space-between pa-4']">
       <div :class="isMobile ? 'd-flex align-center justify-space-between w-100 mb-3' : 'd-flex align-center'">
         <div class="d-flex align-center flex-grow-1" :class="isMobile ? 'flex-column align-start' : ''">
           <div class="d-flex align-center">
@@ -2109,6 +2129,8 @@ const shareTooltipText = computed(() => {
       items-per-page-text="Picks per page:"
       :density="isMobile ? 'compact' : 'comfortable'"
       hover
+      fixed-header
+      :height="isMobile ? '500' : 'calc(100vh - 250px)'"
     >
       <template #item.team="{ item }">
         <div class="d-flex align-center">
@@ -2313,11 +2335,31 @@ const shareTooltipText = computed(() => {
       v-model="showPlayerCard"
       :player="selectedPlayer"
     />
+
+    <!-- Back to Top Button -->
+    <v-fade-transition>
+      <v-btn
+        v-show="showBackToTop"
+        class="back-to-top-btn"
+        icon="mdi-chevron-up"
+        color="primary"
+        size="large"
+        elevation="4"
+        @click="scrollToTop"
+      />
+    </v-fade-transition>
   </v-card>
 </template>
 
 <style scoped lang="scss">
 .draft-table {
+  .sticky-table-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(var(--v-theme-surface), 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
   :deep(.v-data-table) {
     font-size: 0.875rem;
   }
@@ -2727,6 +2769,31 @@ const shareTooltipText = computed(() => {
     white-space: pre-line;
     word-wrap: break-word;
     line-height: 1.5;
+  }
+
+  // Back to Top Button
+  .back-to-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 959px) {
+      bottom: 16px;
+      right: 16px;
+      min-width: 56px;
+      min-height: 56px;
+    }
   }
 }
 </style>

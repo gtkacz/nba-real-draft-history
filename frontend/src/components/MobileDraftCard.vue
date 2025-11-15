@@ -112,6 +112,23 @@ function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active
   return playedUntilYear < currentYear ? 'retired' : 'active'
 }
 
+function getRetirementText(playedUntilYear: number | undefined, playsFor: string | undefined, year?: number): string {
+  const status = getPlayerRetirementStatus(playedUntilYear)
+  if (status === 'active') {
+    if (playsFor && playsFor.trim() !== '') {
+      return `Currently plays for ${getTeamDisplayName(playsFor, year)}`
+    }
+    return 'Currently active'
+  } else if (status === 'retired') {
+    if (playsFor && playsFor.trim() !== '') {
+      return `Last played for ${getTeamDisplayName(playsFor, year)} in ${playedUntilYear}`
+    }
+    return `Retired in ${playedUntilYear}`
+  } else {
+    return 'Status unknown'
+  }
+}
+
 const emit = defineEmits<{
   playerClick: [player: DraftPick]
 }>()
@@ -225,6 +242,12 @@ function handlePlayerClick() {
           </div>
           <div class="text-caption text-medium-emphasis">
             {{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }}
+            <template v-if="showPlayerMeasurements && (item.height || item.weight)">
+              <span class="ml-1">• {{ item.height || 'N/A' }}</span>
+              <template v-if="item.weight">
+                <span class="ml-1">• {{ item.weight }} lbs</span>
+              </template>
+            </template>
           </div>
         </div>
         
@@ -306,26 +329,43 @@ function handlePlayerClick() {
             </div>
           </div>
 
+          <!-- Player Measurements (Always shown in expanded view) -->
+          <div class="mb-3">
+            <div class="text-caption text-medium-emphasis mb-1">Measurements</div>
+            <v-row dense>
+              <v-col cols="6">
+                <div class="detail-item">
+                  <div class="text-caption text-medium-emphasis mb-1">Height</div>
+                  <div class="text-body-1 font-weight-medium">{{ item.height || 'N/A' }}</div>
+                </div>
+              </v-col>
+              <v-col cols="6">
+                <div class="detail-item">
+                  <div class="text-caption text-medium-emphasis mb-1">Weight</div>
+                  <div class="text-body-1 font-weight-medium">
+                    {{ item.weight ? `${item.weight} lbs` : 'N/A' }}
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </div>
+
+          <!-- Retirement/Current Team Status -->
+          <div v-if="item.played_until_year !== undefined || item.plays_for" class="mb-3">
+            <div class="text-caption text-medium-emphasis mb-1">
+              {{ getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'Retired - Last Played For' : 'Currently Plays For' }}
+            </div>
+            <div class="text-body-1 font-weight-medium">
+              {{ getRetirementText(item.played_until_year, item.plays_for, item.year) }}
+            </div>
+          </div>
+
           <!-- Additional Details Grid -->
           <v-row dense>
             <v-col cols="6">
               <div class="detail-item">
                 <div class="text-caption text-medium-emphasis mb-1">Draft Age</div>
                 <div class="text-body-1 font-weight-medium">{{ item.age || 'N/A' }}</div>
-              </div>
-            </v-col>
-            <v-col v-if="showPlayerMeasurements" cols="6">
-              <div class="detail-item">
-                <div class="text-caption text-medium-emphasis mb-1">Height</div>
-                <div class="text-body-1 font-weight-medium">{{ item.height || 'N/A' }}</div>
-              </div>
-            </v-col>
-            <v-col v-if="showPlayerMeasurements" cols="6">
-              <div class="detail-item">
-                <div class="text-caption text-medium-emphasis mb-1">Weight</div>
-                <div class="text-body-1 font-weight-medium">
-                  {{ item.weight ? `${item.weight} lbs` : 'N/A' }}
-                </div>
               </div>
             </v-col>
             <v-col cols="12">
