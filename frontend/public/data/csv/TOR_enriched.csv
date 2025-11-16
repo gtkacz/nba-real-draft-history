@@ -19,23 +19,23 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2024,2,31,Jonathan Mogbo,F,6-9,225,22,San Francisco,Jr *,,1,1642367.0,US,2025.0,0.0,TOR,
 2023,1,13,Gradey Dick,GF,6-7,200,19,Kansas,Fr *,,2,1641711.0,US,2025.0,0.0,TOR,
 2022,2,33,Christian Koloko,C,6-11,225,22,Arizona,Jr *,,3,1631132.0,CM,2025.0,0.0,LAL,
-2021,1,4,Scottie Barnes,SF,6-8,237,19,Florida State,Fr *,,4,1630567.0,US,2025.0,0.0,TOR,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 2, 'NBA Rookie of the Year': 1}"
+2021,1,4,Scottie Barnes,SF,6-8,237,19,Florida State,Fr *,,4,1630567.0,US,2025.0,0.0,TOR,"{'1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 2, 'NBA Rookie of the Year': 1}"
 2021,2,46,Dalano Banton,PG,6-8,203,21,Nebraska,So *,,4,1630625.0,CA,2024.0,0.0,DAL,
 2021,2,47,David Johnson,SG,6-4,203,20,Louisville,So *,,1,1630525.0,US,2021.0,0.0,TOR,
 2020,1,29,Malachi Flynn,PG,6-1,185,22,San Diego State,Jr *,,5,1630201.0,US,2024.0,0.0,SAS,{'NBA Rookie of the Month': 1}
 2020,2,59,Jalen Harris,SG,6-5,195,22,Nevada,Jr *,,1,1630223.0,US,2020.0,0.0,NYK,
 2019,2,59,Dewan Hernandez,FC,6-10,235,22,Miami (FL),Jr *,,1,1629608.0,US,2019.0,0.0,TOR,
-2017,1,23,OG Anunoby,SF,6-7,240,19,Indiana,So *,,8,1628384.0,GB,2025.0,0.0,NYK,"{'All-Defensive Team': 1, 'NBA Champion': 1}"
+2017,1,23,OG Anunoby,SF,6-7,240,19,Indiana,So *,,8,1628384.0,GB,2025.0,0.0,NYK,"{'2nd Team All-Defensive': 1, 'NBA Champion': 1}"
 2016,1,9,Jakob Poeltl,C,7-0,253,20,Utah,So *,,9,1627751.0,AT,2025.0,0.0,TOR,
-2016,1,27,Pascal Siakam,F,6-8,245,22,New Mexico State,So *,,9,1627783.0,CM,2025.0,0.0,IND,"{'All-NBA': 2, 'NBA All-Star': 3, 'NBA Champion': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 5}"
+2016,1,27,Pascal Siakam,F,6-8,245,22,New Mexico State,So *,,9,1627783.0,CM,2025.0,0.0,IND,"{'2nd Team All-NBA': 1, '3rd Team All-NBA': 1, 'NBA All-Star': 3, 'NBA Champion': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 5}"
 2015,1,20,Delon Wright,G,6-4,185,23,Utah,Sr,,10,1626153.0,US,2024.0,0.0,IND,
 2014,1,20,Bruno Caboclo,PF,6-9,218,18,Pinheiros Sky (Brazil),1995 DOB *,,7,203998.0,BR,2020.0,0.0,HOU,
 2014,2,37,DeAndre Daniels,SF,6-9,196,22,UConn,Jr *,,0,,,,,,
 2012,1,8,Terrence Ross,SF,6-7,206,21,Washington,So *,,11,203082.0,US,2022.0,0.0,PHX,
 2012,2,37,Quincy Acy,F,6-7,240,21,Baylor,Sr,,7,203112.0,US,2018.0,0.0,SAC,
-2011,1,5,Jonas Valančiūnas,C,6-11,265,19,Lietuvos Rytas (Lithuania),1992 DOB *,,13,202685.0,LT,2025.0,0.0,DEN,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1, 'Olympic Appearance': 1}"
+2011,1,5,Jonas Valančiūnas,C,6-11,265,19,Lietuvos Rytas (Lithuania),1992 DOB *,,13,202685.0,LT,2025.0,0.0,DEN,"{'2nd Team All-Rookie': 1, 'NBA Rookie of the Month': 1, 'Olympic Appearance': 1}"
 2010,1,13,Ed Davis,PF,6-9,218,21,North Carolina,So *,,12,202334.0,US,2021.0,0.0,CLE,
-2009,1,9,DeMar DeRozan,GF,6-6,220,19,USC,Fr *,,16,201942.0,US,2025.0,0.0,SAC,"{'All-NBA': 3, 'NBA All-Star': 6, 'NBA Player of the Month': 4, 'NBA Player of the Week': 15, 'Olympic Gold Medal': 1}"
+2009,1,9,DeMar DeRozan,GF,6-6,220,19,USC,Fr *,,16,201942.0,US,2025.0,0.0,SAC,"{'3rd Team All-NBA': 1, '2nd Team All-NBA': 2, 'NBA All-Star': 6, 'NBA Player of the Month': 4, 'NBA Player of the Week': 15, 'Olympic Gold Medal': 1}"
 2006,1,1,Andrea Bargnani,FC,7-0,245,20,Universo De'Longhi Treviso (Italy),1985 DOB *,,10,200745.0,IT,2015.0,0.0,TOR,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2}"
 2006,2,35,P.J. Tucker,SF,6-5,245,21,Texas,Jr *,,14,200782.0,US,2024.0,0.0,NYK,{'NBA Champion': 1}
 2005,1,7,Charlie Villanueva,F,6-11,238,20,UConn,So *,,11,101111.0,US,2015.0,0.0,DET,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"

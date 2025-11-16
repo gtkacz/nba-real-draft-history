@@ -1,6 +1,6 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 2025,1,21,Will Riley,F,6-9,180.0,19.0,Illinois,Fr *,UTA to  WAS,0,1642860.0,US,2025.0,0.0,WAS,
-2024,1,14,Bub Carrington,G,6-4,190.0,18.0,Pittsburgh,Fr *,POR to  WAS,1,1642267.0,US,2025.0,0.0,WAS,{'All-Rookie Team': 1}
+2024,1,14,Bub Carrington,G,6-4,190.0,18.0,Pittsburgh,Fr *,POR to  WAS,1,1642267.0,US,2025.0,0.0,WAS,{'2nd Team All-Rookie': 1}
 2024,1,24,Kyshawn George,F,6-8,200.0,20.0,Miami (FL),Fr *,NYK to  WAS,1,1642273.0,CH,2025.0,0.0,WAS,
 2023,1,7,Bilal Coulibaly,GF,6-7,195.0,18.0,Boulogne-Levallois (France),2004 DOB *,IND to  WAS,2,1641731.0,FR,2025.0,0.0,WAS,{'Olympic Silver Medal': 1}
 2021,2,31,Isaiah Todd,PF,6-10,220.0,19.0,NBA G League Ignite,2001 DOB,MIL to  IND IND  to WAS,2,1630225.0,US,2022.0,0.0,WAS,
@@ -29,16 +29,16 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1960,4,30,Horace Walker,F,6-3,210.0,22.0,Michigan State,Sr,STH to  WAS,1,78438.0,US,1961.0,0.0,WAS,
 2025,1,6,Tre Johnson,SG,6-5,190.0,19.0,Texas,Fr *,,0,1642848.0,US,2025.0,0.0,WAS,
 2025,2,43,Jamir Watkins,F,6-6,210.0,23.0,Florida State,Sr *,,0,1642364.0,US,2025.0,0.0,WAS,
-2024,1,2,Alex Sarr,FC,7-0,205.0,19.0,Perth (Australia),2005 DOB *,,1,1642259.0,FR,2025.0,0.0,WAS,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
+2024,1,2,Alex Sarr,FC,7-0,205.0,19.0,Perth (Australia),2005 DOB *,,1,1642259.0,FR,2025.0,0.0,WAS,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2023,2,42,Tristan Vukcevic,F,7-0,220.0,20.0,KK Partizan (Serbia),2003 DOB *,,2,1641774.0,IT,2025.0,0.0,WAS,
 2022,1,10,Johnny Davis,F,6-4,195.0,20.0,Wisconsin,So *,,3,1631098.0,US,2024.0,0.0,WAS,
 2022,2,54,Yannick Nzosa,C,6-10,174.0,18.0,Unicaja (Spain),2003 DOB *,,0,,,,,,
 2021,1,15,Corey Kispert,SF,6-6,224.0,22.0,Gonzaga,Sr *,,4,1630557.0,US,2025.0,0.0,WAS,
 2020,1,9,Deni Avdija,SG,6-8,228.0,19.0,Maccabi Tel Aviv U18 (Israel),2001 DOB *,,5,1630166.0,IL,2025.0,0.0,POR,
-2019,1,9,Rui Hachimura,F,6-8,230.0,21.0,Gonzaga,Jr *,,6,1629060.0,JP,2025.0,0.0,LAL,{'All-Rookie Team': 1}
+2019,1,9,Rui Hachimura,F,6-8,230.0,21.0,Gonzaga,Jr *,,6,1629060.0,JP,2025.0,0.0,LAL,{'2nd Team All-Rookie': 1}
 2018,1,15,Troy Brown Jr.,SF,6-7,215.0,18.0,Oregon,Fr *,,6,1628972.0,US,2023.0,0.0,DET,
 2013,1,3,Otto Porter Jr.,SF,6-8,230.0,20.0,Georgetown,So *,,11,203490.0,US,2023.0,0.0,TOR,{'NBA Champion': 1}
-2012,1,3,Bradley Beal,SG,6-4,207.0,19.0,Florida,Fr *,,13,203078.0,US,2025.0,0.0,LAC,"{'All-NBA': 1, 'All-Rookie Team': 1, 'NBA All-Star': 3, 'NBA Player of the Week': 4, 'NBA Rookie of the Month': 2}"
+2012,1,3,Bradley Beal,SG,6-4,207.0,19.0,Florida,Fr *,,13,203078.0,US,2025.0,0.0,LAC,"{'3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 3, 'NBA Player of the Week': 4, 'NBA Rookie of the Month': 2}"
 2012,2,32,Tomas Satoransky,PG,6-7,210.0,20.0,Real Betis Baloncesto (Spain),1991 DOB *,,6,203107.0,CZ,2021.0,0.0,WAS,
 2011,1,6,Jan Vesely,PF,6-11,240.0,21.0,KK Partizan (Serbia),1990 DOB *,,3,202686.0,CZ,2013.0,0.0,WAS,
 2011,1,18,Chris Singleton,FC,6-8,228.0,21.0,Florida State,Jr *,,3,202698.0,US,2013.0,0.0,WAS,

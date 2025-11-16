@@ -5,7 +5,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2022,1,26,Wendell Moore Jr.,SF,6-5,215,20,Duke,Jr *,DAL to  HOU HOU  to MIN,3,1631111.0,US,2025.0,0.0,DET,
 2022,2,45,Josh Minott,F,6-8,205,19,Memphis,Fr *,CHA to  MIN,3,1631169.0,US,2025.0,0.0,BOS,
 2020,1,23,Leandro Bolmaro,SG,6-6,200,20,FC Barcelona II (Spain),2000 DOB *,NYK to  MIN,2,1630195.0,AR,2022.0,0.0,UTA,
-2020,1,28,Jaden McDaniels,F,6-9,185,20,Washington,Fr *,LAL to  OKC OKC  to MIN,5,1630183.0,US,2025.0,0.0,MIN,{'All-Defensive Team': 1}
+2020,1,28,Jaden McDaniels,F,6-9,185,20,Washington,Fr *,LAL to  OKC OKC  to MIN,5,1630183.0,US,2025.0,0.0,MIN,{'2nd Team All-Defensive': 1}
 2019,1,6,Jarrett Culver,SG,6-6,195,20,Texas Tech,So *,PHX to  MIN,4,1629633.0,US,2022.0,0.0,ORL,
 2017,1,16,Justin Patton,C,7-0,241,20,Creighton,Fr *,CHI to  MIN,4,1628383.0,US,2020.0,0.0,HOU,
 2015,1,24,Tyus Jones,PG,6-0,196,19,Duke,Fr *,CLE to  MIN,10,1626145.0,US,2025.0,0.0,ORL,
@@ -15,7 +15,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2011,2,57,Tanguy Ngombo,GF,6-6,230,21,Al-Rayyan Sports Club (Qatar),1989 DOB,DAL to  POR POR  to MIN,0,,,,,,
 2010,1,30,Lazar Hayward,F,6-6,225,23,Marquette,Sr,WAS to  MIN,3,202351.0,US,2012.0,0.0,MIN,
 2010,2,35,Nemanja Bjelica,PF,6-10,235,22,KK Crvena Zvezda (Serbia),1988 DOB,WAS to  MIN,7,202357.0,RS,2021.0,0.0,GSW,{'NBA Champion': 1}
-2008,1,5,Kevin Love,FC,6-10,251,19,UCLA,Fr *,MEM to  MIN,17,201567.0,US,2025.0,0.0,UTA,"{'All-NBA': 2, 'All-Rookie Team': 1, 'NBA All-Star': 5, 'NBA Champion': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 3, 'NBA Rookie of the Month': 1, 'Olympic Gold Medal': 1}"
+2008,1,5,Kevin Love,FC,6-10,251,19,UCLA,Fr *,MEM to  MIN,17,201567.0,US,2025.0,0.0,UTA,"{'2nd Team All-NBA': 2, '2nd Team All-Rookie': 1, 'NBA All-Star': 5, 'NBA Champion': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 3, 'NBA Rookie of the Month': 1, 'Olympic Gold Medal': 1}"
 2006,1,7,Randy Foye,G,6-4,218,22,Villanova,Sr,BOS to  POR POR  to MIN,11,200751.0,US,2016.0,0.0,MIN,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 1996,1,4,Stephon Marbury,G,6-2,180,19,Georgia Tech,Fr *,MIL to  MIN,13,950.0,US,2008.0,0.0,NYK,"{'3rd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 2, 'NBA Player of the Week': 7, 'NBA Rookie of the Month': 1, 'Olympic Bronze Medal': 1}"
 1993,2,38,Conrad McRae,F,6-9,222,22,Syracuse,Sr,WAS to  MIN,1,,,,,,
@@ -24,13 +24,13 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2024,1,27,Terrence Shannon Jr.,F,6-6,215,23,Illinois,Sr,,1,1630545.0,US,2025.0,0.0,MIN,
 2023,2,53,Jaylen Clark,G,6-5,205,21,UCLA,Jr *,,2,1641740.0,US,2025.0,0.0,MIN,
 2022,2,50,Matteo Spagnolo,SG,6-6,196,19,Vanoli Cremona (Italy),2003 DOB *,,0,,,,,,
-2020,1,1,Anthony Edwards,SF,6-4,225,19,Georgia,Fr *,,5,1630162.0,US,2025.0,0.0,MIN,"{'All-NBA': 2, 'All-Rookie Team': 1, 'NBA All-Star': 3, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 3, 'Olympic Gold Medal': 1}"
+2020,1,1,Anthony Edwards,SF,6-4,225,19,Georgia,Fr *,,5,1630162.0,US,2025.0,0.0,MIN,"{'2nd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 3, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 3, 'Olympic Gold Medal': 1}"
 2019,2,43,Jaylen Nowell,SG,6-4,201,19,Washington,So *,,6,1629669.0,US,2024.0,0.0,WAS,
 2018,1,20,Josh Okogie,SG,6-4,213,19,Georgia Tech,So *,,7,1629006.0,NG,2025.0,0.0,HOU,
 2018,2,48,Keita Bates-Diop,SF,6-8,229,22,Ohio State,Jr *,,6,1628966.0,US,2023.0,0.0,MIN,
 2016,1,5,Kris Dunn,SG,6-3,205,22,Providence,Jr *,,9,1627739.0,US,2025.0,0.0,LAC,
-2015,1,1,Karl-Anthony Towns,C,7-0,248,19,Kentucky,Fr *,,10,1626157.0,US,2025.0,0.0,NYK,"{'All-NBA': 3, 'All-Rookie Team': 1, 'NBA All-Star': 5, 'NBA Player of the Month': 1, 'NBA Player of the Week': 7, 'NBA Rookie of the Month': 6, 'NBA Rookie of the Year': 1}"
-2014,1,13,Zach LaVine,SG,6-5,200,19,UCLA,Fr *,,11,203897.0,US,2025.0,0.0,SAC,"{'All-Rookie Team': 1, 'NBA All-Star': 2, 'NBA Player of the Week': 1, 'Olympic Gold Medal': 1}"
+2015,1,1,Karl-Anthony Towns,C,7-0,248,19,Kentucky,Fr *,,10,1626157.0,US,2025.0,0.0,NYK,"{'3rd Team All-NBA': 3, '1st Team All-Rookie': 1, 'NBA All-Star': 5, 'NBA Player of the Month': 1, 'NBA Player of the Week': 7, 'NBA Rookie of the Month': 6, 'NBA Rookie of the Year': 1}"
+2014,1,13,Zach LaVine,SG,6-5,200,19,UCLA,Fr *,,11,203897.0,US,2025.0,0.0,SAC,"{'2nd Team All-Rookie': 1, 'NBA All-Star': 2, 'NBA Player of the Week': 1, 'Olympic Gold Medal': 1}"
 2014,2,40,Glenn Robinson III,SF,6-6,222,20,Michigan,So *,,7,203922.0,US,2020.0,0.0,IND,
 2013,2,52,Lorenzo Brown,SG,6-5,189,22,NC State,Jr *,,5,203485.0,US,2018.0,0.0,TOR,
 2012,2,58,Robbie Hummel,F,6-8,220,23,Purdue,Sr,,2,203133.0,US,2014.0,0.0,MIN,

@@ -1,7 +1,7 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 2025,2,55,Lachlan Olbrich,C,6-8,236.0,21.0,Illawarra (Australia),2003 DOB,LAL to  CHI,0,1642950.0,AU,2025.0,0.0,CHI,
 2023,2,35,Julian Phillips,F,6-6,198.0,19.0,Tennessee,Fr *,BOS to  WAS WAS  to CHI,2,1641763.0,US,2025.0,0.0,CHI,
-2017,1,7,Lauri Markkanen,SF,7-1,240.0,20.0,Arizona,Fr *,MIN to  CHI,8,1628374.0,FI,2025.0,0.0,UTA,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 1}"
+2017,1,7,Lauri Markkanen,SF,7-1,240.0,20.0,Arizona,Fr *,MIN to  CHI,8,1628374.0,FI,2025.0,0.0,UTA,"{'1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 1}"
 2014,1,11,Doug McDermott,F,6-7,225.0,22.0,Creighton,Sr,DEN to  CHI,11,203926.0,US,2025.0,0.0,SAC,
 2011,1,23,Nikola Mirotic,F,6-10,250.0,20.0,Real Madrid (Spain),1991 DOB *,HOU to  MIN MIN  to CHI,5,202703.0,ME,2018.0,0.0,CHI,"{'Olympic Bronze Medal': 1, '1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2}"
 2011,2,51,Jon Diebler,SF,6-6,205.0,23.0,Ohio State,Sr,POR to  HOU HOU  to CHI,0,,,,,,
@@ -25,12 +25,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1980,2,38,Terry Stotts,PF,6-8,220.0,22.0,Oklahoma,Sr,HOU to  CHI,1,,,,,,
 1978,10,190,Rickey Williams,SG,6-1,175.0,21.0,Long Beach State,Jr,NOJ to  CHI,2,78563.0,US,1982.0,0.0,UTA,
 2025,1,12,Noa Essengue,F,6-8,200.0,18.0,Ratiopharm Ulm (Germany),2006 DOB *,,0,1642855.0,FR,2025.0,0.0,CHI,
-2024,1,11,Matas Buzelis,F,6-8,209.0,19.0,NBA G League Ignite,2004 DOB *,,1,1641824.0,US,2025.0,0.0,CHI,{'All-Rookie Team': 1}
+2024,1,11,Matas Buzelis,F,6-8,209.0,19.0,NBA G League Ignite,2004 DOB *,,1,1641824.0,US,2025.0,0.0,CHI,{'2nd Team All-Rookie': 1}
 2022,1,18,Dalen Terry,PG,6-6,195.0,19.0,Arizona,So *,,3,1631207.0,US,2025.0,0.0,CHI,
-2021,2,38,Ayo Dosunmu,PG,6-4,200.0,21.0,Illinois,Jr *,,4,1630245.0,US,2025.0,0.0,CHI,{'All-Rookie Team': 1}
-2020,1,4,Patrick Williams,G,6-6,215.0,19.0,Florida State,Fr *,,5,1630172.0,US,2025.0,0.0,CHI,{'All-Rookie Team': 1}
+2021,2,38,Ayo Dosunmu,PG,6-4,200.0,21.0,Illinois,Jr *,,4,1630245.0,US,2025.0,0.0,CHI,{'2nd Team All-Rookie': 1}
+2020,1,4,Patrick Williams,G,6-6,215.0,19.0,Florida State,Fr *,,5,1630172.0,US,2025.0,0.0,CHI,{'2nd Team All-Rookie': 1}
 2020,2,44,Marko Simonovic,C,7-0,220.0,21.0,KK Mega Bemax (Serbia),1999 DOB *,,2,1630250.0,ME,2022.0,0.0,CHI,
-2019,1,7,Coby White,PG,6-4,195.0,19.0,North Carolina,Fr *,,6,1629632.0,US,2025.0,0.0,CHI,"{'All-Rookie Team': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 1}"
+2019,1,7,Coby White,PG,6-4,195.0,19.0,North Carolina,Fr *,,6,1629632.0,US,2025.0,0.0,CHI,"{'2nd Team All-Rookie': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 1}"
 2019,2,38,Daniel Gafford,C,6-10,265.0,20.0,Arkansas,So *,,6,1629655.0,US,2025.0,0.0,DAL,
 2018,1,7,Wendell Carter Jr.,PF,6-10,270.0,19.0,Duke,Fr *,,7,1628976.0,US,2025.0,0.0,ORL,
 2018,1,22,Chandler Hutchison,SG,6-6,210.0,22.0,Boise State,Sr,,4,1628990.0,US,2021.0,0.0,PHX,
@@ -41,7 +41,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2013,1,20,Tony Snell,G,6-6,213.0,21.0,New Mexico,Jr *,,9,203503.0,US,2021.0,0.0,NOP,
 2013,2,49,Erik Murphy,FC,6-10,240.0,22.0,Florida,Sr,,1,203513.0,FI,2013.0,0.0,CHI,
 2012,1,29,Marquis Teague,PG,6-2,180.0,19.0,Kentucky,Fr *,,3,203104.0,US,2017.0,0.0,CHI,
-2011,1,30,Jimmy Butler III,GF,6-6,230.0,21.0,Marquette,Sr,,14,202710.0,US,2025.0,0.0,GSW,"{'All-Defensive Team': 5, 'All-NBA': 5, 'NBA All-Star': 6, 'NBA Most Improved Player': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 6, 'Olympic Gold Medal': 1}"
+2011,1,30,Jimmy Butler III,GF,6-6,230.0,21.0,Marquette,Sr,,14,202710.0,US,2025.0,0.0,GSW,"{'2nd Team All-Defensive': 5, '3rd Team All-NBA': 4, '2nd Team All-NBA': 1, 'NBA All-Star': 6, 'NBA Most Improved Player': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 6, 'Olympic Gold Medal': 1}"
 2009,1,16,James Johnson,F,6-7,240.0,22.0,Wake Forest,So *,,16,201949.0,US,2024.0,0.0,IND,
 2009,1,26,Taj Gibson,F,6-9,232.0,24.0,USC,Jr *,,16,201959.0,US,2024.0,0.0,CHA,{'1st Team All-Rookie': 1}
 2008,1,1,Derrick Rose,PG,6-3,200.0,19.0,Memphis,Fr *,,16,201565.0,US,2023.0,0.0,MEM,"{'1st Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 3, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 2, 'NBA Player of the Week': 5, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"

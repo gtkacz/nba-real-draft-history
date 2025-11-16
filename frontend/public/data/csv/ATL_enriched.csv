@@ -1,11 +1,11 @@
-,Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
+Unnamed: 0,Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 0,2025,1,23,Asa Newell,PF,6-10,220.0,19.0,Georgia,Fr *,NOP to  ATL,0,1642854.0,US,2025.0,0.0,ATL,
 1,2024,2,43,Nikola Đurišić,F,6-8,214.0,20.0,KK Mega Bemax (Serbia),2004 DOB *,MIA to  ATL,0,1642365.0,BE,2025.0,0.0,ATL,
 2,2023,2,39,Mouhamed Gueye,F,6-11,210.0,20.0,Washington State,So *,CHA to  BOS BOS  to ATL,2,1631243.0,SN,2025.0,0.0,ATL,
 3,2022,2,51,Tyrese Martin,GF,6-6,215.0,23.0,UConn,Sr *,GSW to  ATL,2,1631213.0,US,2025.0,0.0,BKN,
 4,2019,1,4,De'Andre Hunter,PF,6-7,221.0,21.0,Virginia,So *,LAL to  NOP NOP  to ATL,6,1629631.0,US,2025.0,0.0,CLE,
 5,2019,2,34,Bruno Fernando,C,6-9,240.0,20.0,Maryland,So *,PHI to  ATL,6,1628981.0,AO,2024.0,0.0,TOR,
-6,2018,1,5,Trae Young,PG,6-2,164.0,19.0,Oklahoma,Fr *,DAL to  ATL,7,1629027.0,US,2025.0,0.0,ATL,"{'All-NBA': 1, 'All-Rookie Team': 1, 'NBA All-Star': 4, 'NBA Player of the Week': 9, 'NBA Rookie of the Month': 4}"
+6,2018,1,5,Trae Young,PG,6-2,164.0,19.0,Oklahoma,Fr *,DAL to  ATL,7,1629027.0,US,2025.0,0.0,ATL,"{'3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 4, 'NBA Player of the Week': 9, 'NBA Rookie of the Month': 4}"
 7,2016,1,12,Taurean Prince,F,6-6,218.0,22.0,Baylor,Sr,UTA to  ATL,9,1627752.0,US,2025.0,0.0,MIL,
 8,2015,1,19,Jerian Grant,SG,6-4,198.0,22.0,Notre Dame,Sr,WAS to  ATL ATL  to NYK,4,1626170.0,US,2019.0,0.0,CHI,
 9,2014,2,48,Lamar Patterson,F,6-5,225.0,22.0,Pittsburgh,Sr,MIL to  ATL,2,203934.0,US,2016.0,0.0,ATL,
@@ -41,9 +41,9 @@
 39,2020,1,6,Onyeka Okongwu,PF,6-10,240.0,19.0,USC,Fr *,,5,1630168.0,US,2025.0,0.0,ATL,
 40,2020,2,50,Skylar Mays,PG,6-3,205.0,23.0,LSU,Sr,,4,1630219.0,US,2023.0,0.0,LAL,
 41,2019,1,10,Cam Reddish,G,6-7,217.0,19.0,Duke,Fr *,,6,1629629.0,US,2024.0,0.0,LAL,
-42,2018,1,19,Kevin Huerter,SF,6-6,198.0,19.0,Maryland,So *,,7,1628989.0,US,2025.0,0.0,CHI,{'All-Rookie Team': 1}
+42,2018,1,19,Kevin Huerter,SF,6-6,198.0,19.0,Maryland,So *,,7,1628989.0,US,2025.0,0.0,CHI,{'2nd Team All-Rookie': 1}
 43,2018,1,30,Omari Spellman,PF,6-8,245.0,20.0,Villanova,Fr *,,3,1629016.0,US,2019.0,0.0,GSW,
-44,2017,1,19,John Collins,PF,6-9,226.0,19.0,Wake Forest,So *,,8,1628381.0,US,2025.0,0.0,LAC,{'All-Rookie Team': 1}
+44,2017,1,19,John Collins,PF,6-9,226.0,19.0,Wake Forest,So *,,8,1628381.0,US,2025.0,0.0,LAC,{'2nd Team All-Rookie': 1}
 45,2017,2,41,Tyler Dorsey,SG,6-5,183.0,21.0,Oregon,So *,,3,1628416.0,US,2022.0,0.0,DAL,
 46,2016,1,21,DeAndre' Bembry,GF,6-5,210.0,21.0,Saint Joseph's,Jr *,,6,1627761.0,US,2021.0,0.0,MIL,
 47,2015,2,50,Marcus Eriksson,GF,6-7,178.0,21.0,BAXI Manresa (Spain),1993 DOB,,0,,,,,,
@@ -55,7 +55,7 @@
 53,2011,2,48,Keith Benson,C,6-11,240.0,22.0,Oakland,Sr,,1,202728.0,US,2011.0,0.0,GSW,
 54,2010,2,53,Pape Sy,SF,6-7,224.0,22.0,STB Le Havre (France),1988 DOB,,1,202377.0,FR,2010.0,0.0,ATL,
 55,2009,1,19,Jeff Teague,PG,6-3,195.0,21.0,Wake Forest,So *,,12,201952.0,US,2020.0,0.0,ATL,"{'NBA All-Star': 1, 'NBA Champion': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 2}"
-56,2007,1,3,Al Horford,FC,6-8,240.0,21.0,Florida,Jr *,,18,201143.0,DO,2025.0,0.0,GSW,"{'All-Defensive Team': 1, 'All-NBA': 1, 'All-Rookie Team': 1, 'NBA All-Star': 5, 'NBA Champion': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 4, 'NBA Rookie of the Month': 3}"
+56,2007,1,3,Al Horford,FC,6-8,240.0,21.0,Florida,Jr *,,18,201143.0,DO,2025.0,0.0,GSW,"{'2nd Team All-Defensive': 1, '3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 5, 'NBA Champion': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 4, 'NBA Rookie of the Month': 3}"
 57,2007,1,11,Acie Law,SG,6-3,202.0,22.0,Texas A&M,Sr,,4,201151.0,US,2010.0,0.0,ATL,
 58,2006,1,5,Shelden Williams,PF,6-9,250.0,22.0,Duke,Sr,,6,200749.0,US,2011.0,0.0,ATL,{'NBA Rookie of the Month': 1}
 59,2006,2,33,Solomon Jones,C,6-10,230.0,21.0,South Florida,Sr,,8,200780.0,US,2013.0,0.0,ATL,

@@ -3,7 +3,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2025,2,57,Max Shulga,G,6-4,210.0,23.0,VCU,Sr,ORL to  BOS,0,1642917.0,UA,2025.0,0.0,BOS,
 2023,2,38,Jordan Walsh,F,6-6,205.0,19.0,Arkansas,Fr *,SAC to  BOS,2,1641775.0,US,2025.0,0.0,BOS,{'NBA Champion': 1}
 2019,2,33,Carsen Edwards,PG,5-11,200.0,21.0,Purdue,Jr *,PHI to  BOS,3,1629035.0,US,2021.0,0.0,DET,
-2013,1,13,Kelly Olynyk,C,7-0,240.0,22.0,Gonzaga,Jr *,DAL to  BOS,12,203482.0,CA,2025.0,0.0,SAS,{'All-Rookie Team': 1}
+2013,1,13,Kelly Olynyk,C,7-0,240.0,22.0,Gonzaga,Jr *,DAL to  BOS,12,203482.0,CA,2025.0,0.0,SAS,{'2nd Team All-Rookie': 1}
 2013,2,53,Colton Iverson,FC,7-0,255.0,23.0,Colorado State,Sr,IND to  BOS,0,,,,,,
 2011,1,27,JaJuan Johnson,FC,6-10,220.0,22.0,Purdue,Sr,NJN to  BOS,1,202707.0,US,2011.0,0.0,BOS,
 2008,2,47,Henry Walker,GF,6-6,235.0,20.0,Kansas State,Fr *,WAS to  BOS,5,201611.0,US,2014.0,0.0,NYK,
@@ -28,12 +28,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2019,1,14,Romeo Langford,SG,6-5,216.0,19.0,Indiana,Fr *,,4,1629641.0,US,2022.0,0.0,UTA,
 2019,1,22,Grant Williams,SF,6-7,236.0,20.0,Tennessee,Jr *,,6,1629684.0,US,2025.0,0.0,CHA,
 2019,2,51,Tremont Waters,PG,5-10,175.0,21.0,LSU,So *,,3,1629682.0,US,2021.0,0.0,WAS,
-2018,1,27,Robert Williams III,PF,6-9,249.0,20.0,Texas A&M,So *,,7,1629057.0,US,2025.0,0.0,POR,{'All-Defensive Team': 1}
-2017,1,3,Jayson Tatum,SF,6-8,210.0,19.0,Duke,Fr *,,8,1628369.0,US,2025.0,0.0,BOS,"{'All-NBA': 5, 'All-Rookie Team': 1, 'NBA All-Star': 6, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 1, 'NBA Player of the Month': 5, 'NBA Player of the Week': 12, 'NBA Rookie of the Month': 1, 'Olympic Gold Medal': 2}"
+2018,1,27,Robert Williams III,PF,6-9,249.0,20.0,Texas A&M,So *,,7,1629057.0,US,2025.0,0.0,POR,{'2nd Team All-Defensive': 1}
+2017,1,3,Jayson Tatum,SF,6-8,210.0,19.0,Duke,Fr *,,8,1628369.0,US,2025.0,0.0,BOS,"{'3rd Team All-NBA': 1, '1st Team All-NBA': 4, '1st Team All-Rookie': 1, 'NBA All-Star': 6, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 1, 'NBA Player of the Month': 5, 'NBA Player of the Week': 12, 'NBA Rookie of the Month': 1, 'Olympic Gold Medal': 2}"
 2017,2,37,Semi Ojeleye,SF,6-6,240.0,22.0,Southern Methodist,Jr *,,5,1628400.0,US,2021.0,0.0,LAC,
 2017,2,53,Kadeem Allen,G,6-3,200.0,24.0,Arizona,Sr,,3,1628443.0,US,2019.0,0.0,NYK,
 2017,2,56,Jabari Bird,SG,6-6,198.0,22.0,California,Sr,,2,1628444.0,US,2017.0,0.0,BOS,
-2016,1,3,Jaylen Brown,SF,6-6,223.0,19.0,California,Fr *,,9,1627759.0,US,2025.0,0.0,BOS,"{'All-NBA': 1, 'All-Rookie Team': 1, 'NBA All-Star': 4, 'NBA Champion': 1, 'NBA Finals Most Valuable Player': 1, 'NBA Player of the Week': 4}"
+2016,1,3,Jaylen Brown,SF,6-6,223.0,19.0,California,Fr *,,9,1627759.0,US,2025.0,0.0,BOS,"{'2nd Team All-NBA': 1, '2nd Team All-Rookie': 1, 'NBA All-Star': 4, 'NBA Champion': 1, 'NBA Finals Most Valuable Player': 1, 'NBA Player of the Week': 4}"
 2016,1,16,Guerschon Yabusele,PF,6-7,265.0,20.0,Rouen Metropole Basket (France),1995 DOB *,,3,1627824.0,FR,2025.0,0.0,NYK,{'Olympic Silver Medal': 1}
 2016,1,23,Ante Zizic,C,6-11,254.0,19.0,KK Cibona (Croatia),1997 DOB *,,3,1627790.0,HR,2019.0,0.0,CLE,
 2016,2,45,Demetrius Jackson,G,6-1,200.0,21.0,Notre Dame,Jr *,,3,1627743.0,US,2018.0,0.0,HOU,
@@ -43,7 +43,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2015,1,28,RJ Hunter,G,6-4,185.0,21.0,Georgia State,Jr *,,4,1626154.0,US,2018.0,0.0,BOS,
 2015,2,33,Jordan Mickey,PF,6-8,235.0,20.0,LSU,So *,,3,1626175.0,US,2017.0,0.0,BOS,
 2015,2,45,Marcus Thornton,G,6-4,190.0,22.0,William & Mary,Sr,,1,,,,,,
-2014,1,6,Marcus Smart,PG,6-3,220.0,20.0,Oklahoma State,So *,,11,203935.0,US,2025.0,0.0,LAL,"{'All-Defensive Team': 3, 'All-Rookie Team': 1, 'NBA Defensive Player of the Year': 1, 'NBA Rookie of the Month': 1}"
+2014,1,6,Marcus Smart,PG,6-3,220.0,20.0,Oklahoma State,So *,,11,203935.0,US,2025.0,0.0,LAL,"{'1st Team All-Defensive': 3, '2nd Team All-Rookie': 1, 'NBA Defensive Player of the Year': 1, 'NBA Rookie of the Month': 1}"
 2014,1,17,James Young,SG,6-6,215.0,18.0,Kentucky,Fr *,,4,203923.0,US,2017.0,0.0,BOS,
 2012,1,21,Jared Sullinger,C,6-9,260.0,20.0,Ohio State,So *,,5,203096.0,US,2016.0,0.0,BOS,{'NBA Player of the Week': 1}
 2012,1,22,Fab Melo,C,7-0,255.0,22.0,Syracuse,So *,,1,203097.0,BR,2012.0,0.0,BOS,

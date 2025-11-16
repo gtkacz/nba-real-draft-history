@@ -1,17 +1,17 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 2025,1,18,Walter Clayton Jr.,G,6-4,195.0,22.0,Florida,Sr,WAS to  UTA,0,1642383.0,US,2025.0,0.0,UTA,
-2022,1,22,Walker Kessler,C,7-2,245.0,20.0,Auburn,So *,MEM to  MIN MIN  to UTA,3,1631117.0,US,2025.0,0.0,UTA,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
+2022,1,22,Walker Kessler,C,7-2,245.0,20.0,Auburn,So *,MEM to  MIN MIN  to UTA,3,1631117.0,US,2025.0,0.0,UTA,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2022,2,36,Gabriele Procida,SG,6-6,191.0,20.0,Fortituto Kontatto Bologna (Italy),2002 DOB *,POR to  DET DET  to UTA,0,,,,,,
 2021,2,40,Jared Butler,PG,6-3,193.0,20.0,Baylor,Jr *,NOP to  MEM MEM  to UTA,4,1630215.0,US,2024.0,0.0,PHX,
 2021,2,57,Balsa Koprivica,C,7-1,240.0,21.0,Florida State,So *,CHA to  DET DET  to LAC LAC  to UTA,0,,,,,,
 2020,2,39,Elijah Hughes,SF,6-5,215.0,22.0,Syracuse,Jr *,NOP to  UTA,2,1630190.0,US,2021.0,0.0,POR,
 2019,2,50,Jarrell Brantley,SF,6-5,250.0,23.0,Charleston,Sr,IND to  UTA,3,1629714.0,US,2022.0,0.0,UTA,
 2019,2,58,Miye Oni,SF,6-5,206.0,21.0,Yale,Jr *,GSW to  UTA,3,1629671.0,US,2021.0,0.0,MEM,
-2017,1,13,Donovan Mitchell,SG,6-2,215.0,20.0,Louisville,So *,DEN to  UTA,8,1628378.0,US,2025.0,0.0,CLE,"{'All-NBA': 2, 'All-Rookie Team': 1, 'NBA All-Star': 6, 'NBA Player of the Month': 3, 'NBA Player of the Week': 9, 'NBA Rookie of the Month': 4}"
+2017,1,13,Donovan Mitchell,SG,6-2,215.0,20.0,Louisville,So *,DEN to  UTA,8,1628378.0,US,2025.0,0.0,CLE,"{'2nd Team All-NBA': 1, '1st Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 6, 'NBA Player of the Month': 3, 'NBA Player of the Week': 9, 'NBA Rookie of the Month': 4}"
 2017,1,28,Tony Bradley,C,6-10,248.0,19.0,North Carolina,Fr *,LAL to  UTA,7,1628396.0,US,2025.0,0.0,IND,
 2016,2,55,Marcus Paige,G,6-0,164.0,22.0,North Carolina,Sr,BKN to  UTA,1,1627779.0,US,2017.0,0.0,CHA,
 2013,1,9,Trey Burke,G,6-0,185.0,20.0,Michigan,So *,MIN to  UTA,9,203504.0,US,2021.0,0.0,DAL,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 3}"
-2013,1,27,Rudy Gobert,C,7-1,258.0,21.0,Cholet Basket (France),1992 DOB *,DEN to  UTA,12,203497.0,FR,2025.0,0.0,MIN,"{'All-Defensive Team': 8, 'All-NBA': 4, 'NBA All-Star': 3, 'NBA Defensive Player of the Year': 4, 'NBA Player of the Week': 2, 'Olympic Silver Medal': 1}"
+2013,1,27,Rudy Gobert,C,7-1,258.0,21.0,Cholet Basket (France),1992 DOB *,DEN to  UTA,12,203497.0,FR,2025.0,0.0,MIN,"{'1st Team All-Defensive': 7, '2nd Team All-Defensive': 1, '2nd Team All-NBA': 1, '3rd Team All-NBA': 3, 'NBA All-Star': 3, 'NBA Defensive Player of the Year': 4, 'NBA Player of the Week': 2, 'Olympic Silver Medal': 1}"
 2013,2,47,Raul Neto,PG,6-2,180.0,21.0,Gipuzkoa Basket (Spain),1992 DOB *,ATL to  UTA,8,203526.0,BR,2022.0,0.0,CLE,
 2010,2,31,Tibor Pleiss,C,7-3,256.0,20.0,Brose Baskets Bamberg (Germany),1989 DOB *,NJN to  ATL ATL  to OKC OKC  to UTA,1,202353.0,DE,2015.0,0.0,UTA,
 2008,2,51,Shan Foster,GF,6-6,195.0,21.0,Vanderbilt,Sr,DAL to  UTA,0,,,,,,
@@ -26,7 +26,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2024,1,29,Isaiah Collier,G,6-4,210.0,19.0,USC,Fr *,,1,1642268.0,US,2025.0,0.0,UTA,{'NBA Rookie of the Month': 1}
 2024,2,32,Kyle Filipowski,C,6-11,250.0,20.0,Duke,So *,,1,1642271.0,US,2025.0,0.0,UTA,
 2023,1,9,Taylor Hendricks,F,6-9,215.0,19.0,UCF,Fr *,,2,1641707.0,US,2025.0,0.0,UTA,
-2023,1,16,Keyonte George,G,6-4,185.0,19.0,Baylor,Fr *,,2,1641718.0,US,2025.0,0.0,UTA,{'All-Rookie Team': 1}
+2023,1,16,Keyonte George,G,6-4,185.0,19.0,Baylor,Fr *,,2,1641718.0,US,2025.0,0.0,UTA,{'2nd Team All-Rookie': 1}
 2023,1,28,Brice Sensabaugh,F,6-6,235.0,19.0,Ohio State,Fr *,,2,1641729.0,US,2025.0,0.0,UTA,
 2020,1,27,Udoka Azubuike,C,6-11,270.0,21.0,Kansas,Sr,,4,1628962.0,NG,2023.0,0.0,PHX,
 2019,2,53,Justin Wright-Foreman,SG,6-0,190.0,21.0,Hofstra,Sr,,1,1629625.0,US,2019.0,0.0,UTA,

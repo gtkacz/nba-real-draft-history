@@ -32,19 +32,19 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2022,2,39,Khalifa Diop,FC,6-10,231.0,20.0,Dreamland Gran Canaria (Spain),2002 DOB *,,0,,,,,,
 2022,2,49,Isaiah Mobley,SF,6-8,238.0,22.0,USC,Jr *,,3,1630600.0,US,2024.0,0.0,PHI,
 2022,2,56,Luke Travers,F,6-6,207.0,20.0,Perth (Australia),2001 DOB *,,1,1631247.0,AU,2025.0,0.0,CLE,
-2021,1,3,Evan Mobley,PF,6-11,215.0,20.0,USC,Fr *,,4,1630596.0,US,2025.0,0.0,CLE,"{'All-Defensive Team': 2, 'All-NBA': 1, 'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Defensive Player of the Month': 2, 'NBA Defensive Player of the Year': 1, 'NBA Rookie of the Month': 1}"
-2020,1,5,Isaac Okoro,SG,6-4,225.0,19.0,Auburn,Fr *,,5,1630171.0,US,2025.0,0.0,CHI,{'All-Rookie Team': 1}
+2021,1,3,Evan Mobley,PF,6-11,215.0,20.0,USC,Fr *,,4,1630596.0,US,2025.0,0.0,CLE,"{'1st Team All-Defensive': 2, '2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Defensive Player of the Month': 2, 'NBA Defensive Player of the Year': 1, 'NBA Rookie of the Month': 1}"
+2020,1,5,Isaac Okoro,SG,6-4,225.0,19.0,Auburn,Fr *,,5,1630171.0,US,2025.0,0.0,CHI,{'2nd Team All-Rookie': 1}
 2019,1,5,Darius Garland,G,6-1,192.0,19.0,Vanderbilt,Fr *,,6,1629636.0,US,2025.0,0.0,CLE,"{'NBA All-Star': 2, 'NBA Player of the Week': 3}"
 2019,1,26,Dylan Windler,SF,6-7,196.0,22.0,Belmont,Sr,,5,1629685.0,US,2023.0,0.0,ATL,
-2018,1,8,Collin Sexton,PG,6-3,190.0,19.0,Alabama,Fr *,,7,1629012.0,US,2025.0,0.0,CHA,{'All-Rookie Team': 1}
+2018,1,8,Collin Sexton,PG,6-3,190.0,19.0,Alabama,Fr *,,7,1629012.0,US,2025.0,0.0,CHA,{'2nd Team All-Rookie': 1}
 2015,2,53,Dom Pointer,SF,6-5,200.0,23.0,St. John's,Sr,,1,,,,,,
-2014,1,1,Andrew Wiggins,F,6-6,197.0,19.0,Kansas,Fr *,,11,203952.0,CA,2025.0,0.0,MIA,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"
+2014,1,1,Andrew Wiggins,F,6-6,197.0,19.0,Kansas,Fr *,,11,203952.0,CA,2025.0,0.0,MIA,"{'1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"
 2014,2,33,Joe Harris,SG,6-6,220.0,22.0,Virginia,Sr,,10,203925.0,US,2023.0,0.0,DET,
 2013,1,1,Anthony Bennett,PF,6-8,245.0,20.0,UNLV,Fr *,,4,203461.0,CA,2016.0,0.0,MIN,
 2013,1,19,Sergey Karasev,SF,6-7,213.0,19.0,Zenit Saint Petersburg (Russia),1993 DOB *,,3,203508.0,RU,2015.0,0.0,BKN,
 2013,2,33,Carrick Felix,SF,6-6,200.0,22.0,Arizona State,Sr,,2,203467.0,US,2013.0,0.0,CLE,
 2012,1,4,Dion Waiters,SG,6-4,215.0,20.0,Syracuse,So *,,8,203079.0,US,2019.0,0.0,CLE,"{'1st Team All-Rookie': 1, 'NBA Champion': 1, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 1}"
-2011,1,1,Kyrie Irving,G,6-2,195.0,19.0,Duke,Fr *,,14,202681.0,AU,2025.0,0.0,DAL,"{'All-NBA': 3, 'All-Rookie Team': 1, 'NBA All-Star': 9, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 1, 'NBA Player of the Week': 5, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1, 'Olympic Gold Medal': 1}"
+2011,1,1,Kyrie Irving,G,6-2,195.0,19.0,Duke,Fr *,,14,202681.0,AU,2025.0,0.0,DAL,"{'3rd Team All-NBA': 2, '2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 9, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 1, 'NBA Player of the Week': 5, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1, 'Olympic Gold Medal': 1}"
 2011,1,4,Tristan Thompson,F,6-9,254.0,20.0,Texas,Fr *,,14,202684.0,CA,2024.0,0.0,CLE,"{'2nd Team All-Rookie': 1, 'NBA Champion': 1}"
 2011,2,54,Milan Macvan,PF,6-9,265.0,21.0,KK Vrsac Swisslion (Serbia),1989 DOB,,0,,,,,,
 2009,1,30,Christian Eyenga,GF,6-7,210.0,20.0,CB Prat (Spain),1989 DOB *,,2,201963.0,CG,2011.0,0.0,CLE,
@@ -54,7 +54,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2006,2,42,Daniel Gibson,G,6-2,200.0,20.0,Texas,So *,,7,200789.0,US,2012.0,0.0,CLE,
 2006,2,55,Ejike Ugboaja,F,6-9,225.0,21.0,Union Bank Lagos (Nigeria),1985 DOB *,,0,,,,,,
 2004,1,10,Luke Jackson,SF,6-7,215.0,22.0,Oregon,Sr,,4,2739.0,US,2007.0,0.0,CLE,"{'NBA Champion': 1, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Gold Medal': 1}"
-2003,1,1,LeBron James,F,6-9,250.0,18.0,St. Vincent St. Mary High School (Ohio),1984 DOB *,,22,2544.0,US,2025.0,0.0,LAL,"{'All-Defensive Team': 6, 'All-NBA': 21, 'All-Rookie Team': 1, 'NBA All-Star': 21, 'NBA All-Star Most Valuable Player': 3, 'NBA Champion': 4, 'NBA Finals Most Valuable Player': 4, 'NBA In-Season Tournament All-Tournament': 1, 'NBA In-Season Tournament Most Valuable Player': 1, 'NBA Most Valuable Player': 4, 'NBA Player of the Month': 40, 'NBA Player of the Week': 68, 'NBA Rookie of the Month': 6, 'NBA Rookie of the Year': 1, 'NBA Sporting News Most Valuable Player of the Year': 1, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Bronze Medal': 1, 'Olympic Gold Medal': 3}"
+2003,1,1,LeBron James,F,6-9,250.0,18.0,St. Vincent St. Mary High School (Ohio),1984 DOB *,,22,2544.0,US,2025.0,0.0,LAL,"{'1st Team All-Defensive': 5, '2nd Team All-Defensive': 1, '2nd Team All-NBA': 4, '1st Team All-NBA': 13, '3rd Team All-NBA': 4, '1st Team All-Rookie': 1, 'NBA All-Star': 21, 'NBA All-Star Most Valuable Player': 3, 'NBA Champion': 4, 'NBA Finals Most Valuable Player': 4, '1st Team NBA In-Season Tournament All-Tournament': 1, 'NBA In-Season Tournament Most Valuable Player': 1, 'NBA Most Valuable Player': 4, 'NBA Player of the Month': 40, 'NBA Player of the Week': 68, 'NBA Rookie of the Month': 6, 'NBA Rookie of the Year': 1, 'NBA Sporting News Most Valuable Player of the Year': 1, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Bronze Medal': 1, 'Olympic Gold Medal': 3}"
 2003,2,31,Jason Kapono,SF,6-8,213.0,22.0,UCLA,Sr,,9,2574.0,US,2011.0,0.0,TOR,{'NBA Champion': 1}
 2002,1,6,Dajuan Wagner,G,6-2,200.0,19.0,Memphis,Fr *,,4,2402.0,US,2006.0,0.0,CLE,
 2002,2,34,Carlos Boozer,PF,6-9,266.0,20.0,Duke,Jr *,,13,2430.0,US,2014.0,0.0,UTA,"{'3rd Team All-NBA': 1, '2nd Team All-Rookie': 1, 'NBA All-Star': 2, 'NBA Player of the Month': 2, 'NBA Player of the Week': 7, 'NBA Rookie of the Month': 1, 'Olympic Bronze Medal': 1, 'Olympic Gold Medal': 1}"

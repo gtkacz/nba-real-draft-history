@@ -6,7 +6,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2024,2,40,Oso Ighodaro,F,6-11,235.0,21.0,Marquette,Jr *,POR to  OKC OKC  to NYK NYK  to PHX,1,1642345.0,US,2025.0,0.0,PHX,
 2019,1,11,Cameron Johnson,G,6-8,210.0,23.0,North Carolina,Sr,MIN to  PHX,6,1629661.0,US,2025.0,0.0,DEN,
 2019,1,24,Ty Jerome,PG,6-5,195.0,21.0,Virginia,Jr *,PHI to  BOS BOS  to PHX,6,1629660.0,US,2025.0,0.0,MEM,
-2018,1,10,Mikal Bridges,SG,6-6,209.0,21.0,Villanova,Jr *,PHI to  PHX,7,1628969.0,US,2025.0,0.0,NYK,"{'All-Defensive Team': 1, 'NBA Player of the Week': 1}"
+2018,1,10,Mikal Bridges,SG,6-6,209.0,21.0,Villanova,Jr *,PHI to  PHX,7,1628969.0,US,2025.0,0.0,NYK,"{'1st Team All-Defensive': 1, 'NBA Player of the Week': 1}"
 2018,2,46,De'Anthony Melton,SG,6-2,200.0,20.0,USC,So *,HOU to  PHX,7,1629001.0,US,2025.0,0.0,GSW,
 2016,1,8,Marquese Chriss,PF,6-9,240.0,18.0,Washington,Fr *,SAC to  PHX,6,1627737.0,US,2021.0,0.0,DAL,"{'2nd Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2013,1,29,Archie Goodwin,G,6-5,205.0,18.0,Kentucky,Fr *,OKC to  GSW GSW  to PHX,4,203462.0,US,2016.0,0.0,PHX,
@@ -22,9 +22,9 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1989,1,27,Kenny Battle,SF,6-6,210.0,24.0,Illinois,Sr,DET to  PHX,4,76123.0,US,1992.0,0.0,PHX,
 1972,3,43,Bill Chamberlain,SF,6-6,188.0,22.0,North Carolina,Sr,GSW to  PHX,1,76374.0,US,1973.0,0.0,PHX,
 1970,7,106,Charlie Scott,SG,6-5,175.0,21.0,North Carolina,Sr,BOS to  PHX,9,78097.0,US,1979.0,0.0,PHX,"{'Hall of Fame Inductee': 1, 'NBA All-Star': 3, 'NBA Champion': 1, 'Olympic Gold Medal': 1}"
-2023,2,52,Toumani Camara,SF,6-7,230.0,23.0,Dayton,Sr *,,2,1641739.0,BE,2025.0,0.0,POR,"{'All-Defensive Team': 1, 'NBA Defensive Player of the Month': 1}"
+2023,2,52,Toumani Camara,SF,6-7,230.0,23.0,Dayton,Sr *,,2,1641739.0,BE,2025.0,0.0,POR,"{'2nd Team All-Defensive': 1, 'NBA Defensive Player of the Month': 1}"
 2020,1,10,Jalen Smith,C,6-8,215.0,20.0,Maryland,So *,,5,1630188.0,US,2025.0,0.0,CHI,
-2018,1,1,Deandre Ayton,C,7-0,252.0,19.0,Arizona,Fr *,,7,1629028.0,BS,2025.0,0.0,LAL,"{'All-Rookie Team': 1, 'NBA Player of the Week': 1}"
+2018,1,1,Deandre Ayton,C,7-0,252.0,19.0,Arizona,Fr *,,7,1629028.0,BS,2025.0,0.0,LAL,"{'1st Team All-Rookie': 1, 'NBA Player of the Week': 1}"
 2018,2,31,Elie Okobo,PG,6-3,190.0,20.0,Pau-Orthez (France),1997 DOB *,,2,1629059.0,FR,2019.0,0.0,PHX,
 2018,2,59,George King,SF,6-6,220.0,24.0,Colorado,Sr,,2,1628994.0,US,2021.0,0.0,DAL,
 2017,1,4,Josh Jackson,SF,6-8,207.0,20.0,Kansas,Fr *,,5,1628367.0,US,2021.0,0.0,TOR,{'2nd Team All-Rookie': 1}
@@ -32,7 +32,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2017,2,54,Alec Peters,F,6-9,225.0,22.0,Valparaiso,Sr,,1,1628409.0,US,2017.0,0.0,PHX,
 2016,1,4,Dragan Bender,PF,7-1,235.0,18.0,Maccabi FOX Tel Aviv (Israel),1997 DOB *,,4,1627733.0,HR,2019.0,0.0,PHX,
 2016,2,34,Tyler Ulis,PG,5-10,149.0,20.0,Kentucky,So *,,3,1627755.0,US,2018.0,0.0,PHX,{'NBA Rookie of the Month': 1}
-2015,1,13,Devin Booker,SG,6-5,206.0,18.0,Kentucky,Fr *,,10,1626164.0,US,2025.0,0.0,PHX,"{'All-NBA': 2, 'All-Rookie Team': 1, 'NBA All-Star': 4, 'NBA Player of the Month': 3, 'NBA Player of the Week': 10, 'Olympic Gold Medal': 2}"
+2015,1,13,Devin Booker,SG,6-5,206.0,18.0,Kentucky,Fr *,,10,1626164.0,US,2025.0,0.0,PHX,"{'1st Team All-NBA': 1, '3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 4, 'NBA Player of the Month': 3, 'NBA Player of the Week': 10, 'Olympic Gold Medal': 2}"
 2014,1,14,T.J. Warren,F,6-8,220.0,20.0,NC State,So *,,10,203933.0,US,2023.0,0.0,NYK,
 2014,1,18,Tyler Ennis,PG,6-3,182.0,19.0,Syracuse,Fr *,,4,203898.0,CA,2017.0,0.0,LAL,
 2014,2,50,Alec Brown,C,7-1,235.0,21.0,Green Bay,Sr,,0,,,,,,

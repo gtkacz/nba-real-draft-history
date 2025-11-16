@@ -1,9 +1,9 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
-2019,1,20,Matisse Thybulle,SF,6-5,202.0,22.0,Washington,Sr,BOS to  PHI,6,1629680.0,US,2025.0,0.0,POR,{'All-Defensive Team': 2}
+2019,1,20,Matisse Thybulle,SF,6-5,202.0,22.0,Washington,Sr,BOS to  PHI,6,1629680.0,US,2025.0,0.0,POR,{'2nd Team All-Defensive': 2}
 2018,1,16,Zhaire Smith,SG,6-4,205.0,19.0,Texas Tech,Fr *,PHX to  PHI,3,1629015.0,US,2019.0,0.0,PHI,
 2018,2,54,Shake Milton,SG,6-5,205.0,21.0,Southern Methodist,Jr *,DAL to  PHI,7,1629003.0,US,2024.0,0.0,LAL,
 2017,1,25,Anžejs Pasečņiks,C,7-1,229.0,21.0,Dreamland Gran Canaria (Spain),1995 DOB,ORL to  PHI,2,1628394.0,LV,2020.0,0.0,WAS,
-2014,1,12,Dario Šarić,SF,6-10,225.0,20.0,KK Cibona (Croatia),1994 DOB *,ORL to  PHI,9,203967.0,HR,2025.0,0.0,SAC,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 2}"
+2014,1,12,Dario Šarić,SF,6-10,225.0,20.0,KK Cibona (Croatia),1994 DOB *,ORL to  PHI,9,203967.0,HR,2025.0,0.0,SAC,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2}"
 2014,2,58,Jordan McRae,G,6-5,179.0,23.0,Tennessee,Sr,SAS to  PHI,4,203895.0,US,2019.0,0.0,WAS,{'NBA Champion': 1}
 2013,1,6,Nerlens Noel,FC,6-10,220.0,19.0,Kentucky,Fr *,NOP to  PHI,10,203457.0,US,2022.0,0.0,BKN,{'1st Team All-Rookie': 1}
 2013,2,54,Arsalan Kazemi,F,6-7,226.0,23.0,Oregon,Sr,WAS to  PHI,0,,,,,,
@@ -39,16 +39,16 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2020,2,49,Isaiah Joe,SG,6-4,165.0,21.0,Arkansas,So *,,5,1630198.0,US,2025.0,0.0,OKC,{'NBA Champion': 1}
 2020,2,58,Paul Reed,F,6-9,210.0,21.0,DePaul,Jr *,,5,1630194.0,US,2025.0,0.0,DET,
 2019,2,54,Marial Shayok,G,6-5,198.0,23.0,Iowa State,Sr,,1,1629621.0,CA,2019.0,0.0,PHI,
-2018,1,26,Landry Shamet,PG,6-5,190.0,21.0,Wichita State,So *,,7,1629013.0,US,2025.0,0.0,NYK,{'All-Rookie Team': 1}
+2018,1,26,Landry Shamet,PG,6-5,190.0,21.0,Wichita State,So *,,7,1629013.0,US,2025.0,0.0,NYK,{'2nd Team All-Rookie': 1}
 2017,1,1,Markelle Fultz,PG,6-4,209.0,19.0,Washington,Fr *,,8,1628365.0,US,2024.0,0.0,SAC,
 2017,2,36,Jonah Bolden,SF,6-10,220.0,21.0,FMP Beograd (Serbia),1996 DOB,,2,1628413.0,AU,2019.0,0.0,PHI,
 2016,1,1,Ben Simmons,PF,6-10,240.0,19.0,LSU,Fr *,,9,1627732.0,AU,2024.0,0.0,LAC,"{'1st Team All-Defensive': 2, '3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 3, 'NBA Player of the Week': 3, 'NBA Rookie of the Month': 4, 'NBA Rookie of the Year': 1}"
 2016,1,24,Timothe Luwawu-Cabarrot,F,6-7,210.0,21.0,KK Mega Bemax (Serbia),1995 DOB *,,6,1627789.0,FR,2021.0,0.0,PHX,
 2016,1,26,Furkan Korkmaz,SG,6-7,202.0,18.0,Anadolu Efes (Turkey),1997 DOB *,,7,1627788.0,TR,2023.0,0.0,PHI,
-2015,1,3,Jahlil Okafor,C,6-10,270.0,19.0,Duke,Fr *,,7,1626143.0,US,2024.0,0.0,IND,{'All-Rookie Team': 1}
+2015,1,3,Jahlil Okafor,C,6-10,270.0,19.0,Duke,Fr *,,7,1626143.0,US,2024.0,0.0,IND,{'1st Team All-Rookie': 1}
 2015,2,37,Richaun Holmes,F,6-9,235.0,21.0,Bowling Green,Sr,,10,1626158.0,US,2024.0,0.0,WAS,
 2015,2,58,J.P. Tokoto,GF,6-6,200.0,21.0,North Carolina,Jr *,,0,,,,,,
-2014,1,3,Joel Embiid,C,7-0,280.0,20.0,Kansas,Fr *,,11,203954.0,CM,2025.0,0.0,PHI,"{'All-Defensive Team': 3, 'All-NBA': 5, 'All-Rookie Team': 1, 'NBA All-Star': 7, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 7, 'NBA Player of the Week': 14, 'NBA Rookie of the Month': 3, 'Olympic Gold Medal': 1}"
+2014,1,3,Joel Embiid,C,7-0,280.0,20.0,Kansas,Fr *,,11,203954.0,CM,2025.0,0.0,PHI,"{'2nd Team All-Defensive': 3, '2nd Team All-NBA': 4, '1st Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 7, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 7, 'NBA Player of the Week': 14, 'NBA Rookie of the Month': 3, 'Olympic Gold Medal': 1}"
 2014,2,32,KJ McDaniels,GF,6-6,205.0,21.0,Clemson,Jr *,,4,203909.0,US,2016.0,0.0,HOU,
 2014,2,39,Jerami Grant,F,6-7,213.0,20.0,Syracuse,So *,,11,203924.0,US,2025.0,0.0,POR,{'Olympic Gold Medal': 1}
 2013,1,11,Michael Carter-Williams,PG,6-5,190.0,21.0,Syracuse,So *,,10,203487.0,US,2022.0,0.0,ORL,"{'1st Team All-Rookie': 1, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 4, 'NBA Rookie of the Year': 1}"
@@ -56,7 +56,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2011,1,16,Nikola Vučević,PF,6-9,260.0,20.0,USC,Jr *,,14,202696.0,ME,2025.0,0.0,CHI,"{'NBA All-Star': 2, 'NBA Player of the Week': 3}"
 2011,2,50,Lavoy Allen,PF,6-9,260.0,22.0,Temple,Sr,,6,202730.0,US,2016.0,0.0,IND,
 2010,1,2,Evan Turner,GF,6-7,220.0,21.0,Ohio State,Jr *,,10,202323.0,US,2019.0,0.0,PHI,
-2009,1,17,Jrue Holiday,G,6-4,220.0,19.0,UCLA,Fr *,,16,201950.0,US,2025.0,0.0,POR,"{'All-Defensive Team': 6, 'NBA All-Star': 2, 'NBA Champion': 2, 'NBA Player of the Week': 2, 'Olympic Gold Medal': 2}"
+2009,1,17,Jrue Holiday,G,6-4,220.0,19.0,UCLA,Fr *,,16,201950.0,US,2025.0,0.0,POR,"{'1st Team All-Defensive': 3, '2nd Team All-Defensive': 3, 'NBA All-Star': 2, 'NBA Champion': 2, 'NBA Player of the Week': 2, 'Olympic Gold Medal': 2}"
 2008,1,16,Marreese Speights,C,6-10,255.0,20.0,Florida,So *,,10,201578.0,US,2017.0,0.0,GSW,{'NBA Champion': 1}
 2007,1,12,Thaddeus Young,F,6-8,225.0,19.0,Georgia Tech,Fr *,,17,201152.0,US,2023.0,0.0,PHX,"{'2nd Team All-Rookie': 1, 'NBA Player of the Week': 2}"
 2005,2,45,Lou Williams,G,6-1,175.0,18.0,South Gwinnett High School (Georgia),1986 DOB *,,17,101150.0,US,2021.0,0.0,ATL,"{'NBA Player of the Week': 3, 'NBA Sixth Man of the Year': 3}"

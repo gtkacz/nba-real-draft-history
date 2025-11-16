@@ -1,7 +1,7 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 2024,2,36,Juan Nunez,PG,6-4,190.0,20.0,Ratiopharm Ulm (Germany),2004 DOB *,IND to  SAS,0,,,,,,
 2015,2,42,Olivier Hanlan,G,6-4,190.0,22.0,Boston College,Jr *,UTA to  SAS,0,,,,,,
-2011,1,15,Kawhi Leonard,F,6-6,225.0,19.0,San Diego State,So *,IND to  SAS,14,202695.0,US,2025.0,0.0,LAC,"{'All-Defensive Team': 7, 'All-NBA': 6, 'All-Rookie Team': 1, 'NBA All-Star': 6, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 2, 'NBA Defensive Player of the Year': 2, 'NBA Finals Most Valuable Player': 2, 'NBA Player of the Week': 10}"
+2011,1,15,Kawhi Leonard,F,6-6,225.0,19.0,San Diego State,So *,IND to  SAS,14,202695.0,US,2025.0,0.0,LAC,"{'2nd Team All-Defensive': 4, '1st Team All-Defensive': 3, '1st Team All-NBA': 3, '2nd Team All-NBA': 3, '1st Team All-Rookie': 1, 'NBA All-Star': 6, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 2, 'NBA Defensive Player of the Year': 2, 'NBA Finals Most Valuable Player': 2, 'NBA Player of the Week': 10}"
 2011,2,42,Davis Bertans,SF,6-10,225.0,18.0,Union Olimpija (Slovenia),1992 DOB *,IND to  SAS,8,202722.0,LV,2023.0,0.0,CHA,
 2008,2,48,Malik Hairston,SF,6-6,220.0,21.0,Oregon,Sr,PHX to  SAS,2,201612.0,US,2009.0,0.0,SAS,
 2005,2,46,Erazem Lorbek,FC,6-11,242.0,21.0,Fortituto Kontatto Bologna (Italy),1984 DOB *,IND to  SAS,0,,,,,,
@@ -12,11 +12,11 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1979,2,43,Johnny Moore,G,6-1,175.0,21.0,Texas,Sr,SEA to  SAS,10,77633.0,US,1989.0,0.0,SAS,
 2025,1,2,Dylan Harper,GF,6-5,215.0,19.0,Rutgers,Fr *,,0,1642844.0,US,2025.0,0.0,SAS,
 2025,1,14,Carter Bryant,F,6-6,220.0,19.0,Arizona,Fr *,,0,1642868.0,US,2025.0,0.0,SAS,
-2024,1,4,Stephon Castle,G,6-6,215.0,19.0,UConn,Fr *,,1,1642264.0,US,2025.0,0.0,SAS,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 2, 'NBA Rookie of the Year': 1}"
+2024,1,4,Stephon Castle,G,6-6,215.0,19.0,UConn,Fr *,,1,1642264.0,US,2025.0,0.0,SAS,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2, 'NBA Rookie of the Year': 1}"
 2024,2,48,Harrison Ingram,F,6-5,230.0,21.0,North Carolina,Jr *,,1,1631127.0,US,2025.0,0.0,SAS,
-2023,1,1,Victor Wembanyama,F,7-4,235.0,19.0,Boulogne-Levallois (France),2004 DOB *,,2,1641705.0,FR,2025.0,0.0,SAS,"{'All-Defensive Team': 1, 'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Defensive Player of the Month': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1, 'Olympic Silver Medal': 1}"
+2023,1,1,Victor Wembanyama,F,7-4,235.0,19.0,Boulogne-Levallois (France),2004 DOB *,,2,1641705.0,FR,2025.0,0.0,SAS,"{'1st Team All-Defensive': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Defensive Player of the Month': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1, 'Olympic Silver Medal': 1}"
 2023,2,44,Sidy Cissoko,GF,6-6,220.0,19.0,NBA G League Ignite,2004 DOB,,2,1631321.0,FR,2025.0,0.0,POR,
-2022,1,9,Jeremy Sochan,SG,6-8,230.0,19.0,Baylor,Fr *,,3,1631110.0,PL,2025.0,0.0,SAS,{'All-Rookie Team': 1}
+2022,1,9,Jeremy Sochan,SG,6-8,230.0,19.0,Baylor,Fr *,,3,1631110.0,PL,2025.0,0.0,SAS,{'2nd Team All-Rookie': 1}
 2022,1,20,Malaki Branham,GF,6-4,180.0,19.0,Ohio State,Fr *,,3,1631103.0,US,2025.0,0.0,WAS,
 2022,1,25,Blake Wesley,SG,6-4,190.0,19.0,Notre Dame,Fr *,,3,1631104.0,US,2025.0,0.0,POR,
 2021,1,12,Joshua Primo,G,6-4,189.0,18.0,Alabama,Fr *,,3,1630563.0,CA,2023.0,0.0,LAC,
@@ -28,9 +28,9 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2019,2,49,Quinndary Weatherspoon,SG,6-3,205.0,22.0,Mississippi State,Sr,,3,1629683.0,US,2021.0,0.0,GSW,
 2018,1,18,Lonnie Walker IV,SG,6-4,204.0,19.0,Miami (FL),Fr *,,7,1629022.0,US,2024.0,0.0,PHI,
 2018,2,49,Chimezie Metu,PF,6-10,225.0,21.0,USC,Jr *,,6,1629002.0,US,2023.0,0.0,DET,
-2017,1,29,Derrick White,G,6-4,190.0,22.0,Colorado,Sr,,8,1628401.0,US,2025.0,0.0,BOS,"{'All-Defensive Team': 2, 'NBA Champion': 1, 'NBA Player of the Week': 2, 'Olympic Gold Medal': 1}"
+2017,1,29,Derrick White,G,6-4,190.0,22.0,Colorado,Sr,,8,1628401.0,US,2025.0,0.0,BOS,"{'2nd Team All-Defensive': 2, 'NBA Champion': 1, 'NBA Player of the Week': 2, 'Olympic Gold Medal': 1}"
 2017,2,59,Jaron Blossomgame,F,6-8,220.0,23.0,Clemson,Sr,,1,1628417.0,US,2018.0,0.0,CLE,
-2016,1,29,Dejounte Murray,SG,6-4,180.0,19.0,Washington,Fr *,,9,1627749.0,US,2025.0,0.0,NOP,"{'All-Defensive Team': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1}"
+2016,1,29,Dejounte Murray,SG,6-4,180.0,19.0,Washington,Fr *,,9,1627749.0,US,2025.0,0.0,NOP,"{'2nd Team All-Defensive': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1}"
 2014,1,30,Kyle Anderson,PF,6-8,230.0,20.0,UCLA,So *,,11,203937.0,US,2025.0,0.0,UTA,
 2013,1,28,Livio Jean-Charles,SF,6-9,230.0,19.0,ASVEL Basket (France),1993 DOB *,,0,,,,,,
 2013,2,58,Deshaun Thomas,F,6-7,220.0,21.0,Ohio State,Jr *,,0,,,,,,

@@ -7,7 +7,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2020,2,33,Daniel Oturu,FC,6-8,240.0,21.0,Minnesota,So *,MIN to  LAC,2,1630187.0,US,2021.0,0.0,TOR,
 2020,2,55,Jay Scrubb,SG,6-4,220.0,20.0,John A. Logan,So *,BKN to  LAC,3,1630206.0,US,2022.0,0.0,ORL,
 2019,1,27,Mfiondu Kabengele,SF,6-10,250.0,21.0,Florida State,So *,BKN to  LAC,3,1629662.0,CA,2022.0,0.0,BOS,
-2018,1,11,Shai Gilgeous-Alexander,PG,6-6,195.0,19.0,Kentucky,Fr *,CHA to  LAC,7,1628983.0,CA,2025.0,0.0,OKC,"{'All-NBA': 3, 'All-Rookie Team': 1, 'NBA All-Star': 3, 'NBA Champion': 1, 'NBA Finals Most Valuable Player': 1, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 4, 'NBA Player of the Week': 7}"
+2018,1,11,Shai Gilgeous-Alexander,PG,6-6,195.0,19.0,Kentucky,Fr *,CHA to  LAC,7,1628983.0,CA,2025.0,0.0,OKC,"{'1st Team All-NBA': 3, '2nd Team All-Rookie': 1, 'NBA All-Star': 3, 'NBA Champion': 1, 'NBA Finals Most Valuable Player': 1, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 4, 'NBA Player of the Week': 7}"
 2017,2,39,Jawun Evans,PG,6-0,190.0,20.0,Oklahoma State,So *,PHI to  LAC,2,1628393.0,US,2018.0,0.0,LAC,
 2017,2,48,Sindarius Thornwell,SG,6-4,215.0,22.0,South Carolina,Sr,MIL to  LAC,3,1628414.0,US,2020.0,0.0,LAC,
 2016,2,40,Diamond Stone,C,6-11,255.0,19.0,Maryland,Fr *,NOP to  LAC,1,1627754.0,US,2016.0,0.0,LAC,
@@ -42,8 +42,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2010,1,8,Al-Farouq Aminu,F,6-9,220.0,19.0,Wake Forest,So *,,12,202329.0,US,2020.0,0.0,POR,{'Olympic Appearance': 1}
 2010,2,54,Willie Warren,GF,6-4,200.0,20.0,Oklahoma,So *,,1,202378.0,US,2010.0,0.0,LAC,
 2009,1,1,Blake Griffin,PF,6-9,250.0,20.0,Oklahoma,So *,,14,201933.0,US,2022.0,0.0,BOS,"{'2nd Team All-NBA': 3, '3rd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 6, 'NBA Player of the Month': 1, 'NBA Player of the Week': 6, 'NBA Rookie of the Month': 6, 'NBA Rookie of the Year': 1}"
-2008,1,7,Eric Gordon,G,6-3,215.0,19.0,Indiana,Fr *,,17,201569.0,US,2025.0,0.0,PHI,"{'NBA Sixth Man of the Year': 1, 'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
-2008,2,35,DeAndre Jordan,C,6-11,265.0,19.0,Texas A&M,Fr *,,17,201599.0,US,2025.0,0.0,NOP,"{'All-Defensive Team': 2, 'All-NBA': 3, 'NBA All-Star': 1, 'NBA Champion': 1, 'Olympic Gold Medal': 1}"
+2008,1,7,Eric Gordon,G,6-3,215.0,19.0,Indiana,Fr *,,17,201569.0,US,2025.0,0.0,PHI,"{'NBA Sixth Man of the Year': 1, '2nd Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
+2008,2,35,DeAndre Jordan,C,6-11,265.0,19.0,Texas A&M,Fr *,,17,201599.0,US,2025.0,0.0,NOP,"{'1st Team All-Defensive': 2, '3rd Team All-NBA': 2, '1st Team All-NBA': 1, 'NBA All-Star': 1, 'NBA Champion': 1, 'Olympic Gold Medal': 1}"
 2007,1,14,Al Thornton,F,6-8,203.0,23.0,Florida State,Sr,,4,201154.0,US,2010.0,0.0,LAC,{'1st Team All-Rookie': 1}
 2006,2,34,Paul Davis,FC,6-11,270.0,21.0,Michigan State,Sr,,4,200781.0,US,2009.0,0.0,LAC,
 2006,2,52,Guillermo Diaz,G,6-2,192.0,21.0,Miami (FL),Jr *,,1,200799.0,US,2007.0,0.0,LAC,

@@ -9,7 +9,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2016,1,13,Georgios Papagiannis,C,7-2,275.0,18.0,Panathinaikos (Greece),1997 DOB *,PHX to  SAC,2,1627834.0,GR,2017.0,0.0,SAC,
 2016,1,22,Malachi Richardson,SF,6-6,205.0,20.0,Syracuse,Fr *,CHA to  SAC,3,1627781.0,US,2018.0,0.0,SAC,
 2016,1,28,Skal Labissiere,C,6-10,235.0,20.0,Kentucky,Fr *,PHX to  SAC,5,1627746.0,HT,2024.0,0.0,SAC,
-2014,1,27,Bogdan Bogdanović,SG,6-5,225.0,21.0,KK Partizan (Serbia),1992 DOB,PHX to  SAC,8,203992.0,RS,2025.0,0.0,LAC,"{'All-Rookie Team': 1, 'Olympic Bronze Medal': 1}"
+2014,1,27,Bogdan Bogdanović,SG,6-5,225.0,21.0,KK Partizan (Serbia),1992 DOB,PHX to  SAC,8,203992.0,RS,2025.0,0.0,LAC,"{'2nd Team All-Rookie': 1, 'Olympic Bronze Medal': 1}"
 2013,2,57,Alex Oriakhi,PF,6-9,255.0,23.0,Missouri,Sr,PHX to  SAC,0,,,,,,
 2012,2,57,Ilkan Karaman,F,6-8,254.0,22.0,Pinar Karsiyaka (Turkey),1990 DOB,BKN to  CLE CLE  to MIL MIL  to SAC,0,,,,,,
 2011,1,10,Jimmer Fredette,G,6-2,195.0,22.0,Brigham Young,Sr,MIL to  SAC,6,202690.0,US,2018.0,0.0,SAC,
@@ -25,14 +25,14 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2025,2,42,Maxime Raynaud,C,7-1,250.0,22.0,Stanford,Sr,,0,1642875.0,FR,2025.0,0.0,SAC,
 2024,1,13,Devin Carter,G,6-2,195.0,22.0,Providence,Jr *,,1,1642269.0,US,2025.0,0.0,SAC,
 2023,2,54,Jalen Slawson,F,6-7,215.0,23.0,Furman,Sr,,1,1641771.0,US,2023.0,0.0,IND,
-2022,1,4,Keegan Murray,F,6-8,225.0,21.0,Iowa,So *,,3,1631099.0,US,2025.0,0.0,SAC,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 2}"
+2022,1,4,Keegan Murray,F,6-8,225.0,21.0,Iowa,So *,,3,1631099.0,US,2025.0,0.0,SAC,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2}"
 2021,1,9,Davion Mitchell,PG,6-0,202.0,22.0,Baylor,Jr *,,4,1630558.0,US,2025.0,0.0,MIA,
 2021,2,39,Neemias Queta,C,7-0,248.0,22.0,Utah State,Jr *,,4,1629674.0,PT,2025.0,0.0,BOS,{'NBA Champion': 1}
-2020,1,12,Tyrese Haliburton,PG,6-5,185.0,20.0,Iowa State,So *,,5,1630169.0,US,2025.0,0.0,IND,"{'All-NBA': 2, 'All-Rookie Team': 1, 'NBA All-Star': 2, 'NBA In-Season Tournament All-Tournament': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 2, 'Olympic Gold Medal': 1}"
+2020,1,12,Tyrese Haliburton,PG,6-5,185.0,20.0,Iowa State,So *,,5,1630169.0,US,2025.0,0.0,IND,"{'3rd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 2, '1st Team NBA In-Season Tournament All-Tournament': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 2, 'Olympic Gold Medal': 1}"
 2020,2,43,Jahmi'us Ramsey,PG,6-3,190.0,19.0,Texas Tech,Fr *,,3,1630186.0,US,2023.0,0.0,TOR,
 2019,2,40,Justin James,SG,6-7,190.0,22.0,Wyoming,Sr,,3,1629713.0,US,2020.0,0.0,SAC,
-2018,1,2,Marvin Bagley III,PF,6-10,235.0,19.0,Duke,Fr *,,7,1628963.0,US,2025.0,0.0,WAS,{'All-Rookie Team': 1}
-2017,1,5,De'Aaron Fox,PG,6-3,185.0,19.0,Kentucky,Fr *,,8,1628368.0,US,2025.0,0.0,SAS,"{'All-NBA': 1, 'NBA All-Star': 1, 'NBA Clutch Player of the Year': 1, 'NBA Player of the Week': 6}"
+2018,1,2,Marvin Bagley III,PF,6-10,235.0,19.0,Duke,Fr *,,7,1628963.0,US,2025.0,0.0,WAS,{'1st Team All-Rookie': 1}
+2017,1,5,De'Aaron Fox,PG,6-3,185.0,19.0,Kentucky,Fr *,,8,1628368.0,US,2025.0,0.0,SAS,"{'3rd Team All-NBA': 1, 'NBA All-Star': 1, 'NBA Clutch Player of the Year': 1, 'NBA Player of the Week': 6}"
 2017,2,34,Frank Mason III,G,5-11,190.0,23.0,Kansas,Sr,,4,1628412.0,US,2020.0,0.0,SAC,
 2016,2,59,Isaiah Cousins,G,6-4,191.0,22.0,Oklahoma,Sr,,0,,,,,,
 2015,1,6,Willie Cauley-Stein,C,7-0,240.0,21.0,Kentucky,Jr *,,8,1626161.0,US,2022.0,0.0,PHI,{'2nd Team All-Rookie': 1}

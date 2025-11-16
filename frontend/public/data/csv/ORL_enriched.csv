@@ -21,10 +21,10 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2024,1,18,Tristan da Silva,F,6-8,217,23,Colorado,Sr *,,1,1641783.0,DE,2025.0,0.0,ORL,
 2023,1,6,Anthony Black,G,6-7,200,19,Arkansas,Fr *,,2,1641710.0,US,2025.0,0.0,ORL,
 2023,1,11,Jett Howard,GF,6-8,215,19,Michigan,Fr *,,2,1641724.0,US,2025.0,0.0,ORL,
-2022,1,1,Paolo Banchero,C,6-10,250,19,Duke,Fr *,,3,1631094.0,US,2025.0,0.0,ORL,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 4, 'NBA Rookie of the Year': 1}"
+2022,1,1,Paolo Banchero,C,6-10,250,19,Duke,Fr *,,3,1631094.0,US,2025.0,0.0,ORL,"{'1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 4, 'NBA Rookie of the Year': 1}"
 2022,2,32,Caleb Houstan,SF,6-8,205,19,Michigan,Fr *,,3,1631216.0,CA,2025.0,0.0,ATL,
-2021,1,5,Jalen Suggs,SG,6-5,205,20,Gonzaga,Fr *,,4,1630591.0,US,2025.0,0.0,ORL,{'All-Defensive Team': 1}
-2021,1,8,Franz Wagner,SF,6-10,220,19,Michigan,So *,,4,1630532.0,DE,2025.0,0.0,ORL,"{'All-Rookie Team': 1, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 1}"
+2021,1,5,Jalen Suggs,SG,6-5,205,20,Gonzaga,Fr *,,4,1630591.0,US,2025.0,0.0,ORL,{'2nd Team All-Defensive': 1}
+2021,1,8,Franz Wagner,SF,6-10,220,19,Michigan,So *,,4,1630532.0,DE,2025.0,0.0,ORL,"{'1st Team All-Rookie': 1, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 1}"
 2020,1,15,Cole Anthony,PG,6-2,185,20,North Carolina,Fr *,,5,1630175.0,US,2025.0,0.0,MIL,
 2019,1,16,Chuma Okeke,PF,6-7,229,20,Auburn,So *,,5,1629643.0,US,2024.0,0.0,CLE,
 2018,1,6,Mo Bamba,C,7-0,231,20,Texas,Fr *,,7,1628964.0,US,2024.0,0.0,UTA,

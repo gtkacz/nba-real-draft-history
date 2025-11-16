@@ -17,12 +17,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1990,1,12,Alec Kessler,C,6-11,230,23.0,Georgia,Sr,HOU to  MIA,4,77251.0,US,1993.0,0.0,MIA,
 1990,2,40,Bimbo Coles,SG,6-1,180,22.0,Virginia Tech,Sr,SAC to  MIA,14,902.0,US,2003.0,0.0,MIA,{'Olympic Bronze Medal': 1}
 2025,1,20,Kasparas Jakučionis,G,6-5,200,19.0,Illinois,Fr *,,0,1642857.0,LT,2025.0,0.0,MIA,
-2024,1,15,Kel'el Ware,PF,7-0,230,20.0,Indiana,So *,,1,1642276.0,US,2025.0,0.0,MIA,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
-2023,1,18,Jaime Jaquez Jr.,GF,6-6,225,22.0,UCLA,Sr *,,2,1631170.0,US,2025.0,0.0,MIA,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 2}"
+2024,1,15,Kel'el Ware,PF,7-0,230,20.0,Indiana,So *,,1,1642276.0,US,2025.0,0.0,MIA,"{'2nd Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
+2023,1,18,Jaime Jaquez Jr.,GF,6-6,225,22.0,UCLA,Sr *,,2,1631170.0,US,2025.0,0.0,MIA,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2}"
 2022,1,27,Nikola Jović,F,6-10,205,19.0,KK Mega Bemax (Serbia),2003 DOB *,,3,1631107.0,RS,2025.0,0.0,MIA,{'Olympic Bronze Medal': 1}
 2020,1,20,Precious Achiuwa,SF,6-8,243,21.0,Memphis,Fr *,,5,1630173.0,NG,2025.0,0.0,SAC,
-2019,1,13,Tyler Herro,SG,6-5,195,19.0,Kentucky,Fr *,,6,1629639.0,US,2025.0,0.0,MIA,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1, 'NBA Sixth Man of the Year': 1}"
-2017,1,14,Bam Adebayo,C,6-9,255,19.0,Kentucky,Fr *,,8,1628389.0,US,2025.0,0.0,MIA,"{'All-Defensive Team': 5, 'NBA All-Star': 3, 'NBA Player of the Week': 2, 'Olympic Gold Medal': 2}"
+2019,1,13,Tyler Herro,SG,6-5,195,19.0,Kentucky,Fr *,,6,1629639.0,US,2025.0,0.0,MIA,"{'2nd Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1, 'NBA Sixth Man of the Year': 1}"
+2017,1,14,Bam Adebayo,C,6-9,255,19.0,Kentucky,Fr *,,8,1628389.0,US,2025.0,0.0,MIA,"{'2nd Team All-Defensive': 4, '1st Team All-Defensive': 1, 'NBA All-Star': 3, 'NBA Player of the Week': 2, 'Olympic Gold Medal': 2}"
 2015,1,10,Justise Winslow,SF,6-6,222,19.0,Duke,Fr *,,9,1626159.0,US,2022.0,0.0,POR,{'2nd Team All-Rookie': 1}
 2015,2,40,Josh Richardson,G,6-5,200,21.0,Tennessee,Sr,,10,1626196.0,US,2024.0,0.0,MIA,"{'NBA Player of the Week': 1, 'NBA Rookie of the Month': 1}"
 2010,2,32,Dexter Pittman,C,6-11,285,22.0,Texas,Sr,,4,202354.0,US,2013.0,0.0,MIA,{'NBA Champion': 1}

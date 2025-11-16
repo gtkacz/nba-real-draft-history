@@ -85,7 +85,7 @@ def get_award_data(player_nba_id: int) -> dict[str, int]:  # noqa: C901
         award_name = item[award_index]
         team_number = item[team_number_index]
 
-        if team_number:
+        if team_number and team_number.isdigit():
             award_name = f"{team_number}{get_number_suffix(int(team_number))} Team {award_name.removesuffix(" Team")}"
 
         output[award_name] += 1

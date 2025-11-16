@@ -16,17 +16,17 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2010,2,48,Latavious Williams,F,6-8,225,21,Tulsa 66ers,1989 DOB,MIA to  OKC OKC  to NOP,0,,,,,,
 2009,2,43,Marcus Thornton,SG,6-4,205,22,LSU,Sr,MIA to  NOP,8,201977.0,US,2016.0,0.0,SAC,{'2nd Team All-Rookie': 1}
 2025,1,7,Jeremiah Fears,G,6-3,190,18,Oklahoma,Fr *,,0,1642847.0,US,2025.0,0.0,NOP,
-2024,1,21,Yves Missi,C,6-11,235,20,Baylor,Fr *,,1,1642274.0,CM,2025.0,0.0,NOP,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
+2024,1,21,Yves Missi,C,6-11,235,20,Baylor,Fr *,,1,1642274.0,CM,2025.0,0.0,NOP,"{'2nd Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2023,1,14,Jordan Hawkins,G,6-5,190,21,UConn,So *,,2,1641722.0,US,2025.0,0.0,NOP,
-2022,1,8,Dyson Daniels,GF,6-7,199,19,NBA G League Ignite,2003 DOB,,3,1630700.0,AU,2025.0,0.0,ATL,"{'All-Defensive Team': 1, 'NBA Defensive Player of the Month': 2}"
+2022,1,8,Dyson Daniels,GF,6-7,199,19,NBA G League Ignite,2003 DOB,,3,1630700.0,AU,2025.0,0.0,ATL,"{'1st Team All-Defensive': 1, 'NBA Defensive Player of the Month': 2}"
 2022,2,41,E.J. Liddell,PF,6-6,240,21,Ohio State,Jr *,,3,1630604.0,US,2025.0,0.0,BKN,
 2022,2,52,Karlo Matković,PF,6-10,231,21,KK Mega Bemax (Serbia),2001 DOB *,,1,1631255.0,BA,2025.0,0.0,NOP,
-2021,2,35,Herbert Jones,SF,6-7,206,22,Alabama,Sr *,,4,1630529.0,US,2025.0,0.0,NOP,"{'All-Defensive Team': 1, 'All-Rookie Team': 1}"
+2021,2,35,Herbert Jones,SF,6-7,206,22,Alabama,Sr *,,4,1630529.0,US,2025.0,0.0,NOP,"{'1st Team All-Defensive': 1, '2nd Team All-Rookie': 1}"
 2020,1,13,Kira Lewis Jr.,PG,6-1,170,19,Alabama,So *,,4,1630184.0,US,2023.0,0.0,WAS,
-2019,1,1,Zion Williamson,PF,6-6,284,18,Duke,Fr *,,6,1629627.0,US,2025.0,0.0,NOP,"{'All-Rookie Team': 1, 'NBA All-Star': 2, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 1}"
+2019,1,1,Zion Williamson,PF,6-6,284,18,Duke,Fr *,,6,1629627.0,US,2025.0,0.0,NOP,"{'1st Team All-Rookie': 1, 'NBA All-Star': 2, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 1}"
 2018,2,51,Tony Carr,PG,6-5,200,20,Penn State,So *,,0,,,,,,
-2016,1,6,Buddy Hield,G,6-4,220,23,Oklahoma,Sr,,9,1627741.0,BS,2025.0,0.0,GSW,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 2}"
-2012,1,1,Anthony Davis,PF,6-10,253,19,Kentucky,Fr *,,13,203076.0,US,2025.0,0.0,DAL,"{'All-Defensive Team': 5, 'All-NBA': 5, 'All-Rookie Team': 1, 'NBA All-Star': 10, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 1, 'NBA In-Season Tournament All-Tournament': 1, 'NBA Player of the Month': 3, 'NBA Player of the Week': 11, 'Olympic Gold Medal': 2}"
+2016,1,6,Buddy Hield,G,6-4,220,23,Oklahoma,Sr,,9,1627741.0,BS,2025.0,0.0,GSW,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2}"
+2012,1,1,Anthony Davis,PF,6-10,253,19,Kentucky,Fr *,,13,203076.0,US,2025.0,0.0,DAL,"{'2nd Team All-Defensive': 2, '1st Team All-Defensive': 3, '1st Team All-NBA': 4, '2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 10, 'NBA All-Star Most Valuable Player': 1, 'NBA Champion': 1, '1st Team NBA In-Season Tournament All-Tournament': 1, 'NBA Player of the Month': 3, 'NBA Player of the Week': 11, 'Olympic Gold Medal': 2}"
 2012,1,10,Austin Rivers,SG,6-4,200,19,Duke,Fr *,,11,203085.0,US,2022.0,0.0,MIN,
 2012,2,46,Darius Miller,GF,6-8,225,22,Kentucky,Sr,,7,203121.0,US,2020.0,0.0,NOP,
 2009,1,21,Darren Collison,PG,6-0,175,21,UCLA,Sr,,11,201954.0,US,2021.0,0.0,LAL,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
@@ -35,7 +35,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2006,1,12,Hilton Armstrong,C,6-11,235,21,UConn,Sr,,6,200756.0,US,2013.0,0.0,NOP,
 2006,1,15,Cedric Simmons,FC,6-9,235,20,NC State,So *,,3,200759.0,US,2008.0,0.0,NOP,
 2006,2,43,Marcus Vinicius,F,6-9,225,22,Objetivo Sao Carlos (Brazil),1984 DOB,,2,200790.0,BR,2007.0,0.0,NOP,
-2005,1,4,Chris Paul,PG,6-0,175,20,Wake Forest,So *,,20,101108.0,US,2025.0,0.0,LAC,"{'All-Defensive Team': 9, 'All-NBA': 11, 'All-Rookie Team': 1, 'NBA All-Star': 12, 'NBA All-Star Most Valuable Player': 1, 'NBA Player of the Month': 8, 'NBA Player of the Week': 14, 'NBA Rookie of the Month': 6, 'NBA Rookie of the Year': 1, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Gold Medal': 2}"
+2005,1,4,Chris Paul,PG,6-0,175,20,Wake Forest,So *,,20,101108.0,US,2025.0,0.0,LAC,"{'2nd Team All-Defensive': 2, '1st Team All-Defensive': 7, '1st Team All-NBA': 4, '2nd Team All-NBA': 5, '3rd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 12, 'NBA All-Star Most Valuable Player': 1, 'NBA Player of the Month': 8, 'NBA Player of the Week': 14, 'NBA Rookie of the Month': 6, 'NBA Rookie of the Year': 1, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Gold Medal': 2}"
 2005,2,33,Brandon Bass,PF,6-8,250,20,LSU,So *,,12,101138.0,US,2016.0,0.0,BOS,
 2004,1,18,JR Smith,SG,6-6,225,18,Saint Benedict's Preparatory School (New Jersey),1985 DOB *,,15,2747.0,US,2019.0,0.0,DEN,"{'NBA Player of the Week': 1, 'NBA Sixth Man of the Year': 1, 'NBA Champion': 2, 'NBA Rookie of the Month': 3}"
 2004,2,44,Tim Pickett,G,6-4,207,23,Florida State,Sr,,1,,,,,,

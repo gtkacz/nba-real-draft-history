@@ -27,9 +27,9 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2024,2,50,Enrique Freeman,F,6-9,220.0,23.0,Akron,Sr,,1,1642402.0,US,2025.0,0.0,MIN,
 2023,1,26,Ben Sheppard,G,6-6,190.0,21.0,Belmont,Sr *,,2,1641767.0,US,2025.0,0.0,IND,
 2023,2,55,Isaiah Wong,G,6-4,184.0,22.0,Miami (FL),Sr *,,2,1631209.0,US,2024.0,0.0,CHA,
-2022,1,6,Bennedict Mathurin,GF,6-5,210.0,20.0,Arizona,So *,,3,1631097.0,CA,2025.0,0.0,IND,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
+2022,1,6,Bennedict Mathurin,GF,6-5,210.0,20.0,Arizona,So *,,3,1631097.0,CA,2025.0,0.0,IND,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2022,2,31,Andrew Nembhard,PG,6-4,191.0,22.0,Gonzaga,Sr *,,3,1629614.0,CA,2025.0,0.0,IND,{'NBA Defensive Player of the Month': 1}
-2021,1,13,Chris Duarte,PG,6-5,190.0,24.0,Oregon,Sr *,,4,1630537.0,DO,2024.0,0.0,CHI,{'All-Rookie Team': 1}
+2021,1,13,Chris Duarte,PG,6-5,190.0,24.0,Oregon,Sr *,,4,1630537.0,DO,2024.0,0.0,CHI,{'2nd Team All-Rookie': 1}
 2020,2,54,Cassius Stanley,G,6-5,190.0,21.0,Duke,Fr *,,2,1630199.0,US,2021.0,0.0,DET,
 2019,1,18,Goga Bitadze,C,6-11,250.0,19.0,KK Mega Bemax (Serbia),1999 DOB *,,6,1629048.0,GE,2025.0,0.0,ORL,
 2018,1,23,Aaron Holiday,PG,6-0,185.0,21.0,UCLA,Jr *,,7,1628988.0,US,2025.0,0.0,HOU,
@@ -37,11 +37,11 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2017,1,18,T.J. Leaf,PF,6-10,225.0,20.0,UCLA,Fr *,,4,1628388.0,US,2020.0,0.0,IND,
 2017,2,47,Ike Anigbogu,C,6-9,252.0,18.0,UCLA,Fr *,,2,1628387.0,US,2018.0,0.0,IND,
 2016,2,50,Georges Niang,F,6-6,230.0,23.0,Iowa State,Sr,,9,1627777.0,US,2025.0,0.0,UTA,
-2015,1,11,Myles Turner,FC,6-11,250.0,19.0,Texas,Fr *,,10,1626167.0,US,2025.0,0.0,MIL,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
+2015,1,11,Myles Turner,FC,6-11,250.0,19.0,Texas,Fr *,,10,1626167.0,US,2025.0,0.0,MIL,"{'2nd Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2015,2,43,Joe Young,G,6-2,180.0,22.0,Oregon,Sr,,3,1626202.0,US,2017.0,0.0,IND,
 2013,1,23,Solomon Hill,SF,6-6,226.0,22.0,Arizona,Sr,,9,203524.0,US,2021.0,0.0,ATL,
 2012,1,26,Miles Plumlee,C,6-11,249.0,23.0,Duke,Sr,,7,203101.0,US,2018.0,0.0,PHX,
-2010,1,10,Paul George,GF,6-8,220.0,20.0,Fresno State,So *,,15,202331.0,US,2025.0,0.0,PHI,"{'All-Defensive Team': 4, 'All-NBA': 6, 'All-Rookie Team': 1, 'NBA All-Star': 9, 'NBA Most Improved Player': 1, 'NBA Player of the Month': 4, 'NBA Player of the Week': 12, 'Olympic Gold Medal': 1}"
+2010,1,10,Paul George,GF,6-8,220.0,20.0,Fresno State,So *,,15,202331.0,US,2025.0,0.0,PHI,"{'2nd Team All-Defensive': 2, '1st Team All-Defensive': 2, '3rd Team All-NBA': 5, '1st Team All-NBA': 1, '2nd Team All-Rookie': 1, 'NBA All-Star': 9, 'NBA Most Improved Player': 1, 'NBA Player of the Month': 4, 'NBA Player of the Week': 12, 'Olympic Gold Medal': 1}"
 2010,2,40,Lance Stephenson,SG,6-5,210.0,19.0,Cincinnati,Fr *,,10,202362.0,US,2021.0,0.0,IND,
 2009,1,13,Tyler Hansbrough,PF,6-9,250.0,23.0,North Carolina,Sr,,7,201946.0,US,2015.0,0.0,IND,
 2009,2,52,AJ Price,G,6-2,195.0,22.0,UConn,Sr,,6,201985.0,US,2014.0,0.0,IND,

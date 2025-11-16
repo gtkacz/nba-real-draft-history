@@ -7,12 +7,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2022,2,38,Kennedy Chandler,PG,6-0,170,19,Tennessee,Fr *,SAS to  MEM,1,1631113.0,US,2022.0,0.0,PHI,
 2021,1,10,Ziaire Williams,F,6-9,185,19,Stanford,Fr *,NOP to  MEM,4,1630533.0,US,2025.0,0.0,BKN,
 2021,1,30,Santi Aldama,C,7-0,215,20,Loyola (MD),So *,UTA to  MEM,4,1630583.0,ES,2025.0,0.0,MEM,
-2020,1,30,Desmond Bane,SG,6-6,215,22,TCU,Sr,BOS to  MEM,5,1630217.0,US,2025.0,0.0,ORL,{'All-Rookie Team': 1}
+2020,1,30,Desmond Bane,SG,6-6,215,22,TCU,Sr,BOS to  MEM,5,1630217.0,US,2025.0,0.0,ORL,{'2nd Team All-Rookie': 1}
 2020,2,35,Xavier Tillman,PF,6-8,245,21,Michigan State,Jr *,SAC to  MEM,5,1630214.0,US,2025.0,0.0,BOS,{'NBA Champion': 1}
 2020,2,51,Justinian Jessup,SF,6-5,202,22,Boise State,Sr,GSW to  MEM,0,,,,,,
-2019,1,21,Brandon Clarke,PF,6-8,215,22,Gonzaga,Jr *,OKC to  MEM,6,1629634.0,CA,2025.0,0.0,MEM,{'All-Rookie Team': 1}
+2019,1,21,Brandon Clarke,PF,6-8,215,22,Gonzaga,Jr *,OKC to  MEM,6,1629634.0,CA,2025.0,0.0,MEM,{'1st Team All-Rookie': 1}
 2017,2,35,Ivan Rabb,PF,6-10,220,20,California,So *,ORL to  MEM,3,1628397.0,US,2018.0,0.0,MEM,
-2017,2,45,Dillon Brooks,F,6-7,225,21,Oregon,Jr *,HOU to  MEM,8,1628415.0,CA,2025.0,0.0,PHX,{'All-Defensive Team': 1}
+2017,2,45,Dillon Brooks,F,6-7,225,21,Oregon,Jr *,HOU to  MEM,8,1628415.0,CA,2025.0,0.0,PHX,{'2nd Team All-Defensive': 1}
 2016,2,31,Deyonta Davis,PF,6-9,237,19,Michigan State,Fr *,BOS to  MEM,3,1627738.0,US,2018.0,0.0,MEM,
 2016,2,35,Rade Zagorac,SF,6-9,205,20,KK Mega Bemax (Serbia),1995 DOB *,BOS to  MEM,0,,,,,,
 2015,2,44,Andrew Harrison,G,6-4,210,20,Kentucky,So *,PHX to  MEM,3,1626150.0,US,2018.0,0.0,MEM,
@@ -37,13 +37,13 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1999,2,40,Gordan Giricek,G-F,6-6,210,22,KK Cibona (Croatia),1977 DOB,DAL to  SAS SAS  to MEM,6,1921.0,HR,2007.0,0.0,UTA,{'2nd Team All-Rookie': 1}
 1998,1,24,Felipe Lopez,SF,6-5,199,23,St. John's,Sr,SAS to  VAN,6,1732.0,DO,2002.0,0.0,MEM,
 2025,2,48,Javon Small,G,6-1,190,22,West Virginia,Sr,,0,1642914.0,US,2025.0,0.0,MEM,
-2024,1,9,Zach Edey,C,7-3,305,22,Purdue,Sr *,,1,1641744.0,CA,2025.0,0.0,MEM,{'All-Rookie Team': 1}
-2024,2,39,Jaylen Wells,F,6-7,206,20,Washington State,Jr *,,1,1642377.0,US,2025.0,0.0,MEM,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1}"
-2023,2,45,GG Jackson,PF,6-9,210,18,South Carolina,Fr *,,2,1641713.0,US,2025.0,0.0,MEM,{'All-Rookie Team': 1}
+2024,1,9,Zach Edey,C,7-3,305,22,Purdue,Sr *,,1,1641744.0,CA,2025.0,0.0,MEM,{'1st Team All-Rookie': 1}
+2024,2,39,Jaylen Wells,F,6-7,206,20,Washington State,Jr *,,1,1642377.0,US,2025.0,0.0,MEM,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
+2023,2,45,GG Jackson,PF,6-9,210,18,South Carolina,Fr *,,2,1641713.0,US,2025.0,0.0,MEM,{'2nd Team All-Rookie': 1}
 2023,2,56,Tarik Biberovic,G,6-7,218,22,Fenerbahce Beko (Turkey),2001 DOB,,0,,,,,,
 2022,2,47,Vince Williams Jr.,SF,6-4,205,21,VCU,Sr *,,3,1631246.0,US,2025.0,0.0,MEM,
-2019,1,2,Ja Morant,G,6-2,174,19,Murray State,So *,,6,1629630.0,US,2025.0,0.0,MEM,"{'All-NBA': 1, 'All-Rookie Team': 1, 'NBA All-Star': 2, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 3, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"
-2018,1,4,Jaren Jackson Jr.,PF,6-10,242,18,Michigan State,Fr *,,7,1628991.0,US,2025.0,0.0,MEM,"{'All-Defensive Team': 3, 'All-Rookie Team': 1, 'NBA All-Star': 2, 'NBA Defensive Player of the Month': 1, 'NBA Defensive Player of the Year': 1, 'NBA Player of the Week': 1}"
+2019,1,2,Ja Morant,G,6-2,174,19,Murray State,So *,,6,1629630.0,US,2025.0,0.0,MEM,"{'2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 2, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 3, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"
+2018,1,4,Jaren Jackson Jr.,PF,6-10,242,18,Michigan State,Fr *,,7,1628991.0,US,2025.0,0.0,MEM,"{'1st Team All-Defensive': 2, '2nd Team All-Defensive': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 2, 'NBA Defensive Player of the Month': 1, 'NBA Defensive Player of the Year': 1, 'NBA Player of the Week': 1}"
 2018,2,32,Jevon Carter,PG,6-0,200,22,West Virginia,Sr,,7,1628975.0,US,2025.0,0.0,CHI,
 2016,1,17,Wade Baldwin IV,G,6-4,220,20,Vanderbilt,So *,,3,1627735.0,US,2018.0,0.0,MEM,
 2015,1,25,Jarell Martin,F,6-10,239,21,LSU,So *,,4,1626185.0,US,2018.0,0.0,MEM,
@@ -56,8 +56,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2009,1,2,Hasheem Thabeet,C,7-3,267,22,UConn,Jr *,,5,201934.0,TZ,2013.0,0.0,MEM,
 2009,1,27,DeMarre Carroll,F,6-8,215,22,Missouri,Sr,,11,201960.0,US,2019.0,0.0,ATL,{'NBA Player of the Month': 1}
 2009,2,36,Sam Young,F,6-6,225,24,Pittsburgh,Sr,,4,201970.0,US,2012.0,0.0,MEM,
-2007,1,4,Mike Conley,PG,6-1,175,19,Ohio State,Fr *,,18,201144.0,US,2025.0,0.0,MIN,"{'All-Defensive Team': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1, 'NBA Sportsmanship': 1}"
-2006,1,24,Kyle Lowry,PG,6-0,196,20,Villanova,So *,,19,200768.0,US,2025.0,0.0,PHI,"{'All-NBA': 1, 'NBA All-Star': 6, 'NBA Champion': 1, 'NBA Player of the Month': 2, 'NBA Player of the Week': 5, 'Olympic Gold Medal': 1}"
+2007,1,4,Mike Conley,PG,6-1,175,19,Ohio State,Fr *,,18,201144.0,US,2025.0,0.0,MIN,"{'2nd Team All-Defensive': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1, 'NBA Sportsmanship': 1}"
+2006,1,24,Kyle Lowry,PG,6-0,196,20,Villanova,So *,,19,200768.0,US,2025.0,0.0,PHI,"{'3rd Team All-NBA': 1, 'NBA All-Star': 6, 'NBA Champion': 1, 'NBA Player of the Month': 2, 'NBA Player of the Week': 5, 'Olympic Gold Medal': 1}"
 2005,1,19,Hakim Warrick,F,6-9,219,22,Syracuse,Sr,,8,101124.0,US,2012.0,0.0,MEM,
 2002,1,4,Drew Gooden,FC,6-10,250,20,Kansas,Jr *,,14,2400.0,US,2015.0,0.0,CLE,"{'1st Team All-Rookie': 1, 'NBA Player of the Week': 1, 'NBA Rookie of the Month': 1}"
 2002,2,31,Robert Archibald,PF,6-11,250,22,Illinois,Sr,,2,2425.0,,2003.0,0.0,TOR,{'Olympic Appearance': 1}

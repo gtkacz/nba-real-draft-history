@@ -3,10 +3,10 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2023,2,40,Maxwell Lewis,SF,6-7,215.0,20.0,Pepperdine,So *,DEN to  LAL,2,1641721.0,US,2024.0,0.0,BKN,
 2019,2,46,Talen Horton-Tucker,SF,6-4,234.0,18.0,Iowa State,Fr *,ORL to  LAL,6,1629659.0,US,2024.0,0.0,CHI,{'NBA Champion': 1}
 2018,2,39,Isaac Bonga,SG,6-8,180.0,18.0,Fraport Skyliners (Germany),1999 DOB *,PHI to  LAL,4,1629067.0,DE,2021.0,0.0,TOR,
-2017,1,27,Kyle Kuzma,F,6-8,221.0,21.0,Utah,Jr *,BKN to  LAL,8,1628398.0,US,2025.0,0.0,MIL,"{'All-Rookie Team': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 1}"
+2017,1,27,Kyle Kuzma,F,6-8,221.0,21.0,Utah,Jr *,BKN to  LAL,8,1628398.0,US,2025.0,0.0,MIL,"{'1st Team All-Rookie': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 1}"
 2017,1,30,Josh Hart,SG,6-5,215.0,22.0,Villanova,Sr,UTA to  LAL,8,1628404.0,US,2025.0,0.0,NYK,
 2017,2,42,Thomas Bryant,C,6-9,248.0,19.0,Indiana,So *,UTA to  LAL,8,1628418.0,US,2025.0,0.0,CLE,{'NBA Champion': 1}
-2014,2,46,Jordan Clarkson,G,6-5,194.0,22.0,Missouri,Jr *,WAS to  LAL,11,203903.0,US,2025.0,0.0,NYK,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1, 'NBA Sixth Man of the Year': 1}"
+2014,2,46,Jordan Clarkson,G,6-5,194.0,22.0,Missouri,Jr *,WAS to  LAL,11,203903.0,US,2025.0,0.0,NYK,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1, 'NBA Sixth Man of the Year': 1}"
 2014,2,57,Louis Labeyrie,PF,6-10,200.0,22.0,Boulogne-Levallois (France),1992 DOB,IND to  NYK NYK  to LAL,0,,,,,,
 2012,2,55,Darius Johnson-Odom,SG,6-2,220.0,22.0,Marquette,Sr,DAL to  LAL,2,203130.0,US,2013.0,0.0,LAL,
 2006,2,58,J.R. Pinnock,SG,6-5,207.0,22.0,George Washington,Jr *,DAL to  LAL,0,,,,,,
@@ -33,13 +33,13 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2022,2,35,Max Christie,F,6-5,190.0,19.0,Michigan State,Fr *,,3,1631108.0,US,2025.0,0.0,DAL,
 2018,1,25,Moritz Wagner,PF,6-11,245.0,21.0,Michigan,Jr *,,7,1629021.0,DE,2025.0,0.0,ORL,
 2018,2,47,Svi Mykhailiuk,SF,6-7,205.0,21.0,Kansas,Sr,,7,1629004.0,UA,2025.0,0.0,UTA,{'NBA Champion': 1}
-2017,1,2,Lonzo Ball,PG,6-5,190.0,19.0,UCLA,Fr *,,8,1628366.0,US,2025.0,0.0,CLE,{'All-Rookie Team': 1}
-2016,1,2,Brandon Ingram,SF,6-8,190.0,18.0,Duke,Fr *,,9,1627742.0,US,2025.0,0.0,TOR,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 4}"
-2016,2,32,Ivica Zubac,C,7-0,240.0,19.0,KK Mega Bemax (Serbia),1997 DOB *,,9,1627826.0,HR,2025.0,0.0,LAC,{'All-Defensive Team': 1}
-2015,1,2,D'Angelo Russell,SG,6-3,193.0,19.0,Ohio State,Fr *,,10,1626156.0,US,2025.0,0.0,DAL,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1}"
+2017,1,2,Lonzo Ball,PG,6-5,190.0,19.0,UCLA,Fr *,,8,1628366.0,US,2025.0,0.0,CLE,{'2nd Team All-Rookie': 1}
+2016,1,2,Brandon Ingram,SF,6-8,190.0,18.0,Duke,Fr *,,9,1627742.0,US,2025.0,0.0,TOR,"{'2nd Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 4}"
+2016,2,32,Ivica Zubac,C,7-0,240.0,19.0,KK Mega Bemax (Serbia),1997 DOB *,,9,1627826.0,HR,2025.0,0.0,LAC,{'2nd Team All-Defensive': 1}
+2015,1,2,D'Angelo Russell,SG,6-3,193.0,19.0,Ohio State,Fr *,,10,1626156.0,US,2025.0,0.0,DAL,"{'2nd Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 1}"
 2015,1,27,Larry Nance Jr.,SF,6-6,245.0,22.0,Wyoming,Sr,,10,1626204.0,US,2025.0,0.0,CLE,
 2015,2,34,Anthony Brown,GF,6-7,225.0,22.0,Stanford,Sr,,3,1626148.0,US,2017.0,0.0,LAL,
-2014,1,7,Julius Randle,PF,6-9,250.0,19.0,Kentucky,Fr *,,11,203944.0,US,2025.0,0.0,MIN,"{'All-NBA': 2, 'NBA All-Star': 3, 'NBA Most Improved Player': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 3}"
+2014,1,7,Julius Randle,PF,6-9,250.0,19.0,Kentucky,Fr *,,11,203944.0,US,2025.0,0.0,MIN,"{'2nd Team All-NBA': 1, '3rd Team All-NBA': 1, 'NBA All-Star': 3, 'NBA Most Improved Player': 1, 'NBA Player of the Month': 1, 'NBA Player of the Week': 3}"
 2013,2,48,Ryan Kelly,PF,6-11,230.0,22.0,Duke,Sr,,4,203527.0,US,2016.0,0.0,LAL,
 2012,2,60,Robert Sacre,C,7-0,270.0,23.0,Gonzaga,Sr,,4,203135.0,CA,2015.0,0.0,LAL,
 2011,2,41,Darius Morris,G,6-4,195.0,20.0,Michigan,So *,,4,202721.0,US,2014.0,0.0,LAL,

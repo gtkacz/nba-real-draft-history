@@ -22,7 +22,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1991,1,3,Billy Owens,SF,6-8,220.0,22.0,Syracuse,Jr *,SAC to  GSW,11,182.0,US,2002.0,0.0,GSW,{'1st Team All-Rookie': 1}
 1986,1,23,Ken Barlow,PF,6-10,220.0,21.0,Notre Dame,Sr,LAL to  ATL ATL  to GSW,0,,,,,,
 1962,5,39,John Windsor,F,6-8,215.0,21.0,Stanford,Sr,PHI to  GSW,1,78591.0,US,1963.0,0.0,GSW,
-2023,1,19,Brandin Podziemski,G,6-4,205.0,20.0,Santa Clara,So *,,2,1641764.0,US,2025.0,0.0,GSW,{'All-Rookie Team': 1}
+2023,1,19,Brandin Podziemski,G,6-4,205.0,20.0,Santa Clara,So *,,2,1641764.0,US,2025.0,0.0,GSW,{'1st Team All-Rookie': 1}
 2022,1,28,Patrick Baldwin Jr.,SG,7-0,220.0,19.0,Milwaukee,Fr *,,3,1631116.0,US,2024.0,0.0,LAC,
 2022,2,55,Gui Santos,GF,6-7,185.0,20.0,Minas (Brazil),2002 DOB *,,2,1630611.0,BR,2025.0,0.0,GSW,
 2021,1,7,Jonathan Kuminga,F,6-7,225.0,18.0,NBA G League Ignite,2002 DOB,,4,1630228.0,CD,2025.0,0.0,GSW,{'NBA Champion': 1}
@@ -34,14 +34,14 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2018,1,28,Jacob Evans,SG,6-6,210.0,21.0,Cincinnati,Jr *,,2,1628980.0,US,2019.0,0.0,GSW,
 2016,1,30,Damian Jones,PF,6-10,245.0,20.0,Vanderbilt,Jr *,,8,1627745.0,US,2023.0,0.0,CLE,{'NBA Champion': 2}
 2015,1,30,Kevon Looney,PF,6-9,222.0,19.0,UCLA,Fr *,,10,1626172.0,US,2025.0,0.0,NOP,{'NBA Champion': 2}
-2012,1,7,Harrison Barnes,SF,6-7,225.0,20.0,North Carolina,So *,,13,203084.0,US,2025.0,0.0,SAS,"{'All-Rookie Team': 1, 'NBA Champion': 1, 'NBA Player of the Week': 1, 'Olympic Gold Medal': 1}"
+2012,1,7,Harrison Barnes,SF,6-7,225.0,20.0,North Carolina,So *,,13,203084.0,US,2025.0,0.0,SAS,"{'1st Team All-Rookie': 1, 'NBA Champion': 1, 'NBA Player of the Week': 1, 'Olympic Gold Medal': 1}"
 2012,1,30,Festus Ezeli,C,6-11,265.0,22.0,Vanderbilt,Sr,,5,203105.0,NG,2016.0,0.0,GSW,{'NBA Champion': 1}
-2012,2,35,Draymond Green,F,6-6,230.0,22.0,Michigan State,Sr,,13,203110.0,US,2025.0,0.0,GSW,"{'All-Defensive Team': 9, 'All-NBA': 2, 'NBA All-Star': 4, 'NBA Champion': 4, 'NBA Defensive Player of the Month': 1, 'NBA Defensive Player of the Year': 1, 'NBA Player of the Week': 1, 'Olympic Gold Medal': 2}"
+2012,2,35,Draymond Green,F,6-6,230.0,22.0,Michigan State,Sr,,13,203110.0,US,2025.0,0.0,GSW,"{'1st Team All-Defensive': 5, '2nd Team All-Defensive': 4, '2nd Team All-NBA': 1, '3rd Team All-NBA': 1, 'NBA All-Star': 4, 'NBA Champion': 4, 'NBA Defensive Player of the Month': 1, 'NBA Defensive Player of the Year': 1, 'NBA Player of the Week': 1, 'Olympic Gold Medal': 2}"
 2012,2,52,Ognjen Kuzmic,C,7-1,251.0,22.0,Unicaja (Spain),1990 DOB,,2,203136.0,RS,2014.0,0.0,GSW,
-2011,1,11,Klay Thompson,G,6-5,220.0,21.0,Washington State,Jr *,,14,202691.0,US,2025.0,0.0,DAL,"{'All-Defensive Team': 1, 'All-NBA': 2, 'All-Rookie Team': 1, 'NBA All-Star': 5, 'NBA Champion': 4, 'NBA Player of the Week': 4, 'Olympic Gold Medal': 1}"
+2011,1,11,Klay Thompson,G,6-5,220.0,21.0,Washington State,Jr *,,14,202691.0,US,2025.0,0.0,DAL,"{'2nd Team All-Defensive': 1, '3rd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 5, 'NBA Champion': 4, 'NBA Player of the Week': 4, 'Olympic Gold Medal': 1}"
 2011,2,44,Charles Jenkins,G,6-3,215.0,22.0,Hofstra,Sr,,2,202724.0,US,2012.0,0.0,GSW,
 2010,1,6,Ekpe Udoh,PF,6-10,245.0,23.0,Baylor,Jr *,,7,202327.0,US,2018.0,0.0,MIL,
-2009,1,7,Stephen Curry,G,6-2,185.0,21.0,Davidson,Jr *,,16,201939.0,US,2025.0,0.0,GSW,"{'All-NBA': 11, 'All-Rookie Team': 1, 'NBA All-Star': 11, 'NBA All-Star Most Valuable Player': 2, 'NBA Champion': 4, 'NBA Clutch Player of the Year': 1, 'NBA Finals Most Valuable Player': 1, 'NBA Most Valuable Player': 2, 'NBA Player of the Month': 10, 'NBA Player of the Week': 19, 'NBA Rookie of the Month': 3, 'NBA Sportsmanship': 1, 'Olympic Gold Medal': 1}"
+2009,1,7,Stephen Curry,G,6-2,185.0,21.0,Davidson,Jr *,,16,201939.0,US,2025.0,0.0,GSW,"{'2nd Team All-NBA': 5, '1st Team All-NBA': 4, '3rd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 11, 'NBA All-Star Most Valuable Player': 2, 'NBA Champion': 4, 'NBA Clutch Player of the Year': 1, 'NBA Finals Most Valuable Player': 1, 'NBA Most Valuable Player': 2, 'NBA Player of the Month': 10, 'NBA Player of the Week': 19, 'NBA Rookie of the Month': 3, 'NBA Sportsmanship': 1, 'Olympic Gold Medal': 1}"
 2008,1,14,Anthony Randolph,PF,6-11,225.0,18.0,LSU,Fr *,,6,201576.0,US,2013.0,0.0,GSW,
 2008,2,49,Richard Hendrix,FC,6-9,264.0,21.0,Alabama,Jr *,,1,,,,,,
 2007,1,18,Marco Belinelli,G,6-5,225.0,21.0,Fortituto Kontatto Bologna (Italy),1986 DOB *,,13,201158.0,IT,2019.0,0.0,SAS,{'NBA Champion': 1}

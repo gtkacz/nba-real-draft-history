@@ -1,7 +1,7 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 2024,1,26,Dillon Jones,PG,6-5,235.0,22.0,Weber State,Sr *,WAS to  NYK NYK  to OKC,1,1641794.0,US,2024.0,0.0,WAS,{'NBA Champion': 1}
 2024,2,38,Ajay Mitchell,PG,6-4,190.0,22.0,UC Santa Barbara,Jr *,NYK to  OKC,1,1642349.0,BE,2025.0,0.0,OKC,{'NBA Champion': 1}
-2023,1,10,Cason Wallace,G,6-3,195.0,19.0,Kentucky,Fr *,DAL to  OKC,2,1641717.0,US,2025.0,0.0,OKC,"{'All-Rookie Team': 1, 'NBA Champion': 1}"
+2023,1,10,Cason Wallace,G,6-3,195.0,19.0,Kentucky,Fr *,DAL to  OKC,2,1641717.0,US,2025.0,0.0,OKC,"{'2nd Team All-Rookie': 1, 'NBA Champion': 1}"
 2022,1,11,Ousmane Dieng,SG,6-9,185.0,19.0,New Zealand (New Zealand),2003 DOB *,NYK to  OKC,3,1631172.0,FR,2025.0,0.0,OKC,{'NBA Champion': 1}
 2021,2,32,Jeremiah Robinson-Earl,PF,6-9,240.0,20.0,Villanova,So *,NYK to  OKC,4,1630526.0,US,2025.0,0.0,IND,
 2020,1,17,Aleksej Pokusevski,C,7-0,210.0,18.0,Olympiacos U18 (Greece),2001 DOB *,MIN to  OKC,4,1630197.0,RS,2023.0,0.0,CHA,
@@ -9,7 +9,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2020,2,37,Vít Krejčí,PG,6-8,195.0,20.0,Zaragoza U18 (Spain),2000 DOB *,WAS to  OKC,4,1630249.0,CZ,2025.0,0.0,ATL,
 2019,1,23,Darius Bazley,PF,6-9,216.0,19.0,,*,UTA to  MEM MEM  to OKC,5,1629647.0,US,2023.0,0.0,UTA,
 2018,2,45,Hamidou Diallo,SG,6-5,202.0,19.0,Kentucky,Fr *,BKN to  CHA CHA  to OKC,6,1628977.0,US,2023.0,0.0,WAS,
-2016,1,11,Domantas Sabonis,PF,6-10,240.0,20.0,Gonzaga,So *,ORL to  OKC,9,1627734.0,LT,2025.0,0.0,SAC,"{'All-NBA': 2, 'NBA All-Star': 3, 'NBA Player of the Week': 6}"
+2016,1,11,Domantas Sabonis,PF,6-10,240.0,20.0,Gonzaga,So *,ORL to  OKC,9,1627734.0,LT,2025.0,0.0,SAC,"{'3rd Team All-NBA': 2, 'NBA All-Star': 3, 'NBA Player of the Week': 6}"
 2016,2,56,Daniel Hamilton,SG,6-7,195.0,20.0,UConn,So *,DEN to  OKC,2,1627772.0,US,2018.0,0.0,ATL,
 2014,2,52,Vasilije Micic,PG,6-3,188.0,20.0,KK Mega Bemax (Serbia),1994 DOB *,PHI to  OKC,2,203995.0,RS,2024.0,0.0,PHX,{'Olympic Bronze Medal': 1}
 2014,2,55,Semaj Christon,PG,6-3,190.0,21.0,Xavier,So *,MIA to  CHA CHA  to OKC,1,203902.0,US,2016.0,0.0,OKC,
@@ -22,7 +22,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2009,2,54,Robert Vaden,SG,6-5,220.0,24.0,UAB,Sr,CHA to  OKC,1,201987.0,US,2010.0,0.0,OKC,
 2008,1,29,DJ White,PF,6-9,250.0,21.0,Indiana,Sr,DET to  SEA,6,201591.0,US,2013.0,0.0,CHA,
 2008,2,38,Kyle Weaver,SG,6-6,200.0,22.0,Washington State,Sr,CHA to  OKC,3,201602.0,US,2010.0,0.0,OKC,
-2007,1,5,Jeff Green,F,6-8,235.0,20.0,Georgetown,Jr *,BOS to  SEA,17,201145.0,US,2025.0,0.0,HOU,"{'All-Rookie Team': 1, 'NBA Champion': 1}"
+2007,1,5,Jeff Green,F,6-8,235.0,20.0,Georgetown,Jr *,BOS to  SEA,17,201145.0,US,2025.0,0.0,HOU,"{'1st Team All-Rookie': 1, 'NBA Champion': 1}"
 2003,2,34,Sofoklis Schortsanitis,FC,6-8,375.0,18.0,Maccabi FOX Tel Aviv (Israel),1985 DOB *,LAC to  ATL ATL  to OKC,0,,,,,,
 2003,2,35,Szymon Szewczyk,F,6-9,245.0,20.0,Basketball Lowen Braunschweig (Germany),1982 DOB *,MIL to  OKC,0,,,,,,
 2003,2,50,Paccelis Morlende,G,6-3,185.0,22.0,JDA Dijon Basket (France),1981 DOB,PHI to  SEA,0,,,,,,
@@ -35,10 +35,10 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2025,2,44,Brooks Barnhizer,SF,6-5,230.0,23.0,Northwestern,Sr,,0,1642964.0,US,2025.0,0.0,OKC,
 2024,1,12,Nikola Topić,PG,6-6,200.0,18.0,KK Crvena Zvezda (Serbia),2005 DOB *,,1,1642260.0,RS,2025.0,0.0,OKC,{'NBA Champion': 1}
 2023,2,50,Keyontae Johnson,F,6-4,230.0,23.0,Kansas State,Sr *,,1,1641749.0,US,2023.0,0.0,CHA,
-2022,1,2,Chet Holmgren,C,7-1,208.0,20.0,Gonzaga,Fr *,,3,1631096.0,US,2025.0,0.0,OKC,"{'All-Rookie Team': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 2}"
-2022,1,12,Jalen Williams,G,6-5,211.0,21.0,Santa Clara,Jr *,,3,1631114.0,US,2025.0,0.0,OKC,"{'All-Defensive Team': 1, 'All-NBA': 1, 'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 2}"
+2022,1,2,Chet Holmgren,C,7-1,208.0,20.0,Gonzaga,Fr *,,3,1631096.0,US,2025.0,0.0,OKC,"{'1st Team All-Rookie': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 2}"
+2022,1,12,Jalen Williams,G,6-5,211.0,21.0,Santa Clara,Jr *,,3,1631114.0,US,2025.0,0.0,OKC,"{'2nd Team All-Defensive': 1, '3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Champion': 1, 'NBA Rookie of the Month': 2}"
 2022,2,34,Jaylin Williams,C,6-9,240.0,19.0,Arkansas,So *,,3,1631119.0,US,2025.0,0.0,OKC,{'NBA Champion': 1}
-2021,1,6,Josh Giddey,G,6-7,216.0,18.0,Adelaide (Australia),2002 DOB *,,4,1630581.0,AU,2025.0,0.0,CHI,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 4}"
+2021,1,6,Josh Giddey,G,6-7,216.0,18.0,Adelaide (Australia),2002 DOB *,,4,1630581.0,AU,2025.0,0.0,CHI,"{'2nd Team All-Rookie': 1, 'NBA Rookie of the Month': 4}"
 2021,1,18,Tre Mann,PG,6-4,178.0,20.0,Florida,So *,,4,1630544.0,US,2025.0,0.0,CHA,
 2021,2,55,Aaron Wiggins,F,6-5,190.0,22.0,Maryland,Jr *,,4,1630598.0,US,2025.0,0.0,OKC,{'NBA Champion': 1}
 2018,2,53,Devon Hall,SG,6-5,215.0,22.0,Virginia,Sr,,1,1628985.0,US,2019.0,0.0,OKC,
@@ -48,18 +48,18 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2015,2,48,Dakari Johnson,C,7-0,255.0,19.0,Kentucky,So *,,1,1626177.0,US,2017.0,0.0,OKC,
 2014,1,21,Mitch McGary,C,6-10,255.0,22.0,Michigan,So *,,2,203956.0,US,2015.0,0.0,OKC,
 2014,1,29,Josh Huestis,SF,6-7,230.0,22.0,Stanford,Sr,,3,203962.0,US,2017.0,0.0,OKC,
-2013,1,12,Steven Adams,C,6-11,265.0,19.0,Pittsburgh,Fr *,,12,203500.0,NZ,2025.0,0.0,HOU,{'All-Rookie Team': 1}
+2013,1,12,Steven Adams,C,6-11,265.0,19.0,Pittsburgh,Fr *,,12,203500.0,NZ,2025.0,0.0,HOU,{'2nd Team All-Rookie': 1}
 2013,2,32,Alex Abrines,GF,6-6,190.0,19.0,Barca (Spain),1993 DOB *,,3,203518.0,ES,2018.0,0.0,OKC,{'Olympic Bronze Medal': 1}
 2012,1,28,Perry Jones III,PF,6-11,235.0,20.0,Baylor,So *,,3,203103.0,US,2014.0,0.0,OKC,
 2011,1,24,Reggie Jackson,G,6-2,208.0,21.0,Boston College,Jr *,,14,202704.0,US,2024.0,0.0,PHI,"{'NBA Champion': 1, 'NBA Player of the Week': 2}"
-2009,1,3,James Harden,SG,6-5,220.0,19.0,Arizona State,So *,,16,201935.0,US,2025.0,0.0,LAC,"{'NBA Player of the Month': 13, 'NBA Player of the Week': 35, 'All-NBA': 8, 'All-Rookie Team': 1, 'NBA All-Star': 11, 'NBA Most Valuable Player': 1, 'NBA Sixth Man of the Year': 1, 'Olympic Gold Medal': 1}"
-2008,1,4,Russell Westbrook,G,6-4,200.0,19.0,UCLA,So *,,17,201566.0,US,2025.0,0.0,SAC,"{'All-NBA': 9, 'All-Rookie Team': 1, 'NBA All-Star': 9, 'NBA All-Star Most Valuable Player': 2, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 9, 'NBA Player of the Week': 19, 'NBA Rookie of the Month': 2, 'Olympic Gold Medal': 1}"
+2009,1,3,James Harden,SG,6-5,220.0,19.0,Arizona State,So *,,16,201935.0,US,2025.0,0.0,LAC,"{'NBA Player of the Month': 13, 'NBA Player of the Week': 35, '3rd Team All-NBA': 2, '1st Team All-NBA': 6, '2nd Team All-Rookie': 1, 'NBA All-Star': 11, 'NBA Most Valuable Player': 1, 'NBA Sixth Man of the Year': 1, 'Olympic Gold Medal': 1}"
+2008,1,4,Russell Westbrook,G,6-4,200.0,19.0,UCLA,So *,,17,201566.0,US,2025.0,0.0,SAC,"{'2nd Team All-NBA': 5, '1st Team All-NBA': 2, '3rd Team All-NBA': 2, '1st Team All-Rookie': 1, 'NBA All-Star': 9, 'NBA All-Star Most Valuable Player': 2, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 9, 'NBA Player of the Week': 19, 'NBA Rookie of the Month': 2, 'Olympic Gold Medal': 1}"
 2008,1,24,Serge Ibaka,C,6-10,235.0,18.0,CB L'Hospitalet (Spain),1989 DOB *,,14,201586.0,CD,2022.0,0.0,MIL,"{'1st Team All-Defensive': 3, 'NBA Champion': 1, 'Olympic Silver Medal': 1}"
 2008,2,32,Walter Sharpe,F,6-9,245.0,21.0,UAB,Jr *,SEA to DET,1,201594.0,US,2008.0,0.0,DET,
 2008,2,46,Trent Plaisted,C,6-11,245.0,21.0,Brigham Young,Jr *,SEA to DET,0,,,,,,
 2008,2,50,DeVon Hardin,C,6-11,235.0,21.0,California,Sr,,0,,,,,,
 2008,2,56,Sasha Kaun,C,6-11,250.0,23.0,Kansas,Sr,SEA to CLE,1,201619.0,RU,2015.0,0.0,CLE,
-2007,1,2,Kevin Durant,SF,6-11,240.0,18.0,Texas,Fr *,,18,201142.0,US,2025.0,0.0,HOU,"{'All-NBA': 11, 'All-Rookie Team': 1, 'NBA All-Star': 15, 'NBA All-Star Most Valuable Player': 2, 'NBA Champion': 2, 'NBA Finals Most Valuable Player': 2, 'NBA In-Season Tournament All-Tournament': 1, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 14, 'NBA Player of the Week': 31, 'NBA Rookie of the Month': 5, 'NBA Rookie of the Year': 1, 'Olympic Gold Medal': 4}"
+2007,1,2,Kevin Durant,SF,6-11,240.0,18.0,Texas,Fr *,,18,201142.0,US,2025.0,0.0,HOU,"{'1st Team All-NBA': 6, '2nd Team All-NBA': 5, '1st Team All-Rookie': 1, 'NBA All-Star': 15, 'NBA All-Star Most Valuable Player': 2, 'NBA Champion': 2, 'NBA Finals Most Valuable Player': 2, '1st Team NBA In-Season Tournament All-Tournament': 1, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 14, 'NBA Player of the Week': 31, 'NBA Rookie of the Month': 5, 'NBA Rookie of the Year': 1, 'Olympic Gold Medal': 4}"
 2007,2,31,Carl Landry,F,6-9,248.0,23.0,Purdue,Sr,SEA to HOU,9,201171.0,US,2015.0,0.0,SAC,{'2nd Team All-Rookie': 1}
 2007,2,35,Glen Davis,PF,6-9,289.0,21.0,LSU,Jr *,SEA to BOS,8,201175.0,US,2014.0,0.0,BOS,{'NBA Champion': 1}
 2006,1,10,Mouhamed Sene,C,7-0,230.0,20.0,Voo Wolves Verviers-Pepinster (Belgium),1986 DOB *,,3,200754.0,SN,2008.0,0.0,OKC,

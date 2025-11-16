@@ -1,11 +1,11 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 2024,2,51,Melvin Ajinca,SF,6-8,218.0,20.0,Saint-Quentin Basketball (France),2004 DOB *,NYK to  DAL,0,,,,,,
-2023,1,12,Dereck Lively II,C,7-1,230.0,19.0,Duke,Fr *,OKC to  DAL,2,1641726.0,US,2025.0,0.0,DAL,{'All-Rookie Team': 1}
+2023,1,12,Dereck Lively II,C,7-1,230.0,19.0,Duke,Fr *,OKC to  DAL,2,1641726.0,US,2025.0,0.0,DAL,{'2nd Team All-Rookie': 1}
 2023,1,24,Olivier-Maxence Prosper,F,6-7,230.0,20.0,Marquette,Jr *,SAC to  DAL,2,1641765.0,CA,2025.0,0.0,MEM,
 2022,2,37,Jaden Hardy,SG,6-3,198.0,19.0,NBA G League Ignite,2002 DOB,SAC to  DAL,3,1630702.0,US,2025.0,0.0,DAL,
 2020,2,36,Tyler Bey,PF,6-7,215.0,22.0,Colorado,Jr *,PHI to  DAL,1,1630189.0,US,2020.0,0.0,HOU,
 2019,2,45,Isaiah Roby,SF,6-8,230.0,21.0,Nebraska,Jr *,DET to  DAL,4,1629676.0,US,2022.0,0.0,NYK,
-2018,1,3,Luka Dončić,SF,6-8,230.0,19.0,Real Madrid (Spain),1999 DOB *,ATL to  DAL,7,1629029.0,SI,2025.0,0.0,LAL,"{'All-NBA': 5, 'All-Rookie Team': 1, 'NBA All-Star': 5, 'NBA Player of the Month': 5, 'NBA Player of the Week': 14, 'NBA Rookie of the Month': 5, 'NBA Rookie of the Year': 1}"
+2018,1,3,Luka Dončić,SF,6-8,230.0,19.0,Real Madrid (Spain),1999 DOB *,ATL to  DAL,7,1629029.0,SI,2025.0,0.0,LAL,"{'1st Team All-NBA': 5, '1st Team All-Rookie': 1, 'NBA All-Star': 5, 'NBA Player of the Month': 5, 'NBA Player of the Week': 14, 'NBA Rookie of the Month': 5, 'NBA Rookie of the Year': 1}"
 2018,2,56,Ray Spalding,PF,6-9,225.0,21.0,Louisville,Jr *,PHI to  DAL,3,1629034.0,US,2020.0,0.0,PHX,
 2018,2,60,Kostas Antetokounmpo,PF,6-10,200.0,20.0,Dayton,Fr *,PHI to  DAL,4,1628961.0,GR,2020.0,0.0,CHI,
 2013,1,18,Shane Larkin,PG,5-11,175.0,20.0,Miami (FL),So *,ATL to  DAL,4,203499.0,US,2017.0,0.0,BKN,
@@ -31,8 +31,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2025,1,1,Cooper Flagg,F,6-9,205.0,18.0,Duke,Fr *,,0,1642843.0,US,2025.0,0.0,DAL,
 2020,1,18,Josh Green,SG,6-6,200.0,20.0,Arizona,Fr *,,5,1630182.0,AU,2025.0,0.0,CHA,
 2020,2,31,Tyrell Terry,PG,6-2,170.0,20.0,Stanford,Fr *,,2,1630179.0,US,2021.0,0.0,MEM,
-2018,2,33,Jalen Brunson,PG,6-2,190.0,21.0,Villanova,Jr *,,7,1628973.0,US,2025.0,0.0,NYK,"{'All-NBA': 2, 'NBA All-Star': 2, 'NBA Clutch Player of the Year': 1, 'NBA Player of the Month': 2, 'NBA Player of the Week': 7}"
-2017,1,9,Dennis Smith Jr.,PG,6-2,205.0,19.0,NC State,Fr *,,7,1628372.0,US,2023.0,0.0,DAL,{'All-Rookie Team': 1}
+2018,2,33,Jalen Brunson,PG,6-2,190.0,21.0,Villanova,Jr *,,7,1628973.0,US,2025.0,0.0,NYK,"{'2nd Team All-NBA': 2, 'NBA All-Star': 2, 'NBA Clutch Player of the Year': 1, 'NBA Player of the Month': 2, 'NBA Player of the Week': 7}"
+2017,1,9,Dennis Smith Jr.,PG,6-2,205.0,19.0,NC State,Fr *,,7,1628372.0,US,2023.0,0.0,DAL,{'2nd Team All-Rookie': 1}
 2016,2,46,AJ Hammons,C,7-0,250.0,23.0,Purdue,Sr,,2,1627773.0,US,2016.0,0.0,DAL,
 2015,1,21,Justin Anderson,F,6-6,230.0,21.0,Virginia,Jr *,,6,1626147.0,US,2021.0,0.0,IND,
 2007,2,34,Nick Fazekas,F,6-11,240.0,22.0,Nevada,Sr,,1,201174.0,US,2007.0,0.0,LAC,

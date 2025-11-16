@@ -16,16 +16,16 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2025,2,34,Ryan Kalkbrenner,C,7-1,256,23.0,Creighton,Sr,,0,1641750.0,US,2025.0,0.0,CHA,
 2024,1,6,Tidjane Salaün,F,6-10,207,18.0,Cholet Basket (France),2005 DOB *,,1,1642275.0,FR,2025.0,0.0,CHA,
 2024,2,42,KJ Simpson,G,6-2,189,21.0,Colorado,Jr *,,1,1642354.0,US,2025.0,0.0,CHA,
-2023,1,2,Brandon Miller,F,6-7,200,20.0,Alabama,Fr *,,2,1641706.0,US,2025.0,0.0,CHA,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 3}"
+2023,1,2,Brandon Miller,F,6-7,200,20.0,Alabama,Fr *,,2,1641706.0,US,2025.0,0.0,CHA,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 3}"
 2023,1,27,Nick Smith Jr.,G,6-2,185,19.0,Arkansas,Fr *,,2,1641733.0,US,2025.0,0.0,LAL,
 2023,2,41,Amari Bailey,G,6-5,185,19.0,UCLA,Fr *,,1,1641735.0,US,2023.0,0.0,BKN,
 2022,1,15,Mark Williams,C,7-1,240,20.0,Duke,So *,,3,1631109.0,US,2025.0,0.0,PHX,
 2021,1,11,James Bouknight,G,6-5,190,20.0,UConn,So *,,3,1630547.0,US,2023.0,0.0,CHA,
 2021,2,56,Scottie Lewis,SF,6-5,185,21.0,Florida,So *,,1,1630575.0,US,2021.0,0.0,CHA,
-2020,1,3,LaMelo Ball,G,6-7,180,19.0,Illawarra (Australia),2001 DOB,,5,1630163.0,US,2025.0,0.0,CHA,"{'All-Rookie Team': 1, 'NBA All-Star': 1, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"
+2020,1,3,LaMelo Ball,G,6-7,180,19.0,Illawarra (Australia),2001 DOB,,5,1630163.0,US,2025.0,0.0,CHA,"{'1st Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"
 2020,2,32,Vernon Carey Jr.,PF,6-10,270,19.0,Duke,Fr *,,3,1630176.0,US,2022.0,0.0,UTA,
 2020,2,56,Grant Riller,SG,6-0,195,23.0,Charleston,Sr,,2,1630203.0,US,2020.0,0.0,PHI,
-2019,1,12,P.J. Washington,PF,6-7,230,20.0,Kentucky,So *,,6,1629023.0,US,2025.0,0.0,DAL,{'All-Rookie Team': 1}
+2019,1,12,P.J. Washington,PF,6-7,230,20.0,Kentucky,So *,,6,1629023.0,US,2025.0,0.0,DAL,{'2nd Team All-Rookie': 1}
 2019,2,36,Cody Martin,F,6-6,205,23.0,Nevada,Sr,,6,1628998.0,US,2025.0,0.0,IND,
 2019,2,52,Jalen McDaniels,PF,6-9,190,21.0,San Diego State,So *,,6,1629667.0,US,2024.0,0.0,NOP,
 2018,2,55,Arnoldas Kulboka,SF,6-10,225,20.0,Orlandina Basket (Italy),1998 DOB *,,1,1629083.0,LT,2021.0,0.0,CHA,

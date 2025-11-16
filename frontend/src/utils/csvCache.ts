@@ -23,10 +23,10 @@ function getAppVersion(): string {
  * Examples: "1.1.0" -> "1.1", "2.0.5" -> "2.0", "1.0.0-beta" -> "1.0"
  */
 function getMajorMinorVersion(version: string): string {
-  const parts = version.split('.')
-  if (parts.length >= 2) {
-    return `${parts[0]}.${parts[1]}`
-  }
+  // const parts = version.split('.')
+  // if (parts.length >= 2) {
+  //   return `${parts[0]}.${parts[1]}`
+  // }
   // Fallback for malformed versions
   return version
 }
