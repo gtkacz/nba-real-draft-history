@@ -1,16 +1,17 @@
 import json  # noqa: CPY001, D100
 import pathlib
+import re
 import time
 from functools import cache
 
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 from tqdm import tqdm
 
 
 @cache  # pyright: ignore[reportUntypedFunctionDecorator]
-def get_award_data(player_nba_id: int) -> dict[str, int]:
+def get_award_data(player_nba_id: int) -> dict[str, int]:  # noqa: C901
     """
     Fetches award data for a given NBA player using their NBA ID.
 
@@ -20,7 +21,7 @@ def get_award_data(player_nba_id: int) -> dict[str, int]:
     Returns:
         dict: A dictionary containing the player's award data.
     """
-    base_url = "https://www.nba.com/player/{}"
+    base_url = "https://www.nba.com/stats/player/{}/career"
 
     try:
         data = requests.get(base_url.format(player_nba_id), timeout=60)
@@ -33,26 +34,55 @@ def get_award_data(player_nba_id: int) -> dict[str, int]:
 
     soup = BeautifulSoup(data.text, "lxml")
 
-    div = soup.select_one('div[class*="PlayerProfile_ppAwards"]')
+    header = soup.find(
+        "header",
+        class_=re.compile(r"^PlayerStatsCareer_header"),  # startswith match
+        string=lambda s: s and s.strip() == "Awards",
+    )
 
-    if not div:
+    if not header:
         return {}
 
-    ul = div.find("ul")  # pyright: ignore[reportOptionalMemberAccess]
+    awards_div = header.find_next_sibling("div")
 
-    raw_data = [" ".join(li.stripped_strings) for li in ul.find_all("li", recursive=False)]  # pyright: ignore[reportOptionalMemberAccess]
+    if not awards_div or awards_div.find("div", class_=re.compile(r"^PlayerStatsCareer_noAwards")):
+        return {}
 
-    output = {}
+    awards: dict[str, int] = {}
 
-    for entry in raw_data:
-        parts = entry.split(" ")
+    for entry in awards_div.find_all("div", recursive=False):
+        span = entry.find("span")
+        if not span:
+            continue
 
-        award_amount = int(parts[0])
-        award_name = " ".join(parts[1:])
+        strong = span.find("strong")
+        if not strong:
+            continue
 
-        output[award_name] = award_amount
+        # numeric value
+        try:
+            count = int(strong.get_text(strip=True))
+        except ValueError:
+            continue
 
-    return output  # pyright: ignore[reportUnknownVariableType]
+        # build label from everything in the span that's NOT the <strong> or <svg>
+        label_parts = []
+        for child in span.children:
+            # skip the number and the icon
+            if child is strong or getattr(child, "name", None) == "svg":
+                continue
+
+            text = str(child).strip() if isinstance(child, NavigableString) else child.get_text(strip=True)
+
+            if text:
+                label_parts.append(text)  # pyright: ignore[reportUnknownMemberType]
+
+        label = " ".join(label_parts)  # pyright: ignore[reportUnknownArgumentType]
+
+        if label:
+            awards[label] = count
+
+    return awards
 
 
 def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
