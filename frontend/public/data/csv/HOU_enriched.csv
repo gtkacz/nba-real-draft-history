@@ -13,21 +13,21 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2009,2,44,Chase Budinger,GF,6-7,215.0,21.0,Arizona,Jr *,DET to  HOU,7,201978.0,US,2015.0,0.0,HOU,
 2008,1,28,Donte Greene,F,6-11,226.0,20.0,Syracuse,Fr *,MEM to  HOU,5,201590.0,US,2012.0,0.0,SAC,
 2008,2,33,Joey Dorsey,FC,6-9,275.0,24.0,Memphis,Sr,POR to  HOU,4,201595.0,US,2014.0,0.0,HOU,
-2007,2,31,Carl Landry,F,6-9,248.0,23.0,Purdue,Sr,SEA to  HOU,9,201171.0,US,2015.0,0.0,SAC,
+2007,2,31,Carl Landry,F,6-9,248.0,23.0,Purdue,Sr,SEA to  HOU,9,201171.0,US,2015.0,0.0,SAC,{'2nd Team All-Rookie': 1}
 2004,2,49,Sergei Lishouk,FC,6-11,250.0,22.0,Khimik Yuzhny (Ukraine),1982 DOB,MEM to  HOU HOU  to LAL LAL  to HOU HOU  to PHI PHI  to LAC LAC  to HOU,0,,,,,,
 2004,2,50,Vassilis Spanoulis,SG,6-4,210.0,21.0,Maroussi BC (Greece),1982 DOB,DAL to  HOU,1,2779.0,GR,2006.0,0.0,HOU,
-2002,2,36,David Andersen,F,7-0,242.0,22.0,Virtus Bologna (Italy),1980 DOB,ATL to  HOU,2,2431.0,AU,2010.0,0.0,HOU,
-2002,2,55,Luis Scola,PF,6-9,241.0,22.0,Baskonia (Spain),1980 DOB,SAS to  HOU,10,2449.0,AR,2016.0,0.0,HOU,
-2001,1,7,Eddie Griffin,F,6-10,220.0,19.0,Seton Hall,Fr *,NJN to  HOU,6,2204.0,US,2006.0,0.0,MIN,
+2002,2,36,David Andersen,F,7-0,242.0,22.0,Virtus Bologna (Italy),1980 DOB,ATL to  HOU,2,2431.0,AU,2010.0,0.0,HOU,{'Olympic Appearance': 3}
+2002,2,55,Luis Scola,PF,6-9,241.0,22.0,Baskonia (Spain),1980 DOB,SAS to  HOU,10,2449.0,AR,2016.0,0.0,HOU,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1, 'Olympic Appearance': 1, 'Olympic Bronze Medal': 1}"
+2001,1,7,Eddie Griffin,F,6-10,220.0,19.0,Seton Hall,Fr *,NJN to  HOU,6,2204.0,US,2006.0,0.0,MIN,{'2nd Team All-Rookie': 1}
 2001,2,33,Terence Morris,F,6-9,221.0,22.0,Maryland,Sr,ATL to  HOU,4,2242.0,US,2005.0,0.0,HOU,
 2001,2,43,Kyle Hill,G,6-2,185.0,22.0,Eastern Illinois,Sr,DAL to  HOU,0,,,,,,
 2000,1,15,Jason Collier,F-C,7-0,260.0,22.0,Georgia Tech,Sr,MIL to  HOU,5,2044.0,US,2004.0,0.0,ATL,
 2000,2,31,Dan Langhi,FC,6-11,220.0,22.0,Vanderbilt,Sr,DAL to  HOU,4,2061.0,US,2003.0,0.0,HOU,
-1999,1,2,Steve Francis,G,6-3,195.0,22.0,Maryland,Jr *,VAN to  HOU,10,1883.0,US,2007.0,0.0,HOU,
+1999,1,2,Steve Francis,G,6-3,195.0,22.0,Maryland,Jr *,VAN to  HOU,10,1883.0,US,2007.0,0.0,HOU,"{'1st Team All-Rookie': 1, 'NBA All-Star': 3, 'NBA Player of the Week': 4, 'NBA Rookie of the Month': 3, 'NBA Rookie of the Year': 1}"
 1999,1,15,Frederic Weis,C,7-2,260.0,22.0,CSP Limoges (France),1977 DOB,NYK to  HOU,0,,,,,,
 1993,2,33,Eric Riley,C,7-0,245.0,23.0,Michigan,Sr,DAL to  HOU,7,35.0,US,1998.0,0.0,HOU,
 1990,1,15,Dave Jamerson,G,6-5,190.0,22.0,Ohio,Sr,MIA to  HOU,5,77114.0,US,1993.0,0.0,HOU,
-1990,2,30,Carl Herrera,F,6-9,215.0,23.0,Houston,Jr *,MIA to  HOU,8,61.0,US,1998.0,0.0,HOU,
+1990,2,30,Carl Herrera,F,6-9,215.0,23.0,Houston,Jr *,MIA to  HOU,8,61.0,US,1998.0,0.0,HOU,"{'NBA Champion': 2, 'Olympic Appearance': 1}"
 1979,3,47,Calvin Garrett,PF,6-7,190.0,22.0,Oral Roberts,Sr,CHI to  HOU,4,76786.0,US,1983.0,0.0,HOU,
 1977,2,29,Alonzo Bradley,SF,6-6,190.0,23.0,Texas Southern,Sr,IND to  HOU,0,76229.0,US,1979.0,0.0,HOU,
 1972,2,24,Steve Hawes,C,6-9,220.0,21.0,Washington,Sr,CLE to  HOU,10,76971.0,US,1983.0,0.0,ATL,
@@ -44,7 +44,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2016,2,37,Chinanu Onuaku,C,6-9,250.0,19.0,Louisville,So *,,2,1627778.0,US,2017.0,0.0,HOU,
 2016,2,43,Zhou Qi,C,7-1,210.0,20.0,Xinjiang Guanghui (China),1996 DOB *,,2,1627753.0,CN,2018.0,0.0,HOU,
 2015,1,18,Sam Dekker,SF,6-9,230.0,21.0,Wisconsin,Jr *,,5,1626155.0,US,2021.0,0.0,TOR,
-2015,2,32,Montrezl Harrell,F,6-7,240.0,21.0,Louisville,Jr *,,8,1626149.0,US,2022.0,0.0,PHI,
+2015,2,32,Montrezl Harrell,F,6-7,240.0,21.0,Louisville,Jr *,,8,1626149.0,US,2022.0,0.0,PHI,{'NBA Sixth Man of the Year': 1}
 2014,1,25,Clint Capela,PF,6-10,256.0,20.0,Chalon-Sur-Saone (France),1994 DOB *,,11,203991.0,CH,2025.0,0.0,HOU,
 2014,2,42,Nick Johnson,SG,6-3,200.0,21.0,Arizona,Jr *,,1,203910.0,US,2014.0,0.0,HOU,
 2013,2,34,Isaiah Canaan,G,6-0,200.0,22.0,Murray State,Sr,,6,203477.0,US,2018.0,0.0,PHI,
@@ -53,18 +53,18 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2012,1,18,Terrence Jones,PF,6-9,255.0,20.0,Kentucky,So *,,6,203093.0,US,2018.0,0.0,HOU,
 2011,1,14,Marcus Morris Sr.,F,6-8,218.0,21.0,Kansas,Jr *,,13,202694.0,US,2023.0,0.0,CLE,
 2010,1,14,Patrick Patterson,F,6-8,235.0,21.0,Kentucky,Jr *,,11,202335.0,US,2020.0,0.0,TOR,
-2007,1,26,Aaron Brooks,G,6-0,161.0,22.0,Oregon,Sr,,10,201166.0,US,2017.0,0.0,HOU,
+2007,1,26,Aaron Brooks,G,6-0,161.0,22.0,Oregon,Sr,,10,201166.0,US,2017.0,0.0,HOU,{'NBA Most Improved Player': 1}
 2006,2,32,Steve Novak,F,6-10,225.0,23.0,Marquette,Sr,,11,200779.0,US,2016.0,0.0,NYK,
-2005,1,24,Luther Head,G,6-3,185.0,22.0,Illinois,Sr,,6,101129.0,US,2010.0,0.0,HOU,
-2002,1,1,Yao Ming,C,7-6,310.0,21.0,Shanghai Dongfang (China),1980 DOB,,9,2397.0,CN,2010.0,0.0,HOU,
+2005,1,24,Luther Head,G,6-3,185.0,22.0,Illinois,Sr,,6,101129.0,US,2010.0,0.0,HOU,{'2nd Team All-Rookie': 1}
+2002,1,1,Yao Ming,C,7-6,310.0,21.0,Shanghai Dongfang (China),1980 DOB,,9,2397.0,CN,2010.0,0.0,HOU,"{'3rd Team All-NBA': 3, '2nd Team All-NBA': 2, '1st Team All-Rookie': 1, 'Hall of Fame Inductee': 1, 'NBA All-Star': 8, 'NBA Player of the Month': 2, 'NBA Player of the Week': 6, 'NBA Rookie of the Month': 2, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Appearance': 3}"
 2002,1,15,Bostjan Nachbar,F,6-10,220.0,21.0,Universo De'Longhi Treviso (Italy),1980 DOB,,6,2411.0,SI,2007.0,0.0,BKN,
 2002,2,37,Tito Maddox,G,6-4,190.0,21.0,Fresno State,Jr *,,2,2432.0,US,2002.0,0.0,HOU,
 1999,1,22,Kenny Thomas,F,6-7,245.0,21.0,New Mexico,Sr,,11,1903.0,US,2009.0,0.0,HOU,
 1999,2,44,Tyrone Washington,F,6-9,260.0,22.0,Mississippi State,Sr,,0,,,,,,
 1999,2,50,Venson Hamilton,F,6-10,240.0,21.0,Nebraska,Sr,,0,,,,,,
-1998,1,14,Michael Dickerson,SG,6-5,190.0,22.0,Arizona,Sr,,6,1722.0,US,2002.0,0.0,MEM,
+1998,1,14,Michael Dickerson,SG,6-5,190.0,22.0,Arizona,Sr,,6,1722.0,US,2002.0,0.0,MEM,{'2nd Team All-Rookie': 1}
 1998,1,16,Bryce Drew,SG,6-2,185.0,23.0,Valparaiso,Sr,,6,1724.0,US,2003.0,0.0,HOU,
-1998,2,41,Cuttino Mobley,G,6-4,190.0,22.0,Rhode Island,Sr,,12,1749.0,US,2008.0,0.0,HOU,
+1998,2,41,Cuttino Mobley,G,6-4,190.0,22.0,Rhode Island,Sr,,12,1749.0,US,2008.0,0.0,HOU,"{'2nd Team All-Rookie': 1, 'NBA Player of the Week': 1}"
 1997,1,24,Rodrick Rhodes,G-F,6-6,225.0,23.0,USC,Sr,,5,1518.0,US,1999.0,0.0,HOU,
 1997,2,29,Serge Zwikker,C,7-3,273.0,24.0,North Carolina,Sr,,1,,,,,,
 1996,2,30,Othella Harrington,F-C,6-9,235.0,22.0,Georgetown,Sr,,12,970.0,US,2007.0,0.0,NYK,
@@ -72,12 +72,12 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1996,2,50,Terrell Bell,PF,6-10,240.0,22.0,Georgia,Sr,,5,,,,,,
 1995,2,41,Erik Meek,FC,6-10,245.0,22.0,Duke,Sr,,0,,,,,,
 1994,2,53,Albert Burditt,PF,6-8,230.0,22.0,Texas,Sr,,1,,,,,,
-1993,1,24,Sam Cassell,G,6-3,185.0,23.0,Florida State,Sr,,16,208.0,US,2007.0,0.0,MIL,
+1993,1,24,Sam Cassell,G,6-3,185.0,23.0,Florida State,Sr,,16,208.0,US,2007.0,0.0,MIL,"{'2nd Team All-NBA': 1, 'NBA All-Star': 1, 'NBA Champion': 3, 'NBA Player of the Week': 3}"
 1993,2,46,Richard Petruska,F-C,6-10,260.0,24.0,UCLA,So,,2,77846.0,US,1993.0,0.0,HOU,
-1992,1,11,Robert Horry,PF,6-9,220.0,21.0,Alabama,Sr,,16,109.0,US,2007.0,0.0,LAL,
+1992,1,11,Robert Horry,PF,6-9,220.0,21.0,Alabama,Sr,,16,109.0,US,2007.0,0.0,LAL,"{'2nd Team All-Rookie': 1, 'NBA Champion': 7}"
 1992,2,53,Curtis Blair,SG,6-3,187.0,21.0,Richmond,Sr,,0,,,,,,
 1991,1,20,John Turner,F,6-9,245.0,23.0,Phillips,Sr,,2,1819.0,US,1991.0,0.0,HOU,
-1991,2,51,Zan Tabak,C,7-0,245.0,21.0,KK Split (Croatia),1970 DOB *,,6,440.0,HR,2000.0,0.0,TOR,
+1991,2,51,Zan Tabak,C,7-0,245.0,21.0,KK Split (Croatia),1970 DOB *,,6,440.0,HR,2000.0,0.0,TOR,"{'NBA Champion': 1, 'Olympic Appearance': 1, 'Olympic Silver Medal': 1}"
 1988,1,16,Derrick Chievous,F,6-7,185.0,20.0,Missouri,Sr,,4,76387.0,US,1990.0,0.0,HOU,
 1987,2,35,Doug Lee,GF,6-5,200.0,22.0,Purdue,Sr,,6,77358.0,US,1994.0,0.0,BKN,
 1987,4,82,Joe Niego,SF,6-7,200.0,,Lewis,Sr,,0,,,,,,
@@ -96,7 +96,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1985,3,57,Michael Payne,PF,6-11,195.0,,Iowa,Sr,,1,,,,,,
 1985,4,88,Mike Brooks,G,6-2,170.0,,Tennessee,Sr,,0,,,,,,
 1985,6,134,Sam Potter,F,6-7,,,Oral Roberts,Sr,,0,,,,,,
-1984,1,1,Hakeem Olajuwon,C,7-0,255.0,21.0,Houston,Jr *,,20,165.0,NG,2002.0,0.0,HOU,
+1984,1,1,Hakeem Olajuwon,C,7-0,255.0,21.0,Houston,Jr *,,20,165.0,NG,2002.0,0.0,HOU,"{'2nd Team All-Defensive': 4, '1st Team All-Defensive': 5, '2nd Team All-NBA': 3, '1st Team All-NBA': 6, '3rd Team All-NBA': 3, '1st Team All-Rookie': 1, 'Hall of Fame Inductee': 1, 'IBM Award': 1, 'NBA All-Star': 12, 'NBA Champion': 2, 'NBA Defensive Player of the Year': 2, 'NBA Finals Most Valuable Player': 2, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 6, 'NBA Player of the Week': 12, 'NBA Rookie of the Month': 3, 'NBA Sporting News Most Valuable Player of the Year': 1, 'Olympic Gold Medal': 1}"
 1984,3,51,Jim Petersen,FC,6-10,235.0,22.0,Minnesota,Sr,,8,77839.0,US,1991.0,0.0,HOU,
 1984,4,74,Willie Jackson,SF,6-6,210.0,,Centenary (LA),Sr,,1,,,,,,
 1984,5,97,Al McClain,G,6-2,,,New Hampshire,Sr,,0,,,,,,
@@ -104,8 +104,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1984,8,166,Greg Wolff,,,,,Angelo State,Sr,,0,,,,,,
 1984,9,188,Bill Coon,,,,,Presbyterian,Sr,,0,,,,,,
 1984,10,210,Robert Turner,G,,,,Canisius,Sr,,0,,,,,,
-1983,1,1,Ralph Sampson,C,7-4,228.0,22.0,Virginia,Sr,,9,78055.0,US,1991.0,0.0,HOU,
-1983,1,3,Rodney McCray,SF,6-7,220.0,21.0,Louisville,Sr,,11,1622.0,US,1992.0,0.0,HOU,
+1983,1,1,Ralph Sampson,C,7-4,228.0,22.0,Virginia,Sr,,9,78055.0,US,1991.0,0.0,HOU,"{'2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'Hall of Fame Inductee': 1, 'NBA All-Star': 4, 'NBA All-Star Most Valuable Player': 1, 'NBA Rookie of the Month': 5, 'NBA Rookie of the Year': 1, 'NBA Sporting News Rookie of the Year': 1}"
+1983,1,3,Rodney McCray,SF,6-7,220.0,21.0,Louisville,Sr,,11,1622.0,US,1992.0,0.0,HOU,"{'2nd Team All-Defensive': 1, '1st Team All-Defensive': 1, 'NBA Champion': 1}"
 1983,3,48,Craig Ehlo,SG,6-6,180.0,21.0,Washington State,Sr,,14,378.0,US,1996.0,0.0,CLE,
 1983,4,71,Darrell Browder,PG,6-1,175.0,,TCU,Sr,,1,,,,,,
 1983,5,94,Chuck Barnett,G,6-4,200.0,,Oklahoma,Sr,,0,,,,,,
@@ -113,16 +113,16 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1983,7,140,Brian Kellerman,G,6-5,,,Idaho,Sr,,0,,,,,,
 1983,8,163,Jeff Bolding,C,,,,Arkansas Tech,Sr,,0,,,,,,
 1983,9,185,James Campbell,,,,,Oklahoma City,Sr,,0,,,,,,
-1982,1,16,Terry Teagle,SG,6-5,195.0,22.0,Baylor,Sr,,11,78304.0,US,1992.0,0.0,GSW,
+1982,1,16,Terry Teagle,SG,6-5,195.0,22.0,Baylor,Sr,,11,78304.0,US,1992.0,0.0,GSW,{'NBA Player of the Week': 1}
 1982,2,42,Jeff Taylor,G,6-4,175.0,22.0,Texas Tech,Sr,,3,78299.0,US,1986.0,0.0,HOU,
-1982,3,63,Chuck Nevitt,C,7-5,217.0,23.0,NC State,Sr,,11,77707.0,US,1993.0,0.0,DET,
+1982,3,63,Chuck Nevitt,C,7-5,217.0,23.0,NC State,Sr,,11,77707.0,US,1993.0,0.0,DET,{'NBA Champion': 1}
 1982,4,85,Andre Gaddy,PF,6-10,200.0,,George Mason,Sr,,0,,,,,,
 1982,5,107,Jeff Schneider,,,,,Virginia Tech,Sr,,0,,,,,,
 1982,6,132,Don Wilson,,,,,Louisiana-Monroe,Sr,,0,,,,,,
 1982,7,154,Mike Helms,FC,6-10,,,Wake Forest,Sr,,0,,,,,,
 1982,8,176,Dan Callandrillo,,,,,Seton Hall,Sr,,2,,,,,,
 1981,2,45,Ed Turner,SF,6-6,195.0,23.0,Texas A&M-Kingsville,Sr,,0,,,,,,
-1981,4,81,Larry Spriggs,F,6-7,230.0,21.0,Howard,Sr,,6,78233.0,US,1985.0,0.0,LAL,
+1981,4,81,Larry Spriggs,F,6-7,230.0,21.0,Howard,Sr,,6,78233.0,US,1985.0,0.0,LAL,{'NBA Champion': 1}
 1981,5,105,Hasan Houston,,,,,Bradley,Sr,,0,,,,,,
 1981,6,127,Fred Cowan,FC,6-8,,,Kentucky,Sr,,0,,,,,,
 1981,7,151,Joe Faine,,,,,Bowling Green,Sr,,0,,,,,,
@@ -145,18 +145,18 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1979,7,143,Rich Valavicius,F,6-5,220.0,,Auburn,Sr,,0,,,,,,
 1979,8,161,Delbert Watson,,,,,East Tennessee State,Sr,,0,,,,,,
 1978,2,28,Buster Matheney,PF,6-8,212.0,21.0,Utah,Sr,,1,,,,,,
-1978,3,47,Billyray Bates,SG,6-4,210.0,22.0,Kentucky State,Sr,,5,76121.0,US,1982.0,0.0,POR,
+1978,3,47,Billyray Bates,SG,6-4,210.0,22.0,Kentucky State,Sr,,5,76121.0,US,1982.0,0.0,POR,{'NBA Player of the Week': 2}
 1978,4,67,Jackie Robinson,SF,6-6,210.0,23.0,UNLV,Sr,,4,77989.0,US,1981.0,0.0,OKC,
 1978,4,69,Joel Thompson,PF,6-8,210.0,,Michigan,Sr,,0,,,,,,
 1978,5,91,Gary Goodner,F,6-7,220.0,,Texas,Sr,,0,,,,,,
 1978,6,113,Eddie Joe Chavez,G,,,,Santa Clara,Sr,,0,,,,,,
 1978,7,134,Stan Stewart,,,,,Loyola Marymount,Sr,,0,,,,,,
 1977,2,34,Larry Moffett,PF,6-8,210.0,22.0,UNLV,Sr,,1,77621.0,US,1977.0,0.0,HOU,
-1977,2,40,Robert Reid,GF,6-8,205.0,21.0,St. Mary's (TX),Sr,,13,77936.0,US,1990.0,0.0,HOU,
+1977,2,40,Robert Reid,GF,6-8,205.0,21.0,St. Mary's (TX),Sr,,13,77936.0,US,1990.0,0.0,HOU,{'NBA Player of the Week': 1}
 1977,3,62,Phil Bond,PG,6-2,175.0,22.0,Louisville,Sr,,1,76198.0,US,1977.0,0.0,HOU,
 1977,4,84,Rocky Smith,SG,6-2,180.0,,Oregon State,Sr,,0,,,,,,
 1977,5,106,Ed Thompson,,,,,Idaho State,Sr,,0,,,,,,
-1976,1,1,John Lucas,G,6-3,175.0,22.0,Maryland,Sr,,14,77419.0,US,1989.0,0.0,HOU,
+1976,1,1,John Lucas,G,6-3,175.0,22.0,Maryland,Sr,,14,77419.0,US,1989.0,0.0,HOU,{'1st Team All-Rookie': 1}
 1976,2,27,Phil Hicks,SF,6-7,205.0,23.0,Tulane,Jr,,3,77017.0,US,1978.0,0.0,CHI,
 1976,3,44,Barnes Hauptfuhrer,SF,6-7,200.0,,Princeton,Sr,,1,,,,,,
 1976,4,61,Hercle Ivy,SG,6-3,195.0,,Iowa State,Sr,,0,,,,,,
@@ -164,7 +164,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1976,6,96,Robert Paige,C,7-0,,,Houston Christian,Sr,,0,,,,,,
 1976,7,114,Barry Davis,,,,,Texas A&M,Sr,,0,,,,,,
 1976,8,132,Dan Kruger,,,,,Texas,Sr,,0,,,,,,
-1975,1,11,Joe Meriweather,FC,6-10,215.0,21.0,Southern Illinois,Sr,,10,77582.0,US,1984.0,0.0,SAC,
+1975,1,11,Joe Meriweather,FC,6-10,215.0,21.0,Southern Illinois,Sr,,10,77582.0,US,1984.0,0.0,SAC,{'1st Team All-Rookie': 1}
 1975,2,29,Jim Blanks,,,,,Gardner-Webb,Sr,,1,,,,,,
 1975,3,47,Rudy White,SG,6-2,195.0,21.0,Arizona State,Sr,,6,78513.0,US,1980.0,0.0,HOU,
 1975,4,65,Ken Smith,F,6-7,185.0,21.0,Tulsa,Sr,,0,,,,,,
@@ -173,7 +173,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1975,7,119,Nate Barnett,SG,6-3,175.0,22.0,Akron,Sr,,0,,,,,,
 1975,8,137,Leon Johnson,,,,,Centenary (LA),Sr,,1,,,,,,
 1975,9,154,Steve Storther,,,,,Providence,Sr,,0,,,,,,
-1974,1,5,Bobby Jones,SF,6-9,210.0,22.0,North Carolina,Sr,,10,77193.0,US,1985.0,0.0,PHI,
+1974,1,5,Bobby Jones,SF,6-9,210.0,22.0,North Carolina,Sr,,10,77193.0,US,1985.0,0.0,PHI,"{'1st Team All-Defensive': 8, '2nd Team All-Defensive': 1, 'NBA All-Star': 4, 'NBA Champion': 1, 'NBA Sixth Man of the Year': 1}"
 1974,2,23,Gus Bailey,GF,6-5,185.0,23.0,UTEP,Sr,,7,76083.0,US,1979.0,0.0,HOU,
 1974,3,41,Robert Wilson,SF,6-6,205.0,,Iowa State,Sr,,0,,,,,,
 1974,4,59,Larry Robinson,PF,6-7,185.0,,Texas,Sr,,0,,,,,,
@@ -183,14 +183,14 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1974,8,131,Steve Brooks,C,6-9,,,Arkansas State,Sr,,0,,,,,,
 1974,9,149,Ken Stalling,,,,,Missouri S&T (Rolla),Sr,,0,,,,,,
 1974,10,166,Marcus Washington,G,6-1,160.0,,Marquette,Sr,,0,,,,,,
-1973,1,6,Ed Ratleff,GF,6-6,195.0,23.0,Long Beach State,Sr,,5,77914.0,US,1977.0,0.0,HOU,
-1973,3,51,E.C. Coleman,PF,6-8,225.0,22.0,Houston Christian,Sr,,6,76413.0,US,1978.0,0.0,UTA,
+1973,1,6,Ed Ratleff,GF,6-6,195.0,23.0,Long Beach State,Sr,,5,77914.0,US,1977.0,0.0,HOU,{'Olympic Silver Medal': 1}
+1973,3,51,E.C. Coleman,PF,6-8,225.0,22.0,Houston Christian,Sr,,6,76413.0,US,1978.0,0.0,UTA,"{'1st Team All-Defensive': 1, '2nd Team All-Defensive': 1}"
 1973,4,58,Lee Colburn,F,6-6,,22.0,South Dakota,Sr,,0,,,,,,
 1973,5,75,Gary Rhoades,,,,,Colorado State,Sr,,0,,,,,,
 1973,6,92,Tom Peck,,,,,Wisconsin-Eau Claire,Sr,,0,,,,,,
 1973,7,109,Fred DeVaughn,,,,,Westmont,Sr,,0,,,,,,
 1973,8,126,John Thomas,,,,,Missouri Southern State,Sr,,0,,,,,,
-1972,2,20,John Gianelli,FC,6-10,220.0,21.0,Pacific,Sr,,8,76806.0,US,1979.0,0.0,NYK,
+1972,2,20,John Gianelli,FC,6-10,220.0,21.0,Pacific,Sr,,8,76806.0,US,1979.0,0.0,NYK,{'NBA Champion': 1}
 1972,3,37,Eric McWilliams,PF,6-8,200.0,21.0,Long Beach State,Sr,,1,77567.0,US,1972.0,0.0,HOU,
 1972,4,54,Wilbert Robinson,G,6-2,170.0,22.0,West Virginia,Sr,,0,,,,,,
 1972,5,70,James Silas,PG,6-1,180.0,23.0,Stephen F. Austin,Sr,,7,78150.0,US,1981.0,0.0,SAS,
@@ -198,7 +198,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1972,7,104,Mike Jackson,PF,6-7,215.0,22.0,Cal State Los Angeles,Sr,,0,,,,,,
 1972,8,120,Henry Harris,,,,,Auburn,Sr,,0,,,,,,
 1971,1,7,Cliff Meely,PF,6-8,215.0,23.0,Colorado,Sr,,5,77570.0,US,1975.0,0.0,HOU,
-1971,2,24,Mike Newlin,GF,6-4,200.0,22.0,Utah,Sr,,11,77710.0,US,1981.0,0.0,HOU,
+1971,2,24,Mike Newlin,GF,6-4,200.0,22.0,Utah,Sr,,11,77710.0,US,1981.0,0.0,HOU,{'NBA Player of the Week': 1}
 1971,4,58,Tom Owens,FC,6-10,215.0,21.0,South Carolina,Sr,,7,77786.0,US,1982.0,0.0,POR,
 1971,5,75,Rudy Benjamin,G,6-2,,,Michigan State,Sr,,0,,,,,,
 1971,5,78,Greg Nelson,F,6-6,,,Jacksonville,Sr,,0,,,,,,
@@ -216,8 +216,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1971,17,231,Steve Sims,,,,,Pepperdine,Sr,,0,,,,,,
 1971,18,234,Carlos Quintar,G,6-4,192.0,33.0,,,,0,,,,,,
 1971,19,236,Gary Schneider,,,,,San Diego State,Sr,,0,,,,,,
-1970,1,2,Rudy Tomjanovich,F,6-8,218.0,21.0,Michigan,Sr,,11,78350.0,US,1980.0,0.0,HOU,
-1970,2,18,Calvin Murphy,PG,5-9,165.0,21.0,Niagara,Sr,,13,77669.0,US,1982.0,0.0,HOU,
+1970,1,2,Rudy Tomjanovich,F,6-8,218.0,21.0,Michigan,Sr,,11,78350.0,US,1980.0,0.0,HOU,{'NBA All-Star': 5}
+1970,2,18,Calvin Murphy,PG,5-9,165.0,21.0,Niagara,Sr,,13,77669.0,US,1982.0,0.0,HOU,"{'Hall of Fame Inductee': 1, 'J. Walter Kennedy Citizenship': 1, 'NBA All-Star': 1, 'NBA Player of the Month': 1, '1st Team All-Rookie': 1}"
 1970,3,35,Curtis Perry,FC,6-7,220.0,21.0,Missouri State,Sr,,8,77835.0,US,1977.0,0.0,PHX,
 1970,4,52,Jody Finney,G,6-3,180.0,,Ohio State,Sr,,0,,,,,,
 1970,5,69,James Gilbert,C,7-0,,,Adams State,Sr,,0,,,,,,
@@ -254,8 +254,8 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1969,17,204,Steve Howell,,,,,Ohio State,Sr,,0,,,,,,
 1969,18,209,Joe Pridgen,,,,,North Carolina Central,Sr,,0,,,,,,
 1969,19,213,Blaine Royer,,,,,Illinois State,Sr,,0,,,,,,
-1968,1,1,Elvin Hayes,FC,6-9,235.0,22.0,Houston,Sr,,16,76979.0,US,1983.0,0.0,WAS,
-1968,2,15,John Trapp,SF,6-7,210.0,22.0,UNLV,Sr,,5,78367.0,US,1972.0,0.0,HOU,
+1968,1,1,Elvin Hayes,FC,6-9,235.0,22.0,Houston,Sr,,16,76979.0,US,1983.0,0.0,WAS,"{'2nd Team All-Defensive': 2, '2nd Team All-NBA': 3, '1st Team All-NBA': 3, '1st Team All-Rookie': 1, 'Hall of Fame Inductee': 1, 'NBA All-Star': 12, 'NBA Champion': 1, 'NBA Player of the Week': 1}"
+1968,2,15,John Trapp,SF,6-7,210.0,22.0,UNLV,Sr,,5,78367.0,US,1972.0,0.0,HOU,{'NBA Champion': 1}
 1968,3,23,Stu Lantz,G,6-3,175.0,21.0,Nebraska,Sr,,8,77338.0,US,1975.0,0.0,HOU,
 1968,4,37,Harry Barnes,G,6-3,205.0,22.0,Northeastern,Sr,,1,76103.0,US,1968.0,0.0,HOU,
 1968,4,48,Darryl Jones,F,6-5,,,Benedictine College (KS),Sr,,0,,,,,,
@@ -274,7 +274,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1968,17,198,Dave Miller,G,6-4,,,San Diego State,Sr,,0,,,,,,
 1968,18,204,Harold Grant,,,,,Pepperdine,Sr,,0,,,,,,
 1968,19,208,Bill Corley,F,6-7,195.0,,UConn,Sr,,0,,,,,,
-1967,1,7,Pat Riley,SG,6-4,205.0,22.0,Kentucky,Sr,,9,77962.0,US,1975.0,0.0,LAL,
+1967,1,7,Pat Riley,SG,6-4,205.0,22.0,Kentucky,Sr,,9,77962.0,US,1975.0,0.0,LAL,{'NBA Champion': 1}
 1967,2,18,Bob Netolicky,PF,6-9,220.0,24.0,Drake,Sr,,0,,,,,,
 1967,3,29,Rich Moore,G,6-2,190.0,,Hiram College,Jr,,0,,,,,,
 1967,3,31,Nick Jones,G,6-2,190.0,22.0,Oregon,Sr,,3,77195.0,US,1971.0,0.0,GSW,

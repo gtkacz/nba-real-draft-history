@@ -1,12 +1,12 @@
 Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_id,origin_country,played_until_year,is_defunct,plays_for,awards
 2025,2,32,Noah Penda,F,6-7,215,20,Le Mans Sarthe Basket (France),2005 DOB *,BOS to  ORL,0,1642869.0,FR,2025.0,0.0,ORL,
 2018,2,43,Justin Jackson,SF,6-7,225,21,Maryland,So *,DEN to  ORL,0,,,,,,
-2014,1,10,Elfrid Payton,G,6-3,195,20,Louisiana,Jr *,PHI to  ORL,9,203901.0,US,2024.0,0.0,NOP,
+2014,1,10,Elfrid Payton,G,6-3,195,20,Louisiana,Jr *,PHI to  ORL,9,203901.0,US,2024.0,0.0,NOP,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2014,2,56,Devyn Marble,GF,6-6,192,21,Iowa,Sr,DEN to  ORL,2,203906.0,US,2015.0,0.0,ORL,
 2013,2,60,Janis Timma,SF,6-7,226,20,BK Ventspils (Latvia),1992 DOB *,MEM to  ORL,0,,,,,,
 2011,2,32,Justin Harper,PF,6-10,225,21,Richmond,Sr,CLE to  ORL,3,202712.0,US,2016.0,0.0,ORL,
-2005,2,57,Marcin Gortat,FC,6-11,240,21,Koln 99ers (Germany),1984 DOB *,PHX to  ORL,12,101162.0,PL,2018.0,0.0,WAS,
-2004,1,20,Jameer Nelson,G,6-0,190,22,Saint Joseph's,Sr,DEN to  ORL,14,2749.0,US,2017.0,0.0,ORL,
+2005,2,57,Marcin Gortat,FC,6-11,240,21,Koln 99ers (Germany),1984 DOB *,PHX to  ORL,12,101162.0,PL,2018.0,0.0,WAS,{'NBA Player of the Week': 1}
+2004,1,20,Jameer Nelson,G,6-0,190,22,Saint Joseph's,Sr,DEN to  ORL,14,2749.0,US,2017.0,0.0,ORL,"{'2nd Team All-Rookie': 1, 'NBA All-Star': 1, 'NBA Player of the Week': 2}"
 2003,2,43,Keith Bogans,GF,6-5,215,23,Kentucky,Sr,MIL to  ORL,11,2586.0,US,2013.0,0.0,ORL,
 2003,2,52,Remon Van de Hare,C,7-2,220,21,Barca (Spain),1982 DOB *,TOR to  ORL,0,,,,,,
 2002,1,19,Ryan Humphrey,F,6-8,235,22,Notre Dame,Sr,UTA to  ORL,3,2415.0,US,2004.0,0.0,MEM,
@@ -15,7 +15,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1999,2,42,Louis Bullock,G,6-1,180,23,Michigan,Sr,MIN to  ORL,1,,,,,,
 1997,2,41,Jason Lawson,F-C,6-11,240,22,Villanova,Sr,DEN to  ORL,4,1535.0,US,2002.0,0.0,ORL,
 1995,2,38,Rashard Griffith,C,6-11,275,20,Wisconsin,So *,MIL to  ORL,0,,,,,,
-1993,1,3,Anfernee Hardaway,PG,6-7,195,21,Memphis,Jr *,GSW to  ORL,14,358.0,US,2007.0,0.0,ORL,
+1993,1,3,Anfernee Hardaway,PG,6-7,195,21,Memphis,Jr *,GSW to  ORL,14,358.0,US,2007.0,0.0,ORL,"{'1st Team All-NBA': 2, '3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 4, 'NBA Player of the Month': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 2, 'Olympic Gold Medal': 1}"
 1992,2,39,Litterial Green,G,6-1,185,22,Georgia,Sr,CHI to  ORL,6,1036.0,US,1998.0,0.0,ORL,
 2025,1,25,Jase Richardson,G,6-1,180,19,Michigan State,Fr *,,0,1642859.0,US,2025.0,0.0,ORL,
 2024,1,18,Tristan da Silva,F,6-8,217,23,Colorado,Sr *,,1,1641783.0,DE,2025.0,0.0,ORL,
@@ -34,7 +34,7 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2016,2,41,Stephen Zimmerman,C,6-11,240,19,UNLV,Fr *,,1,1627757.0,US,2016.0,0.0,LAL,
 2015,1,5,Mario Hezonja,SG,6-8,220,20,FC Barcelona II (Spain),1995 DOB *,,5,1626209.0,HR,2019.0,0.0,ORL,
 2014,1,4,Aaron Gordon,F,6-8,235,18,Arizona,Fr *,,11,203932.0,US,2025.0,0.0,DEN,{'NBA Champion': 1}
-2013,1,2,Victor Oladipo,G,6-3,213,21,Indiana,Jr *,,11,203506.0,US,2022.0,0.0,MIA,
+2013,1,2,Victor Oladipo,G,6-3,213,21,Indiana,Jr *,,11,203506.0,US,2022.0,0.0,MIA,"{'1st Team All-Defensive': 1, '3rd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 2, 'NBA Most Improved Player': 1, 'NBA Player of the Week': 4, 'NBA Rookie of the Month': 2}"
 2013,2,51,Romero Osby,PF,6-8,240,23,Oklahoma,Sr,,0,,,,,,
 2012,1,19,Andrew Nicholson,F,6-9,250,22,St. Bonaventure,Sr,,5,203094.0,CA,2016.0,0.0,ORL,
 2012,2,49,Kyle O'Quinn,F,6-10,250,22,Norfolk State,Sr,,8,203124.0,US,2019.0,0.0,NYK,
@@ -46,14 +46,14 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2006,2,41,James Augustine,FC,6-10,235,22,Illinois,Sr,,2,200788.0,US,2007.0,0.0,ORL,
 2005,1,11,Fran Vazquez,FC,6-10,230,22,Unicaja (Spain),1983 DOB,,0,,,,,,
 2005,2,38,Travis Diener,PG,6-1,174,23,Marquette,Sr,,5,101143.0,US,2009.0,0.0,IND,
-2004,1,1,Dwight Howard,C,6-11,265,18,Southwest Atlanta Christian Academy (Georgia),1985 DOB *,,18,2730.0,US,2021.0,0.0,LAL,
+2004,1,1,Dwight Howard,C,6-11,265,18,Southwest Atlanta Christian Academy (Georgia),1985 DOB *,,18,2730.0,US,2021.0,0.0,LAL,"{'2nd Team All-Defensive': 1, '1st Team All-Defensive': 4, '3rd Team All-NBA': 2, '1st Team All-NBA': 5, '2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 8, 'NBA Champion': 1, 'NBA Defensive Player of the Year': 3, 'NBA Player of the Month': 6, 'NBA Player of the Week': 15, 'Olympic Gold Medal': 1}"
 2003,1,15,Reece Gaines,G,6-6,210,22,Louisville,Sr,,3,2558.0,US,2005.0,0.0,ORL,
-2003,2,42,Zaza Pachulia,C,6-11,270,19,Alpella B.K. (Turkey),1984 DOB *,,16,2585.0,GE,2018.0,0.0,ATL,
+2003,2,42,Zaza Pachulia,C,6-11,270,19,Alpella B.K. (Turkey),1984 DOB *,,16,2585.0,GE,2018.0,0.0,ATL,{'NBA Champion': 2}
 2001,1,15,Steven Hunter,F-C,7-0,240,19,DePaul,So *,,9,2212.0,US,2009.0,0.0,ORL,
 2001,1,22,Jeryl Sasser,SG,6-6,200,22,Southern Methodist,Sr,,3,2219.0,US,2002.0,0.0,ORL,
-2000,1,5,Mike Miller,GF,6-8,218,20,Florida,So *,,17,2034.0,US,2016.0,0.0,MEM,
-1998,1,12,Michael Doleac,C,6-11,262,21,Utah,Sr,,10,1720.0,US,2007.0,0.0,ORL,
-1998,1,15,Matt Harpring,F,6-7,230,22,Georgia Tech,Sr,,12,1723.0,US,2008.0,0.0,UTA,
+2000,1,5,Mike Miller,GF,6-8,218,20,Florida,So *,,17,2034.0,US,2016.0,0.0,MEM,"{'1st Team All-Rookie': 1, 'NBA Champion': 2, 'NBA Rookie of the Month': 2, 'NBA Rookie of the Year': 1, 'NBA Sixth Man of the Year': 1, 'NBA Sporting News Rookie of the Year': 1}"
+1998,1,12,Michael Doleac,C,6-11,262,21,Utah,Sr,,10,1720.0,US,2007.0,0.0,ORL,"{'2nd Team All-Rookie': 1, 'NBA Champion': 1}"
+1998,1,15,Matt Harpring,F,6-7,230,22,Georgia Tech,Sr,,12,1723.0,US,2008.0,0.0,UTA,{'1st Team All-Rookie': 1}
 1998,2,42,Miles Simon,G,6-3,202,22,Arizona,Sr,,3,1750.0,US,2002.0,0.0,ORL,
 1997,1,17,Johnny Taylor,F,6-9,220,23,Chattanooga,Sr,,5,1511.0,US,1999.0,0.0,DEN,
 1996,1,27,Brian Evans,F,6-8,220,22,Indiana,Sr,,3,967.0,US,1998.0,0.0,ORL,
@@ -62,10 +62,10 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 1994,1,27,Brooks Thompson,G,6-4,193,23,Oklahoma State,Sr,,4,240.0,US,1997.0,0.0,ORL,
 1994,2,31,Rodney Dent,PF,6-9,256,23,Kentucky,Sr,,1,,,,,,
 1993,1,26,Geert Hammink,C,7-0,262,23,LSU,Sr,,3,903.0,NL,1995.0,0.0,ORL,
-1992,1,1,Shaquille O'Neal,C,7-1,325,20,LSU,Jr *,,19,406.0,US,2010.0,0.0,LAL,
-1991,1,10,Bison Dele,C,6-11,235,22,Arizona,Jr *,,8,183.0,US,1998.0,0.0,DEN,
-1991,1,23,Stanley Roberts,C,7-0,285,21,LSU,So,,9,914.0,US,1999.0,0.0,LAC,
+1992,1,1,Shaquille O'Neal,C,7-1,325,20,LSU,Jr *,,19,406.0,US,2010.0,0.0,LAL,"{'2nd Team All-Defensive': 3, '3rd Team All-NBA': 4, '2nd Team All-NBA': 2, '1st Team All-NBA': 8, '1st Team All-Rookie': 1, 'Hall of Fame Inductee': 1, 'IBM Award': 2, 'NBA All-Star': 15, 'NBA All-Star Most Valuable Player': 3, 'NBA Champion': 4, 'NBA Finals Most Valuable Player': 3, 'NBA Most Valuable Player': 1, 'NBA Player of the Month': 12, 'NBA Player of the Week': 19, 'NBA Rookie of the Month': 4, 'NBA Rookie of the Year': 1, 'NBA Sporting News Most Valuable Player of the Year': 2, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Gold Medal': 1}"
+1991,1,10,Bison Dele,C,6-11,235,22,Arizona,Jr *,,8,183.0,US,1998.0,0.0,DEN,{'NBA Champion': 1}
+1991,1,23,Stanley Roberts,C,7-0,285,21,LSU,So,,9,914.0,US,1999.0,0.0,LAC,{'2nd Team All-Rookie': 1}
 1991,2,36,Chris Corchiani,PG,6-0,185,23,NC State,Sr,,3,76450.0,US,1993.0,0.0,ORL,
-1990,1,4,Dennis Scott,SF,6-8,229,21,Georgia Tech,Jr *,,12,192.0,US,1999.0,0.0,ORL,
-1989,1,11,Nick Anderson,GF,6-6,228,21,Illinois,So *,,14,98.0,US,2002.0,0.0,ORL,
+1990,1,4,Dennis Scott,SF,6-8,229,21,Georgia Tech,Jr *,,12,192.0,US,1999.0,0.0,ORL,"{'1st Team All-Rookie': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 1}"
+1989,1,11,Nick Anderson,GF,6-6,228,21,Illinois,So *,,14,98.0,US,2002.0,0.0,ORL,{'NBA Player of the Week': 3}
 1989,2,37,Michael Ansley,F,6-7,225,22,Alabama,Sr,,3,76050.0,US,1991.0,0.0,ORL,

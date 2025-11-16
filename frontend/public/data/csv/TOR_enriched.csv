@@ -6,10 +6,10 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2010,2,50,Solomon Alabi,C,7-1,250,22,Florida State,So *,DAL to  TOR,2,202374.0,NG,2011.0,0.0,TOR,
 2008,2,41,Nathan Jawai,C,6-10,280,21,Cairns (Australia),1986 DOB,IND to  TOR,2,201605.0,AU,2009.0,0.0,MIN,
 2004,2,47,Pape Sow,FC,6-10,224,22,Cal State Fullerton,Sr,MIA to  TOR,3,2776.0,SN,2006.0,0.0,TOR,
-2003,2,45,Matt Bonner,FC,6-10,235,23,Florida,Sr,CHI to  TOR,12,2588.0,US,2015.0,0.0,SAS,
+2003,2,45,Matt Bonner,FC,6-10,235,23,Florida,Sr,CHI to  TOR,12,2588.0,US,2015.0,0.0,SAS,{'NBA Champion': 2}
 2002,1,27,Chris Jefferies,F,6-8,225,22,Fresno State,Jr *,LAL to  TOR,3,2423.0,US,2003.0,0.0,TOR,
-1998,1,5,Vince Carter,SF,6-6,220,21,North Carolina,Jr *,GSW to  TOR,22,1713.0,US,2019.0,0.0,TOR,
-1998,2,44,Sean Marks,F-C,6-10,250,22,California,Sr,NYK to  TOR,12,1752.0,NZ,2010.0,0.0,NOP,
+1998,1,5,Vince Carter,SF,6-6,220,21,North Carolina,Jr *,GSW to  TOR,22,1713.0,US,2019.0,0.0,TOR,"{'3rd Team All-NBA': 1, '2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 8, 'NBA Player of the Month': 3, 'NBA Player of the Week': 11, 'NBA Rookie of the Month': 2, 'NBA Rookie of the Year': 1, 'NBA Sporting News Rookie of the Year': 1, 'Olympic Gold Medal': 1}"
+1998,2,44,Sean Marks,F-C,6-10,250,22,California,Sr,NYK to  TOR,12,1752.0,NZ,2010.0,0.0,NOP,{'Olympic Appearance': 2}
 1995,2,40,Dwayne Whitfield,F,6-9,240,22,Jackson State,Sr,GSW to  TOR,2,730.0,US,1995.0,0.0,TOR,
 1995,2,50,Martin Lewis,F,6-5,210,20,Seward County CC,So *,GSW to  TOR,3,729.0,US,1996.0,0.0,TOR,
 1995,2,55,Michael McDonald,C,6-10,232,26,New Orleans,Sr,GSW to  TOR,2,1075.0,US,1997.0,0.0,CHA,
@@ -36,19 +36,19 @@ Year,Round,Pick,Player,Pos,HT,WT,Age,Pre-Draft Team,Class,Draft Trades,YOS,nba_i
 2011,1,5,Jonas Valančiūnas,C,6-11,265,19,Lietuvos Rytas (Lithuania),1992 DOB *,,13,202685.0,LT,2025.0,0.0,DEN,"{'All-Rookie Team': 1, 'NBA Rookie of the Month': 1, 'Olympic Appearance': 1}"
 2010,1,13,Ed Davis,PF,6-9,218,21,North Carolina,So *,,12,202334.0,US,2021.0,0.0,CLE,
 2009,1,9,DeMar DeRozan,GF,6-6,220,19,USC,Fr *,,16,201942.0,US,2025.0,0.0,SAC,"{'All-NBA': 3, 'NBA All-Star': 6, 'NBA Player of the Month': 4, 'NBA Player of the Week': 15, 'Olympic Gold Medal': 1}"
-2006,1,1,Andrea Bargnani,FC,7-0,245,20,Universo De'Longhi Treviso (Italy),1985 DOB *,,10,200745.0,IT,2015.0,0.0,TOR,
-2006,2,35,P.J. Tucker,SF,6-5,245,21,Texas,Jr *,,14,200782.0,US,2024.0,0.0,NYK,
-2005,1,7,Charlie Villanueva,F,6-11,238,20,UConn,So *,,11,101111.0,US,2015.0,0.0,DET,
+2006,1,1,Andrea Bargnani,FC,7-0,245,20,Universo De'Longhi Treviso (Italy),1985 DOB *,,10,200745.0,IT,2015.0,0.0,TOR,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 2}"
+2006,2,35,P.J. Tucker,SF,6-5,245,21,Texas,Jr *,,14,200782.0,US,2024.0,0.0,NYK,{'NBA Champion': 1}
+2005,1,7,Charlie Villanueva,F,6-11,238,20,UConn,So *,,11,101111.0,US,2015.0,0.0,DET,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Month': 1}"
 2005,1,16,Joey Graham,G,6-7,225,23,Oklahoma State,Sr,,6,101121.0,US,2010.0,0.0,TOR,
 2005,2,41,Roko Ukic,G,6-5,183,20,Fenerbahce Beko (Turkey),1984 DOB *,,2,101146.0,HR,2009.0,0.0,TOR,
 2005,2,58,Uros Slokar,PF,6-11,238,22,Pallalcesto Amatori Udine (Italy),1983 DOB,,1,101166.0,SI,2006.0,0.0,TOR,
 2004,1,8,Rafael Araujo,C,6-11,280,23,Brigham Young,Sr,,3,2737.0,BR,2006.0,0.0,TOR,
-2003,1,4,Chris Bosh,PF,6-11,235,19,Georgia Tech,Fr *,,14,2547.0,US,2016.0,0.0,MIA,
+2003,1,4,Chris Bosh,PF,6-11,235,19,Georgia Tech,Fr *,,14,2547.0,US,2016.0,0.0,MIA,"{'2nd Team All-NBA': 1, '1st Team All-Rookie': 1, 'NBA All-Star': 11, 'NBA Champion': 2, 'NBA Player of the Month': 1, 'NBA Player of the Week': 9, 'Olympic Gold Medal': 1}"
 2001,1,17,Michael Bradley,F,6-10,245,22,Villanova,Jr *,,5,2214.0,US,2005.0,0.0,TOR,
-2000,1,21,Morris Peterson,G,6-7,220,22,Michigan State,Sr,,11,2050.0,US,2010.0,0.0,TOR,
+2000,1,21,Morris Peterson,G,6-7,220,22,Michigan State,Sr,,11,2050.0,US,2010.0,0.0,TOR,{'1st Team All-Rookie': 1}
 2000,2,46,DeeAndre Hulett,F,6-8,215,19,Las Vegas Silver Bandits (United States),1980 DOB,,0,,,,,,
 1999,1,12,Aleksandar Radojevic,C,7-3,250,22,Barton,So *,,4,1893.0,BA,2004.0,0.0,UTA,
-1997,1,9,Tracy McGrady,GF,6-8,210,18,Mt. Zion Christian Academy (North Carolina),1979 DOB *,,16,1503.0,US,2012.0,0.0,HOU,
-1996,1,2,Marcus Camby,C,6-11,240,22,Massachusetts,Jr *,,17,948.0,US,2012.0,0.0,DEN,
-1995,1,7,Damon Stoudamire,G,5-10,171,21,Arizona,Sr,,13,757.0,US,2007.0,0.0,POR,
+1997,1,9,Tracy McGrady,GF,6-8,210,18,Mt. Zion Christian Academy (North Carolina),1979 DOB *,,16,1503.0,US,2012.0,0.0,HOU,"{'2nd Team All-NBA': 3, '1st Team All-NBA': 2, '3rd Team All-NBA': 2, 'Hall of Fame Inductee': 1, 'NBA All-Star': 7, 'NBA Most Improved Player': 1, 'NBA Player of the Month': 4, 'NBA Player of the Week': 12}"
+1996,1,2,Marcus Camby,C,6-11,240,22,Massachusetts,Jr *,,17,948.0,US,2012.0,0.0,DEN,"{'2nd Team All-Defensive': 2, '1st Team All-Defensive': 2, '1st Team All-Rookie': 1, 'NBA Defensive Player of the Year': 1, 'NBA Player of the Week': 2, 'NBA Rookie of the Month': 1}"
+1995,1,7,Damon Stoudamire,G,5-10,171,21,Arizona,Sr,,13,757.0,US,2007.0,0.0,POR,"{'1st Team All-Rookie': 1, 'NBA Rookie of the Year': 1, 'NBA Sporting News Rookie of the Year': 1, 'NBA Rookie of the Month': 2}"
 1995,2,35,Jimmy King,GF,6-5,210,21,Michigan,Sr,,5,728.0,US,1996.0,0.0,TOR,
