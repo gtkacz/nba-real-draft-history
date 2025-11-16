@@ -56,6 +56,7 @@ export function useDraftData() {
   const retiredFilter = ref<'all' | 'retired' | 'not-retired'>('all')
   const selectedNationalities = ref<string[]>([])
   const selectedAwards = ref<Record<string, number>>({}) // { awardName: minCount }
+  const awardFilterMode = ref<'exclusive' | 'inclusive'>('exclusive')
   const playerSearch = ref<string>('')
 
   // Sort state - initial multi-sort by year (desc) and pick (asc)
@@ -358,11 +359,19 @@ export function useDraftData() {
     if (selectedAwardEntries.length > 0) {
       filtered = filtered.filter((pick) => {
         if (!pick.awards || typeof pick.awards !== 'object') return false
-        // Check if player meets the minimum count requirement for all selected awards
-        return selectedAwardEntries.every(([awardName, minCount]) => {
-          const playerCount = pick.awards[awardName]
-          return playerCount !== undefined && typeof playerCount === 'number' && playerCount >= minCount
-        })
+        if (awardFilterMode.value === 'exclusive') {
+          // Exclusive mode: player must have ALL selected awards
+          return selectedAwardEntries.every(([awardName, minCount]) => {
+            const playerCount = pick.awards[awardName]
+            return playerCount !== undefined && typeof playerCount === 'number' && playerCount >= minCount
+          })
+        } else {
+          // Inclusive mode: player must have ANY of the selected awards
+          return selectedAwardEntries.some(([awardName, minCount]) => {
+            const playerCount = pick.awards[awardName]
+            return playerCount !== undefined && typeof playerCount === 'number' && playerCount >= minCount
+          })
+        }
       })
     }
 
@@ -484,6 +493,7 @@ export function useDraftData() {
     retiredFilter,
     selectedNationalities,
     selectedAwards,
+    awardFilterMode,
     playerSearch,
     sortBy,
     currentPage,

@@ -22,6 +22,7 @@ interface FilterDefaults {
   retiredFilter: 'all' | 'retired' | 'not-retired'
   selectedNationalities: string[]
   selectedAwards: Record<string, number>
+  awardFilterMode: 'exclusive' | 'inclusive'
   playerSearch: string
   sortBy: SortItem[]
   currentPage: number
@@ -47,6 +48,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
   retiredFilter: 'all',
   selectedNationalities: [],
   selectedAwards: {},
+  awardFilterMode: 'exclusive',
   playerSearch: '',
   sortBy: [
     { key: 'year', order: 'desc' },
@@ -76,6 +78,7 @@ export function useFilterUrlSync(
     retiredFilter: Ref<'all' | 'retired' | 'not-retired'>
     selectedNationalities: Ref<string[]>
     selectedAwards: Ref<Record<string, number>>
+    awardFilterMode: Ref<'exclusive' | 'inclusive'>
     playerSearch: Ref<string>
     sortBy: Ref<SortItem[]>
     currentPage: Ref<number>
@@ -172,6 +175,7 @@ export function useFilterUrlSync(
       filters.retiredFilter.value = DEFAULT_FILTERS.retiredFilter
       filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
       filters.selectedAwards.value = { ...DEFAULT_FILTERS.selectedAwards }
+      filters.awardFilterMode.value = DEFAULT_FILTERS.awardFilterMode
       filters.playerSearch.value = DEFAULT_FILTERS.playerSearch
       filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
       filters.currentPage.value = DEFAULT_FILTERS.currentPage
@@ -333,6 +337,14 @@ export function useFilterUrlSync(
       }
     }
 
+    // Load awardFilterMode
+    if (query.awardMode) {
+      const modeStr = Array.isArray(query.awardMode) ? query.awardMode[0] : query.awardMode
+      if (typeof modeStr === 'string' && (modeStr === 'exclusive' || modeStr === 'inclusive')) {
+        filters.awardFilterMode.value = modeStr
+      }
+    }
+
     // Load playerSearch
     if (query.playerSearch) {
       const searchStr = Array.isArray(query.playerSearch) ? query.playerSearch[0] : query.playerSearch
@@ -472,6 +484,10 @@ export function useFilterUrlSync(
       query.awards = JSON.stringify(filters.selectedAwards.value)
     }
 
+    if (filters.awardFilterMode.value !== DEFAULT_FILTERS.awardFilterMode) {
+      query.awardMode = filters.awardFilterMode.value
+    }
+
     // Only add playerSearch if it's different from default (non-empty)
     if (filters.playerSearch.value && filters.playerSearch.value.trim() !== '') {
       query.playerSearch = filters.playerSearch.value.trim()
@@ -522,6 +538,7 @@ export function useFilterUrlSync(
       filters.retiredFilter.value,
       filters.selectedNationalities.value,
       filters.selectedAwards.value,
+      filters.awardFilterMode.value,
       filters.sortBy.value,
       filters.currentPage.value,
       filters.itemsPerPage.value,

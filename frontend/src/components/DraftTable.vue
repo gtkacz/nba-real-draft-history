@@ -38,6 +38,7 @@ interface DraftTableProps {
   retiredFilter?: 'all' | 'retired' | 'not-retired'
   selectedNationalities?: string[]
   selectedAwards?: Record<string, number>
+  awardFilterMode?: 'exclusive' | 'inclusive'
   playerSearch?: string
   sortBy?: SortItem[]
   currentPage?: number
@@ -76,6 +77,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   retiredFilter: () => 'all',
   selectedNationalities: () => [],
   selectedAwards: () => ({}),
+  awardFilterMode: () => 'exclusive',
   playerSearch: '',
   sortBy: () => [
     { key: 'year', order: 'desc' },
@@ -116,6 +118,7 @@ const emit = defineEmits<{
   'update:retiredFilter': [value: 'all' | 'retired' | 'not-retired']
   'update:selectedNationalities': [value: string[]]
   'update:selectedAwards': [value: Record<string, number>]
+  'update:awardFilterMode': [value: 'exclusive' | 'inclusive']
   'update:playerSearch': [value: string]
   'update:sortBy': [value: SortItem[]]
   'update:currentPage': [value: number]
@@ -1712,9 +1715,28 @@ const shareTooltipText = computed(() => {
 
                 <!-- Awards Filter Section -->
                 <div v-if="props.availableAwards && props.availableAwards.length > 0" class="pa-4 pb-2">
-                  <div class="text-subtitle-2 font-weight-bold mb-3 d-flex align-center">
-                    <v-icon icon="mdi-star" size="20" class="mr-2" />
-                    Awards
+                  <div class="text-subtitle-2 font-weight-bold mb-3 d-flex align-center justify-space-between">
+                    <div class="d-flex align-center">
+                      <v-icon icon="mdi-star" size="20" class="mr-2" />
+                      Awards
+                    </div>
+                    <v-tooltip location="bottom" max-width="300">
+                      <template v-slot:activator="{ props: tooltipProps }">
+                        <v-btn-toggle
+                          :model-value="props.awardFilterMode || 'exclusive'"
+                          @update:model-value="emit('update:awardFilterMode', $event)"
+                          variant="outlined"
+                          mandatory
+                          density="compact"
+                          v-bind="tooltipProps"
+                          class="award-mode-toggle"
+                        >
+                          <v-btn value="exclusive" size="small">All</v-btn>
+                          <v-btn value="inclusive" size="small">Any</v-btn>
+                        </v-btn-toggle>
+                      </template>
+                      <span>Exclusive (All): Shows players with ALL selected awards.<br>Inclusive (Any): Shows players with ANY selected award.</span>
+                    </v-tooltip>
                   </div>
               <div class="awards-filter-list">
                 <div
@@ -2239,9 +2261,28 @@ const shareTooltipText = computed(() => {
 
             <!-- Awards Filter Section -->
             <div v-if="props.availableAwards && props.availableAwards.length > 0" class="pa-4 pb-3">
-              <div class="text-subtitle-2 font-weight-bold mb-3 d-flex align-center">
-                <v-icon icon="mdi-star" size="20" class="mr-2" />
-                Awards
+              <div class="text-subtitle-2 font-weight-bold mb-3 d-flex align-center justify-space-between">
+                <div class="d-flex align-center">
+                  <v-icon icon="mdi-star" size="20" class="mr-2" />
+                  Awards
+                </div>
+                <v-tooltip location="bottom" max-width="300">
+                  <template v-slot:activator="{ props: tooltipProps }">
+                    <v-btn-toggle
+                      :model-value="props.awardFilterMode || 'exclusive'"
+                      @update:model-value="emit('update:awardFilterMode', $event)"
+                      variant="outlined"
+                      mandatory
+                      density="comfortable"
+                      v-bind="tooltipProps"
+                      class="award-mode-toggle"
+                    >
+                      <v-btn value="exclusive">All</v-btn>
+                      <v-btn value="inclusive">Any</v-btn>
+                    </v-btn-toggle>
+                  </template>
+                  <span>Exclusive (All): Shows players with ALL selected awards.<br>Inclusive (Any): Shows players with ANY selected award.</span>
+                </v-tooltip>
               </div>
               <div class="awards-filter-list">
                 <div

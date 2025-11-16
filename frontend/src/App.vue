@@ -33,6 +33,7 @@ const {
   retiredFilter,
   selectedNationalities,
   selectedAwards,
+  awardFilterMode,
   playerSearch,
   sortBy,
   currentPage,
@@ -74,6 +75,7 @@ const { resetFilters: resetFiltersFromUrl } = useFilterUrlSync({
   retiredFilter,
   selectedNationalities,
   selectedAwards,
+  awardFilterMode,
   playerSearch,
   sortBy,
   currentPage,
@@ -140,6 +142,7 @@ onMounted(() => {
               v-model:retired-filter="retiredFilter"
               v-model:selected-nationalities="selectedNationalities"
               v-model:selected-awards="selectedAwards"
+              v-model:award-filter-mode="awardFilterMode"
               v-model:player-search="playerSearch"
               v-model:sort-by="sortBy"
               v-model:current-page="currentPage"
