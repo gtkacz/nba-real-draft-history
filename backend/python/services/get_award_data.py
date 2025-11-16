@@ -1,13 +1,28 @@
 import json  # noqa: CPY001, D100
 import pathlib
-import re
 import time
+from collections import defaultdict
 from functools import cache
 
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup, NavigableString
 from tqdm import tqdm
+
+
+def get_number_suffix(number: float) -> str:
+    """
+    Get the ordinal suffix for a given number.
+
+    Args:
+        number: The number to get the suffix for.
+
+    Returns:
+        str: The ordinal suffix ('st', 'nd', 'rd', 'th') for the number.
+    """
+    if 10 <= number % 100 <= 20:  # noqa: PLR2004
+        return "th"
+
+    return {1: "st", 2: "nd", 3: "rd"}.get(int(number) % 10, "th")
 
 
 @cache  # pyright: ignore[reportUntypedFunctionDecorator]
@@ -21,68 +36,61 @@ def get_award_data(player_nba_id: int) -> dict[str, int]:  # noqa: C901
     Returns:
         dict: A dictionary containing the player's award data.
     """
-    base_url = "https://www.nba.com/stats/player/{}/career"
+    base_url = "https://stats.nba.com/stats/playerawards?LeagueID=00&PerMode=PerGame&PlayerID={}"
+
+    payload = {}
+
+    headers = {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br, zstd",
+        "Accept-Language": "en-US,en;q=0.7",
+        "Connection": "keep-alive",
+        "Host": "stats.nba.com",
+        "Origin": "https://www.nba.com",
+        "Referer": "https://www.nba.com/",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site",
+        "Sec-GPC": "1",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+        "sec-ch-ua": '"Chromium";v="142", "Brave";v="142", "Not_A Brand";v="99"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+    }
 
     try:
-        data = requests.get(base_url.format(player_nba_id), timeout=60)
+        data = requests.request("GET", base_url.format(player_nba_id), headers=headers, data=payload, timeout=10)
         data.raise_for_status()
     except requests.RequestException:
         # If the request fails, wait 30 seconds and try once more.
-        time.sleep(30)
-        data = requests.get(base_url.format(player_nba_id), timeout=60)
+        print(f"Request for player ID {player_nba_id} failed, retrying...")
+        time.sleep(60)
+        data = requests.request("GET", base_url.format(player_nba_id), headers=headers, data=payload, timeout=10)
         data.raise_for_status()
 
-    soup = BeautifulSoup(data.text, "lxml")
+    raw_data = data.json()
 
-    header = soup.find(
-        "header",
-        class_=re.compile(r"^PlayerStatsCareer_header"),  # startswith match
-        string=lambda s: s and s.strip() == "Awards",
-    )
-
-    if not header:
+    if not raw_data or "resultSets" not in raw_data:
         return {}
 
-    awards_div = header.find_next_sibling("div")
+    headers = raw_data["resultSets"][0]["headers"]
+    data_list = raw_data["resultSets"][0]["rowSet"]
 
-    if not awards_div or awards_div.find("div", class_=re.compile(r"^PlayerStatsCareer_noAwards")):
-        return {}
+    award_index = headers.index("DESCRIPTION")
+    team_number_index = headers.index("ALL_NBA_TEAM_NUMBER")
 
-    awards: dict[str, int] = {}
+    output = defaultdict(int)
 
-    for entry in awards_div.find_all("div", recursive=False):
-        span = entry.find("span")
-        if not span:
-            continue
+    for item in data_list:
+        award_name = item[award_index]
+        team_number = item[team_number_index]
 
-        strong = span.find("strong")
-        if not strong:
-            continue
+        if team_number:
+            award_name = f"{team_number}{get_number_suffix(int(team_number))} Team {award_name.removesuffix(" Team")}"
 
-        # numeric value
-        try:
-            count = int(strong.get_text(strip=True))
-        except ValueError:
-            continue
+        output[award_name] += 1
 
-        # build label from everything in the span that's NOT the <strong> or <svg>
-        label_parts = []
-        for child in span.children:
-            # skip the number and the icon
-            if child is strong or getattr(child, "name", None) == "svg":
-                continue
-
-            text = str(child).strip() if isinstance(child, NavigableString) else child.get_text(strip=True)
-
-            if text:
-                label_parts.append(text)  # pyright: ignore[reportUnknownMemberType]
-
-        label = " ".join(label_parts)  # pyright: ignore[reportUnknownArgumentType]
-
-        if label:
-            awards[label] = count
-
-    return awards
+    return dict(output)
 
 
 def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
@@ -118,6 +126,7 @@ def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
         # If `force` is True, fetch for all eligible rows. Otherwise only
         # fetch for rows where the `awards` column is empty/missing.
         if "awards" in curr_df.columns and not force:
+
             def _is_award_empty(val) -> bool:
                 if pd.isna(val):
                     return True
@@ -154,9 +163,24 @@ def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
 
         award_map: dict[int, dict[str, int]] = {}
 
-        # Fetch award data once per unique NBA ID
+        # Fetch award data once per unique NBA ID. If a request times out,
+        # save whatever we've collected so far and exit gracefully.
+        timed_out = False
         for nba_id in tqdm(valid_ids, leave=False):
-            award_data = get_award_data(int(nba_id))
+            try:
+                award_data = get_award_data(int(nba_id))
+            except requests.exceptions.Timeout:
+                print(f"Timeout fetching awards for player ID {nba_id}; saving progress and exiting.")
+                timed_out = True
+                break
+            except requests.RequestException as e:
+                # For other request-related errors, surface the issue but
+                # also persist progress so far instead of losing work.
+                print(f"Request error for player ID {nba_id}: {e}; saving progress and exiting.")
+                timed_out = True
+                break
+
+            time.sleep(1)  # be polite to the NBA stats API
 
             # Log info, but only store entries that actually have award data
             if not award_data:
@@ -178,6 +202,9 @@ def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
         # Save / inspect
         curr_df.to_csv(f"frontend/public/data/csv/{team}_enriched.csv", index=False)
         print(f"Fetched awards for team: {team}")
+        if timed_out:
+            print("Saved partial results due to timeout/error. Exiting.")
+            return
 
 
 if __name__ == "__main__":
