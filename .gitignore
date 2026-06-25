@@ -277,3 +277,4 @@ CLAUDE.md
 .vscode/
 *.html
 !index.html
+.serena/*

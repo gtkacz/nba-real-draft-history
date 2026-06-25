@@ -63,7 +63,7 @@ def run():
         "sec-ch-ua": '"Not)A;Brand";v="8", "Chromium";v="138", "Brave";v="138"',
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": '"Windows"',
-        "Cookie": "ak_bmsc=F49EC64EFC310BF63C2204C834C923C6~000000000000000000000000000000~YAAQzQkTAiE2xDOaAQAAYS6seR2XEe9BhGvgZxW6hTElOG9Pxn1QN5iIQlfoiWnwwHV2Ou4cSSdDivyGNspJUnjVlnH+pqnw688H0xRdMdtIadmXHzVj92voNepTdmUwKspCZjQesnvNNqcoXEdsgQsaUGkcQ49TQHENv2yD6R7Ga0ZT8wX+KO9Visnd5uIZwO+MBQ3VDMytboD671UDTRPi/NA4I6W1+h/RaacNkt4hJYO5+2ycGQihsTgEK7RYB+evtzsnojS5qe6bCXC85Hw84Ix0ZUBNenN7XK7pG386c21egagM6RoFdzQpF487Q8UBKPbJbKpCSXfQpyhEEoiaFO5K1fjfH5diR9Bu11U9zUym8JwQRW7PEYr7tlpR; Domain=.nba.com; Path=/; Expires=Wed, 12 Nov 2025 22:05:18 GMT; Max-Age=7200; HttpOnly",
+        "Cookie": "bm_s=YAAQcIQUAtJIv9GeAQAAWznZAAVIGy368q2qpJHTqDU0UiVLkwcXkQU8Zd+WCyT2FxnfaJtmlRNIohjzg5p6V9puv2YfIqZdasIJh3dqqQf6KgUWraK3HCfk24ejw9cTuV+RLq3F9hjfznSIysj2/unZWSoNH7kAjZj0Op2Gaxevii75YbtReTrZUpDsWBPxu2T7kYRcdu7JUg3nZ0XOP5nhHcaia4+L7YQ5Ufj47r1YUdCFsl4W5BVLbS45wnHsBpvTbpAoHvoEBh+GhA5uz5o4ZBjrNnnE5PtX78eZ2eEbdv1Pt4bM1LFaNr+D4NM79Q0xtrmx0BY91sbifEQuYxwodvTLnbK6/+iSls96VxIa6kmzSsDCzHz+g98JxtT+5j52TjmSRO+uf1QMvKCV9PjC2/7gwDacoNiQzaJpjtDOHMT1kg5hje/s7HfF5zy2cVRuP3v2iceGTtm3waXBwSxfN4kHFTXe7Cfgu6ok3JJCSydxl+0ZJkzhVMk84i2pqE3YgnRdCDnHyqU8gJ6TnaaEUBySyZzbk4a3cGIj/AaTNnTaBF/1QYkiQqhpi8c9aT7eRyf/aoESaY/7k/BHt+uOW+xON3bxkafPQfES/UbovG+E2u1NEVmgxar2AVZSuzYo0aG81tzNmaagf7Bce0IMmQnuLIwdveyaxNA4s7tZfDO7n67VEGR9Ze5n2sJuRbli65Zt2Q2/70CL0MdqPA5FMq/pB4fhxY3dAVTe3BPouTT3PgHQNXzqPolSkVJMOCUdxfTpnduw0zlM51vN9iZFDi2SmmMRho6qDXD7Of/z5iI/x2h6dRzIw9cenMxYsTN2w3SLq9/N5nyg6w4=; Domain=.nba.com; Path=/; Expires=Sun, 26 Jul 2026 22:14:23 GMT; Max-Age=2678400; Secure; HttpOnly",
     }
 
     try:
