@@ -2,6 +2,7 @@ import json  # noqa: CPY001, D100
 import pathlib
 import sys
 import time
+from io import StringIO
 
 import pandas as pd
 from selenium import webdriver
@@ -138,7 +139,7 @@ def scrape_draft_history(
         print("Parsing page 1...")
         table_element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, table_selector)))
         table_html = table_element.get_attribute("outerHTML")
-        df = pd.read_html(table_html)[0]
+        df = pd.read_html(StringIO(table_html))[0]
         unseen = _unseen_rows(df, ingested_keys)
         new_data = pd.concat([new_data, unseen], ignore_index=True)
         print(f"Added {len(unseen)} new rows from page 1")
@@ -169,7 +170,7 @@ def scrape_draft_history(
                 # Parse the table again
                 table_element = driver.find_element(By.CSS_SELECTOR, table_selector)
                 table_html = table_element.get_attribute("outerHTML")
-                df = pd.read_html(table_html)[0]
+                df = pd.read_html(StringIO(table_html))[0]
                 unseen = _unseen_rows(df, ingested_keys)
                 new_data = pd.concat([new_data, unseen], ignore_index=True)
                 print(f"Added {len(unseen)} new rows from page {page_num}")
