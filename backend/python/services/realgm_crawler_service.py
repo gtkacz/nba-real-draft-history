@@ -75,6 +75,11 @@ def scrape_draft_history(
     """
     # Setup Chrome options for better stability
     chrome_options = Options()
+    # RealGM's ad/tracking resources (site-takeover, Sellwild) keep network
+    # connections open, so the page never reaches readyState "complete" and the
+    # default "normal" strategy blocks driver.get() forever. "eager" returns at
+    # DOMContentLoaded; the explicit WebDriverWait below handles the table.
+    chrome_options.page_load_strategy = "eager"
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -89,16 +94,19 @@ def scrape_draft_history(
 
     try:
         # Navigate to the page
-        url = f"https://basketball.realgm.com/nba/teams/{team_name.replace(" ", "-")}/{team_id}/Draft-History"
+        url = f"https://basketball.realgm.com/nba/teams/{team_name.replace(' ', '-')}/{team_id}/Draft-History"
         print(f"Accessing: {url}")
         driver.get(url)
 
         # Wait for page to load
+        print("URL got, waiting...")
         wait = WebDriverWait(driver, 10)
 
         # Remove the ad element if it exists
+        print("Processing ad element...")
         try:
-            ad_element = driver.find_element(By.CSS_SELECTOR, "#AdThrive_Footer_1_desktop")
+            ad_element = driver.find_element(By.CLASS_NAME, "sellwild-sticky-bottom-container")
+            print("Ad element found")
             driver.execute_script("arguments[0].remove();", ad_element)
             print("Ad element removed successfully")
         except NoSuchElementException:

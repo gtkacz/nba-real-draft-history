@@ -26,7 +26,7 @@ def get_number_suffix(number: float) -> str:
 
 
 @cache  # pyright: ignore[reportUntypedFunctionDecorator]
-def get_award_data(player_nba_id: int) -> dict[str, int]:  # noqa: C901
+def get_award_data(player_nba_id: int) -> dict[str, int]:
     """
     Fetches award data for a given NBA player using their NBA ID.
 
@@ -86,7 +86,7 @@ def get_award_data(player_nba_id: int) -> dict[str, int]:  # noqa: C901
         team_number = item[team_number_index]
 
         if team_number and team_number.isdigit():
-            award_name = f"{team_number}{get_number_suffix(int(team_number))} Team {award_name.removesuffix(" Team")}"
+            award_name = f"{team_number}{get_number_suffix(int(team_number))} Team {award_name.removesuffix(' Team')}"
 
         output[award_name] += 1
 

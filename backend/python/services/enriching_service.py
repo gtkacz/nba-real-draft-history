@@ -18,7 +18,8 @@ def treat_name(name: str) -> str:
         str: The cleaned and standardized player name.
     """
     return (
-        name.removesuffix(" Jr")
+        name
+        .removesuffix(" Jr")
         .removesuffix(" Jr.")
         .replace("Cam", "Cameron")
         .replace("Moe", "Moritz")
@@ -54,7 +55,19 @@ def main() -> None:  # noqa: D103
 
         # First match by Year/Round/Pick to DRAFT_YEAR/DRAFT_ROUND/DRAFT_NUMBER
         curr_df_merged = curr_df.merge(
-            nba_df[["nba_id", "full_name", "DRAFT_YEAR", "DRAFT_ROUND", "DRAFT_NUMBER", "COUNTRY", "TO_YEAR", "IS_DEFUNCT", "real_team"]],
+            nba_df[
+                [
+                    "nba_id",
+                    "full_name",
+                    "DRAFT_YEAR",
+                    "DRAFT_ROUND",
+                    "DRAFT_NUMBER",
+                    "COUNTRY",
+                    "TO_YEAR",
+                    "IS_DEFUNCT",
+                    "real_team",
+                ]
+            ],
             left_on=["Year", "Round", "Pick"],
             right_on=["DRAFT_YEAR", "DRAFT_ROUND", "DRAFT_NUMBER"],
             how="left",
@@ -70,12 +83,32 @@ def main() -> None:  # noqa: D103
 
             # Drop the columns from the first merge attempt
             unmatched_df = unmatched_df.drop(
-                columns=["nba_id", "DRAFT_YEAR", "DRAFT_ROUND", "DRAFT_NUMBER", "COUNTRY", "TO_YEAR", "IS_DEFUNCT", "real_team"],
+                columns=[
+                    "nba_id",
+                    "DRAFT_YEAR",
+                    "DRAFT_ROUND",
+                    "DRAFT_NUMBER",
+                    "COUNTRY",
+                    "TO_YEAR",
+                    "IS_DEFUNCT",
+                    "real_team",
+                ],
             )
 
             # Try matching by name and year
             unmatched_df = unmatched_df.merge(
-                nba_df[["nba_id", "full_name", "treated_name", "DRAFT_YEAR", "COUNTRY", "TO_YEAR", "IS_DEFUNCT", "real_team"]],
+                nba_df[
+                    [
+                        "nba_id",
+                        "full_name",
+                        "treated_name",
+                        "DRAFT_YEAR",
+                        "COUNTRY",
+                        "TO_YEAR",
+                        "IS_DEFUNCT",
+                        "real_team",
+                    ]
+                ],
                 left_on=["treated_name", "Year"],
                 right_on=["treated_name", "DRAFT_YEAR"],
                 how="left",
