@@ -80,12 +80,15 @@ _COUNTRY_NAME_TO_ALPHA2: dict[str, str] = {
     "tunisia": "tn",
     "turkey": "tr",
     "ukraine": "ua",
+    "uk": "gb",
     "united kingdom": "gb",
     "uruguay": "uy",
     "us virgin islands": "vi",
     "usa": "us",
     "venezuela": "ve",
 }
+
+_KNOWN_ALPHA2_CODES = frozenset(_COUNTRY_NAME_TO_ALPHA2.values())
 
 
 def country_to_alpha2(country: object) -> str | None:
@@ -97,7 +100,7 @@ def country_to_alpha2(country: object) -> str | None:
     if not normalized or normalized == "nan":
         return None
 
-    if len(normalized) == 2 and normalized.isalpha():
+    if len(normalized) == 2 and normalized in _KNOWN_ALPHA2_CODES:
         return normalized
 
     return _COUNTRY_NAME_TO_ALPHA2.get(normalized)
