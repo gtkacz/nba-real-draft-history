@@ -8,6 +8,13 @@ import { parseHeight } from '@/utils/parseHeight'
 import { getCanonicalTeam } from '@/utils/teamAliases'
 import { getTradeChainCanonicalTeams } from '@/utils/tradeChain'
 import { getCurrentSeasonStartYear } from '@/utils/season'
+import { useCountryData } from '@/composables/useCountryData'
+import {
+  buildCountryNameToCode,
+  resolveDraftCountryCode,
+  NON_US_DRAFT_COUNTRY,
+  US_DRAFT_COUNTRY,
+} from '@/utils/draftCountry'
 import {
   YEAR_MIN,
   YEAR_MAX,
@@ -46,6 +53,7 @@ export function useDraftData() {
   const selectedRounds = ref<(number | string)[]>([])
   const overallPickRange = ref<[number, number]>([PICK_MIN, PICK_MAX])
   const preDraftTeamSearch = ref<string[]>([])
+  const selectedDraftCountries = ref<string[]>([])
   const selectedPositions = ref<string[]>([])
   const ageRange = ref<[number, number]>([AGE_MIN, AGE_MAX])
   const heightRange = ref<[number, number]>([HEIGHT_MIN, HEIGHT_MAX])
@@ -87,6 +95,31 @@ export function useDraftData() {
       }
     })
     return Array.from(teams).sort()
+  })
+
+  // Reverse country-name lookup is keyed off the shared country dataset so that
+  // newly-added countries resolve automatically without a hardcoded list.
+  const { countryDataMap } = useCountryData()
+  const countryNameToCode = computed(() => buildCountryNameToCode(Object.keys(countryDataMap.value)))
+
+  // Resolve each distinct pre-draft team once; both the filter and the option
+  // list reuse this map instead of re-parsing every pick on every pass.
+  const draftCountryByTeam = computed(() => {
+    const resolver = countryNameToCode.value
+    const map = new Map<string, string>()
+    allDraftPicks.value.forEach((pick) => {
+      const team = pick.preDraftTeam ?? ''
+      if (!map.has(team)) {
+        map.set(team, resolveDraftCountryCode(team, resolver))
+      }
+    })
+    return map
+  })
+
+  const availableDraftCountries = computed(() => {
+    const codes = new Set<string>()
+    draftCountryByTeam.value.forEach((code) => codes.add(code))
+    return Array.from(codes).sort()
   })
 
   const availableYears = computed(() => {
@@ -266,6 +299,19 @@ export function useDraftData() {
       )
     }
 
+    // Drafted-from country filter - explicit countries plus an optional
+    // "all non-US countries" umbrella; the two are OR-combined.
+    if (selectedDraftCountries.value.length > 0) {
+      const wantsNonUs = selectedDraftCountries.value.includes(NON_US_DRAFT_COUNTRY)
+      const explicitCodes = selectedDraftCountries.value.filter((code) => code !== NON_US_DRAFT_COUNTRY)
+      const teamCountry = draftCountryByTeam.value
+      filtered = filtered.filter((pick) => {
+        const code = teamCountry.get(pick.preDraftTeam ?? '') ?? US_DRAFT_COUNTRY
+        if (explicitCodes.includes(code)) return true
+        return wantsNonUs && code !== US_DRAFT_COUNTRY
+      })
+    }
+
     // Position filter - check if any selected position matches the pick's position
     if (selectedPositions.value.length > 0) {
       filtered = filtered.filter((pick) => {
@@ -424,6 +470,7 @@ export function useDraftData() {
     selectedRounds,
     overallPickRange,
     preDraftTeamSearch,
+    selectedDraftCountries,
     selectedPositions,
     ageRange,
     heightRange,
@@ -440,6 +487,7 @@ export function useDraftData() {
     itemsPerPage,
     filteredData,
     allPreDraftTeams,
+    availableDraftCountries,
     availableYears,
     availableAges,
     availableNationalities,

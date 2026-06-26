@@ -41,8 +41,8 @@
   --team-dal-accent: #FFFFFF;
 
   /* Denver Nuggets */
-  --team-den-primary: #0E2240;
-  --team-den-secondary: #FEC524;
+  --team-den-primary: #FEC524;
+  --team-den-secondary: #0E2240;
   --team-den-accent: #FFFFFF;
 
   /* Detroit Pistons */
@@ -61,18 +61,18 @@
   --team-hou-accent: #FFFFFF;
 
   /* Indiana Pacers */
-  --team-ind-primary: #002D62;
-  --team-ind-secondary: #FDBB30;
+  --team-ind-primary: #FDBB30;
+  --team-ind-secondary: #002D62;
   --team-ind-accent: #FFFFFF;
 
   /* LA Clippers */
-  --team-lac-primary: #C8102E;
-  --team-lac-secondary: #1D428A;
+  --team-lac-primary: #1D428A;
+  --team-lac-secondary: #C8102E;
   --team-lac-accent: #FFFFFF;
 
   /* LA Lakers */
-  --team-lal-primary: #552583;
-  --team-lal-secondary: #FDB927;
+  --team-lal-primary: #FDB927;
+  --team-lal-secondary: #552583;
   --team-lal-accent: #FFFFFF;
 
   /* Memphis Grizzlies */
@@ -101,8 +101,8 @@
   --team-nop-accent: #FFFFFF;
 
   /* New York Knicks */
-  --team-nyk-primary: #006BB6;
-  --team-nyk-secondary: #F58426;
+  --team-nyk-primary: #F58426;
+  --team-nyk-secondary: #006BB6;
   --team-nyk-accent: #FFFFFF;
 
   /* Oklahoma City Thunder */
@@ -121,8 +121,8 @@
   --team-phi-accent: #FFFFFF;
 
   /* Phoenix Suns */
-  --team-phx-primary: #1D1160;
-  --team-phx-secondary: #E56020;
+  --team-phx-primary: #E56020;
+  --team-phx-secondary: #1D1160;
   --team-phx-accent: #FFFFFF;
 
   /* Portland Trail Blazers */

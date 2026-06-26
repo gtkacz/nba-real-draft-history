@@ -25,11 +25,18 @@ interface NationalityOption {
   flag?: string
 }
 
+interface DraftCountryOption {
+  value: string
+  title: string
+  flag?: string
+}
+
 const props = defineProps<{
   // When true, render the touch-optimized variant used inside the mobile bottom sheet.
   mobile?: boolean
   teamOptions: TeamOption[]
   nationalityOptions: NationalityOption[]
+  draftCountryOptions: DraftCountryOption[]
   loadingTeams: boolean
   allPreDraftTeams: string[]
   availableYears: number[]
@@ -44,9 +51,11 @@ const props = defineProps<{
 }>()
 
 const selectedTeam = defineModel<TeamAbbreviation[]>('selectedTeam', { default: () => [] })
+const selectedOnceOwnedBy = defineModel<TeamAbbreviation[]>('selectedOnceOwnedBy', { default: () => [] })
 const selectedPlaysFor = defineModel<TeamAbbreviation[]>('selectedPlaysFor', { default: () => [] })
 const selectedNationalities = defineModel<string[]>('selectedNationalities', { default: () => [] })
 const preDraftTeamSearch = defineModel<string[]>('preDraftTeamSearch', { default: () => [] })
+const selectedDraftCountries = defineModel<string[]>('selectedDraftCountries', { default: () => [] })
 const selectedPositions = defineModel<string[]>('selectedPositions', { default: () => [] })
 const selectedRounds = defineModel<(number | string)[]>('selectedRounds', { default: () => [] })
 const tradeFilter = defineModel<'all' | 'traded' | 'not-traded'>('tradeFilter', { default: 'all' })
@@ -59,7 +68,6 @@ const ageRange = defineModel<[number, number]>('ageRange', { default: () => [AGE
 const heightRange = defineModel<[number, number]>('heightRange', { default: () => [HEIGHT_MIN, HEIGHT_MAX] })
 const weightRange = defineModel<[number, number]>('weightRange', { default: () => [WEIGHT_MIN, WEIGHT_MAX] })
 const yearsOfServiceRange = defineModel<[number, number]>('yearsOfServiceRange', { default: () => [YOS_MIN, YOS_MAX] })
-const showPlayerMeasurements = defineModel<boolean>('showPlayerMeasurements', { default: false })
 const selectedAwards = defineModel<Record<string, number>>('selectedAwards', { default: () => ({}) })
 const awardFilterMode = defineModel<'exclusive' | 'inclusive'>('awardFilterMode', { default: 'exclusive' })
 
@@ -299,6 +307,110 @@ function handleAwardCountChange(award: string, count: number) {
           closable-chips
         />
       </v-col>
+
+      <!-- Drafted From Country: country parsed from the pre-draft team, with an
+           "All non-US countries" umbrella option (which carries no flag). -->
+      <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
+        <component
+          :is="mobile ? VSelect : VAutocomplete"
+          v-model="selectedDraftCountries"
+          :items="draftCountryOptions"
+          label="Drafted From Country"
+          variant="outlined"
+          hide-details
+          multiple
+          chips
+          clearable
+          persistent-clear
+          closable-chips
+        >
+          <template #prepend-inner>
+            <v-icon icon="mdi-earth" size="20" class="mr-2" />
+          </template>
+          <template #item="{ props: itemProps, item }">
+            <v-list-item v-bind="itemProps">
+              <template #prepend>
+                <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                  <span
+                    v-if="item.raw.flag"
+                    :class="`fi fi-${getCountryCode(item.raw.flag)}`"
+                    style="font-size: 24px;"
+                  />
+                  <v-icon v-else icon="mdi-earth" size="24" />
+                </div>
+              </template>
+            </v-list-item>
+          </template>
+
+          <template #selection="{ item }">
+            <v-chip
+              v-if="item.raw"
+              size="small"
+              class="mr-1"
+            >
+              <span
+                v-if="item.raw.flag"
+                :class="`fi fi-${getCountryCode(item.raw.flag)}`"
+                class="mr-1"
+                style="font-size: 16px; vertical-align: middle;"
+              />
+              <v-icon v-else icon="mdi-earth" size="16" class="mr-1" />
+              <span>{{ item.raw.title }}</span>
+            </v-chip>
+          </template>
+        </component>
+      </v-col>
+
+      <!-- Once Owned By: any team in a pick's trade chain other than the team that drafted it -->
+      <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
+        <v-autocomplete
+          v-model="selectedOnceOwnedBy"
+          :items="teamOptions"
+          :loading="loadingTeams"
+          label="Once Owned By"
+          variant="outlined"
+          hide-details
+          multiple
+          chips
+          clearable
+          persistent-clear
+          closable-chips
+        >
+          <template #prepend-inner>
+            <v-icon icon="mdi-swap-horizontal" size="20" class="mr-2" />
+          </template>
+          <template #item="{ props: itemProps, item }">
+            <v-list-item v-bind="itemProps">
+              <template #prepend v-if="item.raw.logo">
+                <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                  <img
+                    :src="item.raw.logo"
+                    :alt="item.raw.title"
+                    style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                  />
+                </div>
+              </template>
+            </v-list-item>
+          </template>
+
+          <template #selection="{ item }">
+            <v-chip
+              v-if="item.raw"
+              size="small"
+              class="mr-1"
+            >
+              <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                <img
+                  :src="item.raw.logo"
+                  :alt="item.raw.title"
+                  style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
+                />
+              </div>
+              <span>{{ item.raw.title }}</span>
+            </v-chip>
+          </template>
+        </v-autocomplete>
+      </v-col>
     </v-row>
   </div>
 
@@ -374,13 +486,14 @@ function handleAwardCountChange(award: string, count: number) {
   <div :class="mobile ? 'pa-4 pb-3' : 'pa-4 pb-2'">
     <v-row>
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
-        <div class="px-1">
+        <div class="px-1 slider-field">
           <div class="d-flex align-center justify-space-between mb-3">
             <label class="text-caption text-medium-emphasis">Year</label>
             <v-btn-toggle
               :model-value="useYearRange ? 'range' : 'single'"
               @update:model-value="useYearRange = $event === 'range'"
               variant="outlined"
+              density="comfortable"
               mandatory
             >
               <v-btn value="single">Single</v-btn>
@@ -414,7 +527,7 @@ function handleAwardCountChange(award: string, count: number) {
       </v-col>
 
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
-        <div class="px-1">
+        <div class="px-1 slider-field">
           <label class="text-caption text-medium-emphasis mb-3 d-block">
             Overall Pick Range
             <span v-if="overallPickRange && overallPickRange[1] === 61" class="ml-2 text-primary">
@@ -436,7 +549,7 @@ function handleAwardCountChange(award: string, count: number) {
       </v-col>
 
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
-        <div class="px-1">
+        <div class="px-1 slider-field">
           <label class="text-caption text-medium-emphasis mb-3 d-block">Age Range</label>
           <v-range-slider
             v-model="ageRange"
@@ -460,7 +573,7 @@ function handleAwardCountChange(award: string, count: number) {
   <div :class="mobile ? 'pa-4 pb-4' : 'pa-4'">
     <v-row>
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
-        <div class="px-1">
+        <div class="px-1 slider-field">
           <label class="text-caption text-medium-emphasis mb-3 d-block">
             Height Range
             <span class="ml-2 text-primary">
@@ -485,7 +598,7 @@ function handleAwardCountChange(award: string, count: number) {
         </div>
       </v-col>
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
-        <div class="px-1">
+        <div class="px-1 slider-field">
           <label class="text-caption text-medium-emphasis mb-3 d-block">
             Weight Range
             <span class="ml-2 text-primary">
@@ -507,7 +620,7 @@ function handleAwardCountChange(award: string, count: number) {
         </div>
       </v-col>
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
-        <div class="px-1">
+        <div class="px-1 slider-field">
           <label class="text-caption text-medium-emphasis mb-3 d-block">
             Years in the League Range
             <span class="ml-2 text-primary">
@@ -527,16 +640,6 @@ function handleAwardCountChange(award: string, count: number) {
           >
           </v-range-slider>
         </div>
-      </v-col>
-      <v-col cols="12" :class="mobile ? 'mb-3' : 'mb-2'">
-        <v-checkbox
-          :model-value="showPlayerMeasurements"
-          @update:model-value="showPlayerMeasurements = !!$event"
-          label="Show Player Measurements"
-          hide-details
-          :density="mobile ? 'comfortable' : 'default'"
-          :class="mobile ? 'touch-target-checkbox' : ''"
-        />
       </v-col>
     </v-row>
   </div>
@@ -599,6 +702,19 @@ function handleAwardCountChange(award: string, count: number) {
 </template>
 
 <style scoped lang="scss">
+// Range slider value bubbles render above the thumb by default, where they collide
+// with the field label sitting directly above each slider. Anchor them below the
+// track instead, and reserve room beneath each slider so they don't overlap the
+// next row.
+:deep(.v-slider-thumb__label) {
+  top: 22px !important;
+  bottom: auto !important;
+}
+
+.slider-field {
+  padding-bottom: 30px;
+}
+
 // Team/nationality logos in the autocomplete/select fields must not be clipped.
 .team-logo-container {
   overflow: visible !important;
@@ -653,12 +769,6 @@ function handleAwardCountChange(award: string, count: number) {
   :deep(.v-select__selection .v-chip),
   :deep(.v-autocomplete__selection .v-chip) {
     margin: 2px 4px 2px 0;
-  }
-
-  .touch-target-checkbox {
-    :deep(.v-selection-control) {
-      min-height: 44px;
-    }
   }
 }
 </style>

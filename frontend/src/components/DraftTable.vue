@@ -6,6 +6,7 @@ import type { TeamAbbreviation } from '@/types/team'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { exportDraftPicksToCSV, downloadCSV as downloadCSVFile } from '@/utils/csvExporter'
 import { getCountryCode } from '@/utils/countryCodeConverter'
+import { NON_US_DRAFT_COUNTRY, US_DRAFT_COUNTRY } from '@/utils/draftCountry'
 import { useCountryData } from '@/composables/useCountryData'
 import { useTeamData } from '@/composables/useTeamData'
 import { parseHeight } from '@/utils/parseHeight'
@@ -23,6 +24,9 @@ import {
 import PlayerCard from './PlayerCard.vue'
 import MobileDraftCard from './MobileDraftCard.vue'
 import FilterPanel from './FilterPanel.vue'
+import DraftColumnHeader from './DraftColumnHeader.vue'
+import draggable from 'vuedraggable'
+import { useColumnPreferences } from '@/composables/useColumnPreferences'
 
 const display = useDisplay()
 const isMobile = computed(() => display.mobile.value)
@@ -35,6 +39,7 @@ interface DraftTableProps {
   data: DraftPick[]
   loading?: boolean
   selectedTeam?: TeamAbbreviation[]
+  selectedOnceOwnedBy?: TeamAbbreviation[]
   selectedPlaysFor?: TeamAbbreviation[]
   yearRange?: [number, number]
   selectedYear?: number | null
@@ -42,6 +47,7 @@ interface DraftTableProps {
   selectedRounds?: (number | string)[]
   overallPickRange?: [number, number]
   preDraftTeamSearch?: string[]
+  selectedDraftCountries?: string[]
   selectedPositions?: string[]
   ageRange?: [number, number]
   heightRange?: [number, number]
@@ -58,6 +64,7 @@ interface DraftTableProps {
   itemsPerPage?: number
   availableYears?: number[]
   allPreDraftTeams?: string[]
+  availableDraftCountries?: string[]
   availableAges?: number[]
   availableNationalities?: string[]
   availableAwards?: string[]
@@ -67,13 +74,13 @@ interface DraftTableProps {
   maxWeight?: number
   minYearsOfService?: number
   maxYearsOfService?: number
-  showPlayerMeasurements?: boolean
   resetFilters?: () => void
 }
 
 const props = withDefaults(defineProps<DraftTableProps>(), {
   loading: false,
   selectedTeam: () => [],
+  selectedOnceOwnedBy: () => [],
   selectedPlaysFor: () => [],
   yearRange: () => [YEAR_MIN, YEAR_MAX],
   selectedYear: null,
@@ -81,6 +88,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   selectedRounds: () => [],
   overallPickRange: () => [PICK_MIN, PICK_MAX],
   preDraftTeamSearch: () => [],
+  selectedDraftCountries: () => [],
   selectedPositions: () => [],
   ageRange: () => [AGE_MIN, AGE_MAX],
   heightRange: () => [HEIGHT_MIN, HEIGHT_MAX],
@@ -100,6 +108,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
   availableYears: () => [],
   allPreDraftTeams: () => [],
+  availableDraftCountries: () => [],
   availableAges: () => [],
   availableNationalities: () => [],
   availableAwards: () => [],
@@ -109,11 +118,11 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   maxWeight: WEIGHT_MAX,
   minYearsOfService: YOS_MIN,
   maxYearsOfService: YOS_MAX,
-  showPlayerMeasurements: false,
 })
 
 const emit = defineEmits<{
   'update:selectedTeam': [value: TeamAbbreviation[]]
+  'update:selectedOnceOwnedBy': [value: TeamAbbreviation[]]
   'update:selectedPlaysFor': [value: TeamAbbreviation[]]
   'update:yearRange': [value: [number, number]]
   'update:selectedYear': [value: number | null]
@@ -121,6 +130,7 @@ const emit = defineEmits<{
   'update:selectedRounds': [value: (number | string)[]]
   'update:overallPickRange': [value: [number, number]]
   'update:preDraftTeamSearch': [value: string[]]
+  'update:selectedDraftCountries': [value: string[]]
   'update:selectedPositions': [value: string[]]
   'update:ageRange': [value: [number, number]]
   'update:heightRange': [value: [number, number]]
@@ -135,7 +145,6 @@ const emit = defineEmits<{
   'update:sortBy': [value: SortItem[]]
   'update:currentPage': [value: number]
   'update:itemsPerPage': [value: number]
-  'update:showPlayerMeasurements': [value: boolean]
 }>()
 
 const filterMenu = ref(false)
@@ -232,6 +241,24 @@ const nationalityOptions = computed<NationalityOption[]>(() => {
   })).sort((a, b) => a.title.localeCompare(b.title))
 })
 
+interface DraftCountryOption {
+  value: string
+  title: string
+  flag?: string
+}
+
+const draftCountryOptions = computed<DraftCountryOption[]>(() => {
+  const countries = props.availableDraftCountries
+    .map((code) => ({ value: code, title: getFormattedCountryName(code), flag: code }))
+    .sort((a, b) => a.title.localeCompare(b.title))
+  // The "all non-US countries" umbrella is only meaningful when foreign origins exist.
+  const hasForeign = props.availableDraftCountries.some((code) => code !== US_DRAFT_COUNTRY)
+  if (!hasForeign) {
+    return countries
+  }
+  return [{ value: NON_US_DRAFT_COUNTRY, title: 'All non-US countries' }, ...countries]
+})
+
 const minAge = computed(() => props.availableAges.length > 0 ? Math.min(...props.availableAges) : 17)
 const maxAge = computed(() => props.availableAges.length > 0 ? Math.max(...props.availableAges) : 50)
 
@@ -261,6 +288,7 @@ async function loadTeams() {
 const filterBind = computed(() => ({
   teamOptions: teamOptions.value,
   nationalityOptions: nationalityOptions.value,
+  draftCountryOptions: draftCountryOptions.value,
   loadingTeams: loadingTeams.value,
   allPreDraftTeams: props.allPreDraftTeams,
   availableYears: props.availableYears,
@@ -274,12 +302,16 @@ const filterBind = computed(() => ({
   maxYearsOfService: props.maxYearsOfService,
   selectedTeam: props.selectedTeam,
   'onUpdate:selectedTeam': (v: TeamAbbreviation[]) => emit('update:selectedTeam', v),
+  selectedOnceOwnedBy: props.selectedOnceOwnedBy,
+  'onUpdate:selectedOnceOwnedBy': (v: TeamAbbreviation[]) => emit('update:selectedOnceOwnedBy', v),
   selectedPlaysFor: props.selectedPlaysFor,
   'onUpdate:selectedPlaysFor': (v: TeamAbbreviation[]) => emit('update:selectedPlaysFor', v),
   selectedNationalities: props.selectedNationalities,
   'onUpdate:selectedNationalities': (v: string[]) => emit('update:selectedNationalities', v),
   preDraftTeamSearch: props.preDraftTeamSearch,
   'onUpdate:preDraftTeamSearch': (v: string[]) => emit('update:preDraftTeamSearch', v),
+  selectedDraftCountries: props.selectedDraftCountries,
+  'onUpdate:selectedDraftCountries': (v: string[]) => emit('update:selectedDraftCountries', v),
   selectedPositions: props.selectedPositions,
   'onUpdate:selectedPositions': (v: string[]) => emit('update:selectedPositions', v),
   selectedRounds: props.selectedRounds,
@@ -304,8 +336,6 @@ const filterBind = computed(() => ({
   'onUpdate:weightRange': (v: [number, number]) => emit('update:weightRange', v),
   yearsOfServiceRange: props.yearsOfServiceRange,
   'onUpdate:yearsOfServiceRange': (v: [number, number]) => emit('update:yearsOfServiceRange', v),
-  showPlayerMeasurements: props.showPlayerMeasurements,
-  'onUpdate:showPlayerMeasurements': (v: boolean) => emit('update:showPlayerMeasurements', v),
   selectedAwards: props.selectedAwards,
   'onUpdate:selectedAwards': (v: Record<string, number>) => emit('update:selectedAwards', v),
   awardFilterMode: props.awardFilterMode,
@@ -313,42 +343,133 @@ const filterBind = computed(() => ({
 }))
 
 
-const allHeaders = [
-  { title: 'Team', key: 'team', sortable: true, minWidth: '40px' },
-  { title: 'Player', key: 'player', sortable: true, minWidth: '75px' },
-  { title: 'Year', key: 'year', sortable: true, width: '80px' },
-  { title: 'Round', key: 'round', sortable: true, width: '80px' },
-  { title: 'Overall Pick', key: 'pick', sortable: true, width: '35px' },
-  { title: 'Position', key: 'position', sortable: true, width: '35px' },
-  { 
-    title: 'Draft Height', 
-    key: 'height', 
-    sortable: true, 
-    width: '35px',
-    sort: (a: DraftPick, b: DraftPick): number => {
-      const aHeight = parseHeight(a.height)
-      const bHeight = parseHeight(b.height)
-      // Handle invalid heights (0 means parsing failed)
-      if (aHeight === 0 && bHeight === 0) return 0
-      if (aHeight === 0) return 1  // Put invalid heights at the end
-      if (bHeight === 0) return -1 // Put invalid heights at the end
-      // Compare numerically
-      return aHeight - bHeight
-    }
-  },
-  { title: 'Draft Weight', key: 'weight', sortable: true, width: '35px' },
-  { title: 'Draft Age', key: 'age', sortable: true, width: '35px' },
-  { title: 'Years in the League', key: 'yearsOfService', sortable: true, width: '60px' },
-  { title: 'Drafted From', key: 'preDraftTeam', sortable: true, minWidth: '175px' },
-  { title: 'Pick Trades', key: 'draftTrades', sortable: false, minWidth: '80px', width: 'auto' }
+// Custom numeric sort for the height column (stored as "6-8" style strings).
+function heightSort(a: DraftPick, b: DraftPick): number {
+  const aHeight = parseHeight(a.height)
+  const bHeight = parseHeight(b.height)
+  if (aHeight === 0 && bHeight === 0) return 0
+  if (aHeight === 0) return 1
+  if (bHeight === 0) return -1
+  return aHeight - bHeight
+}
+
+// The three measurement columns stay governed by the existing "Show Player
+// Measurements" toggle; every other column is individually hideable via the
+// columns menu. Order and width are user-customizable for all of them.
+const MEASUREMENT_KEYS = ['height', 'weight', 'yearsOfService']
+
+interface ColumnMeta {
+  key: string
+  title: string
+  sortable: boolean
+  defaultWidth: number
+  sort?: (a: DraftPick, b: DraftPick) => number
+}
+
+const COLUMN_META: ColumnMeta[] = [
+  { key: 'team', title: 'Team', sortable: true, defaultWidth: 150 },
+  { key: 'player', title: 'Player', sortable: true, defaultWidth: 250 },
+  { key: 'year', title: 'Year', sortable: true, defaultWidth: 100 },
+  { key: 'round', title: 'Round', sortable: true, defaultWidth: 110 },
+  { key: 'pick', title: 'Overall Pick', sortable: true, defaultWidth: 150 },
+  { key: 'position', title: 'Position', sortable: true, defaultWidth: 130 },
+  { key: 'height', title: 'Draft Height', sortable: true, defaultWidth: 140, sort: heightSort },
+  { key: 'weight', title: 'Draft Weight', sortable: true, defaultWidth: 140 },
+  { key: 'age', title: 'Draft Age', sortable: true, defaultWidth: 130 },
+  { key: 'yearsOfService', title: 'Years in the League', sortable: true, defaultWidth: 190 },
+  { key: 'preDraftTeam', title: 'Drafted From', sortable: true, defaultWidth: 200 },
+  { key: 'draftTrades', title: 'Pick Trades', sortable: false, defaultWidth: 220 },
 ]
 
-const headers = computed(() => {
-  if (props.showPlayerMeasurements) {
-    return allHeaders
-  }
-  return allHeaders.filter(header => header.key !== 'height' && header.key !== 'weight' && header.key !== 'yearsOfService')
+const COLUMN_META_BY_KEY = new Map(COLUMN_META.map((c) => [c.key, c]))
+const DEFAULT_COLUMN_ORDER = COLUMN_META.map((c) => c.key)
+const DEFAULT_COLUMN_WIDTHS = Object.fromEntries(COLUMN_META.map((c) => [c.key, c.defaultWidth]))
+// Every column is individually hideable via the columns menu; the measurement
+// columns simply start hidden (matching the prior default-off behavior).
+const TOGGLEABLE_COLUMN_KEYS = COLUMN_META.map((c) => c.key)
+
+const {
+  order: columnOrder,
+  visibility: columnVisibility,
+  widths: columnWidths,
+  setWidth: setColumnWidth,
+  setVisibility: setColumnVisibility,
+  reset: resetColumns,
+} = useColumnPreferences({
+  storageKey: 'ndh:column-prefs:v2',
+  defaultOrder: DEFAULT_COLUMN_ORDER,
+  defaultWidths: DEFAULT_COLUMN_WIDTHS,
+  toggleableKeys: TOGGLEABLE_COLUMN_KEYS,
+  defaultHidden: MEASUREMENT_KEYS,
 })
+
+function isColumnVisible(key: string): boolean {
+  return columnVisibility.value[key] !== false
+}
+
+// Mobile cards have no column controls; their compact measurement summary follows
+// whether any measurement column is enabled in the (persisted) column preferences.
+const showMeasurementsOnMobile = computed(() =>
+  MEASUREMENT_KEYS.some((key) => isColumnVisible(key)),
+)
+
+const headers = computed(() => {
+  return columnOrder.value
+    .filter((key) => isColumnVisible(key))
+    .map((key) => {
+      const meta = COLUMN_META_BY_KEY.get(key)!
+      return {
+        title: meta.title,
+        key: meta.key,
+        sortable: meta.sortable,
+        width: `${columnWidths.value[key] ?? meta.defaultWidth}px`,
+        ...(meta.sort ? { sort: meta.sort } : {}),
+      }
+    })
+})
+
+// Total width of all visible columns; drives the fixed-layout table's min-width so
+// resized columns keep their exact pixel sizes (overflowing into horizontal scroll).
+const tableContentWidth = computed(() =>
+  columnOrder.value
+    .filter((key) => isColumnVisible(key))
+    .reduce((sum, key) => sum + (columnWidths.value[key] ?? COLUMN_META_BY_KEY.get(key)!.defaultWidth), 0),
+)
+
+// Draggable model for the columns menu reorder list (mirrors columnOrder).
+const columnMenu = ref(false)
+const orderedColumnList = computed<ColumnMeta[]>({
+  get: () => columnOrder.value.map((key) => COLUMN_META_BY_KEY.get(key)!),
+  set: (list) => {
+    columnOrder.value = list.map((c) => c.key)
+  },
+})
+
+// Column width drag-resize, wired through the header grip.
+let resizingKey: string | null = null
+let resizeStartX = 0
+let resizeStartWidth = 0
+
+function onResizeMove(event: PointerEvent) {
+  if (!resizingKey) return
+  setColumnWidth(resizingKey, resizeStartWidth + (event.clientX - resizeStartX))
+}
+
+function onResizeEnd() {
+  resizingKey = null
+  window.removeEventListener('pointermove', onResizeMove)
+  window.removeEventListener('pointerup', onResizeEnd)
+  document.body.style.userSelect = ''
+}
+
+function startColumnResize(key: string, event: PointerEvent) {
+  resizingKey = key
+  resizeStartX = event.clientX
+  resizeStartWidth = columnWidths.value[key] ?? COLUMN_META_BY_KEY.get(key)?.defaultWidth ?? 120
+  window.addEventListener('pointermove', onResizeMove)
+  window.addEventListener('pointerup', onResizeEnd)
+  document.body.style.userSelect = 'none'
+}
 
 // Sort state - use prop value, fallback to local ref if not provided
 const sortBy = computed({
@@ -484,6 +605,9 @@ const hasActiveFilters = computed(() => {
   // Team filter active
   if (props.selectedTeam.length > 0) return true
 
+  // Once owned by filter active
+  if (props.selectedOnceOwnedBy.length > 0) return true
+
   // Currently plays for filter active
   if (props.selectedPlaysFor.length > 0) return true
 
@@ -499,6 +623,9 @@ const hasActiveFilters = computed(() => {
 
   // Pre-draft team filter active
   if (props.preDraftTeamSearch.length > 0) return true
+
+  // Drafted-from country filter active
+  if (props.selectedDraftCountries.length > 0) return true
 
   // Position filter active
   if (props.selectedPositions.length > 0) return true
@@ -537,12 +664,14 @@ const hasActiveFilters = computed(() => {
 function getActiveFiltersCount(): number {
   let count = 0
   if (props.selectedTeam.length > 0) count++
+  if (props.selectedOnceOwnedBy.length > 0) count++
   if (props.selectedPlaysFor.length > 0) count++
   if (!props.useYearRange && props.selectedYear !== null) count++
   if (props.useYearRange && (props.yearRange[0] !== YEAR_MIN || props.yearRange[1] !== YEAR_MAX)) count++
   if (props.selectedRounds.length > 0) count++
   if (props.overallPickRange[0] !== PICK_MIN || props.overallPickRange[1] !== PICK_MAX) count++
   if (props.preDraftTeamSearch.length > 0) count++
+  if (props.selectedDraftCountries.length > 0) count++
   if (props.selectedPositions.length > 0) count++
   if (props.ageRange[0] !== AGE_MIN || props.ageRange[1] !== AGE_MAX) count++
   if (props.heightRange && (props.heightRange[0] !== HEIGHT_MIN || props.heightRange[1] !== HEIGHT_MAX)) count++
@@ -579,16 +708,32 @@ const headerTitle = computed(() => {
   return 'Real NBA Draft History'
 })
 
-function handleScroll() {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+// The desktop table is a virtual table that scrolls inside its own wrapper, while the
+// mobile card list scrolls the window. A capture-phase scroll listener catches both,
+// since scroll events don't bubble but do fire during capture on ancestors.
+function getTableScrollEl(): HTMLElement | null {
+  return tableWrapEl.value?.querySelector('.v-table__wrapper') ?? null
+}
+
+function handleScroll(event?: Event) {
+  const target = event?.target
+  let scrollTop: number
+  if (target instanceof HTMLElement && target.classList.contains('v-table__wrapper')) {
+    // Desktop: the virtual table's own scroll container.
+    scrollTop = target.scrollTop
+  } else if (target instanceof HTMLElement) {
+    // Ignore scrolls from unrelated inner containers (menus, dropdowns).
+    return
+  } else {
+    // Mobile / page-level scroll.
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+  }
   showBackToTop.value = scrollTop > 300
 }
 
 function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
+  getTableScrollEl()?.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 onMounted(() => {
@@ -597,13 +742,15 @@ onMounted(() => {
   if (isMobile.value && props.itemsPerPage === DEFAULT_ITEMS_PER_PAGE) {
     emit('update:itemsPerPage', 20)
   }
-  // Add scroll listener for back-to-top button
-  window.addEventListener('scroll', handleScroll)
+  // Capture phase so internal scroll containers (the virtual table) are observed too.
+  window.addEventListener('scroll', handleScroll, true)
   handleScroll() // Check initial scroll position
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('scroll', handleScroll, true)
+  window.removeEventListener('pointermove', onResizeMove)
+  window.removeEventListener('pointerup', onResizeEnd)
   cancelAnimationFrame(countRaf)
 })
 
@@ -888,6 +1035,7 @@ const pageInput = ref('')
 const selectedPlayer = ref<DraftPick | null>(null)
 const showPlayerCard = ref(false)
 const showBackToTop = ref(false)
+const tableWrapEl = ref<HTMLElement | null>(null)
 
 
 function openPlayerCard(player: DraftPick) {
@@ -962,7 +1110,12 @@ function getActiveFiltersDescription(): string {
     const teamNames = props.selectedTeam.map(t => getTeamFullName(t)).join(', ')
     filters.push(`Drafted by: ${teamNames}`)
   }
-  
+
+  if (props.selectedOnceOwnedBy.length > 0) {
+    const teamNames = props.selectedOnceOwnedBy.map(t => getTeamFullName(t)).join(', ')
+    filters.push(`Once owned by: ${teamNames}`)
+  }
+
   if (props.selectedPlaysFor.length > 0) {
     const teamNames = props.selectedPlaysFor.map(t => getTeamFullName(t)).join(', ')
     filters.push(`Currently plays for: ${teamNames}`)
@@ -985,6 +1138,14 @@ function getActiveFiltersDescription(): string {
 
   if (props.preDraftTeamSearch.length > 0) {
     filters.push(`Drafted from: ${props.preDraftTeamSearch.slice(0, 2).join(', ')}${props.preDraftTeamSearch.length > 2 ? '...' : ''}`)
+  }
+
+  if (props.selectedDraftCountries.length > 0) {
+    const names = props.selectedDraftCountries
+      .map((code) => code === NON_US_DRAFT_COUNTRY ? 'All non-US countries' : getFormattedCountryName(code))
+      .slice(0, 2)
+      .join(', ')
+    filters.push(`Drafted from country: ${names}${props.selectedDraftCountries.length > 2 ? '...' : ''}`)
   }
 
   if (props.selectedPositions.length > 0) {
@@ -1181,7 +1342,68 @@ const shareTooltipText = computed(() => {
               />
             </template>
           </v-tooltip>
-          
+
+          <!-- Columns Menu: show/hide, reorder (drag), and resize (header grip) -->
+          <v-menu
+            v-model="columnMenu"
+            location="bottom end"
+            :close-on-content-click="false"
+          >
+            <template #activator="{ props: menuProps }">
+              <v-tooltip location="bottom" text="Customize columns — show/hide, reorder, resize">
+                <template #activator="{ props: tooltipProps }">
+                  <v-btn
+                    v-bind="{ ...menuProps, ...tooltipProps }"
+                    icon="mdi-view-column-outline"
+                    variant="text"
+                    color="on-surface-variant"
+                    size="small"
+                  />
+                </template>
+              </v-tooltip>
+            </template>
+            <v-card class="columns-card" min-width="320">
+              <v-card-title class="d-flex align-center justify-space-between py-3 px-4">
+                <div class="d-flex align-center text-subtitle-1">
+                  <v-icon icon="mdi-view-column-outline" class="mr-2" size="20" />
+                  Columns
+                </div>
+                <v-btn
+                  icon="mdi-refresh"
+                  variant="text"
+                  color="primary"
+                  size="small"
+                  title="Reset columns to default"
+                  @click="resetColumns"
+                />
+              </v-card-title>
+              <p class="px-4 pb-2 text-caption text-medium-emphasis">
+                Drag to reorder · toggle to show or hide · drag a column's right edge in the table to resize.
+              </p>
+              <v-divider />
+              <draggable
+                v-model="orderedColumnList"
+                item-key="key"
+                handle=".col-drag-handle"
+                class="columns-list"
+              >
+                <template #item="{ element }">
+                  <div class="columns-list__row">
+                    <v-icon class="col-drag-handle" icon="mdi-drag" size="20" />
+                    <v-checkbox
+                      :model-value="isColumnVisible(element.key)"
+                      :label="element.title"
+                      hide-details
+                      density="compact"
+                      class="flex-grow-1 ml-1"
+                      @update:model-value="setColumnVisibility(element.key, !!$event)"
+                    />
+                  </div>
+                </template>
+              </draggable>
+            </v-card>
+          </v-menu>
+
           <!-- Desktop: Filter Menu with button as activator -->
           <v-menu 
             v-model="filterMenu" 
@@ -1309,7 +1531,7 @@ const shareTooltipText = computed(() => {
           v-for="item in paginatedItems"
           :key="`${item.year}-${item.pick}-${item.player}`"
           :item="item"
-          :show-player-measurements="props.showPlayerMeasurements"
+          :show-player-measurements="showMeasurementsOnMobile"
           @player-click="openPlayerCard"
         />
       </template>
@@ -1370,7 +1592,13 @@ const shareTooltipText = computed(() => {
     </div>
 
     <!-- Desktop Table View -->
-    <div v-else class="table-anim-wrap" :key="tableAnimKey">
+    <div
+      v-else
+      ref="tableWrapEl"
+      class="table-anim-wrap resizable-columns"
+      :style="{ '--table-content-width': tableContentWidth + 'px' }"
+      :key="tableAnimKey"
+    >
     <v-data-table-virtual
       :headers="headers"
       :items="props.data"
@@ -1383,6 +1611,127 @@ const shareTooltipText = computed(() => {
       fixed-header
       :height="isMobile ? '500' : 'calc(100vh - 250px)'"
     >
+      <template #header.team="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('team', $event)"
+        />
+      </template>
+      <template #header.player="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('player', $event)"
+        />
+      </template>
+      <template #header.year="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('year', $event)"
+        />
+      </template>
+      <template #header.round="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('round', $event)"
+        />
+      </template>
+      <template #header.pick="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('pick', $event)"
+        />
+      </template>
+      <template #header.position="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('position', $event)"
+        />
+      </template>
+      <template #header.height="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('height', $event)"
+        />
+      </template>
+      <template #header.weight="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('weight', $event)"
+        />
+      </template>
+      <template #header.age="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('age', $event)"
+        />
+      </template>
+      <template #header.yearsOfService="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('yearsOfService', $event)"
+        />
+      </template>
+      <template #header.preDraftTeam="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('preDraftTeam', $event)"
+        />
+      </template>
+      <template #header.draftTrades="{ column, isSorted, getSortIcon, toggleSort }">
+        <DraftColumnHeader
+          :title="column.title ?? ''"
+          :sortable="!!column.sortable"
+          :is-sorted="isSorted(column)"
+          :sort-icon="(getSortIcon(column) as string)"
+          @sort="toggleSort(column)"
+          @resize-start="startColumnResize('draftTrades', $event)"
+        />
+      </template>
+
       <template #item.team="{ item }">
         <div class="d-flex align-center">
           <v-avatar size="32" class="mr-2" rounded="0" style="background: transparent;">
@@ -1627,6 +1976,7 @@ const shareTooltipText = computed(() => {
         color="primary"
         size="large"
         elevation="4"
+        rounded="xl"
         @click="scrollToTop"
       />
     </v-fade-transition>
@@ -1704,29 +2054,38 @@ const shareTooltipText = computed(() => {
     gap: 2px;
     min-width: fit-content;
   }
-  
-  // Prevent wrapping in the Pick Trades column (last column)
-  :deep(.v-data-table__tr .v-data-table__td:last-child) {
-    white-space: nowrap !important;
-    overflow: visible !important;
-    min-width: fit-content;
-  }
-  
+
   // Ensure trade-chain itself doesn't wrap
   :deep(.trade-chain) {
     white-space: nowrap !important;
   }
-  
+
   // Ensure the table can expand horizontally
   :deep(.v-data-table) {
     overflow-x: auto;
     width: 100%;
   }
-  
+
   // Make sure the table wrapper doesn't constrain width
   :deep(.v-data-table__wrapper) {
     overflow-x: auto;
     min-width: 100%;
+  }
+
+  // Resizable columns: a fixed table layout makes the per-column pixel widths
+  // authoritative (content clips instead of forcing a column wider), and the table
+  // is given the summed content width so resizing overflows into horizontal scroll.
+  .resizable-columns {
+    :deep(table) {
+      table-layout: fixed;
+      width: var(--table-content-width, 100%);
+      min-width: 100%;
+    }
+
+    :deep(.v-data-table__td),
+    :deep(.v-data-table__th) {
+      overflow: hidden;
+    }
   }
   
   // Allow the card to expand horizontally if needed
@@ -1851,11 +2210,12 @@ const shareTooltipText = computed(() => {
   }
 
   .pre-draft-team-text {
-    word-wrap: break-word;
-    word-break: break-word;
-    white-space: normal;
-    max-width: 20ch;
     display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
   }
 
   // Player headshot styling
@@ -1913,11 +2273,6 @@ const shareTooltipText = computed(() => {
     }
   }
 
-  // Ensure player column has enough width for headshot
-  :deep(.v-data-table__td:nth-child(2)) {
-    min-width: 200px;
-  }
-
   // Player flag and status icons
   .player-flag-icon {
     display: inline-block;
@@ -1932,11 +2287,6 @@ const shareTooltipText = computed(() => {
   .player-status-icon {
     margin-left: 4px;
     flex-shrink: 0;
-  }
-
-  // Allow Pre-Draft Team column to wrap
-  :deep(.v-data-table__td:nth-child(10)) {
-    white-space: normal !important;
   }
 
   // Style for injected page input
@@ -2132,12 +2482,11 @@ const shareTooltipText = computed(() => {
     z-index: 1000;
     min-width: 48px;
     min-height: 48px;
-    border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 
     &:hover {
-      transform: translateY(-2px);
+      // transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
@@ -2146,6 +2495,38 @@ const shareTooltipText = computed(() => {
       right: 16px;
       min-width: 56px;
       min-height: 56px;
+    }
+  }
+}
+
+// Columns menu lives in a teleported v-menu, so these rules sit at the top level of
+// the scoped block (not nested under .draft-table) to reach the teleported content.
+.columns-card {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.columns-list {
+  padding: 4px 0 8px;
+}
+
+.columns-list__row {
+  display: flex;
+  align-items: center;
+  padding: 2px 12px;
+  border-radius: 6px;
+  transition: background-color 120ms ease;
+
+  &:hover {
+    background-color: rgb(var(--v-theme-surface-bright));
+  }
+
+  .col-drag-handle {
+    cursor: grab;
+    color: rgb(var(--v-theme-on-surface-variant));
+
+    &:active {
+      cursor: grabbing;
     }
   }
 }

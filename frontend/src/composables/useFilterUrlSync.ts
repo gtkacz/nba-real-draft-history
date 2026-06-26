@@ -21,6 +21,7 @@ type SortItem = { key: string; order: 'asc' | 'desc' }
 
 interface FilterDefaults {
   selectedTeam: TeamAbbreviation[]
+  selectedOnceOwnedBy: TeamAbbreviation[]
   selectedPlaysFor: TeamAbbreviation[]
   selectedYear: number | null
   yearRange: [number, number]
@@ -28,6 +29,7 @@ interface FilterDefaults {
   selectedRounds: (number | string)[]
   overallPickRange: [number, number]
   preDraftTeamSearch: string[]
+  selectedDraftCountries: string[]
   selectedPositions: string[]
   ageRange: [number, number]
   heightRange: [number, number]
@@ -42,11 +44,11 @@ interface FilterDefaults {
   sortBy: SortItem[]
   currentPage: number
   itemsPerPage: number
-  showPlayerMeasurements: boolean
 }
 
 const DEFAULT_FILTERS: FilterDefaults = {
   selectedTeam: [],
+  selectedOnceOwnedBy: [],
   selectedPlaysFor: [],
   selectedYear: null,
   yearRange: [YEAR_MIN, YEAR_MAX],
@@ -54,6 +56,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
   selectedRounds: [],
   overallPickRange: [PICK_MIN, PICK_MAX],
   preDraftTeamSearch: [],
+  selectedDraftCountries: [],
   selectedPositions: [],
   ageRange: [AGE_MIN, AGE_MAX],
   heightRange: [HEIGHT_MIN, HEIGHT_MAX],
@@ -70,13 +73,13 @@ const DEFAULT_FILTERS: FilterDefaults = {
     { key: 'pick', order: 'asc' }
   ],
   currentPage: 1,
-  itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
-  showPlayerMeasurements: false
+  itemsPerPage: DEFAULT_ITEMS_PER_PAGE
 }
 
 export function useFilterUrlSync(
   filters: {
     selectedTeam: Ref<TeamAbbreviation[]>
+    selectedOnceOwnedBy: Ref<TeamAbbreviation[]>
     selectedPlaysFor: Ref<TeamAbbreviation[]>
     selectedYear: Ref<number | null>
     yearRange: Ref<[number, number]>
@@ -84,6 +87,7 @@ export function useFilterUrlSync(
     selectedRounds: Ref<(number | string)[]>
     overallPickRange: Ref<[number, number]>
     preDraftTeamSearch: Ref<string[]>
+    selectedDraftCountries: Ref<string[]>
     selectedPositions: Ref<string[]>
     ageRange: Ref<[number, number]>
     heightRange: Ref<[number, number]>
@@ -98,7 +102,6 @@ export function useFilterUrlSync(
     sortBy: Ref<SortItem[]>
     currentPage: Ref<number>
     itemsPerPage: Ref<number>
-    showPlayerMeasurements: Ref<boolean>
   }
 ) {
   const route = useRoute()
@@ -174,6 +177,7 @@ export function useFilterUrlSync(
     // If not initializing (i.e., this is a navigation event), reset all filters to defaults first
     if (!isInitializing) {
       filters.selectedTeam.value = [...DEFAULT_FILTERS.selectedTeam]
+      filters.selectedOnceOwnedBy.value = [...DEFAULT_FILTERS.selectedOnceOwnedBy]
       filters.selectedPlaysFor.value = [...DEFAULT_FILTERS.selectedPlaysFor]
       filters.selectedYear.value = DEFAULT_FILTERS.selectedYear
       filters.yearRange.value = [...DEFAULT_FILTERS.yearRange]
@@ -181,6 +185,7 @@ export function useFilterUrlSync(
       filters.selectedRounds.value = [...DEFAULT_FILTERS.selectedRounds]
       filters.overallPickRange.value = [...DEFAULT_FILTERS.overallPickRange]
       filters.preDraftTeamSearch.value = [...DEFAULT_FILTERS.preDraftTeamSearch]
+      filters.selectedDraftCountries.value = [...DEFAULT_FILTERS.selectedDraftCountries]
       filters.selectedPositions.value = [...DEFAULT_FILTERS.selectedPositions]
       filters.ageRange.value = [...DEFAULT_FILTERS.ageRange]
       filters.heightRange.value = [...DEFAULT_FILTERS.heightRange]
@@ -195,7 +200,6 @@ export function useFilterUrlSync(
       filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
       filters.currentPage.value = DEFAULT_FILTERS.currentPage
       filters.itemsPerPage.value = DEFAULT_FILTERS.itemsPerPage
-      filters.showPlayerMeasurements.value = DEFAULT_FILTERS.showPlayerMeasurements
     }
 
     // Load selectedTeam
@@ -203,6 +207,14 @@ export function useFilterUrlSync(
       const teams = deserializeArray(query.teams, 'string') as TeamAbbreviation[]
       if (teams.length > 0) {
         filters.selectedTeam.value = teams
+      }
+    }
+
+    // Load selectedOnceOwnedBy
+    if (query.onceOwnedBy) {
+      const teams = deserializeArray(query.onceOwnedBy, 'string') as TeamAbbreviation[]
+      if (teams.length > 0) {
+        filters.selectedOnceOwnedBy.value = teams
       }
     }
 
@@ -256,6 +268,14 @@ export function useFilterUrlSync(
       const teams = deserializeArray(query.preDraftTeams, 'string')
       if (teams.length > 0) {
         filters.preDraftTeamSearch.value = teams as string[]
+      }
+    }
+
+    // Load selectedDraftCountries
+    if (query.draftCountries) {
+      const countries = deserializeArray(query.draftCountries, 'string')
+      if (countries.length > 0) {
+        filters.selectedDraftCountries.value = countries as string[]
       }
     }
 
@@ -412,11 +432,6 @@ export function useFilterUrlSync(
       }
     }
 
-    // Load showPlayerMeasurements
-    if (query.showPlayerMeasurements !== undefined) {
-      filters.showPlayerMeasurements.value = query.showPlayerMeasurements === 'true' || query.showPlayerMeasurements === '1'
-    }
-
     // Use nextTick to ensure all reactive updates are processed before allowing URL updates
     nextTick(() => {
       isLoadingFromUrl = false
@@ -432,6 +447,10 @@ export function useFilterUrlSync(
     // Only add non-default filters to URL
     if (isNonDefault(filters.selectedTeam.value, DEFAULT_FILTERS.selectedTeam)) {
       query.teams = serializeArray(filters.selectedTeam.value)
+    }
+
+    if (isNonDefault(filters.selectedOnceOwnedBy.value, DEFAULT_FILTERS.selectedOnceOwnedBy)) {
+      query.onceOwnedBy = serializeArray(filters.selectedOnceOwnedBy.value)
     }
 
     if (isNonDefault(filters.selectedPlaysFor.value, DEFAULT_FILTERS.selectedPlaysFor)) {
@@ -460,6 +479,10 @@ export function useFilterUrlSync(
 
     if (isNonDefault(filters.preDraftTeamSearch.value, DEFAULT_FILTERS.preDraftTeamSearch)) {
       query.preDraftTeams = serializeArray(filters.preDraftTeamSearch.value)
+    }
+
+    if (isNonDefault(filters.selectedDraftCountries.value, DEFAULT_FILTERS.selectedDraftCountries)) {
+      query.draftCountries = serializeArray(filters.selectedDraftCountries.value)
     }
 
     if (isNonDefault(filters.selectedPositions.value, DEFAULT_FILTERS.selectedPositions)) {
@@ -524,11 +547,6 @@ export function useFilterUrlSync(
       query.limit = String(filters.itemsPerPage.value)
     }
 
-    // Only add showPlayerMeasurements if it's different from default
-    if (filters.showPlayerMeasurements.value !== DEFAULT_FILTERS.showPlayerMeasurements) {
-      query.showPlayerMeasurements = String(filters.showPlayerMeasurements.value)
-    }
-
     // Update URL without triggering navigation
     router.replace({ path: route.path, query })
   }
@@ -537,6 +555,7 @@ export function useFilterUrlSync(
   watch(
     () => [
       filters.selectedTeam.value,
+      filters.selectedOnceOwnedBy.value,
       filters.selectedPlaysFor.value,
       filters.selectedYear.value,
       filters.yearRange.value,
@@ -544,6 +563,7 @@ export function useFilterUrlSync(
       filters.selectedRounds.value,
       filters.overallPickRange.value,
       filters.preDraftTeamSearch.value,
+      filters.selectedDraftCountries.value,
       filters.selectedPositions.value,
       filters.ageRange.value,
       filters.heightRange.value,
@@ -556,8 +576,7 @@ export function useFilterUrlSync(
       filters.awardFilterMode.value,
       filters.sortBy.value,
       filters.currentPage.value,
-      filters.itemsPerPage.value,
-      filters.showPlayerMeasurements.value
+      filters.itemsPerPage.value
     ],
     () => {
       updateUrlFromFilters()
@@ -599,6 +618,7 @@ export function useFilterUrlSync(
   // Reset all filters to default values
   function resetFilters() {
     filters.selectedTeam.value = [...DEFAULT_FILTERS.selectedTeam]
+    filters.selectedOnceOwnedBy.value = [...DEFAULT_FILTERS.selectedOnceOwnedBy]
     filters.selectedPlaysFor.value = [...DEFAULT_FILTERS.selectedPlaysFor]
     filters.selectedYear.value = DEFAULT_FILTERS.selectedYear
     filters.yearRange.value = [...DEFAULT_FILTERS.yearRange]
@@ -606,6 +626,7 @@ export function useFilterUrlSync(
     filters.selectedRounds.value = [...DEFAULT_FILTERS.selectedRounds]
     filters.overallPickRange.value = [...DEFAULT_FILTERS.overallPickRange]
     filters.preDraftTeamSearch.value = [...DEFAULT_FILTERS.preDraftTeamSearch]
+    filters.selectedDraftCountries.value = [...DEFAULT_FILTERS.selectedDraftCountries]
     filters.selectedPositions.value = [...DEFAULT_FILTERS.selectedPositions]
     filters.ageRange.value = [...DEFAULT_FILTERS.ageRange]
     filters.heightRange.value = [...DEFAULT_FILTERS.heightRange]
@@ -619,8 +640,7 @@ export function useFilterUrlSync(
     filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
     filters.currentPage.value = DEFAULT_FILTERS.currentPage
     filters.itemsPerPage.value = DEFAULT_FILTERS.itemsPerPage
-    filters.showPlayerMeasurements.value = DEFAULT_FILTERS.showPlayerMeasurements
-    
+
     // Clear any pending debounce timer
     if (playerSearchDebounceTimer) {
       clearTimeout(playerSearchDebounceTimer)
