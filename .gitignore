@@ -278,6 +278,7 @@ CLAUDE.md
 *.html
 !index.html
 .serena/*
+docs/superpowers/
 
 # Regenerable data pipeline artifacts
 data/raw/

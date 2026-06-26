@@ -9,6 +9,7 @@ import { getCountryCode } from '@/utils/countryCodeConverter'
 import { useCountryData } from '@/composables/useCountryData'
 import { useTeamData } from '@/composables/useTeamData'
 import { parseHeight } from '@/utils/parseHeight'
+import { formatHeight } from '@/utils/formatHeight'
 import { getCurrentSeasonStartYear } from '@/utils/season'
 import {
   YEAR_MIN, YEAR_MAX,
@@ -21,6 +22,7 @@ import {
 } from '@/constants/filters'
 import PlayerCard from './PlayerCard.vue'
 import MobileDraftCard from './MobileDraftCard.vue'
+import FilterPanel from './FilterPanel.vue'
 
 const display = useDisplay()
 const isMobile = computed(() => display.mobile.value)
@@ -210,11 +212,6 @@ interface TeamOption {
 }
 
 const teamOptions = ref<TeamOption[]>([])
-const roundOptions = [
-  { value: 1, title: 'Round 1' },
-  { value: 2, title: 'Round 2' },
-  { value: '3+', title: 'Round 3+' }
-]
 
 interface NationalityOption {
   value: string
@@ -222,46 +219,9 @@ interface NationalityOption {
   flag?: string
 }
 
-function handleAwardCheckboxChange(award: string, checked: boolean) {
-  const current = { ...(props.selectedAwards || {}) }
-  if (checked) {
-    // For one-time-only awards (All-Rookie variants), don't set a count
-    // They're just boolean filters
-    if (shouldShowAwardCount(award)) {
-      current[award] = 1 // Default to 1 for awards that need counts
-    } else {
-      current[award] = 1 // Still set to 1 for filtering logic, but won't show input
-    }
-  } else {
-    delete current[award]
-  }
-  emit('update:selectedAwards', current)
-}
-
-function handleAwardCountChange(award: string, count: number) {
-  if (count < 1) return
-  const current = { ...(props.selectedAwards || {}) }
-  current[award] = count
-  emit('update:selectedAwards', current)
-}
-
 // Format award names for display (keeping NBA prefix)
 function formatAwardName(award: string): string {
   return award
-}
-
-// Sort awards alphabetically
-const sortedAwards = computed(() => {
-  if (!props.availableAwards || props.availableAwards.length === 0) {
-    return []
-  }
-  return [...props.availableAwards].sort()
-})
-
-// Check if award should show count selector (exclude one-time-only awards like All-Rookie variants)
-function shouldShowAwardCount(award: string): boolean {
-  const awardLower = award.toLowerCase()
-  return !awardLower.includes('all-rookie')
 }
 
 const nationalityOptions = computed<NationalityOption[]>(() => {
@@ -272,24 +232,11 @@ const nationalityOptions = computed<NationalityOption[]>(() => {
   })).sort((a, b) => a.title.localeCompare(b.title))
 })
 
-const positionOptions = [
-  { value: 'G', title: 'Guard (G)' },
-  { value: 'F', title: 'Forward (F)' },
-  { value: 'C', title: 'Center (C)' }
-]
-
 const minAge = computed(() => props.availableAges.length > 0 ? Math.min(...props.availableAges) : 17)
 const maxAge = computed(() => props.availableAges.length > 0 ? Math.max(...props.availableAges) : 50)
 
 const minYearsOfService = computed(() => props.minYearsOfService || 0)
 const maxYearsOfService = computed(() => props.maxYearsOfService || 30)
-
-// Helper function to format height from inches to feet-inches
-function formatHeight(inches: number): string {
-  const feet = Math.floor(inches / 12)
-  const remainingInches = Math.round(inches % 12)
-  return `${feet}'${remainingInches}"`
-}
 
 async function loadTeams() {
   try {
@@ -308,6 +255,62 @@ async function loadTeams() {
     loadingTeams.value = false
   }
 }
+
+// Single source of wiring shared by both FilterPanel instances (desktop menu + mobile
+// sheet): read-only option data plus every two-way filter field and its update handler.
+const filterBind = computed(() => ({
+  teamOptions: teamOptions.value,
+  nationalityOptions: nationalityOptions.value,
+  loadingTeams: loadingTeams.value,
+  allPreDraftTeams: props.allPreDraftTeams,
+  availableYears: props.availableYears,
+  availableAges: props.availableAges,
+  availableAwards: props.availableAwards,
+  minHeight: props.minHeight,
+  maxHeight: props.maxHeight,
+  minWeight: props.minWeight,
+  maxWeight: props.maxWeight,
+  minYearsOfService: props.minYearsOfService,
+  maxYearsOfService: props.maxYearsOfService,
+  selectedTeam: props.selectedTeam,
+  'onUpdate:selectedTeam': (v: TeamAbbreviation[]) => emit('update:selectedTeam', v),
+  selectedPlaysFor: props.selectedPlaysFor,
+  'onUpdate:selectedPlaysFor': (v: TeamAbbreviation[]) => emit('update:selectedPlaysFor', v),
+  selectedNationalities: props.selectedNationalities,
+  'onUpdate:selectedNationalities': (v: string[]) => emit('update:selectedNationalities', v),
+  preDraftTeamSearch: props.preDraftTeamSearch,
+  'onUpdate:preDraftTeamSearch': (v: string[]) => emit('update:preDraftTeamSearch', v),
+  selectedPositions: props.selectedPositions,
+  'onUpdate:selectedPositions': (v: string[]) => emit('update:selectedPositions', v),
+  selectedRounds: props.selectedRounds,
+  'onUpdate:selectedRounds': (v: (number | string)[]) => emit('update:selectedRounds', v),
+  tradeFilter: props.tradeFilter,
+  'onUpdate:tradeFilter': (v: 'all' | 'traded' | 'not-traded') => emit('update:tradeFilter', v),
+  retiredFilter: props.retiredFilter,
+  'onUpdate:retiredFilter': (v: 'all' | 'retired' | 'not-retired') => emit('update:retiredFilter', v),
+  useYearRange: props.useYearRange,
+  'onUpdate:useYearRange': (v: boolean) => emit('update:useYearRange', v),
+  yearRange: props.yearRange,
+  'onUpdate:yearRange': (v: [number, number]) => emit('update:yearRange', v),
+  selectedYear: props.selectedYear,
+  'onUpdate:selectedYear': (v: number | null) => emit('update:selectedYear', v),
+  overallPickRange: props.overallPickRange,
+  'onUpdate:overallPickRange': (v: [number, number]) => emit('update:overallPickRange', v),
+  ageRange: props.ageRange,
+  'onUpdate:ageRange': (v: [number, number]) => emit('update:ageRange', v),
+  heightRange: props.heightRange,
+  'onUpdate:heightRange': (v: [number, number]) => emit('update:heightRange', v),
+  weightRange: props.weightRange,
+  'onUpdate:weightRange': (v: [number, number]) => emit('update:weightRange', v),
+  yearsOfServiceRange: props.yearsOfServiceRange,
+  'onUpdate:yearsOfServiceRange': (v: [number, number]) => emit('update:yearsOfServiceRange', v),
+  showPlayerMeasurements: props.showPlayerMeasurements,
+  'onUpdate:showPlayerMeasurements': (v: boolean) => emit('update:showPlayerMeasurements', v),
+  selectedAwards: props.selectedAwards,
+  'onUpdate:selectedAwards': (v: Record<string, number>) => emit('update:selectedAwards', v),
+  awardFilterMode: props.awardFilterMode,
+  'onUpdate:awardFilterMode': (v: 'exclusive' | 'inclusive') => emit('update:awardFilterMode', v),
+}))
 
 
 const allHeaders = [
@@ -1209,502 +1212,7 @@ const shareTooltipText = computed(() => {
                 />
               </v-card-title>
               <v-card-text class="pa-0">
-                <!-- Quadrant 1: Team, Nationality, Drafted From -->
-                <div class="pa-4 pb-2">
-                  <v-row>
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-autocomplete
-                        :model-value="props.selectedTeam"
-                        @update:model-value="emit('update:selectedTeam', $event)"
-                        :items="teamOptions"
-                        :loading="loadingTeams"
-                        label="Drafted By"
-                        variant="outlined"
-                        hide-details
-                        multiple
-                        chips
-                        clearable
-                        persistent-clear
-                        closable-chips
-                      >
-                        <template #prepend-inner>
-                          <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                            <img
-                              src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
-                              alt="NBA"
-                              style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                            />
-                          </div>
-                        </template>
-                        <template #item="{ props: itemProps, item }">
-                          <v-list-item v-bind="itemProps">
-                            <template #prepend v-if="item.raw.logo">
-                              <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                                <img 
-                                  :src="item.raw.logo" 
-                                  :alt="item.raw.title" 
-                                  style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                                />
-                              </div>
-                            </template>
-                          </v-list-item>
-                        </template>
-
-                        <template #selection="{ item }">
-                          <v-chip
-                            v-if="item.raw"
-                            size="small"
-                            class="mr-1"
-                          >
-                            <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                              <img 
-                                :src="item.raw.logo" 
-                                :alt="item.raw.title" 
-                                style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                              />
-                            </div>
-                            <span>{{ item.raw.title }}</span>
-                          </v-chip>
-                        </template>
-                      </v-autocomplete>
-                    </v-col>
-
-                    <!-- Currently Plays For Filter -->
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-autocomplete
-                        :model-value="props.selectedPlaysFor"
-                        @update:model-value="emit('update:selectedPlaysFor', $event)"
-                        :items="teamOptions"
-                        :loading="loadingTeams"
-                        label="Currently Plays For"
-                        variant="outlined"
-                        hide-details
-                        multiple
-                        chips
-                        clearable
-                        persistent-clear
-                        closable-chips
-                      >
-                        <template #prepend-inner>
-                          <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                            <img
-                              src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
-                              alt="NBA"
-                              style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                            />
-                          </div>
-                        </template>
-                        <template #item="{ props: itemProps, item }">
-                          <v-list-item v-bind="itemProps">
-                            <template #prepend v-if="item.raw.logo">
-                              <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                                <img 
-                                  :src="item.raw.logo" 
-                                  :alt="item.raw.title" 
-                                  style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                                />
-                              </div>
-                            </template>
-                          </v-list-item>
-                        </template>
-
-                        <template #selection="{ item }">
-                          <v-chip
-                            v-if="item.raw"
-                            size="small"
-                            class="mr-1"
-                          >
-                            <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                              <img 
-                                :src="item.raw.logo" 
-                                :alt="item.raw.title" 
-                                style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                              />
-                            </div>
-                            <span>{{ item.raw.title }}</span>
-                          </v-chip>
-                        </template>
-                      </v-autocomplete>
-                    </v-col>
-
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-autocomplete
-                        :model-value="props.selectedNationalities"
-                        @update:model-value="emit('update:selectedNationalities', $event)"
-                        :items="nationalityOptions"
-                        :loading="false"
-                        label="Nationality"
-                        variant="outlined"
-                        hide-details
-                        multiple
-                        chips
-                        clearable
-                        persistent-clear
-                        closable-chips
-                      >
-                        <template #prepend-inner>
-                          <v-icon icon="mdi-flag" size="20" class="mr-2" />
-                        </template>
-                        <template #item="{ props: itemProps, item }">
-                          <v-list-item v-bind="itemProps">
-                            <template #prepend v-if="item.raw.flag">
-                              <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                                <span
-                                  :class="`fi fi-${getCountryCode(item.raw.flag)}`"
-                                  style="font-size: 24px;"
-                                />
-                              </div>
-                            </template>
-                          </v-list-item>
-                        </template>
-
-                        <template #selection="{ item }">
-                          <v-chip
-                            v-if="item.raw"
-                            size="small"
-                            class="mr-1"
-                          >
-                            <span
-                              v-if="item.raw.flag"
-                              :class="`fi fi-${getCountryCode(item.raw.flag)}`"
-                              class="mr-1"
-                              style="font-size: 16px; vertical-align: middle;"
-                            />
-                            <span>{{ item.raw.title }}</span>
-                          </v-chip>
-                        </template>
-                      </v-autocomplete>
-                    </v-col>
-
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-autocomplete
-                        :model-value="props.preDraftTeamSearch"
-                        @update:model-value="emit('update:preDraftTeamSearch', $event)"
-                        :items="props.allPreDraftTeams"
-                        label="Drafted From"
-                        variant="outlined"
-                        hide-details
-                        multiple
-                        chips
-                        clearable
-                        persistent-clear
-                        prepend-inner-icon="mdi-school"
-                        closable-chips
-                      />
-                    </v-col>
-                  </v-row>
-                </div>
-
-                <v-divider></v-divider>
-
-                <!-- Quadrant 2: Position, Round, Trade Status -->
-                <div class="pa-4 pb-2">
-                  <v-row>
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-select
-                        :model-value="props.selectedPositions"
-                        @update:model-value="emit('update:selectedPositions', $event)"
-                        :items="positionOptions"
-                        label="Position"
-                        variant="outlined"
-                        multiple
-                        chips
-                        clearable
-                        persistent-clear
-                        hide-details
-                        prepend-inner-icon="mdi-account"
-                        closable-chips
-                      />
-                    </v-col>
-
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-select
-                        :model-value="props.selectedRounds"
-                        @update:model-value="emit('update:selectedRounds', $event)"
-                        :items="roundOptions"
-                        label="Rounds"
-                        variant="outlined"
-                        multiple
-                        chips
-                        hide-details
-                        prepend-inner-icon="mdi-numeric"
-                      />
-                    </v-col>
-
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-select
-                        :model-value="props.tradeFilter"
-                        @update:model-value="emit('update:tradeFilter', $event)"
-                        :items="[
-                          { value: 'all', title: 'All Picks' },
-                          { value: 'traded', title: 'Traded Only' },
-                          { value: 'not-traded', title: 'Not Traded' }
-                        ]"
-                        label="Trade Status"
-                        variant="outlined"
-                        hide-details
-                        prepend-inner-icon="mdi-swap-horizontal"
-                      />
-                    </v-col>
-
-                    <v-col cols="12" md="6" class="mb-2">
-                      <v-select
-                        :model-value="props.retiredFilter"
-                        @update:model-value="emit('update:retiredFilter', $event)"
-                        :items="[
-                          { value: 'all', title: 'All Players' },
-                          { value: 'retired', title: 'Retired Only' },
-                          { value: 'not-retired', title: 'Active Only' }
-                        ]"
-                        label="Retirement Status"
-                        variant="outlined"
-                        hide-details
-                        prepend-inner-icon="mdi-account-off"
-                      />
-                    </v-col>
-                  </v-row>
-                </div>
-
-                <v-divider></v-divider>
-
-                <!-- Quadrant 3: All Range Sliders -->
-                <div class="pa-4 pb-2">
-                  <v-row>
-                    <v-col cols="12" md="6" class="mb-2">
-                      <div class="px-1">
-                        <div class="d-flex align-center justify-space-between mb-3">
-                          <label class="text-caption text-medium-emphasis">Year</label>
-                          <v-btn-toggle
-                            :model-value="props.useYearRange ? 'range' : 'single'"
-                            @update:model-value="emit('update:useYearRange', $event === 'range')"
-                            variant="outlined"
-                            mandatory
-                          >
-                            <v-btn value="single">Single</v-btn>
-                            <v-btn value="range">Range</v-btn>
-                          </v-btn-toggle>
-                        </div>
-                        <v-range-slider
-                          v-if="props.useYearRange"
-                          :model-value="props.yearRange"
-                          @update:model-value="emit('update:yearRange', $event)"
-                          :min="YEAR_MIN"
-                          :max="YEAR_MAX"
-                          :step="1"
-                          thumb-label="always"
-                          thumb-label-location="bottom"
-                          hide-details
-                          color="primary"
-                          class="mt-2"
-                        />
-                        <v-select
-                          v-else
-                          :model-value="props.selectedYear"
-                          @update:model-value="emit('update:selectedYear', $event)"
-                          :items="props.availableYears"
-                          label="Select Year"
-                          variant="outlined"
-                          hide-details
-                          clearable
-                          persistent-clear
-                          class="mt-2"
-                        />
-                      </div>
-                    </v-col>
-
-                    <v-col cols="12" md="6" class="mb-2">
-                      <div class="px-1">
-                        <label class="text-caption text-medium-emphasis mb-3 d-block">
-                          Overall Pick Range
-                          <span v-if="props.overallPickRange && props.overallPickRange[1] === 61" class="ml-2 text-primary">
-                            (61+)
-                          </span>
-                        </label>
-                        <v-range-slider
-                          :model-value="props.overallPickRange"
-                          @update:model-value="emit('update:overallPickRange', $event)"
-                          :min="PICK_MIN"
-                          :max="PICK_MAX"
-                          :step="1"
-                          thumb-label="always"
-                          thumb-label-location="bottom"
-                          hide-details
-                          color="primary"
-                          class="mt-2"
-                        />
-                      </div>
-                    </v-col>
-
-                    <v-col cols="12" md="6" class="mb-2">
-                      <div class="px-1">
-                        <label class="text-caption text-medium-emphasis mb-3 d-block">Age Range</label>
-                        <v-range-slider
-                          :model-value="props.ageRange"
-                          @update:model-value="emit('update:ageRange', $event)"
-                          :min="minAge"
-                          :max="maxAge"
-                          :step="1"
-                          thumb-label="always"
-                          thumb-label-location="bottom"
-                          hide-details
-                          color="primary"
-                          class="mt-2"
-                        />
-                      </div>
-                    </v-col>
-                  </v-row>
-                </div>
-
-                <v-divider></v-divider>
-
-                <!-- Quadrant 4: Player Measurements -->
-                <div class="pa-4">
-                  <v-row>
-                    <v-col cols="12" md="6" class="mb-2">
-                      <div class="px-1">
-                        <label class="text-caption text-medium-emphasis mb-3 d-block">
-                          Height Range
-                          <span class="ml-2 text-primary">
-                            ({{ formatHeight(props.heightRange[0]) }} - {{ formatHeight(props.heightRange[1]) }})
-                          </span>
-                        </label>
-                        <v-range-slider
-                          :model-value="props.heightRange"
-                          @update:model-value="emit('update:heightRange', $event)"
-                          :min="props.minHeight"
-                          :max="props.maxHeight"
-                          :step="1"
-                          thumb-label="always"
-                          thumb-label-location="bottom"
-                          hide-details
-                          color="primary"
-                          class="mt-2"
-                        >
-                          <template v-slot:thumb-label="{ modelValue }">
-                            <span>{{ formatHeight(modelValue) }}</span>
-                          </template>
-                        </v-range-slider>
-                      </div>
-                    </v-col>
-                    <v-col cols="12" md="6" class="mb-2">
-                      <div class="px-1">
-                        <label class="text-caption text-medium-emphasis mb-3 d-block">
-                          Weight Range
-                          <span class="ml-2 text-primary">
-                            ({{ props.weightRange[0] }} - {{ props.weightRange[1] }} lbs)
-                          </span>
-                        </label>
-                        <v-range-slider
-                          :model-value="props.weightRange"
-                          @update:model-value="emit('update:weightRange', $event)"
-                          :min="props.minWeight"
-                          :max="props.maxWeight"
-                          :step="1"
-                          thumb-label="always"
-                          thumb-label-location="bottom"
-                          hide-details
-                          color="primary"
-                          class="mt-2"
-                        >
-                          <template v-slot:thumb-label="{ modelValue }">
-                            <span>{{ modelValue }} lbs</span>
-                          </template>
-                        </v-range-slider>
-                      </div>
-                    </v-col>
-                    <v-col cols="12" md="6" class="mb-2">
-                      <div class="px-1">
-                        <label class="text-caption text-medium-emphasis mb-3 d-block">
-                          Years in the League Range
-                          <span class="ml-2 text-primary">
-                            ({{ props.yearsOfServiceRange[0] }} - {{ props.yearsOfServiceRange[1] }} years)
-                          </span>
-                        </label>
-                        <v-range-slider
-                          :model-value="props.yearsOfServiceRange"
-                          @update:model-value="emit('update:yearsOfServiceRange', $event)"
-                          :min="props.minYearsOfService"
-                          :max="props.maxYearsOfService"
-                          :step="1"
-                          thumb-label="always"
-                          thumb-label-location="bottom"
-                          hide-details
-                          color="primary"
-                          class="mt-2"
-                        >
-                          <template v-slot:thumb-label="{ modelValue }">
-                            <span>{{ modelValue }} {{ modelValue === 1 ? 'year' : 'years' }}</span>
-                          </template>
-                        </v-range-slider>
-                      </div>
-                    </v-col>
-                    <v-col cols="12" class="mb-2">
-                      <v-checkbox
-                        :model-value="props.showPlayerMeasurements"
-                        @update:model-value="emit('update:showPlayerMeasurements', !!$event)"
-                        label="Show Player Measurements"
-                        hide-details
-                      />
-                    </v-col>
-                  </v-row>
-                </div>
-
-                <v-divider v-if="props.availableAwards && props.availableAwards.length > 0"></v-divider>
-
-                <!-- Awards Filter Section -->
-                <div v-if="props.availableAwards && props.availableAwards.length > 0" class="pa-4 pb-2">
-                  <div class="text-subtitle-2 font-weight-bold mb-3 d-flex align-center justify-space-between">
-                    <div class="d-flex align-center">
-                      <v-icon icon="mdi-star" size="20" class="mr-2" />
-                      Awards
-                    </div>
-                    <v-tooltip location="bottom" max-width="300">
-                      <template v-slot:activator="{ props: tooltipProps }">
-                        <v-btn-toggle
-                          :model-value="props.awardFilterMode || 'exclusive'"
-                          @update:model-value="emit('update:awardFilterMode', $event)"
-                          variant="outlined"
-                          mandatory
-                          density="compact"
-                          v-bind="tooltipProps"
-                          class="award-mode-toggle"
-                        >
-                          <v-btn value="exclusive" size="small">All</v-btn>
-                          <v-btn value="inclusive" size="small">Any</v-btn>
-                        </v-btn-toggle>
-                      </template>
-                      <span>Exclusive (All): Shows players with ALL selected awards.<br>Inclusive (Any): Shows players with ANY selected award.</span>
-                    </v-tooltip>
-                  </div>
-              <div class="awards-filter-list">
-                <div
-                  v-for="award in sortedAwards"
-                  :key="award"
-                  class="d-flex align-center mb-2"
-                >
-                  <v-checkbox
-                    :model-value="award in (props.selectedAwards || {})"
-                    @update:model-value="handleAwardCheckboxChange(award, !!$event)"
-                    :label="formatAwardName(award)"
-                    hide-details
-                    density="comfortable"
-                    class="flex-grow-1 mr-2"
-                  />
-                  <v-text-field
-                    v-if="award in (props.selectedAwards || {}) && shouldShowAwardCount(award)"
-                    :model-value="(props.selectedAwards || {})[award] || 1"
-                    @update:model-value="handleAwardCountChange(award, Number($event))"
-                    type="number"
-                    variant="outlined"
-                    density="compact"
-                    hide-details
-                    :min="1"
-                    style="max-width: 80px;"
-                    class="award-count-input"
-                  />
-                </div>
-              </div>
-                </div>
+                <FilterPanel :mobile="false" v-bind="filterBind" />
               </v-card-text>
             </v-card>
           </v-menu>
@@ -1750,507 +1258,7 @@ const shareTooltipText = computed(() => {
             </div>
           </v-card-title>
           <v-card-text class="pa-0 filter-content">
-            <!-- Quadrant 1: Team, Nationality, Drafted From -->
-            <div class="pa-4 pb-3">
-              <v-row>
-                <v-col cols="12" md="6" class="mb-3">
-                  <v-autocomplete
-                    :model-value="props.selectedTeam"
-                    @update:model-value="emit('update:selectedTeam', $event)"
-                    :items="teamOptions"
-                    :loading="loadingTeams"
-                    label="Team"
-                    variant="outlined"
-                    hide-details
-                    multiple
-                    chips
-                    clearable
-                    persistent-clear
-                    closable-chips
-                  >
-                    <template #prepend-inner>
-                      <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                        <img
-                          src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
-                          alt="NBA"
-                          style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                        />
-                      </div>
-                    </template>
-                    <template #item="{ props: itemProps, item }">
-                      <v-list-item v-bind="itemProps">
-                        <template #prepend v-if="item.raw.logo">
-                          <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                            <img 
-                              :src="item.raw.logo" 
-                              :alt="item.raw.title" 
-                              style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                            />
-                          </div>
-                        </template>
-                      </v-list-item>
-                    </template>
-
-                    <template #selection="{ item }">
-                      <v-chip
-                        v-if="item.raw"
-                        size="small"
-                        class="mr-1"
-                      >
-                        <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                          <img 
-                            :src="item.raw.logo" 
-                            :alt="item.raw.title" 
-                            style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                          />
-                        </div>
-                        <span>{{ item.raw.title }}</span>
-                      </v-chip>
-                    </template>
-                  </v-autocomplete>
-                </v-col>
-
-                <!-- Currently Plays For Filter -->
-                <v-col cols="12" md="6" class="mb-2">
-                  <v-autocomplete
-                    :model-value="props.selectedPlaysFor"
-                    @update:model-value="emit('update:selectedPlaysFor', $event)"
-                    :items="teamOptions"
-                    :loading="loadingTeams"
-                    label="Currently Plays For"
-                    variant="outlined"
-                    hide-details
-                    multiple
-                    chips
-                    clearable
-                    persistent-clear
-                    closable-chips
-                  >
-                    <template #prepend-inner>
-                      <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                        <img
-                          src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
-                          alt="NBA"
-                          style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                        />
-                      </div>
-                    </template>
-                    <template #item="{ props: itemProps, item }">
-                      <v-list-item v-bind="itemProps">
-                        <template #prepend v-if="item.raw.logo">
-                          <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                            <img 
-                              :src="item.raw.logo" 
-                              :alt="item.raw.title" 
-                              style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                            />
-                          </div>
-                        </template>
-                      </v-list-item>
-                    </template>
-
-                    <template #selection="{ item }">
-                      <v-chip
-                        v-if="item.raw"
-                        size="small"
-                        class="mr-1"
-                      >
-                        <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                          <img 
-                            :src="item.raw.logo" 
-                            :alt="item.raw.title" 
-                            style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"
-                          />
-                        </div>
-                        <span>{{ item.raw.title }}</span>
-                      </v-chip>
-                    </template>
-                  </v-autocomplete>
-                </v-col>
-
-                <v-col cols="12" md="6" class="mb-2">
-                  <v-select
-                    :model-value="props.selectedNationalities"
-                    @update:model-value="emit('update:selectedNationalities', $event)"
-                    :items="nationalityOptions"
-                    :loading="false"
-                    label="Nationality"
-                    variant="outlined"
-                    hide-details
-                    multiple
-                    chips
-                    clearable
-                    persistent-clear
-                    closable-chips
-                  >
-                    <template #prepend-inner>
-                      <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                        <span
-                          :class="`fi fi-xx`"
-                          style="font-size: 20px;"
-                        />
-                      </div>
-                    </template>
-                    <template #item="{ props: itemProps, item }">
-                      <v-list-item v-bind="itemProps">
-                        <template #prepend v-if="item.raw.flag">
-                          <div class="team-logo-container mr-2" style="width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                            <span
-                              :class="`fi fi-${getCountryCode(item.raw.flag)}`"
-                              style="font-size: 24px;"
-                            />
-                          </div>
-                        </template>
-                      </v-list-item>
-                    </template>
-
-                    <template #selection="{ item }">
-                      <v-chip
-                        v-if="item.raw"
-                        size="small"
-                        class="mr-1"
-                      >
-                        <span
-                          v-if="item.raw.flag"
-                          :class="`fi fi-${getCountryCode(item.raw.flag)}`"
-                          class="mr-1"
-                          style="font-size: 16px; vertical-align: middle;"
-                        />
-                        <span>{{ item.raw.title }}</span>
-                      </v-chip>
-                    </template>
-                  </v-select>
-                </v-col>
-
-                <v-col cols="12" md="6" class="mb-2">
-                  <v-autocomplete
-                    :model-value="props.preDraftTeamSearch"
-                    @update:model-value="emit('update:preDraftTeamSearch', $event)"
-                    :items="props.allPreDraftTeams"
-                    label="Drafted From"
-                    variant="outlined"
-                    hide-details
-                    multiple
-                    chips
-                    clearable
-                    persistent-clear
-                    prepend-inner-icon="mdi-school"
-                    closable-chips
-                  />
-                </v-col>
-              </v-row>
-            </div>
-
-            <!-- Quadrant 2: Position, Round, Trade Status -->
-            <div class="pa-4 pb-3">
-              <v-row>
-                <v-col cols="12" md="6" class="mb-3">
-                  <v-select
-                    :model-value="props.selectedPositions"
-                    @update:model-value="emit('update:selectedPositions', $event)"
-                    :items="positionOptions"
-                    label="Position"
-                    variant="outlined"
-                    multiple
-                    chips
-                    clearable
-                    persistent-clear
-                    hide-details
-                    prepend-inner-icon="mdi-account"
-                    closable-chips
-                  />
-                </v-col>
-
-                <v-col cols="12" md="6" class="mb-2">
-                  <v-select
-                    :model-value="props.selectedRounds"
-                    @update:model-value="emit('update:selectedRounds', $event)"
-                    :items="roundOptions"
-                    label="Rounds"
-                    variant="outlined"
-                    multiple
-                    chips
-                    hide-details
-                    prepend-inner-icon="mdi-numeric"
-                  />
-                </v-col>
-
-                <v-col cols="12" md="6" class="mb-2">
-                  <v-select
-                    :model-value="props.tradeFilter"
-                    @update:model-value="emit('update:tradeFilter', $event)"
-                    :items="[
-                      { value: 'all', title: 'All Picks' },
-                      { value: 'traded', title: 'Traded Only' },
-                      { value: 'not-traded', title: 'Not Traded' }
-                    ]"
-                    label="Trade Status"
-                    variant="outlined"
-                    hide-details
-                    prepend-inner-icon="mdi-swap-horizontal"
-                  />
-                </v-col>
-
-                <v-col cols="12" md="6" class="mb-2">
-                  <v-select
-                    :model-value="props.retiredFilter"
-                    @update:model-value="emit('update:retiredFilter', $event)"
-                    :items="[
-                      { value: 'all', title: 'All Players' },
-                      { value: 'retired', title: 'Retired Only' },
-                      { value: 'not-retired', title: 'Active Only' }
-                    ]"
-                    label="Retirement Status"
-                    variant="outlined"
-                    hide-details
-                    prepend-inner-icon="mdi-account-off"
-                  />
-                </v-col>
-              </v-row>
-            </div>
-
-            <v-divider class="my-2"></v-divider>
-
-            <!-- Quadrant 3: All Range Sliders -->
-            <div class="pa-4 pb-3">
-              <v-row>
-                <v-col cols="12" md="6" class="mb-3">
-                  <div class="px-1">
-                    <div class="d-flex align-center justify-space-between mb-3">
-                      <label class="text-caption text-medium-emphasis">Year</label>
-                      <v-btn-toggle
-                        :model-value="props.useYearRange ? 'range' : 'single'"
-                        @update:model-value="emit('update:useYearRange', $event === 'range')"
-                        variant="outlined"
-                        mandatory
-                      >
-                        <v-btn value="single">Single</v-btn>
-                        <v-btn value="range">Range</v-btn>
-                      </v-btn-toggle>
-                    </div>
-                    <v-range-slider
-                      v-if="props.useYearRange"
-                      :model-value="props.yearRange"
-                      @update:model-value="emit('update:yearRange', $event)"
-                      :min="YEAR_MIN"
-                      :max="YEAR_MAX"
-                      :step="1"
-                      thumb-label="always"
-                      thumb-label-location="bottom"
-                      hide-details
-                      color="primary"
-                      class="mt-2"
-                    />
-                    <v-select
-                      v-else
-                      :model-value="props.selectedYear"
-                      @update:model-value="emit('update:selectedYear', $event)"
-                      :items="props.availableYears"
-                      label="Select Year"
-                      variant="outlined"
-                      hide-details
-                      clearable
-                      persistent-clear
-                      class="mt-2"
-                    />
-                  </div>
-                </v-col>
-
-                <v-col cols="12" md="6" class="mb-2">
-                  <div class="px-1">
-                    <label class="text-caption text-medium-emphasis mb-3 d-block">
-                      Overall Pick Range
-                      <span v-if="props.overallPickRange && props.overallPickRange[1] === 61" class="ml-2 text-primary">
-                        (61+)
-                      </span>
-                    </label>
-                    <v-range-slider
-                      :model-value="props.overallPickRange"
-                      @update:model-value="emit('update:overallPickRange', $event)"
-                      :min="PICK_MIN"
-                      :max="PICK_MAX"
-                      :step="1"
-                      thumb-label="always"
-                      thumb-label-location="bottom"
-                      hide-details
-                      color="primary"
-                      class="mt-2"
-                    />
-                  </div>
-                </v-col>
-
-                <v-col cols="12" md="6" class="mb-2">
-                  <div class="px-1">
-                    <label class="text-caption text-medium-emphasis mb-3 d-block">Age Range</label>
-                    <v-range-slider
-                      :model-value="props.ageRange"
-                      @update:model-value="emit('update:ageRange', $event)"
-                      :min="minAge"
-                      :max="maxAge"
-                      :step="1"
-                      thumb-label="always"
-                      thumb-label-location="bottom"
-                      hide-details
-                      color="primary"
-                      class="mt-2"
-                    />
-                  </div>
-                </v-col>
-              </v-row>
-            </div>
-
-            <v-divider class="my-2"></v-divider>
-
-            <!-- Quadrant 4: Player Measurements -->
-            <div class="pa-4 pb-4">
-              <v-row>
-                <v-col cols="12" md="6" class="mb-2">
-                  <div class="px-1">
-                    <label class="text-caption text-medium-emphasis mb-3 d-block">
-                      Height Range
-                      <span class="ml-2 text-primary">
-                        ({{ formatHeight(props.heightRange[0]) }} - {{ formatHeight(props.heightRange[1]) }})
-                      </span>
-                    </label>
-                    <v-range-slider
-                      :model-value="props.heightRange"
-                      @update:model-value="emit('update:heightRange', $event)"
-                      :min="props.minHeight"
-                      :max="props.maxHeight"
-                      :step="1"
-                      thumb-label="always"
-                      thumb-label-location="bottom"
-                      hide-details
-                      color="primary"
-                      class="mt-2"
-                    >
-                      <template v-slot:thumb-label="{ modelValue }">
-                        <span>{{ formatHeight(modelValue) }}</span>
-                      </template>
-                    </v-range-slider>
-                  </div>
-                </v-col>
-                <v-col cols="12" md="6" class="mb-2">
-                  <div class="px-1">
-                    <label class="text-caption text-medium-emphasis mb-3 d-block">
-                      Weight Range
-                      <span class="ml-2 text-primary">
-                        ({{ props.weightRange[0] }} - {{ props.weightRange[1] }} lbs)
-                      </span>
-                    </label>
-                    <v-range-slider
-                      :model-value="props.weightRange"
-                      @update:model-value="emit('update:weightRange', $event)"
-                      :min="props.minWeight"
-                      :max="props.maxWeight"
-                      :step="1"
-                      thumb-label="always"
-                      thumb-label-location="bottom"
-                      hide-details
-                      color="primary"
-                      class="mt-2"
-                    >
-                      <template v-slot:thumb-label="{ modelValue }">
-                        <span>{{ modelValue }} lbs</span>
-                      </template>
-                    </v-range-slider>
-                  </div>
-                </v-col>
-                <v-col cols="12" md="6" class="mb-2">
-                  <div class="px-1">
-                    <label class="text-caption text-medium-emphasis mb-3 d-block">
-                      Years in the League Range
-                      <span class="ml-2 text-primary">
-                        ({{ props.yearsOfServiceRange[0] }} - {{ props.yearsOfServiceRange[1] }} years)
-                      </span>
-                    </label>
-                    <v-range-slider
-                      :model-value="props.yearsOfServiceRange"
-                      @update:model-value="emit('update:yearsOfServiceRange', $event)"
-                      :min="props.minYearsOfService"
-                      :max="props.maxYearsOfService"
-                      :step="1"
-                      thumb-label="always"
-                      thumb-label-location="bottom"
-                      hide-details
-                      color="primary"
-                      class="mt-2"
-                    >
-                      <template v-slot:thumb-label="{ modelValue }">
-                        <span>{{ modelValue }} {{ modelValue === 1 ? 'year' : 'years' }}</span>
-                      </template>
-                    </v-range-slider>
-                  </div>
-                </v-col>
-                <v-col cols="12" class="mb-2">
-                  <v-checkbox
-                    :model-value="props.showPlayerMeasurements"
-                    @update:model-value="emit('update:showPlayerMeasurements', !!$event)"
-                    label="Show Player Measurements"
-                    hide-details
-                    density="comfortable"
-                    class="touch-target-checkbox"
-                  />
-                </v-col>
-              </v-row>
-            </div>
-
-            <v-divider v-if="props.availableAwards && props.availableAwards.length > 0" class="my-2"></v-divider>
-
-            <!-- Awards Filter Section -->
-            <div v-if="props.availableAwards && props.availableAwards.length > 0" class="pa-4 pb-3">
-              <div class="text-subtitle-2 font-weight-bold mb-3 d-flex align-center justify-space-between">
-                <div class="d-flex align-center">
-                  <v-icon icon="mdi-star" size="20" class="mr-2" />
-                  Awards
-                </div>
-                <v-tooltip location="bottom" max-width="300">
-                  <template v-slot:activator="{ props: tooltipProps }">
-                    <v-btn-toggle
-                      :model-value="props.awardFilterMode || 'exclusive'"
-                      @update:model-value="emit('update:awardFilterMode', $event)"
-                      variant="outlined"
-                      mandatory
-                      density="comfortable"
-                      v-bind="tooltipProps"
-                      class="award-mode-toggle"
-                    >
-                      <v-btn value="exclusive">All</v-btn>
-                      <v-btn value="inclusive">Any</v-btn>
-                    </v-btn-toggle>
-                  </template>
-                  <span>Exclusive (All): Shows players with ALL selected awards.<br>Inclusive (Any): Shows players with ANY selected award.</span>
-                </v-tooltip>
-              </div>
-              <div class="awards-filter-list">
-                <div
-                  v-for="award in sortedAwards"
-                  :key="award"
-                  class="d-flex align-center mb-2"
-                >
-                  <v-checkbox
-                    :model-value="award in (props.selectedAwards || {})"
-                    @update:model-value="handleAwardCheckboxChange(award, !!$event)"
-                    :label="formatAwardName(award)"
-                    hide-details
-                    density="comfortable"
-                    class="flex-grow-1 mr-2"
-                  />
-                  <v-text-field
-                    v-if="award in (props.selectedAwards || {}) && shouldShowAwardCount(award)"
-                    :model-value="(props.selectedAwards || {})[award] || 1"
-                    @update:model-value="handleAwardCountChange(award, Number($event))"
-                    type="number"
-                    variant="outlined"
-                    density="compact"
-                    hide-details
-                    :min="1"
-                    style="max-width: 80px;"
-                    class="award-count-input"
-                  />
-                </div>
-              </div>
-            </div>
+            <FilterPanel :mobile="true" v-bind="filterBind" />
           </v-card-text>
         </v-card>
       </v-bottom-sheet>
