@@ -140,6 +140,7 @@ def _resolve_chain_destination_ties(survivors: pd.DataFrame) -> pd.DataFrame:
     def _is_chain_destination(row: pd.Series) -> bool:
         destination = final_trade_destination(row["Draft Trades"])
         if destination is None:
+            # An untraded pick row is its own owner, so it always qualifies as a destination here.
             return True
         year = int(row["Year"])
         return canonical_team(str(row["team"]), year) == canonical_team(destination, year)

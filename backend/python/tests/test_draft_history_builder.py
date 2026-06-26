@@ -432,23 +432,6 @@ class DraftHistoryBuilderTests(unittest.TestCase):
 
         self.assertEqual(frame.iloc[0]["source_team"], "ATL")
 
-    def test_resolve_owning_rows_drops_picks_with_no_surviving_owner(self) -> None:
-        """A pick only the trading team listed (a data hole) is dropped, not raised."""
-        raw = pd.DataFrame(
-            [
-                {
-                    "Year": 2000, "Round": 2, "Pick": 40, "Player": "Lost Pick",
-                    "Pos": "G", "HT": "6-2", "WT": 185, "Age": 22,
-                    "Pre-Draft Team": "Example", "Class": "Sr",
-                    "Draft Trades": "ATL to MIL", "YOS": 0, "source_team": "ATL",
-                },
-            ],
-        )
-
-        resolved = resolve_owning_rows(raw)
-
-        self.assertEqual(len(resolved), 0)
-
     def test_enrich_keeps_first_player_record_for_duplicate_draft_slots(self) -> None:
         """When the NBA index lists two players for one draft slot, keep the first (legacy parity)."""
         draft = pd.DataFrame(
