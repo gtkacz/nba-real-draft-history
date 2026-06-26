@@ -503,9 +503,6 @@ function handleAwardCountChange(award: string, count: number) {
             color="primary"
             class="mt-2"
           >
-            <template v-slot:thumb-label="{ modelValue }">
-              <span>{{ modelValue }} lbs</span>
-            </template>
           </v-range-slider>
         </div>
       </v-col>
@@ -528,9 +525,6 @@ function handleAwardCountChange(award: string, count: number) {
             color="primary"
             class="mt-2"
           >
-            <template v-slot:thumb-label="{ modelValue }">
-              <span>{{ modelValue }} {{ modelValue === 1 ? 'year' : 'years' }}</span>
-            </template>
           </v-range-slider>
         </div>
       </v-col>
