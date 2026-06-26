@@ -235,13 +235,13 @@ onMounted(() => {
 
 @media (min-width: 960px) {
   .table-container {
-    padding: 2vw 10vw 0 !important;
+    padding: 2vw 5vw 0 !important;
   }
 }
 
 @media (min-width: 1280px) {
   .table-container {
-    padding: 1.5vw 10vw 0 !important;
+    padding: 1.5vw 5vw 0 !important;
   }
 }
 </style>

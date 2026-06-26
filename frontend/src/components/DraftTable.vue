@@ -1620,7 +1620,7 @@ const shareTooltipText = computed(() => {
       :row-props="getTeamRowProps"
       hover
       fixed-header
-      :height="isMobile ? '500' : 'calc(100vh - 250px)'"
+      :height="isMobile ? '500' : 'calc(100vh - 205px)'"
     >
       <template #header.team="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
@@ -1850,7 +1850,7 @@ const shareTooltipText = computed(() => {
                 />
               </template>
               <span v-if="isRookie(item)">
-                Rookie<template v-if="item.plays_for"> — {{ getTeamDisplayName(item.plays_for, item.year) }}</template>
+                Rookie<template v-if="item.plays_for"> for the {{ getTeamDisplayName(item.plays_for, item.year) }}</template>
               </span>
               <span v-else-if="getPlayerRetirementStatus(item.played_until_year) === 'active' && item.plays_for">
                 Currently plays for the {{ getTeamDisplayName(item.plays_for, item.year) }}
