@@ -1,6 +1,68 @@
 from functools import lru_cache  # noqa: CPY001, D100
+from os import getenv
 
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# REST Countries v5 base URL. The legacy v1-v4 endpoints were shut down; see
+# https://restcountries.com/docs/legacy-api-deprecation
+_BASE_URL = "https://api.restcountries.com/countries/v5"
+
+# v5 requires an API key (free tier: 500 requests/month). Used server-side only so it never ships to the browser.
+_API_KEY = getenv("RESTCOUNTRIES_API_KEY", "")
+
+# Free-plan maximum page size for the list endpoint; the ~249 countries paginate in three calls.
+_PAGE_SIZE = 100
+
+# Seconds to wait on any single REST Countries request before giving up.
+_REQUEST_TIMEOUT = 30
+
+# ISO 3166-1 alpha-2 / alpha-3 code lengths, used to pick the matching v5 lookup property.
+_ALPHA_2_LENGTH = 2
+_ALPHA_3_LENGTH = 3
+
+
+def _auth_headers() -> dict[str, str]:
+    """Build the bearer-token auth header, failing fast when the key is unset.
+
+    Returns:
+        Authorization header for REST Countries v5.
+
+    Raises:
+        RuntimeError: If RESTCOUNTRIES_API_KEY is not configured.
+    """
+    if not _API_KEY:
+        msg = "RESTCOUNTRIES_API_KEY is not set; get a free key at https://restcountries.com/sign-up"
+        raise RuntimeError(msg)
+
+    return {"Authorization": f"Bearer {_API_KEY}"}
+
+
+def _fetch_objects(path: str, params: dict[str, object] | None = None) -> list[dict]:
+    """Call a v5 endpoint and return its ``data.objects`` list.
+
+    Args:
+        path: Endpoint path appended to the base URL (e.g. "/name", or "" for the list endpoint).
+        params: Optional query parameters.
+
+    Returns:
+        The list of matched country objects, or an empty list on any request failure.
+    """
+    headers = _auth_headers()
+
+    try:
+        response = requests.get(f"{_BASE_URL}{path}", params=params, headers=headers, timeout=_REQUEST_TIMEOUT)
+
+        if response.status_code == requests.codes.not_found:
+            return []
+
+        response.raise_for_status()
+        return response.json()["data"]["objects"]
+
+    except (requests.RequestException, KeyError, ValueError):
+        return []
 
 
 # Cache for individual country lookups
@@ -17,41 +79,44 @@ def get_country_iso(country_candidate: str) -> str | None:
     """
     country_candidate = _normalize_string(country_candidate)
 
-    try:
-        # Check if it's a 2 or 3 character code
-        if len(country_candidate) in {2, 3}:
-            url = f"https://restcountries.com/v3.1/alpha/{country_candidate}?fields=cca2"
-        else:
-            url = f"https://restcountries.com/v3.1/name/{country_candidate}?fields=cca2"
+    # Check if it's a 2 or 3 character code
+    if len(country_candidate) in {_ALPHA_2_LENGTH, _ALPHA_3_LENGTH}:
+        # Exact, case-insensitive read by ISO code via the v5 "read by property" endpoint
+        code_property = "codes.alpha_2" if len(country_candidate) == _ALPHA_2_LENGTH else "codes.alpha_3"
+        objects = _fetch_objects(f"/{code_property}/{country_candidate}")
+    else:
+        # Substring search across common, official, native and alternate names via the v5 "name" aggregate
+        objects = _fetch_objects("/name", params={"q": country_candidate})
 
-        response = requests.get(url)
+    # Check if exactly one result
+    if len(objects) == 1:
+        return objects[0].get("codes", {}).get("alpha_2")
 
-        if response.status_code == 404:
-            return None
-
-        response.raise_for_status()
-        data = response.json()
-
-        # Check if exactly one result
-        if len(data) == 1:
-            return data[0]["cca2"]
-
-        return None  # noqa: TRY300
-
-    except Exception:  # noqa: BLE001
-        return None
+    return None
 
 
 # Cache for the all countries endpoint
 @lru_cache(maxsize=1)
-def _get_all_countries():
-    """Helper to cache the all countries endpoint response."""
-    try:
-        response = requests.get("https://restcountries.com/v3.1/all?fields=name,cca2,altSpellings")
-        response.raise_for_status()
-        return response.json()
-    except Exception:
-        return []
+def get_all_countries() -> list[dict]:
+    """Fetch every country once via the paginated v5 list endpoint.
+
+    Returns:
+        A list of country objects in the full v5 shape, or an empty list on failure.
+    """
+    countries: list[dict] = []
+    offset = 0
+
+    while True:
+        page = _fetch_objects("", params={"limit": _PAGE_SIZE, "offset": offset})
+        countries.extend(page)
+
+        # A short page (including an empty one past the end) means there is nothing left to fetch.
+        if len(page) < _PAGE_SIZE:
+            break
+
+        offset += _PAGE_SIZE
+
+    return countries
 
 
 def _normalize_string(s: str) -> str:
@@ -59,7 +124,7 @@ def _normalize_string(s: str) -> str:
     return s.lower().strip()
 
 
-def _find_country_in_all(candidate: str, all_countries) -> str | None:
+def _find_country_in_all(candidate: str, all_countries: list[dict]) -> str | None:
     """
     Find a country in the all countries data by matching various name fields.
 
@@ -73,34 +138,31 @@ def _find_country_in_all(candidate: str, all_countries) -> str | None:
     normalized_candidate = _normalize_string(candidate)
 
     for country in all_countries:
+        names = country.get("names", {})
+        cca2 = country.get("codes", {}).get("alpha_2")
+
+        if not cca2:
+            continue
+
         # Check common name
-        if "name" in country:
-            name_data = country["name"]
+        if _normalize_string(names.get("common", "")) == normalized_candidate:
+            return cca2
 
-            # Check common name
-            if "common" in name_data and _normalize_string(name_data["common"]) == normalized_candidate:
-                return country["cca2"]
+        # Check official name
+        if _normalize_string(names.get("official", "")) == normalized_candidate:
+            return cca2
 
-            # Check official name
-            if "official" in name_data and _normalize_string(name_data["official"]) == normalized_candidate:
-                return country["cca2"]
-
-            # Check native names
-            if "nativeName" in name_data:
-                for lang, native_names in name_data["nativeName"].items():
-                    if "common" in native_names and _normalize_string(native_names["common"]) == normalized_candidate:
-                        return country["cca2"]
-                    if (
-                        "official" in native_names
-                        and _normalize_string(native_names["official"]) == normalized_candidate
-                    ):
-                        return country["cca2"]
+        # Check native names
+        for native_name in names.get("native", {}).values():
+            if _normalize_string(native_name.get("common", "")) == normalized_candidate:
+                return cca2
+            if _normalize_string(native_name.get("official", "")) == normalized_candidate:
+                return cca2
 
         # Check alternative spellings
-        if "altSpellings" in country:
-            for alt_spelling in country["altSpellings"]:
-                if _normalize_string(alt_spelling) == normalized_candidate:
-                    return country["cca2"]
+        for alt_spelling in names.get("alternates", []):
+            if _normalize_string(alt_spelling) == normalized_candidate:
+                return cca2
 
     return None
 
@@ -130,7 +192,7 @@ def get_country_isos(country_candidates: set[str]) -> dict[str, str | None]:
 
     # Second pass: for failed candidates, try matching against all countries
     if failed_candidates:
-        all_countries = _get_all_countries()
+        all_countries = get_all_countries()
 
         for candidate in failed_candidates:
             iso_code = _find_country_in_all(candidate, all_countries)

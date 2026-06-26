@@ -53,7 +53,7 @@ preview = true
 quote-style = "double"
 docstring-code-format = true
 
-indent-style = "tab"
+indent-style = "space"
 
 skip-magic-trailing-comma = false
 

@@ -1,4 +1,5 @@
 import { ref, computed } from 'vue'
+import { getDataUrl } from '@/utils/dataUrl'
 
 export interface CountryInfo {
   officialEnglish: string
@@ -8,100 +9,26 @@ export interface CountryInfo {
 type CountryDataMap = Record<string, CountryInfo>
 
 const COUNTRY_DATA_CACHE_KEY = 'iso_country_data'
-const COUNTRY_DATA_VERSION = '1.2.1' // Increment if data structure changes
-
-/**
- * Language preference map for countries with multiple official languages
- * Maps country code (cca2) to preferred language code(s) - will try each in order
- */
-const LANGUAGE_PREFERENCES: Record<string, string[]> = {
-  il: ['heb', 'he'],
-  ar: ['spa', 'es'],
-  pr: ['spa', 'es'],
-  cm: ['fra', 'fr'],
-  tz: ['swa'],
-}
+const COUNTRY_DATA_VERSION = '1.3.0' // Increment if data structure changes
 
 const countryDataMap = ref<CountryDataMap>({})
 const loading = ref(false)
 const error = ref<string | null>(null)
 
 /**
- * Fetches country data from the REST Countries API
+ * Fetches the pre-built country dataset shipped with the app
  * Returns a map of cca2 -> { officialEnglish, nativeOfficial }
+ *
+ * The dataset is generated server-side from REST Countries v5 (see
+ * backend/python/services/country_data_service.py) so no API key is shipped to the browser.
  */
 async function fetchCountryData(): Promise<CountryDataMap> {
-  try {
-    const response = await fetch('https://restcountries.com/v3.1/all?fields=name,cca2')
-    if (!response.ok) {
-      throw new Error(`Failed to fetch country data: ${response.status}`)
-    }
-
-    const countries = (await response.json()) as Array<{
-      name: {
-        common: string
-        official: string
-        nativeName?: Record<string, { official: string; common: string }>
-      }
-      cca2: string
-    }>
-
-    const map: CountryDataMap = {}
-
-    for (const country of countries) {
-      const cca2 = country.cca2?.toLowerCase()
-      if (!cca2) continue
-
-      const officialEnglish = country.name.official || country.name.common || ''
-
-      // Get native official name - check for language preference first, then use first available
-      let nativeOfficial = ''
-      if (country.name.nativeName) {
-        const languageKeys = Object.keys(country.name.nativeName)
-        if (languageKeys.length > 0) {
-          // Check if there's a language preference for this country
-          const preferredLanguages = LANGUAGE_PREFERENCES[cca2]
-          let selectedLanguage: string | undefined
-
-          if (preferredLanguages && preferredLanguages.length > 0) {
-            // Try each preferred language in order until we find one that's available
-            for (const preferredLang of preferredLanguages) {
-              if (languageKeys.includes(preferredLang)) {
-                selectedLanguage = preferredLang
-                break
-              }
-            }
-          }
-
-          // If no preferred language found or no preference set, use first language as fallback
-          if (!selectedLanguage) {
-            selectedLanguage = languageKeys[0]
-          }
-
-          if (selectedLanguage) {
-            const nativeNameEntry =
-              country.name.nativeName[selectedLanguage as keyof typeof country.name.nativeName]
-            nativeOfficial = nativeNameEntry?.official || ''
-          }
-        }
-      }
-
-      // If no native name found, use English official as fallback
-      if (!nativeOfficial) {
-        nativeOfficial = officialEnglish
-      }
-
-      map[cca2] = {
-        officialEnglish,
-        nativeOfficial,
-      }
-    }
-
-    return map
-  } catch (err) {
-    console.error('Error fetching country data:', err)
-    throw err
+  const response = await fetch(getDataUrl('countries.json'))
+  if (!response.ok) {
+    throw new Error(`Failed to fetch country data: ${response.status}`)
   }
+
+  return (await response.json()) as CountryDataMap
 }
 
 /**

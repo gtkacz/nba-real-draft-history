@@ -5,3 +5,5 @@ Unidecode
 webdriver-manager
 loguru
 tqdm
+requests
+python-dotenv
