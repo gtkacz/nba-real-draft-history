@@ -392,8 +392,10 @@ const {
   order: columnOrder,
   visibility: columnVisibility,
   widths: columnWidths,
+  hasCustomWidths,
   setWidth: setColumnWidth,
   setVisibility: setColumnVisibility,
+  resetWidths,
   reset: resetColumns,
 } = useColumnPreferences({
   storageKey: 'ndh:column-prefs:v2',
@@ -1379,14 +1381,26 @@ const shareTooltipText = computed(() => {
                   <v-icon icon="mdi-view-column-outline" class="mr-2" size="20" />
                   Columns
                 </div>
-                <v-btn
-                  icon="mdi-refresh"
-                  variant="text"
-                  color="primary"
-                  size="small"
-                  title="Reset columns to default"
-                  @click="resetColumns"
-                />
+                <div class="d-flex align-center ga-1">
+                  <v-btn
+                    variant="text"
+                    color="primary"
+                    size="small"
+                    :disabled="!hasCustomWidths"
+                    @click="resetWidths"
+                  >
+                    Reset widths
+                  </v-btn>
+                  <v-btn
+                    icon="mdi-refresh"
+                    variant="text"
+                    color="primary"
+                    size="small"
+                    title="Reset all column settings"
+                    aria-label="Reset all column settings"
+                    @click="resetColumns"
+                  />
+                </div>
               </v-card-title>
               <p class="px-4 pb-2 text-caption text-medium-emphasis">
                 Drag to reorder · toggle to show or hide · drag a column's right edge in the table to resize.

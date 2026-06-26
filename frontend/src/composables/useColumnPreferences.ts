@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 export interface ColumnPreferencesOptions {
   storageKey: string
@@ -38,6 +38,9 @@ export function useColumnPreferences(options: ColumnPreferencesOptions) {
   const order = ref<string[]>([...options.defaultOrder])
   const visibility = ref<Record<string, boolean>>(defaultVisibility())
   const widths = ref<Record<string, number>>({ ...options.defaultWidths })
+  const hasCustomWidths = computed(() =>
+    options.defaultOrder.some((key) => widths.value[key] !== options.defaultWidths[key]),
+  )
 
   function load() {
     try {
@@ -99,11 +102,24 @@ export function useColumnPreferences(options: ColumnPreferencesOptions) {
     visibility.value = { ...visibility.value, [key]: value }
   }
 
+  function resetWidths() {
+    widths.value = { ...options.defaultWidths }
+  }
+
   function reset() {
     order.value = [...options.defaultOrder]
     visibility.value = defaultVisibility()
     widths.value = { ...options.defaultWidths }
   }
 
-  return { order, visibility, widths, setWidth, setVisibility, reset }
+  return {
+    order,
+    visibility,
+    widths,
+    hasCustomWidths,
+    setWidth,
+    setVisibility,
+    resetWidths,
+    reset,
+  }
 }
