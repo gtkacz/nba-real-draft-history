@@ -493,8 +493,8 @@ function handleAwardCountChange(award: string, count: number) {
               :model-value="useYearRange ? 'range' : 'single'"
               @update:model-value="useYearRange = $event === 'range'"
               variant="outlined"
-              density="comfortable"
               mandatory
+              class="year-mode-toggle"
             >
               <v-btn value="single">Single</v-btn>
               <v-btn value="range">Range</v-btn>
@@ -713,6 +713,14 @@ function handleAwardCountChange(award: string, count: number) {
 
 .slider-field {
   padding-bottom: 30px;
+}
+
+// Give the Year Single/Range segmented control more breathing room than the
+// dense default, so the two options read as proper tappable targets.
+.year-mode-toggle :deep(.v-btn) {
+  min-height: 40px;
+  padding-inline: 24px;
+  letter-spacing: 0.02em;
 }
 
 // Team/nationality logos in the autocomplete/select fields must not be clipped.

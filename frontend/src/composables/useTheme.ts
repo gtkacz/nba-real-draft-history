@@ -5,7 +5,7 @@ const THEME_STORAGE_KEY = 'nba-draft-theme'
 
 export function useTheme() {
   const vuetifyTheme = useVuetifyTheme()
-  const isDark = ref(true)
+  const isDark = ref(false)
 
   function loadThemePreference(): boolean {
     const stored = localStorage.getItem(THEME_STORAGE_KEY)

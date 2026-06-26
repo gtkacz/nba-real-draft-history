@@ -455,11 +455,22 @@ function onResizeMove(event: PointerEvent) {
   setColumnWidth(resizingKey, resizeStartWidth + (event.clientX - resizeStartX))
 }
 
+// The header cell sorts on click. After a resize drag (or a plain press on the grip)
+// the browser still fires a click on the cell, which would toggle the sort. Swallow
+// that one trailing click in the capture phase before it reaches the sort handler.
+function suppressNextClick(event: Event) {
+  event.stopPropagation()
+  window.removeEventListener('click', suppressNextClick, true)
+}
+
 function onResizeEnd() {
   resizingKey = null
   window.removeEventListener('pointermove', onResizeMove)
   window.removeEventListener('pointerup', onResizeEnd)
   document.body.style.userSelect = ''
+  window.addEventListener('click', suppressNextClick, true)
+  // If no click follows (e.g. pointer released off-target), drop the suppressor.
+  setTimeout(() => window.removeEventListener('click', suppressNextClick, true), 0)
 }
 
 function startColumnResize(key: string, event: PointerEvent) {
@@ -1611,123 +1622,111 @@ const shareTooltipText = computed(() => {
       fixed-header
       :height="isMobile ? '500' : 'calc(100vh - 250px)'"
     >
-      <template #header.team="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.team="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('team', $event)"
         />
       </template>
-      <template #header.player="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.player="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('player', $event)"
         />
       </template>
-      <template #header.year="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.year="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('year', $event)"
         />
       </template>
-      <template #header.round="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.round="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('round', $event)"
         />
       </template>
-      <template #header.pick="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.pick="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('pick', $event)"
         />
       </template>
-      <template #header.position="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.position="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('position', $event)"
         />
       </template>
-      <template #header.height="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.height="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('height', $event)"
         />
       </template>
-      <template #header.weight="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.weight="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('weight', $event)"
         />
       </template>
-      <template #header.age="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.age="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('age', $event)"
         />
       </template>
-      <template #header.yearsOfService="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.yearsOfService="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('yearsOfService', $event)"
         />
       </template>
-      <template #header.preDraftTeam="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.preDraftTeam="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('preDraftTeam', $event)"
         />
       </template>
-      <template #header.draftTrades="{ column, isSorted, getSortIcon, toggleSort }">
+      <template #header.draftTrades="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
           :title="column.title ?? ''"
           :sortable="!!column.sortable"
           :is-sorted="isSorted(column)"
           :sort-icon="(getSortIcon(column) as string)"
-          @sort="toggleSort(column)"
           @resize-start="startColumnResize('draftTrades', $event)"
         />
       </template>

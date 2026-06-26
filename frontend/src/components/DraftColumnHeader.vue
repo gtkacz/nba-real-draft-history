@@ -6,8 +6,9 @@ defineProps<{
   sortIcon?: string | null
 }>()
 
+// Sorting is handled by the data table's own header-cell click; this component only
+// renders the label + sort indicator and exposes the resize grip.
 const emit = defineEmits<{
-  sort: []
   resizeStart: [event: PointerEvent]
 }>()
 </script>
@@ -17,7 +18,6 @@ const emit = defineEmits<{
     <span
       class="draft-col-header__label"
       :class="{ 'draft-col-header__label--sortable': sortable }"
-      @click="sortable && emit('sort')"
     >
       {{ title }}
       <v-icon
@@ -29,7 +29,7 @@ const emit = defineEmits<{
     </span>
     <span
       class="draft-col-header__grip"
-      title="Drag to resize"
+      title="Drag to resize column"
       @pointerdown.stop.prevent="emit('resizeStart', $event)"
       @click.stop
     />
@@ -40,7 +40,6 @@ const emit = defineEmits<{
 .draft-col-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   gap: 4px;
 
@@ -63,19 +62,37 @@ const emit = defineEmits<{
     color: rgb(var(--v-theme-primary));
   }
 
-  // Resize affordance pinned to the right edge of the header cell.
+  // Persistent, visible resize handle pinned to the cell's right edge. The header
+  // cell is position:sticky (a positioned ancestor), so right:0 lands on the column
+  // boundary regardless of the cell's padding. A faint divider is always shown so the
+  // handle is discoverable; it brightens and thickens on hover.
   &__grip {
-    flex-shrink: 0;
-    align-self: stretch;
-    width: 8px;
-    margin-right: -8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    width: 16px;
     cursor: col-resize;
-    border-right: 2px solid transparent;
-    transition: border-color 120ms ease;
     touch-action: none;
 
-    &:hover {
-      border-right-color: rgb(var(--v-theme-primary));
+    &::after {
+      content: '';
+      position: absolute;
+      top: 22%;
+      bottom: 22%;
+      right: 0;
+      width: 2px;
+      border-radius: 1px;
+      background: rgba(var(--v-theme-on-surface), 0.25);
+      transition: background-color 120ms ease, top 120ms ease, bottom 120ms ease, width 120ms ease;
+    }
+
+    &:hover::after {
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: rgb(var(--v-theme-primary));
     }
   }
 }
