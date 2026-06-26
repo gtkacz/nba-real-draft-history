@@ -328,41 +328,52 @@ export function useDraftData() {
     }
 
     // Age range filter
+    // Only narrows the set once the range diverges from its default bounds, so
+    // picks with missing/invalid ages are excluded only when the filter is
+    // actually applied rather than on every default render.
     if (ageRange.value && ageRange.value.length === 2) {
       const [minAge, maxAge] = ageRange.value
-      filtered = filtered.filter((pick) => {
-        if (!pick.age || pick.age <= 0) return false
-        return pick.age >= minAge && pick.age <= maxAge
-      })
+      if (minAge !== AGE_MIN || maxAge !== AGE_MAX) {
+        filtered = filtered.filter((pick) => {
+          if (!pick.age || pick.age <= 0) return false
+          return pick.age >= minAge && pick.age <= maxAge
+        })
+      }
     }
 
     // Height range filter
     if (heightRange.value && heightRange.value.length === 2) {
       const [minHeightInches, maxHeightInches] = heightRange.value
-      filtered = filtered.filter((pick) => {
-        if (!pick.height) return false
-        const heightInches = parseHeight(pick.height)
-        if (heightInches <= 0) return false
-        return heightInches >= minHeightInches && heightInches <= maxHeightInches
-      })
+      if (minHeightInches !== HEIGHT_MIN || maxHeightInches !== HEIGHT_MAX) {
+        filtered = filtered.filter((pick) => {
+          if (!pick.height) return false
+          const heightInches = parseHeight(pick.height)
+          if (heightInches <= 0) return false
+          return heightInches >= minHeightInches && heightInches <= maxHeightInches
+        })
+      }
     }
 
     // Weight range filter
     if (weightRange.value && weightRange.value.length === 2) {
       const [minWeight, maxWeight] = weightRange.value
-      filtered = filtered.filter((pick) => {
-        if (!pick.weight || pick.weight <= 0) return false
-        return pick.weight >= minWeight && pick.weight <= maxWeight
-      })
+      if (minWeight !== WEIGHT_MIN || maxWeight !== WEIGHT_MAX) {
+        filtered = filtered.filter((pick) => {
+          if (!pick.weight || pick.weight <= 0) return false
+          return pick.weight >= minWeight && pick.weight <= maxWeight
+        })
+      }
     }
 
     // Years of service range filter
     if (yearsOfServiceRange.value && yearsOfServiceRange.value.length === 2) {
       const [minYears, maxYears] = yearsOfServiceRange.value
-      filtered = filtered.filter((pick) => {
-        if (pick.yearsOfService === undefined) return false
-        return pick.yearsOfService >= minYears && pick.yearsOfService <= maxYears
-      })
+      if (minYears !== YOS_MIN || maxYears !== YOS_MAX) {
+        filtered = filtered.filter((pick) => {
+          if (pick.yearsOfService === undefined) return false
+          return pick.yearsOfService >= minYears && pick.yearsOfService <= maxYears
+        })
+      }
     }
 
     // Trade filter

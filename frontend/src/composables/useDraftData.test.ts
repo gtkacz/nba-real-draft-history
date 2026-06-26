@@ -55,6 +55,55 @@ describe('useDraftData loadDraftData', () => {
     )
   })
 
+  it('keeps picks with invalid measurements at the default range, excluding them only once a measurement filter is applied', async () => {
+    const fetchMock = vi.mocked(fetch)
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => [
+        {
+          year: 2020,
+          round: 1,
+          pick: 1,
+          player: 'Valid Measurements',
+          position: 'G',
+          height: '6-3',
+          weight: 200,
+          age: 20,
+          preDraftTeam: 'College',
+          class: '',
+          draftTrades: null,
+          yearsOfService: 5,
+          team: 'DAL',
+        },
+        {
+          year: 2020,
+          round: 1,
+          pick: 2,
+          player: 'Missing Measurements',
+          position: 'G',
+          height: '',
+          weight: 0,
+          age: 0,
+          preDraftTeam: 'College',
+          class: '',
+          draftTrades: null,
+          yearsOfService: undefined,
+          team: 'BOS',
+        },
+      ],
+    } as unknown as Response)
+
+    const draftData = useDraftData()
+    await draftData.loadDraftData()
+
+    // Both picks survive the untouched default ranges.
+    expect(draftData.filteredData.value).toHaveLength(2)
+
+    // Narrowing height excludes the pick with no measurement.
+    draftData.heightRange.value = [72, 84]
+    expect(draftData.filteredData.value.map((p) => p.player)).toEqual(['Valid Measurements'])
+  })
+
   it('sets an error when draft_history.json cannot be fetched', async () => {
     const fetchMock = vi.mocked(fetch)
     fetchMock.mockResolvedValue({

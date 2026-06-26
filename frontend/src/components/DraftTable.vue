@@ -1620,7 +1620,7 @@ const shareTooltipText = computed(() => {
       :row-props="getTeamRowProps"
       hover
       fixed-header
-      :height="isMobile ? '500' : 'calc(100vh - 205px)'"
+      :height="isMobile ? '500' : 'calc(100vh - 180px)'"
     >
       <template #header.team="{ column, isSorted, getSortIcon }">
         <DraftColumnHeader
