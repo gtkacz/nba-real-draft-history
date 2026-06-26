@@ -46,7 +46,8 @@ def parse_response_to_dataframe(
     return players_df
 
 
-def run(output_path: pathlib.Path = RAW_PLAYERS_PATH) -> None:
+def run(output_path: str | pathlib.Path = RAW_PLAYERS_PATH) -> None:
+    output_path = pathlib.Path(output_path)
     url = "https://stats.nba.com/stats/playerindex?College=&Country=&DraftPick=&DraftRound=&DraftYear=&Height=&Historical=1&LeagueID=00&Season=2026-27&SeasonType=Preseason&TeamID=0&Weight="
 
     payload = {}

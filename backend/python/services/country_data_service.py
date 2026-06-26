@@ -85,8 +85,9 @@ def build_country_map(countries: list[dict]) -> dict[str, dict[str, str]]:
     return country_map
 
 
-def main(output_path: Path = _OUTPUT_PATH) -> None:
+def main(output_path: str | Path = _OUTPUT_PATH) -> None:
     """Fetch country data from REST Countries v5 and write the static frontend dataset."""
+    output_path = Path(output_path)
     countries = get_all_countries()
     country_map = build_country_map(countries)
 
