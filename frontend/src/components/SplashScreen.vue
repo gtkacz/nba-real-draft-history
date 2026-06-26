@@ -24,7 +24,7 @@ function handleContinue() {
   >
     <div class="splash-content">
       <h1 class="text-h3 text-center pa-8 mb-4">
-        Real Draft History
+        The NBA Draft Atlas
       </h1>
 
       <div class="text-body-1 text-center px-4 pb-4 splash-text">

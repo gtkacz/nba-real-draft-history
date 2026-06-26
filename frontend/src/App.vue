@@ -108,12 +108,8 @@ onMounted(() => {
     <v-app-bar flat color="surface" density="compact" class="command-bar">
       <div class="brand">
         <span class="brand-accent" aria-hidden="true"></span>
-        <img
-          src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
-          alt="NBA logo"
-          class="brand-logo"
-        />
-        <span class="brand-wordmark">Real Draft History</span>
+        <v-icon icon="mdi-basketball-hoop" class="brand-logo" aria-hidden="true" />
+        <span class="brand-wordmark">The NBA Draft Atlas</span>
       </div>
 
       <v-spacer />
@@ -196,12 +192,12 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-left: 4px;
+  /* padding-left: 4px; */
 }
 
 .brand-accent {
   width: 3px;
-  height: 22px;
+  height: 5ch;
   border-radius: 2px;
   background: rgb(var(--v-theme-primary));
 }
@@ -213,8 +209,8 @@ onMounted(() => {
 }
 
 .brand-wordmark {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: "Black Ops One", system-ui;
+  /* font-weight: 700; */
   font-size: 1.2rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;

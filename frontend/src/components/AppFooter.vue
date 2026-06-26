@@ -149,7 +149,7 @@ onMounted(loadDataVersion)
 
   .nba-logo {
     display: inline-block;
-    height: 1.25em;
+    height: 1em;
     width: auto;
     vertical-align: middle;
     object-fit: contain;
