@@ -40,7 +40,7 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
   }
 
   // Parse header to find column indices
-  const headerLine = lines[0]
+  const headerLine = lines[0]!
   const headerValues = parseCSVLine(headerLine)
   
   // Find column indices by name (case-insensitive)
@@ -204,12 +204,12 @@ export async function parseCSV(csvText: string, teamAbbreviation: string): Promi
       yearsOfService: parseInt(values[yosIndex] || '0'),
       team: teamAbbreviation,
       teamLogo: `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${teamAbbreviation.toLowerCase()}.svg`,
-      nba_id: nbaId ? (isNaN(Number(nbaId)) ? nbaId : Number(nbaId)) : undefined,
-      origin_country: originCountry,
-      played_until_year: playedUntilYear,
-      is_defunct: isDefunct,
-      plays_for: playsFor,
-      awards: awards
+      ...(nbaId !== undefined && { nba_id: isNaN(Number(nbaId)) ? nbaId : Number(nbaId) }),
+      ...(originCountry !== undefined && { origin_country: originCountry }),
+      ...(playedUntilYear !== undefined && { played_until_year: playedUntilYear }),
+      ...(isDefunct !== undefined && { is_defunct: isDefunct }),
+      ...(playsFor !== undefined && { plays_for: playsFor }),
+      ...(awards !== undefined && { awards }),
     })
   }
 

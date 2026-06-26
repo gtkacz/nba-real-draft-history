@@ -8,6 +8,16 @@ import { exportDraftPicksToCSV, downloadCSV as downloadCSVFile } from '@/utils/c
 import { getCountryCode } from '@/utils/countryCodeConverter'
 import { useCountryData } from '@/composables/useCountryData'
 import { useTeamData } from '@/composables/useTeamData'
+import { parseHeight } from '@/utils/parseHeight'
+import {
+  YEAR_MIN, YEAR_MAX,
+  PICK_MIN, PICK_MAX,
+  AGE_MIN, AGE_MAX,
+  HEIGHT_MIN, HEIGHT_MAX,
+  WEIGHT_MIN, WEIGHT_MAX,
+  YOS_MIN, YOS_MAX,
+  DEFAULT_ITEMS_PER_PAGE
+} from '@/constants/filters'
 import PlayerCard from './PlayerCard.vue'
 import MobileDraftCard from './MobileDraftCard.vue'
 
@@ -62,17 +72,17 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   loading: false,
   selectedTeam: () => [],
   selectedPlaysFor: () => [],
-  yearRange: () => [1947, 2025],
+  yearRange: () => [YEAR_MIN, YEAR_MAX],
   selectedYear: null,
   useYearRange: () => true,
   selectedRounds: () => [],
-  overallPickRange: () => [1, 61],
+  overallPickRange: () => [PICK_MIN, PICK_MAX],
   preDraftTeamSearch: () => [],
   selectedPositions: () => [],
-  ageRange: () => [17, 50],
-  heightRange: () => [60, 96],
-  weightRange: () => [140, 403],
-  yearsOfServiceRange: () => [0, 30],
+  ageRange: () => [AGE_MIN, AGE_MAX],
+  heightRange: () => [HEIGHT_MIN, HEIGHT_MAX],
+  weightRange: () => [WEIGHT_MIN, WEIGHT_MAX],
+  yearsOfServiceRange: () => [YOS_MIN, YOS_MAX],
   tradeFilter: () => 'all',
   retiredFilter: () => 'all',
   selectedNationalities: () => [],
@@ -84,20 +94,19 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
     { key: 'pick', order: 'asc' }
   ],
   currentPage: 1,
-  itemsPerPage: 30,
+  itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
   availableYears: () => [],
   allPreDraftTeams: () => [],
   availableAges: () => [],
   availableNationalities: () => [],
   availableAwards: () => [],
-  minHeight: 60,
-  maxHeight: 96,
-  minWeight: 140,
-  maxWeight: 403,
-  minYearsOfService: 0,
-  maxYearsOfService: 30,
+  minHeight: HEIGHT_MIN,
+  maxHeight: HEIGHT_MAX,
+  minWeight: WEIGHT_MIN,
+  maxWeight: WEIGHT_MAX,
+  minYearsOfService: YOS_MIN,
+  maxYearsOfService: YOS_MAX,
   showPlayerMeasurements: false,
-  resetFilters: undefined
 })
 
 const emit = defineEmits<{
@@ -212,16 +221,6 @@ interface NationalityOption {
   flag?: string
 }
 
-const awardOptions = computed(() => {
-  if (!props.availableAwards || props.availableAwards.length === 0) {
-    return []
-  }
-  return props.availableAwards.map(award => ({
-    value: award,
-    title: award
-  }))
-})
-
 function handleAwardCheckboxChange(award: string, checked: boolean) {
   const current = { ...(props.selectedAwards || {}) }
   if (checked) {
@@ -290,9 +289,6 @@ function formatHeight(inches: number): string {
   const remainingInches = Math.round(inches % 12)
   return `${feet}'${remainingInches}"`
 }
-
-const minYear = computed(() => props.availableYears.length > 0 ? Math.min(...props.availableYears) : 1947)
-const maxYear = computed(() => props.availableYears.length > 0 ? Math.max(...props.availableYears) : 2025)
 
 async function loadTeams() {
   try {
@@ -436,40 +432,6 @@ function sortItems(items: DraftPick[], sortBy: SortItem[]): DraftPick[] {
   })
 }
 
-// Helper function to parse height strings like "6-8" or "6'8\"" into inches
-function parseHeight(height: string | null | undefined): number {
-  if (!height) return 0
-  const str = String(height).trim()
-  if (str === '') return 0
-  
-  // Try format "6-8" (feet-inches) - this is the most common format
-  // Match pattern: digits, then dash or apostrophe, then digits
-  const match1 = str.match(/^(\d+)[-'](\d+)$/)
-  if (match1 && match1[1] && match1[2]) {
-    const feet = parseInt(match1[1], 10)
-    const inches = parseInt(match1[2], 10)
-    if (!isNaN(feet) && !isNaN(inches)) {
-      return feet * 12 + inches
-    }
-  }
-  
-  // Try format "6'8\"" (feet'inches")
-  const match2 = str.match(/^(\d+)'(\d+)"$/)
-  if (match2 && match2[1] && match2[2]) {
-    const feet = parseInt(match2[1], 10)
-    const inches = parseInt(match2[2], 10)
-    if (!isNaN(feet) && !isNaN(inches)) {
-      return feet * 12 + inches
-    }
-  }
-  
-  // Try to parse as just a number (assume inches)
-  const num = parseFloat(str)
-  if (!isNaN(num) && num > 0) return num
-  
-  return 0
-}
-
 const items = computed(() => {
   return sortItems(props.data, sortBy.value)
 })
@@ -486,50 +448,53 @@ const paginatedItems = computed(() => {
 const hasActiveFilters = computed(() => {
   // Team filter active
   if (props.selectedTeam.length > 0) return true
-  
+
   // Currently plays for filter active
   if (props.selectedPlaysFor.length > 0) return true
-  
+
   // Year filter active
   if (!props.useYearRange && props.selectedYear !== null) return true
-  if (props.useYearRange && (props.yearRange[0] !== 1947 || props.yearRange[1] !== 2025)) return true
-  
+  if (props.useYearRange && (props.yearRange[0] !== YEAR_MIN || props.yearRange[1] !== YEAR_MAX)) return true
+
   // Round filter active
   if (props.selectedRounds.length > 0) return true
-  
+
   // Overall pick range active
-  if (props.overallPickRange[0] !== 1 || props.overallPickRange[1] !== 61) return true
-  
+  if (props.overallPickRange[0] !== PICK_MIN || props.overallPickRange[1] !== PICK_MAX) return true
+
   // Pre-draft team filter active
   if (props.preDraftTeamSearch.length > 0) return true
-  
+
   // Position filter active
   if (props.selectedPositions.length > 0) return true
-  
+
   // Age range filter active
-  if (props.ageRange[0] !== 17 || props.ageRange[1] !== 50) return true
-  
+  if (props.ageRange[0] !== AGE_MIN || props.ageRange[1] !== AGE_MAX) return true
+
   // Height range filter active
-  if (props.heightRange && (props.heightRange[0] !== 60 || props.heightRange[1] !== 96)) return true
-  
+  if (props.heightRange && (props.heightRange[0] !== HEIGHT_MIN || props.heightRange[1] !== HEIGHT_MAX)) return true
+
   // Weight range filter active
-  if (props.weightRange && (props.weightRange[0] !== 140 || props.weightRange[1] !== 403)) return true
-  
+  if (props.weightRange && (props.weightRange[0] !== WEIGHT_MIN || props.weightRange[1] !== WEIGHT_MAX)) return true
+
   // Years of service range filter active
-  if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== 0 || props.yearsOfServiceRange[1] !== 30)) return true
-  
+  if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== YOS_MIN || props.yearsOfServiceRange[1] !== YOS_MAX)) return true
+
   // Trade filter active
   if (props.tradeFilter !== 'all') return true
-  
+
   // Retired filter active
   if (props.retiredFilter !== 'all') return true
-  
+
   // Nationality filter active
   if (props.selectedNationalities && props.selectedNationalities.length > 0) return true
-  
+
+  // Awards filter active
+  if (props.selectedAwards && Object.keys(props.selectedAwards).length > 0) return true
+
   // Player search active
   if (props.playerSearch && props.playerSearch.trim() !== '') return true
-  
+
   return false
 })
 
@@ -539,17 +504,19 @@ function getActiveFiltersCount(): number {
   if (props.selectedTeam.length > 0) count++
   if (props.selectedPlaysFor.length > 0) count++
   if (!props.useYearRange && props.selectedYear !== null) count++
-  if (props.useYearRange && (props.yearRange[0] !== 1947 || props.yearRange[1] !== 2025)) count++
+  if (props.useYearRange && (props.yearRange[0] !== YEAR_MIN || props.yearRange[1] !== YEAR_MAX)) count++
   if (props.selectedRounds.length > 0) count++
-  if (props.overallPickRange[0] !== 1 || props.overallPickRange[1] !== 61) count++
+  if (props.overallPickRange[0] !== PICK_MIN || props.overallPickRange[1] !== PICK_MAX) count++
   if (props.preDraftTeamSearch.length > 0) count++
   if (props.selectedPositions.length > 0) count++
-  if (props.ageRange[0] !== 17 || props.ageRange[1] !== 50) count++
-  if (props.heightRange && (props.heightRange[0] !== 60 || props.heightRange[1] !== 96)) count++
-  if (props.weightRange && (props.weightRange[0] !== 140 || props.weightRange[1] !== 403)) count++
+  if (props.ageRange[0] !== AGE_MIN || props.ageRange[1] !== AGE_MAX) count++
+  if (props.heightRange && (props.heightRange[0] !== HEIGHT_MIN || props.heightRange[1] !== HEIGHT_MAX)) count++
+  if (props.weightRange && (props.weightRange[0] !== WEIGHT_MIN || props.weightRange[1] !== WEIGHT_MAX)) count++
+  if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== YOS_MIN || props.yearsOfServiceRange[1] !== YOS_MAX)) count++
   if (props.tradeFilter !== 'all') count++
   if (props.retiredFilter !== 'all') count++
   if (props.selectedNationalities && props.selectedNationalities.length > 0) count++
+  if (props.selectedAwards && Object.keys(props.selectedAwards).length > 0) count++
   if (props.playerSearch && props.playerSearch.trim() !== '') count++
   return count
 }
@@ -592,13 +559,9 @@ function scrollToTop() {
 onMounted(() => {
   loadTeams()
   // Set initial items per page based on mobile state
-  if (isMobile.value && props.itemsPerPage === 30) {
+  if (isMobile.value && props.itemsPerPage === DEFAULT_ITEMS_PER_PAGE) {
     emit('update:itemsPerPage', 20)
   }
-  // Inject page input between chevrons after table is rendered
-  setTimeout(() => {
-    injectPageInput()
-  }, 100)
   // Add scroll listener for back-to-top button
   window.addEventListener('scroll', handleScroll)
   handleScroll() // Check initial scroll position
@@ -607,77 +570,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-
-function injectPageInput() {
-  const footer = document.querySelector('.v-data-table-footer')
-  if (!footer) return
-
-  const pagination = footer.querySelector('.v-data-table-footer__pagination')
-  if (!pagination) return
-
-  const pageArea = pagination.querySelector('.v-data-table-footer__page')
-  if (!pageArea) return
-
-  // Check if input already exists
-  if (pageArea.querySelector('.page-input-wrapper')) return
-
-  // Find the chevron buttons - try different selectors
-  let leftChevron = pageArea.querySelector('.v-btn .mdi-chevron-left')?.closest('.v-btn')
-  let rightChevron = pageArea.querySelector('.v-btn .mdi-chevron-right')?.closest('.v-btn')
-  
-  // Alternative: find by button order
-  if (!leftChevron || !rightChevron) {
-    const buttons = pageArea.querySelectorAll('.v-btn')
-    if (buttons.length >= 2) {
-      leftChevron = buttons[0] as HTMLElement
-      rightChevron = buttons[buttons.length - 1] as HTMLElement
-    }
-  }
-  
-  if (!leftChevron || !rightChevron) return
-
-  // Create the input wrapper
-  const inputWrapper = document.createElement('div')
-  inputWrapper.className = 'page-input-wrapper d-flex align-center gap-1'
-  
-  const input = document.createElement('input')
-  input.type = 'number'
-  input.className = 'page-input-field'
-  input.style.cssText = 'width: 60px; padding: 4px 8px; border: 1px solid rgba(0,0,0,0.12); border-radius: 4px; text-align: center;'
-  input.min = '1'
-  input.max = String(totalPages.value)
-  input.placeholder = String(currentPage.value)
-  
-  const span = document.createElement('span')
-  span.className = 'text-caption text-medium-emphasis'
-  span.textContent = `/ ${totalPages.value}`
-  
-  inputWrapper.appendChild(input)
-  inputWrapper.appendChild(span)
-
-  // Insert between chevrons
-  rightChevron.parentNode?.insertBefore(inputWrapper, rightChevron)
-
-  // Add event listeners
-  input.addEventListener('blur', handlePageInput)
-  input.addEventListener('keydown', (e: KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handlePageInput(e)
-    }
-  })
-  
-  // Update placeholder when page changes
-  watch(currentPage, () => {
-    input.placeholder = String(currentPage.value)
-    input.max = String(totalPages.value)
-    span.textContent = `/ ${totalPages.value}`
-  })
-  
-  watch(totalPages, () => {
-    input.max = String(totalPages.value)
-    span.textContent = `/ ${totalPages.value}`
-  })
-}
 
 function getTeamLogoUrl(team: string, year?: number): string {
   // Use canonical team code for logo URL (aliases map to their canonical team's logo)
@@ -771,6 +663,18 @@ function parseTradeChain(trades: string | null, year?: number): string[] {
   }
 
   return unifiedDisplayTeams.length >= 2 ? unifiedDisplayTeams : []
+}
+
+const tradeChainCache = new Map<string, string[]>()
+
+function getTradeChain(trades: string | null, year?: number): string[] {
+  const key = `${trades ?? ''}|${year ?? ''}`
+  if (tradeChainCache.has(key)) {
+    return tradeChainCache.get(key)!
+  }
+  const result = parseTradeChain(trades, year)
+  tradeChainCache.set(key, result)
+  return result
 }
 
 function splitPosition(position: string): string[] {
@@ -1013,40 +917,40 @@ function getActiveFiltersDescription(): string {
   
   if (!props.useYearRange && props.selectedYear !== null) {
     filters.push(`Year: ${props.selectedYear}`)
-  } else if (props.useYearRange && (props.yearRange[0] !== 1947 || props.yearRange[1] !== 2025)) {
+  } else if (props.useYearRange && (props.yearRange[0] !== YEAR_MIN || props.yearRange[1] !== YEAR_MAX)) {
     filters.push(`Year range: ${props.yearRange[0]}-${props.yearRange[1]}`)
   }
-  
+
   if (props.selectedRounds.length > 0) {
     const rounds = props.selectedRounds.map(r => r === '3+' ? '3+' : `Round ${r}`).join(', ')
     filters.push(`Rounds: ${rounds}`)
   }
-  
-  if (props.overallPickRange[0] !== 1 || props.overallPickRange[1] !== 61) {
+
+  if (props.overallPickRange[0] !== PICK_MIN || props.overallPickRange[1] !== PICK_MAX) {
     filters.push(`Pick range: ${props.overallPickRange[0]}-${props.overallPickRange[1]}`)
   }
-  
+
   if (props.preDraftTeamSearch.length > 0) {
     filters.push(`Drafted from: ${props.preDraftTeamSearch.slice(0, 2).join(', ')}${props.preDraftTeamSearch.length > 2 ? '...' : ''}`)
   }
-  
+
   if (props.selectedPositions.length > 0) {
     filters.push(`Position: ${props.selectedPositions.join(', ')}`)
   }
-  
-  if (props.ageRange[0] !== 17 || props.ageRange[1] !== 50) {
+
+  if (props.ageRange[0] !== AGE_MIN || props.ageRange[1] !== AGE_MAX) {
     filters.push(`Age: ${props.ageRange[0]}-${props.ageRange[1]}`)
   }
-  
-  if (props.heightRange && (props.heightRange[0] !== 60 || props.heightRange[1] !== 96)) {
+
+  if (props.heightRange && (props.heightRange[0] !== HEIGHT_MIN || props.heightRange[1] !== HEIGHT_MAX)) {
     filters.push(`Height: ${formatHeight(props.heightRange[0])}-${formatHeight(props.heightRange[1])}`)
   }
-  
-  if (props.weightRange && (props.weightRange[0] !== 140 || props.weightRange[1] !== 403)) {
+
+  if (props.weightRange && (props.weightRange[0] !== WEIGHT_MIN || props.weightRange[1] !== WEIGHT_MAX)) {
     filters.push(`Weight: ${props.weightRange[0]}-${props.weightRange[1]} lbs`)
   }
-  
-  if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== 0 || props.yearsOfServiceRange[1] !== 30)) {
+
+  if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== YOS_MIN || props.yearsOfServiceRange[1] !== YOS_MAX)) {
     filters.push(`Years in the League: ${props.yearsOfServiceRange[0]}-${props.yearsOfServiceRange[1]}`)
   }
   
@@ -1550,8 +1454,8 @@ const shareTooltipText = computed(() => {
                           v-if="props.useYearRange"
                           :model-value="props.yearRange"
                           @update:model-value="emit('update:yearRange', $event)"
-                          :min="minYear"
-                          :max="maxYear"
+                          :min="YEAR_MIN"
+                          :max="YEAR_MAX"
                           :step="1"
                           thumb-label="always"
                           thumb-label-location="bottom"
@@ -1585,8 +1489,8 @@ const shareTooltipText = computed(() => {
                         <v-range-slider
                           :model-value="props.overallPickRange"
                           @update:model-value="emit('update:overallPickRange', $event)"
-                          :min="1"
-                          :max="61"
+                          :min="PICK_MIN"
+                          :max="PICK_MAX"
                           :step="1"
                           thumb-label="always"
                           thumb-label-location="bottom"
@@ -1633,8 +1537,8 @@ const shareTooltipText = computed(() => {
                         <v-range-slider
                           :model-value="props.heightRange"
                           @update:model-value="emit('update:heightRange', $event)"
-                          :min="props.minHeight || 60"
-                          :max="props.maxHeight || 96"
+                          :min="props.minHeight"
+                          :max="props.maxHeight"
                           :step="1"
                           thumb-label="always"
                           thumb-label-location="bottom"
@@ -1659,8 +1563,8 @@ const shareTooltipText = computed(() => {
                         <v-range-slider
                           :model-value="props.weightRange"
                           @update:model-value="emit('update:weightRange', $event)"
-                          :min="props.minWeight || 140"
-                          :max="props.maxWeight || 403"
+                          :min="props.minWeight"
+                          :max="props.maxWeight"
                           :step="1"
                           thumb-label="always"
                           thumb-label-location="bottom"
@@ -1685,8 +1589,8 @@ const shareTooltipText = computed(() => {
                         <v-range-slider
                           :model-value="props.yearsOfServiceRange"
                           @update:model-value="emit('update:yearsOfServiceRange', $event)"
-                          :min="props.minYearsOfService || 0"
-                          :max="props.maxYearsOfService || 30"
+                          :min="props.minYearsOfService"
+                          :max="props.maxYearsOfService"
                           :step="1"
                           thumb-label="always"
                           thumb-label-location="bottom"
@@ -1703,7 +1607,7 @@ const shareTooltipText = computed(() => {
                     <v-col cols="12" class="mb-2">
                       <v-checkbox
                         :model-value="props.showPlayerMeasurements"
-                        @update:model-value="emit('update:showPlayerMeasurements', $event)"
+                        @update:model-value="emit('update:showPlayerMeasurements', !!$event)"
                         label="Show Player Measurements"
                         hide-details
                       />
@@ -1746,7 +1650,7 @@ const shareTooltipText = computed(() => {
                 >
                   <v-checkbox
                     :model-value="award in (props.selectedAwards || {})"
-                    @update:model-value="handleAwardCheckboxChange(award, $event)"
+                    @update:model-value="handleAwardCheckboxChange(award, !!$event)"
                     :label="formatAwardName(award)"
                     hide-details
                     density="comfortable"
@@ -2094,8 +1998,8 @@ const shareTooltipText = computed(() => {
                       v-if="props.useYearRange"
                       :model-value="props.yearRange"
                       @update:model-value="emit('update:yearRange', $event)"
-                      :min="minYear"
-                      :max="maxYear"
+                      :min="YEAR_MIN"
+                      :max="YEAR_MAX"
                       :step="1"
                       thumb-label="always"
                       thumb-label-location="bottom"
@@ -2129,8 +2033,8 @@ const shareTooltipText = computed(() => {
                     <v-range-slider
                       :model-value="props.overallPickRange"
                       @update:model-value="emit('update:overallPickRange', $event)"
-                      :min="1"
-                      :max="61"
+                      :min="PICK_MIN"
+                      :max="PICK_MAX"
                       :step="1"
                       thumb-label="always"
                       thumb-label-location="bottom"
@@ -2177,8 +2081,8 @@ const shareTooltipText = computed(() => {
                     <v-range-slider
                       :model-value="props.heightRange"
                       @update:model-value="emit('update:heightRange', $event)"
-                      :min="props.minHeight || 60"
-                      :max="props.maxHeight || 96"
+                      :min="props.minHeight"
+                      :max="props.maxHeight"
                       :step="1"
                       thumb-label="always"
                       thumb-label-location="bottom"
@@ -2203,8 +2107,8 @@ const shareTooltipText = computed(() => {
                     <v-range-slider
                       :model-value="props.weightRange"
                       @update:model-value="emit('update:weightRange', $event)"
-                      :min="props.minWeight || 140"
-                      :max="props.maxWeight || 403"
+                      :min="props.minWeight"
+                      :max="props.maxWeight"
                       :step="1"
                       thumb-label="always"
                       thumb-label-location="bottom"
@@ -2229,8 +2133,8 @@ const shareTooltipText = computed(() => {
                     <v-range-slider
                       :model-value="props.yearsOfServiceRange"
                       @update:model-value="emit('update:yearsOfServiceRange', $event)"
-                      :min="props.minYearsOfService || 0"
-                      :max="props.maxYearsOfService || 30"
+                      :min="props.minYearsOfService"
+                      :max="props.maxYearsOfService"
                       :step="1"
                       thumb-label="always"
                       thumb-label-location="bottom"
@@ -2247,7 +2151,7 @@ const shareTooltipText = computed(() => {
                 <v-col cols="12" class="mb-2">
                   <v-checkbox
                     :model-value="props.showPlayerMeasurements"
-                    @update:model-value="emit('update:showPlayerMeasurements', $event)"
+                    @update:model-value="emit('update:showPlayerMeasurements', !!$event)"
                     label="Show Player Measurements"
                     hide-details
                     density="comfortable"
@@ -2292,7 +2196,7 @@ const shareTooltipText = computed(() => {
                 >
                   <v-checkbox
                     :model-value="award in (props.selectedAwards || {})"
-                    @update:model-value="handleAwardCheckboxChange(award, $event)"
+                    @update:model-value="handleAwardCheckboxChange(award, !!$event)"
                     :label="formatAwardName(award)"
                     hide-details
                     density="comfortable"
@@ -2413,17 +2317,13 @@ const shareTooltipText = computed(() => {
     </div>
 
     <!-- Desktop Table View -->
-    <v-data-table
+    <v-data-table-virtual
       v-else
       :headers="headers"
-      :items="items"
+      :items="props.data"
       :loading="loading"
-      v-model:page="currentPage"
-      v-model:items-per-page="itemsPerPage"
-      :items-per-page-options="itemsPerPageOptions"
       :sort-by="sortBy"
       @update:sort-by="handleSortUpdate"
-      items-per-page-text="Picks per page:"
       :density="isMobile ? 'compact' : 'comfortable'"
       hover
       fixed-header
@@ -2464,7 +2364,6 @@ const shareTooltipText = computed(() => {
               :src="getPlayerHeadshotUrl(item.nba_id)"
               :alt="item.player"
               cover
-              eager
               class="player-headshot-img"
             >
               <template #placeholder>
@@ -2483,7 +2382,6 @@ const shareTooltipText = computed(() => {
               :src="getPlayerHeadshotUrl(202382)"
               :alt="item.player"
               cover
-              eager
               class="player-headshot-img"
             >
               <template #placeholder>
@@ -2504,7 +2402,7 @@ const shareTooltipText = computed(() => {
               <!-- Deceased Indicator -->
               <v-icon
                 v-if="item.is_defunct === 1"
-                icon="mdi-cross"
+                icon="mdi-grave-stone"
                 title="Deceased"
                 size="16"
                 color="error"
@@ -2627,7 +2525,8 @@ const shareTooltipText = computed(() => {
       <template #item.draftTrades="{ item }">
         <template v-if="item.draftTrades">
           <div class="trade-chain">
-            <template v-for="(team, index) in parseTradeChain(item.draftTrades, item.year)" :key="index">
+            <template v-for="(team, index) in getTradeChain(item.draftTrades, item.year)" :key="index">
+              <span v-if="index > 0" class="mx-1 text-medium-emphasis">→</span>
               <v-avatar size="24" class="mr-1" rounded="0" style="background: transparent;">
                 <v-img
                   :src="getTeamLogoUrl(team, item.year)"
@@ -2635,7 +2534,6 @@ const shareTooltipText = computed(() => {
                   contain
                 />
               </v-avatar>
-              <span v-if="index < parseTradeChain(item.draftTrades, item.year).length - 1" class="mx-1 text-medium-emphasis">→</span>
             </template>
           </div>
         </template>
@@ -2654,7 +2552,7 @@ const shareTooltipText = computed(() => {
         </div>
       </template>
 
-    </v-data-table>
+    </v-data-table-virtual>
 
     <!-- Player Card Dialog -->
     <PlayerCard

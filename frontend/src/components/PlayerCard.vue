@@ -2,8 +2,10 @@
 import { computed } from 'vue'
 import { useDisplay } from 'vuetify'
 import type { DraftPick } from '@/types/draft'
-import { getCanonicalTeam, getOriginalTeamName } from '@/utils/teamAliases'
+import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
+import { getCountryCode } from '@/utils/countryCodeConverter'
 import { useTeamData } from '@/composables/useTeamData'
+import { useCountryData } from '@/composables/useCountryData'
 
 const display = useDisplay()
 const isMobile = computed(() => display.mobile.value)
@@ -30,6 +32,7 @@ function getPlayerHeadshotUrl(nbaId: string | number | undefined): string {
 }
 
 const { getTeamFullName } = useTeamData()
+const { getFormattedCountryName } = useCountryData()
 
 const teamCode = computed(() => {
   if (!props.player) return ''
@@ -52,7 +55,6 @@ const teamLogoUrl = computed(() => {
   return getTeamLogoUrl(props.player.team, props.player.year)
 })
 
-// Get team CSS variables - will be provided by user
 const teamColorPrimary = computed(() => {
   if (!props.player) return 'var(--team-default-primary, #1D428A)'
   return `var(--team-${teamCode.value.toLowerCase()}-primary, #1D428A)`
@@ -72,6 +74,79 @@ const teamColorAccent = computed(() => {
 function formatAwardName(award: string): string {
   return award
 }
+
+// Mirrors MobileDraftCard's getPlayerRetirementStatus helper
+function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active' | 'retired' | 'unknown' {
+  if (playedUntilYear === undefined) return 'unknown'
+  const currentYear = new Date().getFullYear()
+  return playedUntilYear < currentYear ? 'retired' : 'active'
+}
+
+// Mirrors MobileDraftCard's getRetirementText helper
+function getRetirementText(
+  playedUntilYear: number | undefined,
+  playsFor: string | undefined,
+  year?: number
+): string {
+  const status = getPlayerRetirementStatus(playedUntilYear)
+  if (status === 'active') {
+    if (playsFor && playsFor.trim() !== '') {
+      return `Currently plays for ${getTeamDisplayName(playsFor, year)}`
+    }
+    return 'Currently active'
+  } else if (status === 'retired') {
+    if (playsFor && playsFor.trim() !== '') {
+      return `Last played for ${getTeamDisplayName(playsFor, year)} in ${playedUntilYear}`
+    }
+    return `Retired in ${playedUntilYear}`
+  } else {
+    return 'Status unknown'
+  }
+}
+
+// Mirrors MobileDraftCard's parseTradeChain helper; computed once to avoid repeated parsing in template
+const tradeChain = computed<string[]>(() => {
+  const player = props.player
+  if (!player?.draftTrades || player.draftTrades.trim() === '') return []
+
+  const parts = player.draftTrades.split(/\s+to\s+/).map(p => p.trim()).filter(p => p)
+  if (parts.length < 2) return []
+
+  const displayTeams: string[] = []
+  const canonicalTeams: string[] = []
+
+  const firstTeam = parts[0]?.trim()
+  if (firstTeam) {
+    displayTeams.push(getDisplayTeam(firstTeam, player.year))
+    canonicalTeams.push(getCanonicalTeam(firstTeam, player.year))
+  }
+
+  for (let i = 1; i < parts.length; i++) {
+    const part = parts[i]?.trim()
+    if (!part) continue
+    const team = part.split(/\s+/)[0]
+    if (team && team.length <= 4) {
+      displayTeams.push(getDisplayTeam(team, player.year))
+      canonicalTeams.push(getCanonicalTeam(team, player.year))
+    }
+  }
+
+  const unifiedDisplayTeams: string[] = []
+  const seenCanonical: string[] = []
+
+  for (let i = 0; i < displayTeams.length; i++) {
+    const displayTeam = displayTeams[i]
+    const canonical = canonicalTeams[i]
+    if (!displayTeam || !canonical) continue
+
+    if (seenCanonical.length === 0 || seenCanonical[seenCanonical.length - 1] !== canonical) {
+      unifiedDisplayTeams.push(displayTeam)
+      seenCanonical.push(canonical)
+    }
+  }
+
+  return unifiedDisplayTeams.length >= 2 ? unifiedDisplayTeams : []
+})
 </script>
 
 <template>
@@ -238,6 +313,91 @@ function formatAwardName(award: string): string {
               </v-col>
             </v-row>
           </div>
+
+          <v-divider class="my-3" />
+
+          <!-- Nationality -->
+          <div v-if="player.origin_country" class="detail-item mb-3">
+            <div class="text-caption text-medium-emphasis mb-1">Nationality</div>
+            <div class="d-flex align-center gap-2">
+              <span
+                :class="`fi fi-${getCountryCode(player.origin_country)}`"
+                class="player-flag-icon"
+              />
+              <span class="text-body-1 font-weight-medium">
+                {{ getFormattedCountryName(player.origin_country) }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Years in the League -->
+          <div class="detail-item mb-3">
+            <div class="text-caption text-medium-emphasis mb-1">Years in the League</div>
+            <div class="text-body-1 font-weight-medium">
+              {{ player.yearsOfService !== undefined ? player.yearsOfService : 'N/A' }}
+            </div>
+          </div>
+
+          <!-- Retirement / Current Team Status -->
+          <div
+            v-if="player.played_until_year !== undefined || player.plays_for"
+            class="detail-item mb-3"
+          >
+            <div class="text-caption text-medium-emphasis mb-1">
+              {{ getPlayerRetirementStatus(player.played_until_year) === 'retired' ? 'Retired — Last Played For' : 'Currently Plays For' }}
+            </div>
+            <div class="text-body-1 font-weight-medium">
+              {{ getRetirementText(player.played_until_year, player.plays_for, player.year) }}
+            </div>
+          </div>
+
+          <!-- Trade Chain -->
+          <div v-if="tradeChain.length > 0" class="detail-item mb-3">
+            <div class="text-caption text-medium-emphasis mb-1">Pick Trades</div>
+            <div class="trade-chain">
+              <template v-for="(team, index) in tradeChain" :key="index">
+                <v-avatar size="24" class="mr-1" rounded="0" style="background: transparent;">
+                  <v-img
+                    :src="getTeamLogoUrl(team, player.year)"
+                    :alt="getTeamDisplayName(team, player.year)"
+                    contain
+                  />
+                </v-avatar>
+                <span v-if="index < tradeChain.length - 1" class="mx-1 text-medium-emphasis">→</span>
+              </template>
+            </div>
+          </div>
+
+          <!-- Awards (full list) -->
+          <div v-if="player.awards && Object.keys(player.awards).length > 0" class="detail-item mb-3">
+            <div class="text-caption text-medium-emphasis mb-1 d-flex align-center">
+              <v-icon icon="mdi-star" size="16" color="warning" class="mr-1" />
+              Awards
+            </div>
+            <ul class="text-body-1 font-weight-medium" style="margin: 0; padding-left: 20px;">
+              <li v-for="(times, awardName) in player.awards" :key="awardName">
+                {{ formatAwardName(awardName) }} ({{ times }} {{ times === 1 ? 'time' : 'times' }})
+              </li>
+            </ul>
+          </div>
+
+          <!-- Outbound Links -->
+          <div v-if="player.nba_id" class="detail-item">
+            <div class="text-caption text-medium-emphasis mb-1">External Links</div>
+            <div class="d-flex gap-2">
+              <v-btn
+                :href="`https://www.nba.com/stats/player/${player.nba_id}`"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="tonal"
+                size="small"
+                prepend-icon="mdi-open-in-new"
+                color="primary"
+              >
+                NBA Stats
+              </v-btn>
+            </div>
+          </div>
         </div>
       </v-card-text>
     </v-card>
@@ -330,6 +490,22 @@ function formatAwardName(award: string): string {
     padding: 4px 0;
   }
 
+  .player-flag-icon {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  .trade-chain {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
   // Team color theming
   :deep(.v-divider) {
     border-color: rgba(var(--v-theme-on-surface), 0.12);
@@ -345,4 +521,3 @@ function formatAwardName(award: string): string {
   }
 }
 </style>
-

@@ -1,6 +1,21 @@
 import { watch, onMounted, nextTick, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { TeamAbbreviation } from '@/types/team'
+import {
+  YEAR_MIN,
+  YEAR_MAX,
+  PICK_MIN,
+  PICK_MAX,
+  AGE_MIN,
+  AGE_MAX,
+  HEIGHT_MIN,
+  HEIGHT_MAX,
+  WEIGHT_MIN,
+  WEIGHT_MAX,
+  YOS_MIN,
+  YOS_MAX,
+  DEFAULT_ITEMS_PER_PAGE
+} from '@/constants/filters'
 
 type SortItem = { key: string; order: 'asc' | 'desc' }
 
@@ -34,16 +49,16 @@ const DEFAULT_FILTERS: FilterDefaults = {
   selectedTeam: [],
   selectedPlaysFor: [],
   selectedYear: null,
-  yearRange: [1947, 2025],
+  yearRange: [YEAR_MIN, YEAR_MAX],
   useYearRange: true,
   selectedRounds: [],
-  overallPickRange: [1, 61],
+  overallPickRange: [PICK_MIN, PICK_MAX],
   preDraftTeamSearch: [],
   selectedPositions: [],
-  ageRange: [17, 50],
-  heightRange: [60, 96],
-  weightRange: [140, 403],
-  yearsOfServiceRange: [0, 30],
+  ageRange: [AGE_MIN, AGE_MAX],
+  heightRange: [HEIGHT_MIN, HEIGHT_MAX],
+  weightRange: [WEIGHT_MIN, WEIGHT_MAX],
+  yearsOfServiceRange: [YOS_MIN, YOS_MAX],
   tradeFilter: 'all',
   retiredFilter: 'all',
   selectedNationalities: [],
@@ -55,7 +70,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
     { key: 'pick', order: 'asc' }
   ],
   currentPage: 1,
-  itemsPerPage: 30,
+  itemsPerPage: DEFAULT_ITEMS_PER_PAGE,
   showPlayerMeasurements: false
 }
 
@@ -109,13 +124,13 @@ export function useFilterUrlSync(
   }
 
   // Helper function to deserialize array values from URL
-  function deserializeArray(str: string | string[] | undefined, type: 'string' | 'number' | 'mixed' = 'mixed'): (string | number)[] {
+  function deserializeArray(str: string | null | (string | null)[] | undefined, type: 'string' | 'number' | 'mixed' = 'mixed'): (string | number)[] {
     if (!str) return []
     const arr = Array.isArray(str) ? str : [str]
     if (arr.length === 0) return []
-    
-    // Handle comma-separated values
-    const values = arr.flatMap(v => v.split(',').filter(Boolean))
+
+    // Handle comma-separated values, filtering out null entries from LocationQueryValue
+    const values = arr.flatMap(v => v != null ? v.split(',').filter(Boolean) : [])
     
     if (type === 'number') {
       return values.map(v => {
@@ -134,13 +149,13 @@ export function useFilterUrlSync(
   }
 
   // Helper function to deserialize tuple from URL
-  function deserializeTuple(str: string | string[] | undefined, defaultValue: [number, number]): [number, number] {
+  function deserializeTuple(str: string | null | (string | null)[] | undefined, defaultValue: [number, number]): [number, number] {
     if (!str) return defaultValue
     const arr = Array.isArray(str) ? str : [str]
     if (arr.length === 0) return defaultValue
-    
-    // Handle comma-separated values
-    const values = arr.flatMap(v => v.split(',').filter(Boolean))
+
+    // Handle comma-separated values, filtering out null entries from LocationQueryValue
+    const values = arr.flatMap(v => v != null ? v.split(',').filter(Boolean) : [])
     if (values.length < 2) return defaultValue
     
     const [first, second] = values

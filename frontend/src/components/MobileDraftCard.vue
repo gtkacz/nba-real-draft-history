@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getCountryCode } from '@/utils/countryCodeConverter'
@@ -139,6 +139,9 @@ function handlePlayerClick() {
   }
 }
 
+// Memoize the trade chain so the template doesn't call parseTradeChain twice per render
+const tradeChain = computed(() => parseTradeChain(props.item.draftTrades, props.item.year))
+
 // Format award names for display (keeping NBA prefix)
 function formatAwardName(award: string): string {
   return award
@@ -166,7 +169,6 @@ function formatAwardName(award: string): string {
             :src="getPlayerHeadshotUrl(item.nba_id)"
             :alt="item.player"
             cover
-            eager
             class="player-headshot-img"
           >
             <template #placeholder>
@@ -185,7 +187,6 @@ function formatAwardName(award: string): string {
             :src="getPlayerHeadshotUrl(202382)"
             :alt="item.player"
             cover
-            eager
             class="player-headshot-img"
           >
             <template #placeholder>
@@ -207,7 +208,7 @@ function formatAwardName(award: string): string {
               {{ item.player }}
               <v-icon
                 v-if="item.is_defunct === 1"
-                icon="mdi-cross"
+                icon="mdi-grave-stone"
                 title="Deceased"
                 size="16"
                 color="error"
@@ -321,7 +322,7 @@ function formatAwardName(award: string): string {
           <div v-if="item.draftTrades" class="mb-3">
             <div class="text-caption text-medium-emphasis mb-1">Pick Trades</div>
             <div class="trade-chain">
-              <template v-for="(team, index) in parseTradeChain(item.draftTrades, item.year)" :key="index">
+              <template v-for="(team, index) in tradeChain" :key="index">
                 <v-avatar size="24" class="mr-1" rounded="0" style="background: transparent;">
                   <v-img
                     :src="getTeamLogoUrl(team, item.year)"
@@ -329,7 +330,7 @@ function formatAwardName(award: string): string {
                     contain
                   />
                 </v-avatar>
-                <span v-if="index < parseTradeChain(item.draftTrades, item.year).length - 1" class="mx-1 text-medium-emphasis">→</span>
+                <span v-if="index < tradeChain.length - 1" class="mx-1 text-medium-emphasis">→</span>
               </template>
             </div>
           </div>

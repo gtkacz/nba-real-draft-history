@@ -45,7 +45,7 @@ def parse_response_to_dataframe(
 
 
 def run():
-    url = "https://stats.nba.com/stats/playerindex?College=&Country=&DraftPick=&DraftRound=&DraftYear=&Height=&Historical=1&LeagueID=00&Season=2025-26&SeasonType=Preseason&TeamID=0&Weight="
+    url = "https://stats.nba.com/stats/playerindex?College=&Country=&DraftPick=&DraftRound=&DraftYear=&Height=&Historical=1&LeagueID=00&Season=2026-27&SeasonType=Preseason&TeamID=0&Weight="
 
     payload = {}
     headers = {

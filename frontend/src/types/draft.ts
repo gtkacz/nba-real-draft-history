@@ -20,14 +20,3 @@ export interface DraftPick {
   plays_for?: string
   awards?: Record<string, number>
 }
-
-export interface TradeStep {
-  from: string
-  to: string
-}
-
-export interface ParsedTrade {
-  original: string
-  steps: TradeStep[]
-  finalTeam: string
-}

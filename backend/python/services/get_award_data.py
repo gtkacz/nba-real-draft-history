@@ -2,6 +2,7 @@ import json  # noqa: CPY001, D100
 import pathlib
 import time
 from collections import defaultdict
+from datetime import datetime
 from functools import cache
 
 import pandas as pd
@@ -93,7 +94,32 @@ def get_award_data(player_nba_id: int) -> dict[str, int]:
     return dict(output)
 
 
-def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
+def _is_award_empty(val) -> bool:
+    """Return True when an `awards` cell holds no actual award data."""
+    if pd.isna(val):
+        return True
+
+    if isinstance(val, dict | list):
+        return len(val) == 0
+
+    if isinstance(val, str):
+        s = val.strip()
+        if not s or s.lower() == "nan":
+            return True
+        try:
+            parsed = json.loads(s)
+
+            if isinstance(parsed, dict | list) and len(parsed) == 0:
+                return True
+
+        except Exception:
+            # not JSON, assume it's a non-empty string representation
+            return False
+
+    return False
+
+
+def main(*, force: bool = True, force_all: bool = False) -> None:  # noqa: C901
     """Main function to enrich player data with award information.
 
     Args:
@@ -114,9 +140,17 @@ def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
 
         # By default, skip teams that already have an `awards` column.
         # `force_all=True` overrides and forces processing of such teams.
+        # Exception: even without `force_all`, do not skip a team when every
+        # player drafted in the current or past year has empty awards, so that
+        # awards newly earned by recent draft classes get fetched on re-runs.
         if "awards" in curr_df.columns and not force_all:
-            print(f"Skipping team {team} because 'awards' column exists (use force_all to override)")
-            continue
+            current_year = datetime.now().year
+            recent_mask = curr_df["Year"].isin([current_year, current_year - 1])
+            recent_all_empty = recent_mask.any() and curr_df.loc[recent_mask, "awards"].apply(_is_award_empty).all()
+
+            if not recent_all_empty:
+                print(f"Skipping team {team} because 'awards' column exists (use force_all to override)")
+                continue
 
         # Normalize types
         nba_id_series = pd.to_numeric(curr_df["nba_id"], errors="coerce").astype("Int64")
@@ -126,30 +160,6 @@ def main(*, force: bool = False, force_all: bool = False) -> None:  # noqa: C901
         # If `force` is True, fetch for all eligible rows. Otherwise only
         # fetch for rows where the `awards` column is empty/missing.
         if "awards" in curr_df.columns and not force:
-
-            def _is_award_empty(val) -> bool:
-                if pd.isna(val):
-                    return True
-
-                if isinstance(val, dict | list):
-                    return len(val) == 0
-
-                if isinstance(val, str):
-                    s = val.strip()
-                    if not s or s.lower() == "nan":
-                        return True
-                    try:
-                        parsed = json.loads(s)
-
-                        if isinstance(parsed, dict | list) and len(parsed) == 0:
-                            return True
-
-                    except Exception:
-                        # not JSON, assume it's a non-empty string representation
-                        return False
-
-                return False
-
             mask_empty_awards = curr_df["awards"].apply(_is_award_empty)
         else:
             # Either there is no `awards` column yet, or `force` is True;

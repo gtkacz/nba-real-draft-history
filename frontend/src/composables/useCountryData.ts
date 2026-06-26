@@ -82,16 +82,6 @@ async function fetchCountryData(): Promise<CountryDataMap> {
             const nativeNameEntry =
               country.name.nativeName[selectedLanguage as keyof typeof country.name.nativeName]
             nativeOfficial = nativeNameEntry?.official || ''
-
-            // Debug log for Israel to verify language selection
-            if (cca2 === 'il') {
-              console.log('Israel language selection:', {
-                preferredLanguages,
-                availableLanguages: languageKeys,
-                selectedLanguage,
-                nativeOfficial,
-              })
-            }
           }
         }
       }

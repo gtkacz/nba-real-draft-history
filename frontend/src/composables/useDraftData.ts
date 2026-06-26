@@ -1,63 +1,61 @@
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
 import { parseCSV } from '@/utils/csvParser'
 import { getDataUrl } from '@/utils/dataUrl'
 import { getCachedCSV, setCachedCSV, initializeCache } from '@/utils/csvCache'
 import { normalizeString } from '@/utils/stringNormalizer'
+import { parseHeight } from '@/utils/parseHeight'
+import {
+  YEAR_MIN,
+  YEAR_MAX,
+  PICK_MIN,
+  PICK_MAX,
+  AGE_MIN,
+  AGE_MAX,
+  HEIGHT_MIN,
+  HEIGHT_MAX,
+  WEIGHT_MIN,
+  WEIGHT_MAX,
+  YOS_MIN,
+  YOS_MAX,
+  DEFAULT_ITEMS_PER_PAGE,
+} from '@/constants/filters'
 
 const allDraftPicks = ref<DraftPick[]>([])
 const loading = ref(false)
 const error = ref<string | null>(null)
 
-// Helper function to parse height strings like "6-8" or "6'8\"" into inches
-function parseHeight(height: string | null | undefined): number {
-  if (!height) return 0
-  const str = String(height).trim()
-  
-  // Try format "6-8" (feet-inches)
-  const match1 = str.match(/(\d+)[-'](\d+)/)
-  if (match1 && match1[1] && match1[2]) {
-    const feet = parseInt(match1[1], 10)
-    const inches = parseInt(match1[2], 10)
-    return feet * 12 + inches
-  }
-  
-  // Try format "6'8\"" (feet'inches")
-  const match2 = str.match(/(\d+)'(\d+)"/)
-  if (match2 && match2[1] && match2[2]) {
-    const feet = parseInt(match2[1], 10)
-    const inches = parseInt(match2[2], 10)
-    return feet * 12 + inches
-  }
-  
-  // Try to parse as just a number (assume inches)
-  const num = parseFloat(str)
-  if (!isNaN(num)) return num
-  
-  return 0
-}
-
 export function useDraftData() {
   const selectedTeam = ref<TeamAbbreviation[]>([])
   const selectedPlaysFor = ref<TeamAbbreviation[]>([])
   const selectedYear = ref<number | null>(null)
-  const yearRange = ref<[number, number]>([1947, 2025])
+  const yearRange = ref<[number, number]>([YEAR_MIN, YEAR_MAX])
   const useYearRange = ref(true)
   const selectedRounds = ref<(number | string)[]>([])
-  const overallPickRange = ref<[number, number]>([1, 61])
+  const overallPickRange = ref<[number, number]>([PICK_MIN, PICK_MAX])
   const preDraftTeamSearch = ref<string[]>([])
   const selectedPositions = ref<string[]>([])
-  const ageRange = ref<[number, number]>([17, 50])
-  const heightRange = ref<[number, number]>([60, 96]) // Default: 5'0" to 8'0" in inches
-  const weightRange = ref<[number, number]>([140, 403]) // Default: 140 to 403 lbs
-  const yearsOfServiceRange = ref<[number, number]>([0, 30]) // Default: 0 to 30 years
+  const ageRange = ref<[number, number]>([AGE_MIN, AGE_MAX])
+  const heightRange = ref<[number, number]>([HEIGHT_MIN, HEIGHT_MAX])
+  const weightRange = ref<[number, number]>([WEIGHT_MIN, WEIGHT_MAX])
+  const yearsOfServiceRange = ref<[number, number]>([YOS_MIN, YOS_MAX])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
   const retiredFilter = ref<'all' | 'retired' | 'not-retired'>('all')
   const selectedNationalities = ref<string[]>([])
   const selectedAwards = ref<Record<string, number>>({}) // { awardName: minCount }
   const awardFilterMode = ref<'exclusive' | 'inclusive'>('exclusive')
   const playerSearch = ref<string>('')
+
+  // Debounced version of playerSearch to avoid filtering on every keystroke
+  const debouncedPlayerSearch = ref<string>(playerSearch.value)
+  let debounceTimer: ReturnType<typeof setTimeout> | undefined
+  watch(playerSearch, (val) => {
+    clearTimeout(debounceTimer)
+    debounceTimer = setTimeout(() => {
+      debouncedPlayerSearch.value = val
+    }, 250)
+  })
 
   // Sort state - initial multi-sort by year (desc) and pick (asc)
   type SortItem = { key: string; order: 'asc' | 'desc' }
@@ -68,7 +66,7 @@ export function useDraftData() {
 
   // Pagination state
   const currentPage = ref(1)
-  const itemsPerPage = ref(30)
+  const itemsPerPage = ref(DEFAULT_ITEMS_PER_PAGE)
 
   const allPreDraftTeams = computed(() => {
     const teams = new Set<string>()
@@ -120,79 +118,56 @@ export function useDraftData() {
     return Array.from(awards).sort()
   })
 
-  // Compute min/max height and weight from data
-  const minHeight = computed(() => {
-    let min = 96 // 8'0" default max
+  // Single pass over allDraftPicks to derive all physical stat bounds
+  const _physicalBounds = computed(() => {
+    let minH = HEIGHT_MAX
+    let maxH = HEIGHT_MIN
+    let minW = WEIGHT_MAX
+    let maxW = WEIGHT_MIN
+    let minY = YOS_MAX
+    let maxY = YOS_MIN
+
     allDraftPicks.value.forEach((pick) => {
       if (pick.height) {
-        const heightInches = parseHeight(pick.height)
-        if (heightInches > 0 && heightInches < min) {
-          min = heightInches
+        const h = parseHeight(pick.height)
+        if (h > 0) {
+          if (h < minH) minH = h
+          if (h > maxH) maxH = h
         }
       }
-    })
-    return min < 96 ? min : 60 // Default to 5'0" if no valid data
-  })
-
-  const maxHeight = computed(() => {
-    let max = 60 // 5'0" default min
-    allDraftPicks.value.forEach((pick) => {
-      if (pick.height) {
-        const heightInches = parseHeight(pick.height)
-        if (heightInches > max) {
-          max = heightInches
-        }
+      if (pick.weight && pick.weight > 0) {
+        if (pick.weight < minW) minW = pick.weight
+        if (pick.weight > maxW) maxW = pick.weight
+      }
+      if (pick.yearsOfService !== undefined && pick.yearsOfService >= 0) {
+        if (pick.yearsOfService < minY) minY = pick.yearsOfService
+        if (pick.yearsOfService > maxY) maxY = pick.yearsOfService
       }
     })
-    return max > 60 ? max : 96 // Default to 8'0" if no valid data
+
+    return {
+      minHeight: minH < HEIGHT_MAX ? minH : HEIGHT_MIN,
+      maxHeight: maxH > HEIGHT_MIN ? maxH : HEIGHT_MAX,
+      minWeight: minW < WEIGHT_MAX ? minW : WEIGHT_MIN,
+      maxWeight: maxW > WEIGHT_MIN ? maxW : WEIGHT_MAX,
+      minYearsOfService: minY < YOS_MAX ? minY : YOS_MIN,
+      maxYearsOfService: maxY > YOS_MIN ? maxY : YOS_MAX,
+    }
   })
 
-  const minWeight = computed(() => {
-    let min = 403 // default max
-    allDraftPicks.value.forEach((pick) => {
-      if (pick.weight && pick.weight > 0 && pick.weight < min) {
-        min = pick.weight
-      }
-    })
-    return min < 403 ? min : 140 // Default to 140 if no valid data
-  })
-
-  const maxWeight = computed(() => {
-    let max = 140 // default min
-    allDraftPicks.value.forEach((pick) => {
-      if (pick.weight && pick.weight > max) {
-        max = pick.weight
-      }
-    })
-    return max > 140 ? max : 403 // Default to 403 if no valid data
-  })
-
-  const minYearsOfService = computed(() => {
-    let min = 30 // default max
-    allDraftPicks.value.forEach((pick) => {
-      if (pick.yearsOfService !== undefined && pick.yearsOfService >= 0 && pick.yearsOfService < min) {
-        min = pick.yearsOfService
-      }
-    })
-    return min < 30 ? min : 0 // Default to 0 if no valid data
-  })
-
-  const maxYearsOfService = computed(() => {
-    let max = 0 // default min
-    allDraftPicks.value.forEach((pick) => {
-      if (pick.yearsOfService !== undefined && pick.yearsOfService > max) {
-        max = pick.yearsOfService
-      }
-    })
-    return max > 0 ? max : 30 // Default to 30 if no valid data
-  })
+  const minHeight = computed(() => _physicalBounds.value.minHeight)
+  const maxHeight = computed(() => _physicalBounds.value.maxHeight)
+  const minWeight = computed(() => _physicalBounds.value.minWeight)
+  const maxWeight = computed(() => _physicalBounds.value.maxWeight)
+  const minYearsOfService = computed(() => _physicalBounds.value.minYearsOfService)
+  const maxYearsOfService = computed(() => _physicalBounds.value.maxYearsOfService)
 
   const filteredData = computed(() => {
     let filtered = allDraftPicks.value
 
     // Team filter - multiple selection
     if (selectedTeam.value.length > 0) {
-      filtered = filtered.filter((pick) => selectedTeam.value.includes(pick.team))
+      filtered = filtered.filter((pick) => selectedTeam.value.includes(pick.team as TeamAbbreviation))
     }
 
     // Currently plays for filter - multiple selection
@@ -250,8 +225,8 @@ export function useDraftData() {
         // pick.pick already contains the overall pick number (not the pick within the round)
         // Explicitly convert to number to ensure proper comparison
         const overallPick = Number(pick.pick)
-        if (maxOverallNum === 61) {
-          // If max is 61, it means "no upper limit" - show all picks >= minOverall
+        if (maxOverallNum === PICK_MAX) {
+          // If max is PICK_MAX, it means "no upper limit" - show all picks >= minOverall
           return overallPick >= minOverallNum
         } else {
           // Normal range filter - use <= to include the upper bound
@@ -359,16 +334,17 @@ export function useDraftData() {
     if (selectedAwardEntries.length > 0) {
       filtered = filtered.filter((pick) => {
         if (!pick.awards || typeof pick.awards !== 'object') return false
+        const pickAwards = pick.awards
         if (awardFilterMode.value === 'exclusive') {
           // Exclusive mode: player must have ALL selected awards
           return selectedAwardEntries.every(([awardName, minCount]) => {
-            const playerCount = pick.awards[awardName]
+            const playerCount = pickAwards[awardName]
             return playerCount !== undefined && typeof playerCount === 'number' && playerCount >= minCount
           })
         } else {
           // Inclusive mode: player must have ANY of the selected awards
           return selectedAwardEntries.some(([awardName, minCount]) => {
-            const playerCount = pick.awards[awardName]
+            const playerCount = pickAwards[awardName]
             return playerCount !== undefined && typeof playerCount === 'number' && playerCount >= minCount
           })
         }
@@ -376,8 +352,8 @@ export function useDraftData() {
     }
 
     // Player name search filter (with normalized matching for accents)
-    if (playerSearch.value && playerSearch.value.trim() !== '') {
-      const searchTerm = normalizeString(playerSearch.value.toLowerCase().trim())
+    if (debouncedPlayerSearch.value && debouncedPlayerSearch.value.trim() !== '') {
+      const searchTerm = normalizeString(debouncedPlayerSearch.value.toLowerCase().trim())
       filtered = filtered.filter((pick) => {
         if (!pick.player) return false
         const normalizedPlayerName = normalizeString(pick.player.toLowerCase())
@@ -396,77 +372,77 @@ export function useDraftData() {
     initializeCache()
 
     try {
-      const picks: DraftPick[] = []
+      const perTeamResults = await Promise.all(
+        teams.map(async (team) => {
+          try {
+            let csvText = ''
+            let isEnriched = true
 
-      for (const team of teams) {
-        try {
-          let csvText = ''
-          let isEnriched = true
+            // Try to get from cache first (enriched)
+            csvText = getCachedCSV(team, true) ?? ''
 
-          // Try to get from cache first (enriched)
-          csvText = getCachedCSV(team, true)
-
-          if (csvText) {
-            // Found enriched CSV in cache
-            isEnriched = true
-          } else {
-            // Not in cache, try to fetch enriched CSV
-            let response = await fetch(getDataUrl(`csv/${team}_enriched.csv`))
-
-            if (response.ok) {
-              csvText = await response.text()
+            if (csvText) {
+              // Found enriched CSV in cache
               isEnriched = true
+            } else {
+              // Not in cache, try to fetch enriched CSV
+              let response = await fetch(getDataUrl(`csv/${team}_enriched.csv`))
 
-              // Check if we got HTML instead of CSV
-              if (csvText.trim().startsWith('<!DOCTYPE') || csvText.trim().startsWith('<html')) {
-                csvText = ''
-              }
-            }
-
-            // If enriched CSV not available, try regular CSV
-            if (!csvText) {
-              // Try cache for regular CSV
-              csvText = getCachedCSV(team, false)
-
-              if (csvText) {
-                isEnriched = false
-              } else {
-                // Fetch regular CSV
-                response = await fetch(getDataUrl(`csv/${team}.csv`))
-                if (!response.ok) {
-                  console.error(`Failed to fetch ${team}.csv:`, response.status)
-                  continue
-                }
-
+              if (response.ok) {
                 csvText = await response.text()
-                isEnriched = false
+                isEnriched = true
 
                 // Check if we got HTML instead of CSV
                 if (csvText.trim().startsWith('<!DOCTYPE') || csvText.trim().startsWith('<html')) {
-                  console.error(`Received HTML for ${team}.csv, skipping`)
-                  continue
+                  csvText = ''
                 }
+              }
+
+              // If enriched CSV not available, try regular CSV
+              if (!csvText) {
+                // Try cache for regular CSV
+                csvText = getCachedCSV(team, false) ?? ''
+
+                if (csvText) {
+                  isEnriched = false
+                } else {
+                  // Fetch regular CSV
+                  response = await fetch(getDataUrl(`csv/${team}.csv`))
+                  if (!response.ok) {
+                    console.error(`Failed to fetch ${team}.csv:`, response.status)
+                    return []
+                  }
+
+                  csvText = await response.text()
+                  isEnriched = false
+
+                  // Check if we got HTML instead of CSV
+                  if (csvText.trim().startsWith('<!DOCTYPE') || csvText.trim().startsWith('<html')) {
+                    console.error(`Received HTML for ${team}.csv, skipping`)
+                    return []
+                  }
+                }
+              }
+
+              // Cache the fetched CSV if it came from network
+              if (csvText && !getCachedCSV(team, isEnriched)) {
+                setCachedCSV(team, isEnriched, csvText)
               }
             }
 
-            // Cache the fetched CSV if it came from network
-            if (csvText && !getCachedCSV(team, isEnriched)) {
-              setCachedCSV(team, isEnriched, csvText)
+            if (!csvText) {
+              return []
             }
+
+            return await parseCSV(csvText, team)
+          } catch (teamErr) {
+            console.error(`Error loading ${team}:`, teamErr)
+            return []
           }
+        }),
+      )
 
-          if (!csvText) {
-            continue
-          }
-
-          const teamPicks = await parseCSV(csvText, team)
-          picks.push(...teamPicks)
-        } catch (teamErr) {
-          console.error(`Error loading ${team}:`, teamErr)
-        }
-      }
-
-      allDraftPicks.value = picks
+      allDraftPicks.value = perTeamResults.flat()
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Failed to load draft data'
       console.error('Error loading draft data:', err)

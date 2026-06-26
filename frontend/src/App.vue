@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import SplashScreen from './components/SplashScreen.vue'
-import ThemeToggle from './components/ThemeToggle.vue'
 import DraftTable from './components/DraftTable.vue'
 import AppFooter from './components/AppFooter.vue'
 import { useSplashScreen } from './composables/useSplashScreen'
@@ -10,7 +9,6 @@ import { useFilterUrlSync } from './composables/useFilterUrlSync'
 import { useCountryData } from './composables/useCountryData'
 import { useTeamData } from './composables/useTeamData'
 import { initializeCache } from './utils/csvCache'
-import type { TeamAbbreviation } from './types/team'
 
 const { showSplash, markSplashSeen } = useSplashScreen()
 const { loadCountryData } = useCountryData()
@@ -108,15 +106,29 @@ onMounted(() => {
   <v-app>
     <SplashScreen v-if="showSplash" @continue="markSplashSeen" />
 
-    <!-- <v-app-bar elevation="2" color="primary">
-      <v-app-bar-title class="font-weight-bold">
-        Real Draft History
-      </v-app-bar-title>
+    <v-app-bar elevation="1" color="primary" density="compact">
+      <template #prepend>
+        <img
+          src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
+          alt="NBA logo"
+          style="width: 30px; height: 30px; display: block; margin-left: 12px;"
+        />
+      </template>
+
+      <v-app-bar-title class="font-weight-bold">Real Draft History</v-app-bar-title>
 
       <v-spacer />
 
-      <ThemeToggle />
-    </v-app-bar> -->
+      <v-btn
+        icon="mdi-github"
+        color="primary"
+        variant="text"
+        href="https://github.com/gtkacz/nba-real-draft-history"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub repository"
+      />
+    </v-app-bar>
 
     <v-main>
       <v-container fluid class="table-container">
