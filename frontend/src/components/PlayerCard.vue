@@ -6,6 +6,7 @@ import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/t
 import { getCountryCode } from '@/utils/countryCodeConverter'
 import { useTeamData } from '@/composables/useTeamData'
 import { useCountryData } from '@/composables/useCountryData'
+import { getCurrentSeasonStartYear } from '@/utils/season'
 
 const display = useDisplay()
 const isMobile = computed(() => display.mobile.value)
@@ -78,8 +79,13 @@ function formatAwardName(award: string): string {
 // Mirrors MobileDraftCard's getPlayerRetirementStatus helper
 function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active' | 'retired' | 'unknown' {
   if (playedUntilYear === undefined) return 'unknown'
-  const currentYear = new Date().getFullYear()
-  return playedUntilYear < currentYear ? 'retired' : 'active'
+  return playedUntilYear < getCurrentSeasonStartYear() ? 'retired' : 'active'
+}
+
+// A rookie is an active player who has not yet completed an NBA season. Purely
+// visual; rookies still count as active players for filtering.
+function isRookie(pick: DraftPick): boolean {
+  return getPlayerRetirementStatus(pick.played_until_year) === 'active' && pick.yearsOfService === 0
 }
 
 // Mirrors MobileDraftCard's getRetirementText helper
@@ -91,7 +97,7 @@ function getRetirementText(
   const status = getPlayerRetirementStatus(playedUntilYear)
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
-      return `Currently plays for ${getTeamDisplayName(playsFor, year)}`
+      return `Currently plays for the ${getTeamDisplayName(playsFor, year)}`
     }
     return 'Currently active'
   } else if (status === 'retired') {
@@ -343,8 +349,14 @@ const tradeChain = computed<string[]>(() => {
             v-if="player.played_until_year !== undefined || player.plays_for"
             class="detail-item mb-3"
           >
-            <div class="text-caption text-medium-emphasis mb-1">
-              {{ getPlayerRetirementStatus(player.played_until_year) === 'retired' ? 'Retired — Last Played For' : 'Currently Plays For' }}
+            <div class="text-caption text-medium-emphasis mb-1 d-flex align-center gap-1">
+              <template v-if="isRookie(player)">
+                <v-icon icon="mdi-account-plus" size="16" color="primary" />
+                <span>Rookie · Currently Plays For</span>
+              </template>
+              <template v-else>
+                {{ getPlayerRetirementStatus(player.played_until_year) === 'retired' ? 'Retired — Last Played For' : 'Currently Plays For' }}
+              </template>
             </div>
             <div class="text-body-1 font-weight-medium">
               {{ getRetirementText(player.played_until_year, player.plays_for, player.year) }}

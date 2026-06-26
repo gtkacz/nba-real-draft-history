@@ -168,9 +168,30 @@ function getCountryInfo(cca2: string | null | undefined): CountryInfo | null {
 /**
  * Gets formatted country name for display: "Official English (Native Official)"
  */
+let regionDisplayNames: Intl.DisplayNames | null = null
+
+/**
+ * Resolves an ISO 3166 alpha-2 code to an English country name using the browser's
+ * built-in localized names. Used as a fallback when the remote country dataset is
+ * unavailable so the UI shows e.g. "United States" instead of the raw "US" code.
+ */
+function displayNameFromCode(cca2: string | null | undefined): string {
+  if (!cca2 || cca2.trim() === '') return 'Unknown'
+  const code = cca2.trim().toUpperCase()
+  try {
+    if (!regionDisplayNames) {
+      regionDisplayNames = new Intl.DisplayNames(['en'], { type: 'region' })
+    }
+    const name = regionDisplayNames.of(code)
+    return name && name !== code ? name : code
+  } catch {
+    return code
+  }
+}
+
 function getFormattedCountryName(cca2: string | null | undefined): string {
   const info = getCountryInfo(cca2)
-  if (!info) return cca2 || 'Unknown'
+  if (!info) return displayNameFromCode(cca2)
 
   if (info.officialEnglish === info.nativeOfficial) {
     return info.officialEnglish

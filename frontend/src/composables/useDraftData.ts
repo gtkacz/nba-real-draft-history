@@ -6,6 +6,7 @@ import { getDataUrl } from '@/utils/dataUrl'
 import { getCachedCSV, setCachedCSV, initializeCache } from '@/utils/csvCache'
 import { normalizeString } from '@/utils/stringNormalizer'
 import { parseHeight } from '@/utils/parseHeight'
+import { getCurrentSeasonStartYear } from '@/utils/season'
 import {
   YEAR_MIN,
   YEAR_MAX,
@@ -175,9 +176,9 @@ export function useDraftData() {
     if (selectedPlaysFor.value.length > 0) {
       filtered = filtered.filter((pick) => {
         // First check if player is active (not retired)
-        const currentYear = new Date().getFullYear()
+        const seasonStartYear = getCurrentSeasonStartYear()
         const isRetired =
-          pick.played_until_year !== undefined && pick.played_until_year < currentYear
+          pick.played_until_year !== undefined && pick.played_until_year < seasonStartYear
         if (isRetired) return false
 
         // Check if plays_for exists, is not empty, and matches one of the selected teams
@@ -304,13 +305,13 @@ export function useDraftData() {
 
     // Retired filter
     if (retiredFilter.value !== 'all') {
-      const currentYear = new Date().getFullYear()
+      const seasonStartYear = getCurrentSeasonStartYear()
       filtered = filtered.filter((pick) => {
         // Exclude players with unknown retirement status (played_until_year is undefined)
         if (pick.played_until_year === undefined) {
           return false
         }
-        const isRetired = pick.played_until_year < currentYear
+        const isRetired = pick.played_until_year < seasonStartYear
         if (retiredFilter.value === 'retired') {
           return isRetired
         } else {

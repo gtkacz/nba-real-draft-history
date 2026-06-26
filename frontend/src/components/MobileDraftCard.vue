@@ -4,6 +4,7 @@ import type { DraftPick } from '@/types/draft'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getCountryCode } from '@/utils/countryCodeConverter'
 import { useTeamData } from '@/composables/useTeamData'
+import { getCurrentSeasonStartYear } from '@/utils/season'
 
 interface MobileDraftCardProps {
   item: DraftPick
@@ -108,15 +109,20 @@ function getPositionColor(position: string): string {
 
 function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active' | 'retired' | 'unknown' {
   if (playedUntilYear === undefined) return 'unknown'
-  const currentYear = new Date().getFullYear()
-  return playedUntilYear < currentYear ? 'retired' : 'active'
+  return playedUntilYear < getCurrentSeasonStartYear() ? 'retired' : 'active'
+}
+
+// A rookie is an active player who has not yet completed an NBA season. Purely
+// visual; rookies still count as active players for filtering.
+function isRookie(pick: DraftPick): boolean {
+  return getPlayerRetirementStatus(pick.played_until_year) === 'active' && pick.yearsOfService === 0
 }
 
 function getRetirementText(playedUntilYear: number | undefined, playsFor: string | undefined, year?: number): string {
   const status = getPlayerRetirementStatus(playedUntilYear)
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
-      return `Currently plays for ${getTeamDisplayName(playsFor, year)}`
+      return `Currently plays for the ${getTeamDisplayName(playsFor, year)}`
     }
     return 'Currently active'
   } else if (status === 'retired') {
@@ -238,6 +244,12 @@ function formatAwardName(award: string): string {
               icon="mdi-account-off"
               size="16"
               color="grey"
+            />
+            <v-icon
+              v-else-if="isRookie(item)"
+              icon="mdi-account-plus"
+              size="16"
+              color="primary"
             />
             <v-icon
               v-else-if="getPlayerRetirementStatus(item.played_until_year) === 'active'"

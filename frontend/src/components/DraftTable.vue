@@ -9,6 +9,7 @@ import { getCountryCode } from '@/utils/countryCodeConverter'
 import { useCountryData } from '@/composables/useCountryData'
 import { useTeamData } from '@/composables/useTeamData'
 import { parseHeight } from '@/utils/parseHeight'
+import { getCurrentSeasonStartYear } from '@/utils/season'
 import {
   YEAR_MIN, YEAR_MAX,
   PICK_MIN, PICK_MAX,
@@ -866,8 +867,13 @@ function handlePageInput(event?: Event) {
 function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active' | 'retired' | 'unknown' {
   // If no retirement data, return unknown
   if (playedUntilYear === undefined) return 'unknown'
-  const currentYear = new Date().getFullYear()
-  return playedUntilYear < currentYear ? 'retired' : 'active'
+  return playedUntilYear < getCurrentSeasonStartYear() ? 'retired' : 'active'
+}
+
+// A rookie is an active player who has not yet completed an NBA season. This is a
+// purely visual distinction; rookies still count as active players for filtering.
+function isRookie(pick: DraftPick): boolean {
+  return getPlayerRetirementStatus(pick.played_until_year) === 'active' && pick.yearsOfService === 0
 }
 
 function getRetirementTooltipText(playedUntilYear: number | undefined, playsFor: string | undefined, year?: number): string {
@@ -2441,13 +2447,16 @@ const shareTooltipText = computed(() => {
                 <v-icon
                   v-else
                   v-bind="tooltipProps"
-                  :icon="getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'mdi-account-off' : getPlayerRetirementStatus(item.played_until_year) === 'active' ? 'mdi-account-check' : 'mdi-account-question'"
+                  :icon="getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'mdi-account-off' : isRookie(item) ? 'mdi-account-plus' : getPlayerRetirementStatus(item.played_until_year) === 'active' ? 'mdi-account-check' : 'mdi-account-question'"
                   size="16"
-                  :color="getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'grey' : getPlayerRetirementStatus(item.played_until_year) === 'active' ? 'success' : 'warning'"
+                  :color="getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'grey' : isRookie(item) ? 'primary' : getPlayerRetirementStatus(item.played_until_year) === 'active' ? 'success' : 'warning'"
                   class="player-status-icon"
                 />
               </template>
-              <span v-if="getPlayerRetirementStatus(item.played_until_year) === 'active' && item.plays_for">
+              <span v-if="isRookie(item)">
+                Rookie<template v-if="item.plays_for"> — {{ getTeamDisplayName(item.plays_for, item.year) }}</template>
+              </span>
+              <span v-else-if="getPlayerRetirementStatus(item.played_until_year) === 'active' && item.plays_for">
                 Currently plays for the {{ getTeamDisplayName(item.plays_for, item.year) }}
               </span>
               <span v-else>{{ getRetirementTooltipText(item.played_until_year, item.plays_for, item.year) }}</span>
