@@ -122,29 +122,3 @@ export function getOriginalTeamName(team: string, year?: number): string {
   return upperTeam
 }
 
-/**
- * Get all team codes (canonical + aliases) that map to the given canonical team.
- * 
- * @param canonicalTeam - Canonical team abbreviation
- * @param year - Optional year for year-based aliasing
- * @returns Array of all team codes (canonical + aliases) that map to this team
- */
-export function getAllTeamCodes(canonicalTeam: string, year?: number): string[] {
-  const canonical = canonicalTeam.toUpperCase()
-  const codes: string[] = [canonical]
-  
-  // Special case: if canonical is LAL and year < 1988, include MIN
-  if (canonical === 'LAL' && year !== undefined && year < 1988) {
-    codes.push('MIN')
-  }
-  
-  // Find all aliases that map to this canonical team
-  for (const [alias, mappedCanonical] of Object.entries(TEAM_ALIAS_MAP)) {
-    if (mappedCanonical.toUpperCase() === canonical) {
-      codes.push(alias.toUpperCase())
-    }
-  }
-  
-  return codes
-}
-
