@@ -70,6 +70,12 @@ class TeamAliasesTests(unittest.TestCase):
         self.assertIsNone(final_trade_destination(""))
         self.assertIsNone(final_trade_destination(None))
 
+    def test_relocation_chain_within_franchise_is_not_traded_away(self) -> None:
+        """A chain staying within the source's own franchise (a relocation) is not a trade-away."""
+        self.assertFalse(is_traded_away_by_source_team("PHI to GSW", "GSW", 1962))
+        # A genuine round-trip leaves the franchise (DAL) and is still a trade-away.
+        self.assertTrue(is_traded_away_by_source_team("NYK to DAL DAL to NYK", "NYK", 2024))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -70,7 +70,12 @@ def team_codes_for_trade_prefix(source_team: str, year: int | None = None) -> tu
 
 
 def is_traded_away_by_source_team(draft_trades: object, source_team: str, year: int) -> bool:
-    """Return True when `draft_trades` starts with the source team or one of its aliases."""
+    """Return True when `draft_trades` starts with the source team or one of its aliases.
+
+    A chain whose every leg stays within the source's own franchise (e.g. the
+    "PHI to GSW" relocation rename) is not a trade away, even though it begins
+    with one of that franchise's own codes.
+    """
     if draft_trades is None:
         return False
 
@@ -78,7 +83,16 @@ def is_traded_away_by_source_team(draft_trades: object, source_team: str, year: 
     if not trade_text:
         return False
 
-    for team_code in team_codes_for_trade_prefix(source_team, year):
+    source_codes = team_codes_for_trade_prefix(source_team, year)
+    chain_tokens = [
+        token.strip().upper()
+        for token in re.split(r"\s+to\s+", trade_text, flags=re.IGNORECASE)
+        if token.strip()
+    ]
+    if chain_tokens and all(token in source_codes for token in chain_tokens):
+        return False
+
+    for team_code in source_codes:
         pattern = _TRADE_PREFIX_RE_TEMPLATE.format(team_code=re.escape(team_code))
         if re.search(pattern, trade_text, flags=re.IGNORECASE):
             return True

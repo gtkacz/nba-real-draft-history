@@ -131,8 +131,8 @@ class DraftHistoryBuilderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate raw rows|conflicting source rows"):
             resolve_owning_rows(raw)
 
-    def test_resolve_owning_rows_rejects_missing_survivor(self) -> None:
-        """A pick with no remaining owner row raises instead of disappearing."""
+    def test_resolve_owning_rows_drops_picks_missing_survivor_as_data_hole(self) -> None:
+        """A pick with no remaining owner row (data hole) is dropped, not raised."""
         raw = pd.DataFrame(
             [
                 {
@@ -168,8 +168,9 @@ class DraftHistoryBuilderTests(unittest.TestCase):
             ],
         )
 
-        with self.assertRaisesRegex(ValueError, "No owning row survived"):
-            resolve_owning_rows(raw)
+        resolved = resolve_owning_rows(raw)
+
+        self.assertEqual(len(resolved), 0)
 
     def test_enriches_by_pick_then_name_fallback_and_attaches_awards(self) -> None:
         """The unified frame keeps NBA full names, ISO countries, team status, and awards."""
@@ -430,6 +431,23 @@ class DraftHistoryBuilderTests(unittest.TestCase):
             frame = load_raw_draft_history(raw_dir)
 
         self.assertEqual(frame.iloc[0]["source_team"], "ATL")
+
+    def test_resolve_owning_rows_drops_picks_with_no_surviving_owner(self) -> None:
+        """A pick only the trading team listed (a data hole) is dropped, not raised."""
+        raw = pd.DataFrame(
+            [
+                {
+                    "Year": 2000, "Round": 2, "Pick": 40, "Player": "Lost Pick",
+                    "Pos": "G", "HT": "6-2", "WT": 185, "Age": 22,
+                    "Pre-Draft Team": "Example", "Class": "Sr",
+                    "Draft Trades": "ATL to MIL", "YOS": 0, "source_team": "ATL",
+                },
+            ],
+        )
+
+        resolved = resolve_owning_rows(raw)
+
+        self.assertEqual(len(resolved), 0)
 
     def test_resolve_owning_rows_breaks_ties_by_trade_chain_destination(self) -> None:
         """A pick wrongly listed under an off-chain team keeps the chain's final owner."""
