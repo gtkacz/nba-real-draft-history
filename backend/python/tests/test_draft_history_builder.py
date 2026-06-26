@@ -449,6 +449,38 @@ class DraftHistoryBuilderTests(unittest.TestCase):
 
         self.assertEqual(len(resolved), 0)
 
+    def test_enrich_keeps_first_player_record_for_duplicate_draft_slots(self) -> None:
+        """When the NBA index lists two players for one draft slot, keep the first (legacy parity)."""
+        draft = pd.DataFrame(
+            [
+                {
+                    "Year": 1962, "Round": 2, "Pick": 10, "Player": "Bob Duffy",
+                    "Pos": "G", "HT": "6-2", "WT": 185, "Age": 22,
+                    "Pre-Draft Team": "Example", "Class": "Sr",
+                    "Draft Trades": "", "YOS": 0, "team": "ATL",
+                },
+            ],
+        )
+        players = pd.DataFrame(
+            [
+                {
+                    "nba_id": 76609, "first_name": "Bob", "last_name": "Duffy",
+                    "DRAFT_YEAR": 1962, "DRAFT_ROUND": 2, "DRAFT_NUMBER": 10,
+                    "COUNTRY": "USA", "TO_YEAR": 1946, "IS_DEFUNCT": 1, "real_team": "CHS",
+                },
+                {
+                    "nba_id": 76610, "first_name": "Bob", "last_name": "Duffy",
+                    "DRAFT_YEAR": 1962, "DRAFT_ROUND": 2, "DRAFT_NUMBER": 10,
+                    "COUNTRY": "USA", "TO_YEAR": 1964, "IS_DEFUNCT": 0, "real_team": "DET",
+                },
+            ],
+        )
+
+        enriched = enrich_draft_history(draft, players)
+
+        self.assertEqual(len(enriched), 1)
+        self.assertEqual(int(enriched.iloc[0]["nba_id"]), 76609)
+
     def test_resolve_owning_rows_breaks_ties_by_trade_chain_destination(self) -> None:
         """A pick wrongly listed under an off-chain team keeps the chain's final owner."""
         raw = pd.DataFrame(

@@ -201,8 +201,15 @@ def enrich_draft_history(draft_frame: pd.DataFrame, players_frame: pd.DataFrame)
     players = prepare_nba_players(players_frame)
     draft["treated_name"] = draft["Player"].apply(treat_name).apply(unidecode.unidecode)
 
+    # The NBA index can list several records for one draft slot (homonyms,
+    # placeholder ids, pre-merger players). Keep the first occurrence so a pick
+    # never fans out and the selection matches the legacy pipeline.
+    pick_indexed_players = players.loc[:, _PLAYER_COLUMNS].drop_duplicates(
+        subset=["DRAFT_YEAR", "DRAFT_ROUND", "DRAFT_NUMBER"],
+        keep="first",
+    )
     merged = draft.merge(
-        players.loc[:, _PLAYER_COLUMNS],
+        pick_indexed_players,
         left_on=["Year", "Round", "Pick"],
         right_on=["DRAFT_YEAR", "DRAFT_ROUND", "DRAFT_NUMBER"],
         how="left",
