@@ -20,7 +20,7 @@ function handleContinue() {
     :model-value="visible"
     class="splash-screen"
     persistent
-    scrim="rgba(0, 0, 0, 0.3)"
+    scrim="rgba(8, 11, 18, 0.6)"
   >
     <div class="splash-content">
       <h1 class="text-h3 text-center pa-8 mb-4">
@@ -47,7 +47,7 @@ function handleContinue() {
         <v-btn
           color="primary"
           size="large"
-          variant="outlined"
+          variant="flat"
           rounded="xl"
           append-icon="mdi-chevron-right"
           @click="handleContinue"
@@ -88,8 +88,11 @@ function handleContinue() {
   box-sizing: border-box;
 
   h1 {
-    font-family: "Barlow", sans-serif !important;
-    font-size: 1.75rem;
+    font-family: "Barlow Condensed", "Barlow", sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    font-size: 2rem;
     padding: 16px 8px !important;
     margin: 0;
     flex-shrink: 0;

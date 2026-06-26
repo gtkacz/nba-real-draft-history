@@ -24,9 +24,22 @@ _STATIC_ALIAS_TO_CANONICAL: dict[str, str] = {
     "BRK": "BKN",
     "SAN": "SAS",
     "UTH": "UTA",
+    "PHL": "PHI",
 }
 
 _TRADE_PREFIX_RE_TEMPLATE = r"^{team_code}\s+to\s+"
+
+# A franchise's pre-relocation abbreviation can appear at the start of an
+# era's trade chains while colliding with a different modern franchise's code
+# (e.g. "PHI" was the Philadelphia Warriors -> GSW before the 76ers existed).
+# These codes are added to the trade-prefix side only, gated by year, and are
+# never used to canonicalize a file team. (franchise, era_code, before_year)
+_ERA_TRADE_PREFIX_CODES: tuple[tuple[str, str, int], ...] = (
+    ("LAL", "MIN", 1988),
+    ("GSW", "PHI", 1963),
+    ("ATL", "MIL", 1955),
+    ("WAS", "CHI", 1963),
+)
 
 
 def canonical_team(team: str, year: int | None = None) -> str:
@@ -44,8 +57,10 @@ def team_codes_for_trade_prefix(source_team: str, year: int | None = None) -> tu
     canonical = canonical_team(source_team, year)
     codes = [canonical]
 
-    if canonical == "LAL" and year is not None and year < 1988:
-        codes.append("MIN")
+    if year is not None:
+        for franchise, era_code, before_year in _ERA_TRADE_PREFIX_CODES:
+            if canonical == franchise and year < before_year and era_code not in codes:
+                codes.append(era_code)
 
     for alias, mapped_canonical in _STATIC_ALIAS_TO_CANONICAL.items():
         if mapped_canonical == canonical and alias not in codes:
@@ -69,3 +84,14 @@ def is_traded_away_by_source_team(draft_trades: object, source_team: str, year: 
             return True
 
     return False
+
+
+def final_trade_destination(draft_trades: object) -> str | None:
+    """Return the upper-cased team code at the end of a trade chain, or None if empty."""
+    text = str(draft_trades or "").strip()
+    if not text:
+        return None
+
+    segments = re.split(r"\s+to\s+", text, flags=re.IGNORECASE)
+    destination = segments[-1].strip().upper()
+    return destination or None

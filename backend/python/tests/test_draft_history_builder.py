@@ -431,6 +431,32 @@ class DraftHistoryBuilderTests(unittest.TestCase):
 
         self.assertEqual(frame.iloc[0]["source_team"], "ATL")
 
+    def test_resolve_owning_rows_breaks_ties_by_trade_chain_destination(self) -> None:
+        """A pick wrongly listed under an off-chain team keeps the chain's final owner."""
+        raw = pd.DataFrame(
+            [
+                {
+                    "Year": 1989, "Round": 1, "Pick": 24, "Player": "Chain End",
+                    "Pos": "G", "HT": "6-3", "WT": 190, "Age": 22,
+                    "Pre-Draft Team": "Example", "Class": "Sr",
+                    "Draft Trades": "POR to  DET DET  to DEN", "YOS": 5,
+                    "source_team": "DEN",
+                },
+                {
+                    "Year": 1989, "Round": 1, "Pick": 24, "Player": "Chain End",
+                    "Pos": "G", "HT": "6-3", "WT": 190, "Age": 22,
+                    "Pre-Draft Team": "Example", "Class": "Sr",
+                    "Draft Trades": "POR to DET DET to DEN", "YOS": 5,
+                    "source_team": "PHX",
+                },
+            ],
+        )
+
+        resolved = resolve_owning_rows(raw)
+
+        self.assertEqual(len(resolved), 1)
+        self.assertEqual(resolved.iloc[0]["team"], "DEN")
+
 
 if __name__ == "__main__":
     unittest.main()

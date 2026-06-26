@@ -12,7 +12,11 @@ import pandas as pd
 import unidecode
 
 from backend.python.services.country_codes import country_to_alpha2
-from backend.python.services.team_aliases import is_traded_away_by_source_team
+from backend.python.services.team_aliases import (
+    canonical_team,
+    final_trade_destination,
+    is_traded_away_by_source_team,
+)
 
 _KEY_COLUMNS = ["Year", "Round", "Pick"]
 _RAW_REQUIRED_COLUMNS = [
@@ -125,6 +129,26 @@ def load_raw_draft_history(raw_dir: Path) -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True)
 
 
+def _resolve_chain_destination_ties(survivors: pd.DataFrame) -> pd.DataFrame:
+    """Drop duplicate owning rows whose team is not the trade chain's final destination.
+
+    Some upstream RealGM rows list a pick under a team that neither starts nor
+    appears in its trade chain; the chain's final destination is the true owner.
+    """
+    duplicate_mask = survivors.duplicated(subset=_KEY_COLUMNS, keep=False)
+
+    def _is_chain_destination(row: pd.Series) -> bool:
+        destination = final_trade_destination(row["Draft Trades"])
+        if destination is None:
+            return True
+        year = int(row["Year"])
+        return canonical_team(str(row["team"]), year) == canonical_team(destination, year)
+
+    keep_unique = ~duplicate_mask
+    keep_destination = duplicate_mask & survivors.apply(_is_chain_destination, axis=1)
+    return survivors.loc[keep_unique | keep_destination].copy()
+
+
 def resolve_owning_rows(raw_frame: pd.DataFrame) -> pd.DataFrame:
     """Drop rows for source teams that traded the pick away and keep the owning team row."""
     frame = raw_frame.copy()
@@ -141,9 +165,14 @@ def resolve_owning_rows(raw_frame: pd.DataFrame) -> pd.DataFrame:
     )
 
     survivors = frame.loc[~frame["_was_traded_away"]].copy()
+    survivors["team"] = survivors["source_team"]
+
+    if survivors.duplicated(subset=_KEY_COLUMNS, keep=False).any():
+        survivors = _resolve_chain_destination_ties(survivors)
+
     duplicate_mask = survivors.duplicated(subset=_KEY_COLUMNS, keep=False)
     if duplicate_mask.any():
-        duplicate_keys = survivors.loc[duplicate_mask, _KEY_COLUMNS + ["source_team"]].to_dict(orient="records")
+        duplicate_keys = survivors.loc[duplicate_mask, [*_KEY_COLUMNS, "team"]].to_dict(orient="records")
         raise ValueError(f"Multiple owning rows found for draft picks: {duplicate_keys}")
 
     raw_keys = {tuple(row) for row in frame.loc[:, _KEY_COLUMNS].itertuples(index=False, name=None)}
@@ -152,7 +181,6 @@ def resolve_owning_rows(raw_frame: pd.DataFrame) -> pd.DataFrame:
     if missing_keys:
         raise ValueError(f"No owning row survived for draft picks: {missing_keys}")
 
-    survivors["team"] = survivors["source_team"]
     return survivors.drop(columns=["source_team", "_was_traded_away"]).reset_index(drop=True)
 
 

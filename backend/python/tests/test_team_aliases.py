@@ -4,6 +4,7 @@ import unittest
 
 from backend.python.services.team_aliases import (
     canonical_team,
+    final_trade_destination,
     is_traded_away_by_source_team,
     team_codes_for_trade_prefix,
 )
@@ -38,6 +39,36 @@ class TeamAliasesTests(unittest.TestCase):
         self.assertTrue(is_traded_away_by_source_team("BRK to ATL", "BKN", 2025))
         self.assertTrue(is_traded_away_by_source_team("SEA to PHX", "OKC", 2007))
         self.assertFalse(is_traded_away_by_source_team("", "ATL", 2026))
+
+    def test_phl_resolves_to_philadelphia_76ers(self) -> None:
+        """RealGM spells the modern 76ers as PHL on their own draft page."""
+        self.assertEqual(canonical_team("PHL"), "PHI")
+        self.assertIn("PHL", team_codes_for_trade_prefix("PHI", 2019))
+        self.assertTrue(is_traded_away_by_source_team("PHL to ATL", "PHI", 2019))
+
+    def test_pre_relocation_eras_add_trade_prefix_codes_only_in_era(self) -> None:
+        """Reused abbreviations identify the older franchise only within its era."""
+        self.assertIn("PHI", team_codes_for_trade_prefix("GSW", 1962))
+        self.assertNotIn("PHI", team_codes_for_trade_prefix("GSW", 1963))
+        self.assertIn("MIL", team_codes_for_trade_prefix("ATL", 1954))
+        self.assertNotIn("MIL", team_codes_for_trade_prefix("ATL", 1955))
+        self.assertIn("CHI", team_codes_for_trade_prefix("WAS", 1962))
+        self.assertNotIn("CHI", team_codes_for_trade_prefix("WAS", 1963))
+        self.assertTrue(is_traded_away_by_source_team("PHI to TCB", "GSW", 1948))
+        self.assertTrue(is_traded_away_by_source_team("MIL to MIN", "ATL", 1954))
+        self.assertTrue(is_traded_away_by_source_team("CHI to STH", "WAS", 1961))
+
+    def test_file_team_canonicalization_stays_stable_across_eras(self) -> None:
+        """The PHI file is always the 76ers, never collapsed to GSW by year."""
+        self.assertEqual(canonical_team("PHI", 1948), "PHI")
+        self.assertEqual(canonical_team("PHI", 2019), "PHI")
+
+    def test_final_trade_destination_returns_last_chain_team(self) -> None:
+        """The owner of an off-chain duplicate is the chain's final destination."""
+        self.assertEqual(final_trade_destination("POR to  DET DET  to DEN"), "DEN")
+        self.assertEqual(final_trade_destination("NOP to IND"), "IND")
+        self.assertIsNone(final_trade_destination(""))
+        self.assertIsNone(final_trade_destination(None))
 
 
 if __name__ == "__main__":

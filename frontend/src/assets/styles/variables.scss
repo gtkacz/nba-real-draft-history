@@ -1,12 +1,47 @@
+// Brand
 $nba-red: #C8102E;
 $nba-blue: #1D428A;
 
-$light-background: #FFFFFF;
-$light-surface: #F5F5F5;
+// Courtside palette — dark (default theme)
+$court-dark-bg: #0B0F17;
+$court-dark-surface: #12161F;
+$court-dark-elevated: #171C26;
+$court-dark-variant: #1C2230;
+$court-dark-text: #E6E8EB;
+$court-dark-muted: #A4ADBC;
+$court-dark-accent: #E63E54;
+$court-dark-blue: #4C7DEE;
+$court-dark-line: rgba(255, 255, 255, 0.10);
 
-$dark-background: #121212;
-$dark-surface: #1E1E1E;
+// Courtside palette — light (alternate theme)
+$court-light-bg: #F6F7F9;
+$court-light-surface: #FFFFFF;
+$court-light-variant: #F0F2F5;
+$court-light-text: #0F1626;
+$court-light-muted: #5B6573;
+$court-light-line: #E4E7EC;
 
+// Legacy aliases (retained for compatibility)
+$light-background: $court-light-bg;
+$light-surface: $court-light-surface;
+$dark-background: $court-dark-bg;
+$dark-surface: $court-dark-surface;
+
+// Typography
+$font-body: 'Barlow', sans-serif;
+$font-display: 'Barlow Condensed', 'Barlow Semi Condensed', sans-serif;
+
+// Radii
+$radius-input: 10px;
+$radius-card: 12px;
+$radius-chip: 7px;
+
+// Motion
+$ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+$dur-hover: 150ms;
+$dur-panel: 220ms;
+
+// Spacing
 $spacing-base: 8px;
 $spacing-sm: $spacing-base * 2;
 $spacing-md: $spacing-base * 3;

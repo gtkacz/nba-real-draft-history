@@ -5,18 +5,15 @@ const THEME_STORAGE_KEY = 'nba-draft-theme'
 
 export function useTheme() {
   const vuetifyTheme = useVuetifyTheme()
-  const isDark = ref(false)
-
-  function detectBrowserPreference(): boolean {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  }
+  const isDark = ref(true)
 
   function loadThemePreference(): boolean {
     const stored = localStorage.getItem(THEME_STORAGE_KEY)
     if (stored !== null) {
       return stored === 'dark'
     }
-    return detectBrowserPreference()
+    // Courtside is dark-first: default to dark when the visitor has no saved choice.
+    return true
   }
 
   function toggleTheme() {
@@ -29,8 +26,11 @@ export function useTheme() {
   })
 
   onMounted(() => {
-    // isDark.value = loadThemePreference()
-    isDark.value = false
+    const preferred = loadThemePreference()
+    isDark.value = preferred
+    // Sync Vuetify explicitly: when the stored preference matches the initial ref the
+    // watcher won't fire, so the theme name must be set here to stay consistent.
+    vuetifyTheme.global.name.value = preferred ? 'dark' : 'light'
   })
 
   return {

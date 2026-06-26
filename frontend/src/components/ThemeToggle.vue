@@ -7,7 +7,9 @@ const { isDark, toggleTheme } = useTheme()
 <template>
   <v-btn
     :icon="isDark ? 'mdi-weather-sunny' : 'mdi-weather-night'"
+    color="on-surface-variant"
     variant="text"
+    :aria-label="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
     @click="toggleTheme"
   />
 </template>

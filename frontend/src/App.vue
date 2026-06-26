@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 import SplashScreen from './components/SplashScreen.vue'
 import DraftTable from './components/DraftTable.vue'
 import AppFooter from './components/AppFooter.vue'
+import ThemeToggle from './components/ThemeToggle.vue'
 import { useSplashScreen } from './composables/useSplashScreen'
 import { useDraftData } from './composables/useDraftData'
 import { useFilterUrlSync } from './composables/useFilterUrlSync'
@@ -106,22 +107,24 @@ onMounted(() => {
   <v-app>
     <SplashScreen v-if="showSplash" @continue="markSplashSeen" />
 
-    <v-app-bar elevation="1" color="primary" density="compact">
-      <template #prepend>
+    <v-app-bar flat color="surface" density="compact" class="command-bar">
+      <div class="brand">
+        <span class="brand-accent" aria-hidden="true"></span>
         <img
           src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
           alt="NBA logo"
-          style="width: 30px; height: 30px; display: block; margin-left: 12px;"
+          class="brand-logo"
         />
-      </template>
-
-      <v-app-bar-title class="font-weight-bold">Real Draft History</v-app-bar-title>
+        <span class="brand-wordmark">Real Draft History</span>
+      </div>
 
       <v-spacer />
 
+      <ThemeToggle />
+
       <v-btn
         icon="mdi-github"
-        color="primary"
+        color="on-surface-variant"
         variant="text"
         href="https://github.com/gtkacz/nba-real-draft-history"
         target="_blank"
@@ -187,6 +190,36 @@ onMounted(() => {
 <style scoped>
 .v-main {
   min-height: calc(100vh - 64px - 72px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 4px;
+}
+
+.brand-accent {
+  width: 3px;
+  height: 22px;
+  border-radius: 2px;
+  background: rgb(var(--v-theme-primary));
+}
+
+.brand-logo {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.brand-wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: rgb(var(--v-theme-on-surface));
 }
 
 .table-container {

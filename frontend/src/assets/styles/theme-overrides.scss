@@ -1,0 +1,138 @@
+// Courtside global overrides — strips Vuetify's Material elevation/shadow language and
+// re-expresses depth with hairlines + a single soft shadow reserved for true overlays.
+// Loaded after main.scss (see main.ts) so it has final say over Vuetify's base styles.
+
+// Per-theme hairline + overlay-shadow tokens. Surfaces themselves come from Vuetify's
+// generated --v-theme-* custom properties, so they switch automatically with the theme.
+.v-theme--dark {
+  --court-line: rgba(255, 255, 255, 0.10);
+  --court-line-strong: rgba(255, 255, 255, 0.16);
+  --court-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.70);
+  --court-glow: 0 0 0 1px rgba(230, 62, 84, 0.35);
+}
+
+.v-theme--light {
+  --court-line: #E4E7EC;
+  --court-line-strong: #D4D9E0;
+  --court-shadow: 0 16px 40px -16px rgba(15, 22, 38, 0.20);
+  --court-glow: 0 0 0 1px rgba(200, 16, 46, 0.25);
+}
+
+// Motion + radius tokens shared by both themes.
+:root {
+  --court-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --court-dur-hover: 150ms;
+  --court-dur-panel: 220ms;
+}
+
+// App bar: flat with a hairline base instead of a Material drop shadow.
+.v-app-bar.v-toolbar {
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--court-line);
+}
+
+// Cards: hairline frame, no elevation (default elevation is already 0 via plugin defaults).
+.v-card {
+  border: 1px solid var(--court-line);
+  box-shadow: none;
+}
+
+// Outlined inputs: soften the border into a hairline; focus inherits the red accent.
+.v-field--variant-outlined {
+  --v-field-border-opacity: 0.18;
+}
+
+// Floating surfaces (select/menu dropdowns, the filter menu) keep the only real shadow.
+.v-menu > .v-overlay__content {
+  border-radius: 12px;
+  box-shadow: var(--court-shadow) !important;
+}
+
+.v-menu > .v-overlay__content > .v-list,
+.v-menu > .v-overlay__content > .v-card {
+  border: 1px solid var(--court-line);
+  border-radius: 12px;
+}
+
+// Dialogs and bottom sheets: hairline + the overlay shadow.
+.v-dialog > .v-overlay__content > .v-card,
+.v-bottom-sheet > .v-overlay__content > .v-card {
+  border: 1px solid var(--court-line);
+  box-shadow: var(--court-shadow) !important;
+}
+
+// Data table: transparent body so the card surface shows through; hairline rules.
+.v-table {
+  background: transparent !important;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+.v-table .v-table__wrapper > table > thead > tr > th {
+  background: rgb(var(--v-theme-surface)) !important;
+  border-bottom: 1px solid var(--court-line-strong) !important;
+  color: rgb(var(--v-theme-on-surface-variant)) !important;
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.v-table .v-table__wrapper > table > tbody > tr > td {
+  border-bottom: 1px solid var(--court-line) !important;
+}
+
+// Segmented controls (SINGLE/RANGE, ALL/ANY) — replace the Material button-group look.
+.v-btn-toggle {
+  height: auto !important;
+  padding: 3px;
+  gap: 3px;
+  border: 1px solid var(--court-line);
+  border-radius: 10px;
+  background: rgb(var(--v-theme-surface-variant));
+}
+
+.v-btn-toggle .v-btn {
+  border: none !important;
+  border-radius: 7px !important;
+  opacity: 1;
+}
+
+.v-btn-toggle .v-btn--active {
+  background: rgb(var(--v-theme-surface-bright)) !important;
+  color: rgb(var(--v-theme-primary)) !important;
+  font-weight: 600;
+}
+
+// Thin, theme-aware scrollbars — a small but consistent "premium tool" detail.
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--court-line-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--court-line-strong);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+// Respect users who prefer reduced motion — entrance/stagger animations collapse to instant.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

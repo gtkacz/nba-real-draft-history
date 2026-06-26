@@ -96,14 +96,15 @@ function splitPosition(position: string): string[] {
 
 function getPositionColor(position: string): string {
   switch (position) {
+    // 'primary' is now the red accent, so guards take the blue 'secondary' to stay distinct.
     case 'G':
-      return 'primary'
+      return 'secondary'
     case 'F':
       return 'success'
     case 'C':
       return 'warning'
     default:
-      return 'secondary'
+      return 'primary'
   }
 }
 
@@ -157,7 +158,6 @@ function formatAwardName(award: string): string {
 <template>
   <v-card
     class="mobile-draft-card mb-3"
-    elevation="2"
     @click="expanded = !expanded"
   >
     <v-card-text class="pa-4">
@@ -210,7 +210,7 @@ function formatAwardName(award: string): string {
         
         <div class="flex-grow-1">
           <div class="d-flex align-center flex-wrap gap-1 mb-1">
-            <span class="text-h6 font-weight-bold text-primary">
+            <span class="text-h6 font-weight-bold player-name">
               {{ item.player }}
               <v-icon
                 v-if="item.is_defunct === 1"
@@ -427,6 +427,11 @@ function formatAwardName(award: string): string {
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  // Player names are primary content, so they stay high-emphasis; red is reserved for accents.
+  .player-name {
+    color: rgb(var(--v-theme-on-surface));
   }
 
   .player-headshot {

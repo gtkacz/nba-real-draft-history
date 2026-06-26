@@ -437,6 +437,37 @@ const items = computed(() => {
   return sortItems(props.data, sortBy.value)
 })
 
+// Scoreboard-style tween so the pick count animates when the result set changes.
+const displayCount = ref(0)
+let countRaf = 0
+
+watch(
+  () => items.value.length,
+  (target) => {
+    cancelAnimationFrame(countRaf)
+    const start = displayCount.value
+    const startTime = performance.now()
+    const duration = 480
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      displayCount.value = Math.round(start + (target - start) * eased)
+      if (progress < 1) countRaf = requestAnimationFrame(tick)
+    }
+    countRaf = requestAnimationFrame(tick)
+  },
+  { immediate: true }
+)
+
+// Replays the table's staggered entrance whenever the filtered result set changes.
+const tableAnimKey = ref(0)
+watch(
+  () => props.data,
+  () => {
+    tableAnimKey.value++
+  }
+)
+
 // Paginated items for mobile view
 const paginatedItems = computed(() => {
   if (itemsPerPage.value === -1) return items.value
@@ -570,6 +601,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  cancelAnimationFrame(countRaf)
 })
 
 function getTeamLogoUrl(team: string, year?: number): string {
@@ -688,14 +720,15 @@ function splitPosition(position: string): string[] {
 
 function getPositionColor(position: string): string {
   switch (position) {
+    // 'primary' is now the red accent, so guards take the blue 'secondary' to stay distinct.
     case 'G':
-      return 'primary'
+      return 'secondary'
     case 'F':
       return 'success'
     case 'C':
       return 'warning'
     default:
-      return 'secondary'
+      return 'primary'
   }
 }
 
@@ -1008,7 +1041,7 @@ const shareTooltipText = computed(() => {
 </script>
 
 <template>
-  <v-card elevation="2" class="draft-table">
+  <v-card class="draft-table">
     <v-card-title :class="['draft-table-header', 'sticky-table-header', isMobile ? 'd-flex flex-column align-start pa-3' : 'd-flex align-center justify-space-between pa-4']">
       <div :class="isMobile ? 'd-flex align-center justify-space-between w-100 mb-3' : 'd-flex align-center'">
         <div class="d-flex align-center flex-grow-1" :class="isMobile ? 'flex-column align-start' : ''">
@@ -1020,17 +1053,12 @@ const shareTooltipText = computed(() => {
                 contain
               />
             </v-avatar>
-            <span :class="isMobile ? 'text-h6' : ''">{{ headerTitle }}</span>
+            <span class="header-title">{{ headerTitle }}</span>
           </div>
-          <v-chip 
-            class="mt-1" 
-            :class="isMobile ? 'ml-0' : 'ml-2'" 
-            color="primary" 
-            :size="isMobile ? 'x-small' : 'small'" 
-            variant="flat"
-          >
-            {{ items.length }} picks
-          </v-chip>
+          <div class="pick-stat" :class="isMobile ? 'ml-0 mt-1' : 'ml-3'">
+            <span class="pick-stat__num tabular">{{ displayCount.toLocaleString() }}</span>
+            <span class="pick-stat__label">picks</span>
+          </div>
         </div>
       </div>
       <div :class="isMobile ? 'd-flex align-center justify-space-between w-100 gap-2' : 'd-flex align-center gap-2'">
@@ -1056,8 +1084,8 @@ const shareTooltipText = computed(() => {
               <v-btn
                 v-bind="menuProps"
                 icon="mdi-dots-vertical"
-                variant="outlined"
-                color="primary"
+                variant="text"
+                color="on-surface-variant"
                 size="default"
                 title="Actions"
                 min-width="44"
@@ -1118,8 +1146,8 @@ const shareTooltipText = computed(() => {
               <v-btn
                 v-bind="tooltipProps"
                 icon="mdi-download"
-                variant="outlined"
-                color="primary"
+                variant="text"
+                color="on-surface-variant"
                 size="small"
                 @click="downloadCSV"
               />
@@ -1132,8 +1160,8 @@ const shareTooltipText = computed(() => {
               <v-btn
                 v-bind="tooltipProps"
                 icon="mdi-share-variant"
-                variant="outlined"
-                color="primary"
+                variant="text"
+                color="on-surface-variant"
                 size="small"
                 @click="copyUrlToClipboard"
               />
@@ -1156,8 +1184,8 @@ const shareTooltipText = computed(() => {
                 <v-btn
                   v-bind="menuProps"
                   icon="mdi-filter-variant"
-                  variant="outlined"
-                  color="primary"
+                  variant="text"
+                  color="on-surface-variant"
                   size="small"
                   title="Filters"
                 />
@@ -2323,8 +2351,8 @@ const shareTooltipText = computed(() => {
     </div>
 
     <!-- Desktop Table View -->
+    <div v-else class="table-anim-wrap" :key="tableAnimKey">
     <v-data-table-virtual
-      v-else
       :headers="headers"
       :items="props.data"
       :loading="loading"
@@ -2403,7 +2431,7 @@ const shareTooltipText = computed(() => {
             </v-img>
           </v-avatar>
           <div class="d-flex align-center flex-wrap gap-1">
-            <span class="font-weight-bold text-primary">
+            <span class="font-weight-bold player-name">
               {{ item.player }}
               <!-- Deceased Indicator -->
               <v-icon
@@ -2562,6 +2590,7 @@ const shareTooltipText = computed(() => {
       </template>
 
     </v-data-table-virtual>
+    </div>
 
     <!-- Player Card Dialog -->
     <PlayerCard
@@ -2586,27 +2615,32 @@ const shareTooltipText = computed(() => {
 
 <style scoped lang="scss">
 .draft-table {
+  animation: court-fade-rise 420ms var(--court-ease, ease) both;
+
   .sticky-table-header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(var(--v-theme-surface), 1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgb(var(--v-theme-surface));
+    box-shadow: none;
+    border-bottom: 1px solid var(--court-line, rgba(255, 255, 255, 0.1));
   }
   :deep(.v-data-table) {
     font-size: 0.875rem;
   }
 
   :deep(.v-data-table-header) {
-    background-color: rgba(var(--v-theme-primary), 0.05);
+    background-color: rgb(var(--v-theme-surface));
   }
 
   :deep(.v-data-table__th) {
+    font-family: var(--font-display);
     font-weight: 600;
     white-space: nowrap;
     text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: rgb(var(--v-theme-on-surface-variant));
     padding: 24px 20px !important;
   }
 
@@ -2634,8 +2668,13 @@ const shareTooltipText = computed(() => {
     }
   }
 
+  :deep(.v-data-table__tr) {
+    transition: background-color var(--court-dur-hover, 150ms) var(--court-ease, ease);
+  }
+
   :deep(.v-data-table__tr:hover) {
-    background-color: rgba(var(--v-theme-primary), 0.03);
+    background-color: rgb(var(--v-theme-surface-bright));
+    box-shadow: inset 3px 0 0 0 rgb(var(--v-theme-primary));
   }
 
   .trade-chain {
@@ -3004,6 +3043,67 @@ const shareTooltipText = computed(() => {
     line-height: 1.5;
   }
 
+  .header-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 1.35rem;
+    line-height: 1.1;
+  }
+
+  .pick-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .pick-stat__num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: rgb(var(--v-theme-primary));
+  }
+
+  .pick-stat__label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgb(var(--v-theme-on-surface-variant));
+  }
+
+  // Player names are primary content, so they stay high-emphasis; red is reserved for accents.
+  .player-name {
+    color: rgb(var(--v-theme-on-surface));
+  }
+
+  // Virtual rows render only the visible window, so this stagger plays on the first
+  // viewport and replays whenever the result set changes (via :key="tableAnimKey").
+  .table-anim-wrap {
+    :deep(.v-data-table__tr) {
+      animation: court-fade-rise 300ms var(--court-ease, ease) both;
+
+      @for $i from 1 through 18 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{($i - 1) * 14}ms;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 959px) {
+    .header-title {
+      font-size: 1.15rem;
+    }
+
+    .pick-stat__num {
+      font-size: 1.25rem;
+    }
+  }
+
   // Back to Top Button
   .back-to-top-btn {
     position: fixed;
@@ -3027,6 +3127,17 @@ const shareTooltipText = computed(() => {
       min-width: 56px;
       min-height: 56px;
     }
+  }
+}
+
+@keyframes court-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

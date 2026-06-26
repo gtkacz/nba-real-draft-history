@@ -1,6 +1,11 @@
 @use './variables.scss' as *;
 @import 'flag-icons/css/flag-icons.min.css';
 
+:root {
+  --font-body: #{$font-body};
+  --font-display: #{$font-display};
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,7 +15,7 @@
 html,
 body {
   height: 100%;
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--font-body);
   font-size: 2ch;
 }
 
@@ -28,4 +33,10 @@ body {
 
 .gap-3 {
   gap: $spacing-md;
+}
+
+// Aligns digits in data columns and scoreboard-style numbers.
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
 }
