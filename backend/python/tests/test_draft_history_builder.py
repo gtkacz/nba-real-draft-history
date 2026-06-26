@@ -91,6 +91,86 @@ class DraftHistoryBuilderTests(unittest.TestCase):
         self.assertEqual(len(resolved), 1)
         self.assertEqual(resolved.iloc[0]["team"], "ATL")
 
+    def test_resolve_owning_rows_rejects_conflicting_source_rows(self) -> None:
+        """Rows with the same source pick identity but different data are ambiguous."""
+        raw = pd.DataFrame(
+            [
+                {
+                    "Year": 2026,
+                    "Round": 1,
+                    "Pick": 8,
+                    "Player": "Own Pick",
+                    "Pos": "G",
+                    "HT": "6-4",
+                    "WT": 190,
+                    "Age": 19,
+                    "Pre-Draft Team": "Houston",
+                    "Class": "Fr *",
+                    "Draft Trades": "",
+                    "YOS": 0,
+                    "source_team": "ATL",
+                },
+                {
+                    "Year": 2026,
+                    "Round": 1,
+                    "Pick": 8,
+                    "Player": "Different Pick",
+                    "Pos": "F",
+                    "HT": "6-7",
+                    "WT": 210,
+                    "Age": 20,
+                    "Pre-Draft Team": "Example",
+                    "Class": "So",
+                    "Draft Trades": "",
+                    "YOS": 1,
+                    "source_team": "ATL",
+                },
+            ],
+        )
+
+        with self.assertRaisesRegex(ValueError, "duplicate raw rows|conflicting source rows"):
+            resolve_owning_rows(raw)
+
+    def test_resolve_owning_rows_rejects_missing_survivor(self) -> None:
+        """A pick with no remaining owner row raises instead of disappearing."""
+        raw = pd.DataFrame(
+            [
+                {
+                    "Year": 2024,
+                    "Round": 1,
+                    "Pick": 20,
+                    "Player": "Chain Player",
+                    "Pos": "G",
+                    "HT": "6-3",
+                    "WT": 190,
+                    "Age": 20,
+                    "Pre-Draft Team": "Example",
+                    "Class": "So",
+                    "Draft Trades": "ATL to CLE",
+                    "YOS": 0,
+                    "source_team": "ATL",
+                },
+                {
+                    "Year": 2024,
+                    "Round": 1,
+                    "Pick": 20,
+                    "Player": "Chain Player",
+                    "Pos": "G",
+                    "HT": "6-3",
+                    "WT": 190,
+                    "Age": 20,
+                    "Pre-Draft Team": "Example",
+                    "Class": "So",
+                    "Draft Trades": "MIL to CLE",
+                    "YOS": 0,
+                    "source_team": "MIL",
+                },
+            ],
+        )
+
+        with self.assertRaisesRegex(ValueError, "No owning row survived"):
+            resolve_owning_rows(raw)
+
     def test_enriches_by_pick_then_name_fallback_and_attaches_awards(self) -> None:
         """The unified frame keeps NBA full names, ISO countries, team status, and awards."""
         draft = pd.DataFrame(
@@ -168,6 +248,91 @@ class DraftHistoryBuilderTests(unittest.TestCase):
         self.assertEqual(by_player["Fallback Jr."]["nba_id"], 42)
         self.assertEqual(by_player["Fallback Jr."]["origin_country"], "us")
         self.assertEqual(by_player["Fallback Jr."]["awards"], {})
+
+    def test_enrich_rejects_duplicate_name_year_fallback_keys(self) -> None:
+        """Ambiguous NBA name/year fallback candidates raise a clear error."""
+        draft = pd.DataFrame(
+            [
+                {
+                    "Year": 2020,
+                    "Round": 2,
+                    "Pick": 50,
+                    "Player": "Fallback Jr.",
+                    "Pos": "PG",
+                    "HT": "6-1",
+                    "WT": 180,
+                    "Age": 21,
+                    "Pre-Draft Team": "Example",
+                    "Class": "Sr",
+                    "Draft Trades": "",
+                    "YOS": 1,
+                    "team": "ATL",
+                },
+            ],
+        )
+        players = pd.DataFrame(
+            [
+                {
+                    "nba_id": 42,
+                    "first_name": "Fallback",
+                    "last_name": "Jr.",
+                    "DRAFT_YEAR": 2020,
+                    "DRAFT_ROUND": 2,
+                    "DRAFT_NUMBER": 51,
+                    "COUNTRY": "USA",
+                    "TO_YEAR": 2021,
+                    "IS_DEFUNCT": 0,
+                    "real_team": "ATL",
+                },
+                {
+                    "nba_id": 43,
+                    "first_name": "Fallback",
+                    "last_name": "Jr.",
+                    "DRAFT_YEAR": 2020,
+                    "DRAFT_ROUND": 2,
+                    "DRAFT_NUMBER": 52,
+                    "COUNTRY": "Canada",
+                    "TO_YEAR": 2022,
+                    "IS_DEFUNCT": 0,
+                    "real_team": "TOR",
+                },
+            ],
+        )
+
+        with self.assertRaisesRegex(ValueError, "duplicate NBA player name/year fallback keys"):
+            enrich_draft_history(draft, players)
+
+    def test_to_draft_pick_records_treats_nan_yos_as_zero(self) -> None:
+        """Missing years-of-service values serialize as zero."""
+        frame = pd.DataFrame(
+            [
+                {
+                    "Year": 2026,
+                    "Round": 1,
+                    "Pick": 8,
+                    "Player": "Own Pick",
+                    "Pos": "G",
+                    "HT": "6-4",
+                    "WT": 190,
+                    "Age": 19,
+                    "Pre-Draft Team": "Houston",
+                    "Class": "Fr *",
+                    "Draft Trades": "",
+                    "YOS": float("nan"),
+                    "team": "ATL",
+                    "nba_id": 1643412,
+                    "origin_country": "us",
+                    "played_until_year": 2026,
+                    "is_defunct": 0,
+                    "plays_for": "ATL",
+                    "awards": {},
+                },
+            ],
+        )
+
+        records = to_draft_pick_records(frame)
+
+        self.assertEqual(records[0]["yearsOfService"], 0)
 
     def test_build_draft_history_json_writes_single_array_and_mapping_copy(self) -> None:
         """The build entrypoint reads raw files and writes frontend JSON plus team mapping."""

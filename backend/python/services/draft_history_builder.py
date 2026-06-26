@@ -128,7 +128,13 @@ def load_raw_draft_history(raw_dir: Path) -> pd.DataFrame:
 def resolve_owning_rows(raw_frame: pd.DataFrame) -> pd.DataFrame:
     """Drop rows for source teams that traded the pick away and keep the owning team row."""
     frame = raw_frame.copy()
-    frame = frame.drop_duplicates(subset=[*_KEY_COLUMNS, "source_team"], keep="first")
+    frame = frame.drop_duplicates(keep="first")
+    source_key_columns = [*_KEY_COLUMNS, "source_team"]
+    conflicting_source_mask = frame.duplicated(subset=source_key_columns, keep=False)
+    if conflicting_source_mask.any():
+        duplicate_keys = frame.loc[conflicting_source_mask, source_key_columns].to_dict(orient="records")
+        raise ValueError(f"Conflicting source rows found for duplicate raw rows: {duplicate_keys}")
+
     frame["_was_traded_away"] = frame.apply(
         lambda row: is_traded_away_by_source_team(row["Draft Trades"], str(row["source_team"]), int(row["Year"])),
         axis=1,
@@ -175,6 +181,21 @@ def enrich_draft_history(draft_frame: pd.DataFrame, players_frame: pd.DataFrame)
     unmatched_mask = merged["nba_id"].isna()
     if unmatched_mask.any():
         unmatched = merged.loc[unmatched_mask].copy()
+        fallback_keys = unmatched.loc[:, ["treated_name", "Year"]].drop_duplicates()
+        fallback_candidates = players.merge(
+            fallback_keys,
+            left_on=["treated_name", "DRAFT_YEAR"],
+            right_on=["treated_name", "Year"],
+            how="inner",
+        )
+        duplicate_fallback_mask = fallback_candidates.duplicated(subset=["treated_name", "DRAFT_YEAR"], keep=False)
+        if duplicate_fallback_mask.any():
+            duplicate_keys = fallback_candidates.loc[
+                duplicate_fallback_mask,
+                ["treated_name", "DRAFT_YEAR", "nba_id"],
+            ].to_dict(orient="records")
+            raise ValueError(f"Found duplicate NBA player name/year fallback keys: {duplicate_keys}")
+
         unmatched = unmatched.drop(
             columns=[
                 "nba_id",
@@ -257,7 +278,7 @@ def to_draft_pick_records(frame: pd.DataFrame) -> list[dict[str, Any]]:
             "preDraftTeam": _as_string(row.get("Pre-Draft Team")),
             "class": _as_string(row.get("Class")),
             "draftTrades": draft_trades or None,
-            "yearsOfService": int(float(row.get("YOS") or 0)),
+            "yearsOfService": _as_int_or_none(row.get("YOS")) or 0,
             "nba_id": _as_int_or_none(row.get("nba_id")),
             "origin_country": _clean_scalar(row.get("origin_country")),
             "played_until_year": _as_int_or_none(row.get("played_until_year")),
