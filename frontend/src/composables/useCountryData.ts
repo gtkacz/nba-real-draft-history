@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import { getDataUrl } from '@/utils/dataUrl'
+import { loadDataVersion } from '@/composables/useDataVersion'
 
 export interface CountryInfo {
   officialEnglish: string
@@ -9,21 +10,13 @@ export interface CountryInfo {
 type CountryDataMap = Record<string, CountryInfo>
 
 const COUNTRY_DATA_CACHE_KEY = 'iso_country_data'
-const COUNTRY_DATA_VERSION = '1.3.0' // Increment if data structure changes
 
 const countryDataMap = ref<CountryDataMap>({})
 const loading = ref(false)
 const error = ref<string | null>(null)
 
-/**
- * Fetches the pre-built country dataset shipped with the app
- * Returns a map of cca2 -> { officialEnglish, nativeOfficial }
- *
- * The dataset is generated server-side from REST Countries v5 (see
- * backend/python/services/country_data_service.py) so no API key is shipped to the browser.
- */
-async function fetchCountryData(): Promise<CountryDataMap> {
-  const response = await fetch(getDataUrl('countries.json'))
+async function fetchCountryData(version: string | null): Promise<CountryDataMap> {
+  const response = await fetch(getDataUrl('countries.json', version))
   if (!response.ok) {
     throw new Error(`Failed to fetch country data: ${response.status}`)
   }
@@ -31,9 +24,6 @@ async function fetchCountryData(): Promise<CountryDataMap> {
   return (await response.json()) as CountryDataMap
 }
 
-/**
- * Loads country data from cache or fetches from API
- */
 async function loadCountryData(): Promise<void> {
   if (Object.keys(countryDataMap.value).length > 0) {
     // Already loaded
@@ -44,36 +34,33 @@ async function loadCountryData(): Promise<void> {
   error.value = null
 
   try {
-    // Try to load from localStorage first
-    const cached = localStorage.getItem(COUNTRY_DATA_CACHE_KEY)
-    if (cached) {
-      try {
-        const parsed = JSON.parse(cached)
-        if (parsed.version === COUNTRY_DATA_VERSION && parsed.data) {
-          countryDataMap.value = parsed.data
-          loading.value = false
-          return
+    const version = await loadDataVersion()
+
+    // Try the localStorage cache, keyed by the data version (not the app version)
+    if (version) {
+      const cached = localStorage.getItem(COUNTRY_DATA_CACHE_KEY)
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached)
+          if (parsed.version === version && parsed.data) {
+            countryDataMap.value = parsed.data
+            return
+          }
+        } catch {
+          // Invalid cache, continue to fetch
         }
-      } catch {
-        // Invalid cache, continue to fetch
       }
     }
 
-    // Fetch from API
-    const data = await fetchCountryData()
+    const data = await fetchCountryData(version)
     countryDataMap.value = data
 
-    // Cache in localStorage
-    try {
-      localStorage.setItem(
-        COUNTRY_DATA_CACHE_KEY,
-        JSON.stringify({
-          version: COUNTRY_DATA_VERSION,
-          data,
-        }),
-      )
-    } catch (err) {
-      console.warn('Failed to cache country data:', err)
+    if (version) {
+      try {
+        localStorage.setItem(COUNTRY_DATA_CACHE_KEY, JSON.stringify({ version, data }))
+      } catch (err) {
+        console.warn('Failed to cache country data:', err)
+      }
     }
   } catch (err) {
     error.value = err instanceof Error ? err.message : 'Failed to load country data'

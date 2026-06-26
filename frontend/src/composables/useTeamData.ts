@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import { getDataUrl } from '@/utils/dataUrl'
+import { loadDataVersion } from '@/composables/useDataVersion'
 import type { TeamAbbreviation } from '@/types/team'
 
 type TeamMapping = Record<string, [string, number]> // abbreviation -> [full_name, id]
@@ -21,7 +22,8 @@ async function loadTeamData(): Promise<void> {
   error.value = null
 
   try {
-    const response = await fetch(getDataUrl('teams_mapping.json'))
+    const version = await loadDataVersion()
+    const response = await fetch(getDataUrl('teams_mapping.json', version))
     if (!response.ok) {
       throw new Error(`Failed to fetch teams_mapping.json: ${response.status}`)
     }

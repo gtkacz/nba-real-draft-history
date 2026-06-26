@@ -2,7 +2,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useDraftData } from './useDraftData'
 
 vi.mock('@/utils/dataUrl', () => ({
-  getDataUrl: (path: string) => `/data/${path}`,
+  getDataUrl: (path: string, version?: string | null) =>
+    version ? `/data/${path}?v=${version}` : `/data/${path}`,
+}))
+
+vi.mock('@/composables/useDataVersion', () => ({
+  loadDataVersion: vi.fn(async () => 'testver'),
 }))
 
 describe('useDraftData loadDraftData', () => {
@@ -43,7 +48,7 @@ describe('useDraftData loadDraftData', () => {
     await draftData.loadDraftData()
 
     expect(fetchMock).toHaveBeenCalledTimes(1)
-    expect(fetchMock).toHaveBeenCalledWith('/data/draft_history.json')
+    expect(fetchMock).toHaveBeenCalledWith('/data/draft_history.json?v=testver')
     expect(draftData.filteredData.value).toHaveLength(1)
     expect(draftData.filteredData.value[0]?.teamLogo).toBe(
       'https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg',

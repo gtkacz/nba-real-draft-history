@@ -2,8 +2,11 @@ import { ref, computed, watch } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
 import { getDataUrl } from '@/utils/dataUrl'
+import { loadDataVersion } from '@/composables/useDataVersion'
 import { normalizeString } from '@/utils/stringNormalizer'
 import { parseHeight } from '@/utils/parseHeight'
+import { getCanonicalTeam } from '@/utils/teamAliases'
+import { getTradeChainCanonicalTeams } from '@/utils/tradeChain'
 import { getCurrentSeasonStartYear } from '@/utils/season'
 import {
   YEAR_MIN,
@@ -35,6 +38,7 @@ function withTeamLogo(pick: DraftPick): DraftPick {
 
 export function useDraftData() {
   const selectedTeam = ref<TeamAbbreviation[]>([])
+  const selectedOnceOwnedBy = ref<TeamAbbreviation[]>([])
   const selectedPlaysFor = ref<TeamAbbreviation[]>([])
   const selectedYear = ref<number | null>(null)
   const yearRange = ref<[number, number]>([YEAR_MIN, YEAR_MAX])
@@ -175,6 +179,19 @@ export function useDraftData() {
     // Team filter - multiple selection
     if (selectedTeam.value.length > 0) {
       filtered = filtered.filter((pick) => selectedTeam.value.includes(pick.team as TeamAbbreviation))
+    }
+
+    // "Once owned by" filter - match picks whose trade chain includes any selected
+    // team, excluding the team that ultimately drafted the pick.
+    if (selectedOnceOwnedBy.value.length > 0) {
+      const selectedCanonical = selectedOnceOwnedBy.value.map((team) => getCanonicalTeam(team))
+      filtered = filtered.filter((pick) => {
+        const chain = getTradeChainCanonicalTeams(pick.draftTrades, pick.year)
+        if (chain.length === 0) return false
+        const drafter = getCanonicalTeam(pick.team, pick.year)
+        const priorOwners = chain.filter((team) => team !== drafter)
+        return selectedCanonical.some((team) => priorOwners.includes(team))
+      })
     }
 
     // Currently plays for filter - multiple selection
@@ -376,7 +393,8 @@ export function useDraftData() {
     error.value = null
 
     try {
-      const response = await fetch(getDataUrl('draft_history.json'))
+      const version = await loadDataVersion()
+      const response = await fetch(getDataUrl('draft_history.json', version))
       if (!response.ok) {
         throw new Error(`Failed to fetch draft_history.json: ${response.status}`)
       }
@@ -398,6 +416,7 @@ export function useDraftData() {
 
   return {
     selectedTeam,
+    selectedOnceOwnedBy,
     selectedPlaysFor,
     selectedYear,
     yearRange,
