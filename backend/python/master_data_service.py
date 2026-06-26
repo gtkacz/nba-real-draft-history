@@ -8,9 +8,11 @@ from collections.abc import Sequence
 
 from backend.python.services import country_data_service, downloader_service
 from backend.python.services.awards_cache_service import refresh_awards_cache
-from backend.python.services.draft_history_builder import build_draft_history_json, build_enriched_frame
+from backend.python.services.draft_history_builder import build_draft_history_json, build_enriched_frame, write_data_version
 from backend.python.services.paths import (
+    FRONTEND_PUBLIC_DATA_DIR,
     PUBLISHED_COUNTRIES_PATH,
+    PUBLISHED_DATA_VERSION_PATH,
     PUBLISHED_DRAFT_HISTORY_PATH,
     PUBLISHED_TEAMS_MAPPING_PATH,
     RAW_AWARDS_PATH,
@@ -77,6 +79,8 @@ def run_build_stage() -> None:
         public_mapping_path=PUBLISHED_TEAMS_MAPPING_PATH,
     )
     print(f"Wrote {len(records)} draft picks to {PUBLISHED_DRAFT_HISTORY_PATH}")
+    version = write_data_version(FRONTEND_PUBLIC_DATA_DIR, PUBLISHED_DATA_VERSION_PATH)
+    print(f"Stamped data version {version} -> {PUBLISHED_DATA_VERSION_PATH}")
 
 
 def main(argv: Sequence[str] | None = None) -> None:

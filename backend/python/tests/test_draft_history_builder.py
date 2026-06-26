@@ -12,10 +12,12 @@ import pandas as pd
 from backend.python.services.draft_history_builder import (
     attach_awards,
     build_draft_history_json,
+    compute_data_version,
     enrich_draft_history,
     load_raw_draft_history,
     resolve_owning_rows,
     to_draft_pick_records,
+    write_data_version,
 )
 
 
@@ -485,6 +487,35 @@ class DraftHistoryBuilderTests(unittest.TestCase):
 
         self.assertEqual(len(resolved), 1)
         self.assertEqual(resolved.iloc[0]["team"], "DEN")
+
+
+    def test_compute_data_version_is_deterministic_and_content_sensitive(self) -> None:
+        """The data version is a stable content hash that changes only when data changes."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            published = Path(temp_dir)
+            (published / "draft_history.json").write_text("[1,2,3]", encoding="utf-8")
+            (published / "teams_mapping.json").write_text("{}", encoding="utf-8")
+
+            first = compute_data_version(published)
+            again = compute_data_version(published)
+            self.assertEqual(first, again)
+
+            (published / "draft_history.json").write_text("[1,2,3,4]", encoding="utf-8")
+            changed = compute_data_version(published)
+            self.assertNotEqual(first, changed)
+
+    def test_write_data_version_persists_version_json(self) -> None:
+        """write_data_version writes {'version': <hash>} and returns the hash."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            published = Path(temp_dir)
+            (published / "draft_history.json").write_text("[]", encoding="utf-8")
+            version_path = published / "data_version.json"
+
+            returned = write_data_version(published, version_path)
+            saved = json.loads(version_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(saved, {"version": returned})
+        self.assertTrue(returned)
 
 
 if __name__ == "__main__":

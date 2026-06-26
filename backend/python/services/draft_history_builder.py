@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import re
@@ -384,6 +385,36 @@ def build_enriched_frame(raw_dir: Path, players_path: Path) -> pd.DataFrame:
     owning_rows = resolve_owning_rows(raw)
     players = load_players(players_path)
     return enrich_draft_history(owning_rows, players)
+
+
+_DATA_VERSION_SOURCES = ("countries.json", "draft_history.json", "teams_mapping.json")
+
+
+def compute_data_version(published_dir: Path, sources: tuple[str, ...] = _DATA_VERSION_SOURCES) -> str:
+    """Return a short content hash over the published data files that exist.
+
+    The hash changes exactly when the published data changes, so it is a stable
+    cache key independent of the app version. Deterministic: same data -> same hash.
+    """
+    digest = hashlib.sha256()
+    for name in sorted(sources):
+        path = published_dir / name
+        if path.exists():
+            digest.update(name.encode("utf-8"))
+            digest.update(path.read_bytes())
+    return digest.hexdigest()[:16]
+
+
+def write_data_version(
+    published_dir: Path,
+    version_path: Path,
+    sources: tuple[str, ...] = _DATA_VERSION_SOURCES,
+) -> str:
+    """Compute the content-hash data version and persist it to `version_path`; return it."""
+    version = compute_data_version(published_dir, sources)
+    version_path.parent.mkdir(parents=True, exist_ok=True)
+    version_path.write_text(json.dumps({"version": version}, indent=2) + "\n", encoding="utf-8")
+    return version
 
 
 def build_draft_history_json(
