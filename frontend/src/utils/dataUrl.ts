@@ -1,6 +1,6 @@
 /**
  * Get a data file URL that respects the base URL for GitHub Pages deployment
- * @param path - The path relative to the data folder (e.g., 'teams.json' or 'csv/ATL.csv')
+ * @param path - The path relative to the data folder (e.g., 'teams_mapping.json' or 'draft_history.json')
  * @returns The full URL with base URL prefix
  */
 export function getDataUrl(path: string): string {

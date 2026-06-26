@@ -9,11 +9,10 @@ import { useDraftData } from './composables/useDraftData'
 import { useFilterUrlSync } from './composables/useFilterUrlSync'
 import { useCountryData } from './composables/useCountryData'
 import { useTeamData } from './composables/useTeamData'
-import { initializeCache } from './utils/csvCache'
 
 const { showSplash, markSplashSeen } = useSplashScreen()
 const { loadCountryData } = useCountryData()
-const { loadTeamData, getAllTeamAbbreviations } = useTeamData()
+const { loadTeamData } = useTeamData()
 const {
   selectedTeam,
   selectedPlaysFor,
@@ -50,7 +49,7 @@ const {
   minYearsOfService,
   maxYearsOfService,
   loading,
-  loadAllTeamData
+  loadDraftData
 } = useDraftData()
 
 const showPlayerMeasurements = ref(false)
@@ -88,16 +87,13 @@ const resetFilters = resetFiltersFromUrl
 async function loadData() {
   try {
     await loadTeamData()
-    const teams = getAllTeamAbbreviations()
-    await loadAllTeamData(teams)
+    await loadDraftData()
   } catch (err) {
     console.error('Error in loadData:', err)
   }
 }
 
 onMounted(() => {
-  // Initialize cache first (check version and invalidate if needed)
-  initializeCache()
   loadData()
   loadCountryData()
 })

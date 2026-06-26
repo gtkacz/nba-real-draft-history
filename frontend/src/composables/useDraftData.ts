@@ -1,9 +1,7 @@
 import { ref, computed, watch } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
-import { parseCSV } from '@/utils/csvParser'
 import { getDataUrl } from '@/utils/dataUrl'
-import { getCachedCSV, setCachedCSV, initializeCache } from '@/utils/csvCache'
 import { normalizeString } from '@/utils/stringNormalizer'
 import { parseHeight } from '@/utils/parseHeight'
 import { getCurrentSeasonStartYear } from '@/utils/season'
@@ -26,6 +24,14 @@ import {
 const allDraftPicks = ref<DraftPick[]>([])
 const loading = ref(false)
 const error = ref<string | null>(null)
+
+function withTeamLogo(pick: DraftPick): DraftPick {
+  return {
+    ...pick,
+    draftTrades: pick.draftTrades ?? null,
+    teamLogo: `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${pick.team.toLowerCase()}.svg`,
+  }
+}
 
 export function useDraftData() {
   const selectedTeam = ref<TeamAbbreviation[]>([])
@@ -365,88 +371,26 @@ export function useDraftData() {
     return filtered
   })
 
-  async function loadAllTeamData(teams: TeamAbbreviation[]) {
+  async function loadDraftData() {
     loading.value = true
     error.value = null
 
-    // Initialize cache (check version and invalidate if needed)
-    initializeCache()
-
     try {
-      const perTeamResults = await Promise.all(
-        teams.map(async (team) => {
-          try {
-            let csvText = ''
-            let isEnriched = true
+      const response = await fetch(getDataUrl('draft_history.json'))
+      if (!response.ok) {
+        throw new Error(`Failed to fetch draft_history.json: ${response.status}`)
+      }
 
-            // Try to get from cache first (enriched)
-            csvText = getCachedCSV(team, true) ?? ''
+      const records = (await response.json()) as DraftPick[]
+      if (!Array.isArray(records)) {
+        throw new Error('draft_history.json must contain an array')
+      }
 
-            if (csvText) {
-              // Found enriched CSV in cache
-              isEnriched = true
-            } else {
-              // Not in cache, try to fetch enriched CSV
-              let response = await fetch(getDataUrl(`csv/${team}_enriched.csv`))
-
-              if (response.ok) {
-                csvText = await response.text()
-                isEnriched = true
-
-                // Check if we got HTML instead of CSV
-                if (csvText.trim().startsWith('<!DOCTYPE') || csvText.trim().startsWith('<html')) {
-                  csvText = ''
-                }
-              }
-
-              // If enriched CSV not available, try regular CSV
-              if (!csvText) {
-                // Try cache for regular CSV
-                csvText = getCachedCSV(team, false) ?? ''
-
-                if (csvText) {
-                  isEnriched = false
-                } else {
-                  // Fetch regular CSV
-                  response = await fetch(getDataUrl(`csv/${team}.csv`))
-                  if (!response.ok) {
-                    console.error(`Failed to fetch ${team}.csv:`, response.status)
-                    return []
-                  }
-
-                  csvText = await response.text()
-                  isEnriched = false
-
-                  // Check if we got HTML instead of CSV
-                  if (csvText.trim().startsWith('<!DOCTYPE') || csvText.trim().startsWith('<html')) {
-                    console.error(`Received HTML for ${team}.csv, skipping`)
-                    return []
-                  }
-                }
-              }
-
-              // Cache the fetched CSV if it came from network
-              if (csvText && !getCachedCSV(team, isEnriched)) {
-                setCachedCSV(team, isEnriched, csvText)
-              }
-            }
-
-            if (!csvText) {
-              return []
-            }
-
-            return await parseCSV(csvText, team)
-          } catch (teamErr) {
-            console.error(`Error loading ${team}:`, teamErr)
-            return []
-          }
-        }),
-      )
-
-      allDraftPicks.value = perTeamResults.flat()
+      allDraftPicks.value = records.map(withTeamLogo)
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Failed to load draft data'
       console.error('Error loading draft data:', err)
+      allDraftPicks.value = []
     } finally {
       loading.value = false
     }
@@ -489,6 +433,6 @@ export function useDraftData() {
     maxYearsOfService,
     loading,
     error,
-    loadAllTeamData,
+    loadDraftData,
   }
 }
