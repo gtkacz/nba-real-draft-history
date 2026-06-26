@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 import shutil
 from pathlib import Path
 from typing import Any
@@ -150,6 +151,33 @@ def _resolve_chain_destination_ties(survivors: pd.DataFrame) -> pd.DataFrame:
     return survivors.loc[keep_unique | keep_destination].copy()
 
 
+def _recover_traded_away_picks(frame: pd.DataFrame, missing_keys: set[tuple]) -> pd.DataFrame:
+    """Recover picks that only the trading team lists, owned by the trade chain's final destination.
+
+    RealGM lists some traded picks (notably recent drafts) only on the original
+    owner's page as "ORIG to DEST"; with no destination row, the trade-away
+    filter would drop the pick. The owner is the chain's final destination.
+    """
+    key_tuples = frame[_KEY_COLUMNS].apply(lambda r: (int(r["Year"]), int(r["Round"]), int(r["Pick"])), axis=1)
+    missing = frame.loc[key_tuples.isin(missing_keys)].copy()
+    if missing.empty:
+        return missing
+
+    # If several trading-team rows exist for one pick, keep the most complete chain.
+    missing["_chain_len"] = missing["Draft Trades"].apply(
+        lambda trades: len(re.split(r"\s+to\s+", str(trades or "").strip())),
+    )
+    missing = missing.sort_values("_chain_len", ascending=False).drop_duplicates(subset=_KEY_COLUMNS, keep="first")
+    missing["team"] = missing.apply(
+        lambda row: canonical_team(
+            final_trade_destination(row["Draft Trades"]) or str(row["source_team"]),
+            int(row["Year"]),
+        ),
+        axis=1,
+    )
+    return missing.drop(columns=["_chain_len"])
+
+
 def resolve_owning_rows(raw_frame: pd.DataFrame) -> pd.DataFrame:
     """Drop rows for source teams that traded the pick away and keep the owning team row."""
     frame = raw_frame.copy()
@@ -178,12 +206,15 @@ def resolve_owning_rows(raw_frame: pd.DataFrame) -> pd.DataFrame:
 
     raw_keys = {tuple(row) for row in frame.loc[:, _KEY_COLUMNS].itertuples(index=False, name=None)}
     survivor_keys = {tuple(row) for row in survivors.loc[:, _KEY_COLUMNS].itertuples(index=False, name=None)}
-    missing_keys = sorted(raw_keys - survivor_keys)
+    missing_keys = raw_keys - survivor_keys
     if missing_keys:
-        print(  # noqa: T201 -- one-time migration build diagnostic; audit verifies equivalence
-            f"Dropped {len(missing_keys)} draft pick(s) with no surviving owner "
-            f"(data holes absent from legacy data): {missing_keys}",
-        )
+        recovered = _recover_traded_away_picks(frame, missing_keys)
+        survivors = pd.concat([survivors, recovered], ignore_index=True)
+
+    duplicate_mask = survivors.duplicated(subset=_KEY_COLUMNS, keep=False)
+    if duplicate_mask.any():
+        duplicate_keys = survivors.loc[duplicate_mask, [*_KEY_COLUMNS, "team"]].to_dict(orient="records")
+        raise ValueError(f"Multiple owning rows after recovery for draft picks: {duplicate_keys}")
 
     return survivors.drop(columns=["source_team", "_was_traded_away"]).reset_index(drop=True)
 

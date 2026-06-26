@@ -131,46 +131,42 @@ class DraftHistoryBuilderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate raw rows|conflicting source rows"):
             resolve_owning_rows(raw)
 
-    def test_resolve_owning_rows_drops_picks_missing_survivor_as_data_hole(self) -> None:
-        """A pick with no remaining owner row (data hole) is dropped, not raised."""
+    def test_resolve_owning_rows_recovers_pick_listed_only_by_trading_team(self) -> None:
+        """A pick only the trading team lists (e.g. recent drafts) is kept, owned by the chain's destination."""
         raw = pd.DataFrame(
             [
                 {
-                    "Year": 2024,
-                    "Round": 1,
-                    "Pick": 20,
-                    "Player": "Chain Player",
-                    "Pos": "G",
-                    "HT": "6-3",
-                    "WT": 190,
-                    "Age": 20,
-                    "Pre-Draft Team": "Example",
-                    "Class": "So",
-                    "Draft Trades": "ATL to CLE",
-                    "YOS": 0,
-                    "source_team": "ATL",
-                },
-                {
-                    "Year": 2024,
-                    "Round": 1,
-                    "Pick": 20,
-                    "Player": "Chain Player",
-                    "Pos": "G",
-                    "HT": "6-3",
-                    "WT": 190,
-                    "Age": 20,
-                    "Pre-Draft Team": "Example",
-                    "Class": "So",
-                    "Draft Trades": "MIL to CLE",
-                    "YOS": 0,
-                    "source_team": "MIL",
+                    "Year": 2026, "Round": 1, "Pick": 16, "Player": "Bennett Stirtz",
+                    "Pos": "G", "HT": "6-4", "WT": 190, "Age": 22,
+                    "Pre-Draft Team": "Drake", "Class": "Sr",
+                    "Draft Trades": "MEM to OKC", "YOS": 0, "source_team": "MEM",
                 },
             ],
         )
 
         resolved = resolve_owning_rows(raw)
 
-        self.assertEqual(len(resolved), 0)
+        self.assertEqual(len(resolved), 1)
+        self.assertEqual(resolved.iloc[0]["team"], "OKC")
+        self.assertEqual(resolved.iloc[0]["Player"], "Bennett Stirtz")
+
+    def test_resolve_owning_rows_recovers_multi_leg_chain_to_final_destination(self) -> None:
+        """A traded-only pick with a multi-leg chain is owned by the final destination."""
+        raw = pd.DataFrame(
+            [
+                {
+                    "Year": 2026, "Round": 1, "Pick": 17, "Player": "Ebuka Okorie",
+                    "Pos": "F", "HT": "6-8", "WT": 215, "Age": 20,
+                    "Pre-Draft Team": "Example", "Class": "Fr",
+                    "Draft Trades": "OKC to MEM MEM to DET", "YOS": 0, "source_team": "OKC",
+                },
+            ],
+        )
+
+        resolved = resolve_owning_rows(raw)
+
+        self.assertEqual(len(resolved), 1)
+        self.assertEqual(resolved.iloc[0]["team"], "DET")
 
     def test_enriches_by_pick_then_name_fallback_and_attaches_awards(self) -> None:
         """The unified frame keeps NBA full names, ISO countries, team status, and awards."""
