@@ -53,7 +53,7 @@ import {
   mdiTrophy,
   mdiViewColumnOutline,
   mdiWeatherNight,
-  mdiWeatherSunny,
+  mdiWhiteBalanceSunny,
   mdiWeightLifter,
 } from '@mdi/js'
 
@@ -103,7 +103,7 @@ const ICON_MAP: Record<string, string> = {
   'mdi-trophy': mdiTrophy,
   'mdi-view-column-outline': mdiViewColumnOutline,
   'mdi-weather-night': mdiWeatherNight,
-  'mdi-weather-sunny': mdiWeatherSunny,
+  'mdi-white-balance-sunny': mdiWhiteBalanceSunny,
   'mdi-weight-lifter': mdiWeightLifter,
 }
 
