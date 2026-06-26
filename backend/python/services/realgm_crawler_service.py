@@ -14,6 +14,8 @@ from selenium.webdriver.support import expected_conditions as EC  # noqa: N812
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
+from backend.python.services.paths import RAW_DRAFT_HISTORY_DIR
+
 # A draft selection is uniquely identified by its year, round and overall pick.
 # Unlike volatile columns such as YOS, this identity is stable across crawls,
 # which lets an incremental crawl recognise rows it has already ingested.
@@ -53,7 +55,7 @@ def scrape_draft_history(
     team_abbreviation: str,
     team_name: str,
     team_id: int,
-    save_to: str = "data/csv",
+    save_to: str | pathlib.Path = RAW_DRAFT_HISTORY_DIR,
     *,
     force: bool = False,
 ) -> pd.DataFrame:
@@ -68,7 +70,7 @@ def scrape_draft_history(
         team_abbreviation (str): Abbreviation of the NBA team (e.g., "BOS" for Boston Celtics)
         team_name (str): Name of the NBA team (e.g., "Boston-Celtics")
         team_id (int): ID of the NBA team (e.g., 9 for Boston Celtics)
-        save_to (str): Directory to save the HTML files. Defaults to "data/html".
+        save_to (str | pathlib.Path): Directory to save the CSV files.
         force (bool): Re-crawl every page even when already-ingested data is found.
 
     Returns:
@@ -121,7 +123,9 @@ def scrape_draft_history(
 
         # Load previously ingested rows so the crawl can stop once it reaches them.
         # A force run skips this short-circuit and re-crawls every page.
-        output_file = pathlib.Path(save_to) / f"{team_abbreviation.upper()}.csv"
+        output_dir = pathlib.Path(save_to)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_file = output_dir / f"{team_abbreviation.upper()}.csv"
         existing_data = pd.DataFrame()
         ingested_keys: set[tuple] = set()
         if force:
@@ -217,4 +221,4 @@ if __name__ == "__main__":
 
     for team_abbreviation, (team_name, team_id) in team_mapping.items():
         print(f"\nScraping draft history for {team_abbreviation}...")
-        scrape_draft_history(team_abbreviation, team_name, team_id, force=force)
+        scrape_draft_history(team_abbreviation, team_name, team_id, save_to=RAW_DRAFT_HISTORY_DIR, force=force)

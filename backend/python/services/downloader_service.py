@@ -5,6 +5,8 @@ from typing import Any
 import pandas as pd
 import requests
 
+from backend.python.services.paths import RAW_PLAYERS_PATH
+
 
 def parse_response_to_dataframe(
     response_dict: dict[str, Any],
@@ -44,7 +46,7 @@ def parse_response_to_dataframe(
     return players_df
 
 
-def run():
+def run(output_path: pathlib.Path = RAW_PLAYERS_PATH) -> None:
     url = "https://stats.nba.com/stats/playerindex?College=&Country=&DraftPick=&DraftRound=&DraftYear=&Height=&Historical=1&LeagueID=00&Season=2026-27&SeasonType=Preseason&TeamID=0&Weight="
 
     payload = {}
@@ -74,9 +76,10 @@ def run():
         players_df = parse_response_to_dataframe(response.json())
         print(f"Retrieved {len(players_df)} players from NBA API.")
 
-        with pathlib.Path("data/players_nba_data.json").open("w", encoding="utf-8") as f:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with output_path.open("w", encoding="utf-8") as f:
             f.write(dumps(players_df.to_dict(orient="records"), ensure_ascii=False))
-            print("Player data saved to data/players_nba_data.json.")
+            print(f"Player data saved to {output_path}.")
 
     except requests.exceptions.ReadTimeout:
         print("Request timed out, using backup data.")

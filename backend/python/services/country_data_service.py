@@ -2,6 +2,7 @@ from json import dumps  # noqa: CPY001, D100
 from pathlib import Path
 
 from backend.python.services.country_to_iso import get_all_countries
+from backend.python.services.paths import PUBLISHED_COUNTRIES_PATH
 
 # Generate the static country display-name dataset consumed by the frontend.
 # The frontend reads frontend/public/data/countries.json (a map of ISO alpha-2 code to display
@@ -9,7 +10,7 @@ from backend.python.services.country_to_iso import get_all_countries
 # and the public 500-request/month quota is never spent per visitor.
 
 # Output consumed by frontend/src/composables/useCountryData.ts
-_OUTPUT_PATH = Path("frontend/public/data/countries.json")
+_OUTPUT_PATH = PUBLISHED_COUNTRIES_PATH
 
 # Countries with multiple official languages: preferred native language code(s), tried in order.
 # Mirrors LANGUAGE_PREFERENCES in the frontend composable this dataset replaces.
@@ -84,17 +85,18 @@ def build_country_map(countries: list[dict]) -> dict[str, dict[str, str]]:
     return country_map
 
 
-def main() -> None:
+def main(output_path: Path = _OUTPUT_PATH) -> None:
     """Fetch country data from REST Countries v5 and write the static frontend dataset."""
     countries = get_all_countries()
     country_map = build_country_map(countries)
 
-    _OUTPUT_PATH.write_text(
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
         dumps(country_map, ensure_ascii=False, indent=2, sort_keys=True),
         encoding="utf-8",
     )
 
-    print(f"Wrote {len(country_map)} countries to {_OUTPUT_PATH}")  # noqa: T201
+    print(f"Wrote {len(country_map)} countries to {output_path}")  # noqa: T201
 
 
 if __name__ == "__main__":
