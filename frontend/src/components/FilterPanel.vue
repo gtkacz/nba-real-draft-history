@@ -659,12 +659,11 @@ function handleAwardCountChange(award: string, count: number) {
             v-model="awardFilterMode"
             variant="outlined"
             mandatory
-            :density="mobile ? 'comfortable' : 'compact'"
             v-bind="tooltipProps"
             class="award-mode-toggle"
           >
-            <v-btn value="exclusive" :size="mobile ? 'default' : 'small'">All</v-btn>
-            <v-btn value="inclusive" :size="mobile ? 'default' : 'small'">Any</v-btn>
+            <v-btn value="exclusive">All</v-btn>
+            <v-btn value="inclusive">Any</v-btn>
           </v-btn-toggle>
         </template>
         <span>Exclusive (All): Shows players with ALL selected awards.<br>Inclusive (Any): Shows players with ANY selected award.</span>
@@ -715,10 +714,12 @@ function handleAwardCountChange(award: string, count: number) {
   padding-bottom: 30px;
 }
 
-// Give the Year Single/Range segmented control more breathing room than the
-// dense default, so the two options read as proper tappable targets.
-.year-mode-toggle :deep(.v-btn) {
-  min-height: 40px;
+// Give the Year Single/Range and Awards All/Any segmented controls more
+// breathing room than the dense default, so the options read as proper
+// tappable targets.
+.year-mode-toggle :deep(.v-btn),
+.award-mode-toggle :deep(.v-btn) {
+  min-height: 25px;
   padding-inline: 24px;
   letter-spacing: 0.02em;
 }

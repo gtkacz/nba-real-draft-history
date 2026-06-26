@@ -89,9 +89,9 @@ const emit = defineEmits<{
     }
 
     &:hover::after {
-      top: 0;
-      bottom: 0;
-      width: 3px;
+      // top: 0;
+      // bottom: 0;
+      // width: 3px;
       background: rgb(var(--v-theme-primary));
     }
   }
