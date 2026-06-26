@@ -262,7 +262,7 @@ const tradeChain = computed<string[]>(() => {
         </div>
 
         <!-- Player Info -->
-        <div class="player-card-info pa-4">
+        <div class="player-card-info pa-10">
           <div class="player-measurements mb-3">
             <div class="text-h6 mb-2 font-weight-bold">Measurements</div>
             <v-row dense>

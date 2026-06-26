@@ -618,6 +618,17 @@ function getPlayerHeadshotUrl(nbaId: string | number | undefined): string {
   return `https://cdn.nba.com/headshots/nba/latest/1040x760/${nbaId}.png`
 }
 
+// Expose each row's drafting team color (shared with PlayerCard via team-colors.css)
+// as a CSS variable so the hover ribbon/tint can theme per row.
+function getTeamRowProps({ item }: { item: DraftPick }) {
+  const code = getCanonicalTeam(item.team, item.year).toLowerCase()
+  return {
+    style: {
+      '--row-team-primary': `var(--team-${code}-primary, rgb(var(--v-theme-primary)))`
+    }
+  }
+}
+
 function getOriginalTeam(trades: string | null, year?: number): string | null {
   if (!trades || trades.trim() === '') return null
 
@@ -1367,6 +1378,7 @@ const shareTooltipText = computed(() => {
       :sort-by="sortBy"
       @update:sort-by="handleSortUpdate"
       :density="isMobile ? 'compact' : 'comfortable'"
+      :row-props="getTeamRowProps"
       hover
       fixed-header
       :height="isMobile ? '500' : 'calc(100vh - 250px)'"
@@ -1681,8 +1693,8 @@ const shareTooltipText = computed(() => {
   }
 
   :deep(.v-data-table__tr:hover) {
-    background-color: rgb(var(--v-theme-surface-bright));
-    box-shadow: inset 3px 0 0 0 rgb(var(--v-theme-primary));
+    background-color: color-mix(in srgb, var(--row-team-primary, rgb(var(--v-theme-primary))) 10%, rgb(var(--v-theme-surface)));
+    box-shadow: inset 3px 0 0 0 var(--row-team-primary, rgb(var(--v-theme-primary)));
   }
 
   .trade-chain {
