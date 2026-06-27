@@ -38,7 +38,7 @@ function getOriginalTeam(trades: string | null, year?: number): string | null {
 
 function getTeamDisplayName(team: string | null | undefined, year?: number): string {
   if (!team) return 'Unknown'
-  const originalTeam = getOriginalTeamName(team, year)
+  return getOriginalTeamName(team, year)
   return getTeamFullName(originalTeam)
 }
 
@@ -315,14 +315,28 @@ function formatAwardName(award: string): string {
               color="success"
             />
           </div>
-          <div class="text-caption text-medium-emphasis">
-            {{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }}
-            <template v-if="showPlayerMeasurements && (item.height || item.weight)">
-              <span class="ml-1">• {{ item.height || 'N/A' }}</span>
-              <template v-if="item.weight">
-                <span class="ml-1">• {{ item.weight }} lbs</span>
+          <div class="text-caption text-medium-emphasis d-flex align-center">
+            <v-avatar
+              size="16"
+              rounded="0"
+              style="background: transparent;"
+              class="team-name-icon mr-1"
+            >
+              <v-img
+                :src="getTeamLogoUrl(item.team, item.year)"
+                :alt="getOriginalTeamName(item.team, item.year)"
+                contain
+              />
+            </v-avatar>
+            <span>
+              {{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }}
+              <template v-if="showPlayerMeasurements && (item.height || item.weight)">
+                <span class="ml-1">• {{ item.height || 'N/A' }}</span>
+                <template v-if="item.weight">
+                  <span class="ml-1">• {{ item.weight }} lbs</span>
+                </template>
               </template>
-            </template>
+            </span>
           </div>
         </div>
         
@@ -552,6 +566,10 @@ function formatAwardName(award: string): string {
 
   .player-status-icon {
     margin-left: 4px;
+    flex-shrink: 0;
+  }
+
+  .team-name-icon {
     flex-shrink: 0;
   }
 
