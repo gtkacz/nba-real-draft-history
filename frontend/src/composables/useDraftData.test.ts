@@ -104,6 +104,60 @@ describe('useDraftData loadDraftData', () => {
     expect(draftData.filteredData.value.map((p) => p.player)).toEqual(['Valid Measurements'])
   })
 
+  it('excludes never-debuted players from both retirement filter results', async () => {
+    const fetchMock = vi.mocked(fetch)
+    const basePick = {
+      year: 2025,
+      round: 1,
+      position: 'F',
+      height: '6-8',
+      weight: 220,
+      age: 20,
+      preDraftTeam: 'Club',
+      class: '',
+      draftTrades: null,
+      yearsOfService: 0,
+      team: 'MIL',
+    }
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => [
+        {
+          ...basePick,
+          pick: 1,
+          player: 'Never Debuted',
+          nba_id: null,
+          played_until_year: null,
+          plays_for: null,
+        },
+        {
+          ...basePick,
+          pick: 2,
+          player: 'Retired Player',
+          nba_id: 2,
+          played_until_year: 2020,
+        },
+        {
+          ...basePick,
+          pick: 3,
+          player: 'Active Player',
+          nba_id: 3,
+          played_until_year: 9999,
+          plays_for: 'MIL',
+        },
+      ],
+    } as unknown as Response)
+
+    const draftData = useDraftData()
+    await draftData.loadDraftData()
+
+    draftData.retiredFilter.value = 'retired'
+    expect(draftData.filteredData.value.map((pick) => pick.player)).toEqual(['Retired Player'])
+
+    draftData.retiredFilter.value = 'not-retired'
+    expect(draftData.filteredData.value.map((pick) => pick.player)).toEqual(['Active Player'])
+  })
+
   it('sets an error when draft_history.json cannot be fetched', async () => {
     const fetchMock = vi.mocked(fetch)
     fetchMock.mockResolvedValue({

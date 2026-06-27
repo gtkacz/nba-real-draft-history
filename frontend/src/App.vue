@@ -34,6 +34,8 @@ const {
   selectedNationalities,
   selectedAwards,
   awardFilterMode,
+  excludeModes,
+  onceOwnedByScope,
   playerSearch,
   sortBy,
   currentPage,
@@ -77,6 +79,8 @@ const { resetFilters: resetFiltersFromUrl } = useFilterUrlSync({
   selectedNationalities,
   selectedAwards,
   awardFilterMode,
+  excludeModes,
+  onceOwnedByScope,
   playerSearch,
   sortBy,
   currentPage,
@@ -154,6 +158,8 @@ onMounted(() => {
               v-model:selected-nationalities="selectedNationalities"
               v-model:selected-awards="selectedAwards"
               v-model:award-filter-mode="awardFilterMode"
+              v-model:exclude-modes="excludeModes"
+              v-model:once-owned-by-scope="onceOwnedByScope"
               v-model:player-search="playerSearch"
               v-model:sort-by="sortBy"
               v-model:current-page="currentPage"

@@ -25,3 +25,43 @@ export const YOS_MAX = 30
 
 export const DEFAULT_ITEMS_PER_PAGE = 30
 export const MOBILE_ITEMS_PER_PAGE = 20
+
+// Membership filters that can each be flipped between "include" (regular) and
+// "exclude" (negation) mode. A single map keeps the flags together so the URL
+// carries one `exclude` param and the plumbing stays in one place rather than
+// six parallel booleans.
+export type ExcludableFilterKey =
+  | 'team'
+  | 'onceOwnedBy'
+  | 'playsFor'
+  | 'nationalities'
+  | 'preDraftTeam'
+  | 'draftCountries'
+
+export const EXCLUDABLE_FILTER_KEYS: readonly ExcludableFilterKey[] = [
+  'team',
+  'onceOwnedBy',
+  'playsFor',
+  'nationalities',
+  'preDraftTeam',
+  'draftCountries',
+]
+
+export type ExcludeModes = Record<ExcludableFilterKey, boolean>
+
+export function createDefaultExcludeModes(): ExcludeModes {
+  return {
+    team: false,
+    onceOwnedBy: false,
+    playsFor: false,
+    nationalities: false,
+    preDraftTeam: false,
+    draftCountries: false,
+  }
+}
+
+// "Once Owned By" can match a team anywhere in a pick's trade chain ('any') or
+// only as the chain's original owner ('first'). 'first' is the default.
+export type OnceOwnedByScope = 'first' | 'any'
+
+export const DEFAULT_ONCE_OWNED_BY_SCOPE: OnceOwnedByScope = 'first'

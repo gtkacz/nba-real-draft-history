@@ -10,8 +10,13 @@ import {
   AGE_MIN, AGE_MAX,
   HEIGHT_MIN, HEIGHT_MAX,
   WEIGHT_MIN, WEIGHT_MAX,
-  YOS_MIN, YOS_MAX
+  YOS_MIN, YOS_MAX,
+  createDefaultExcludeModes,
+  type ExcludableFilterKey,
+  type ExcludeModes,
+  type OnceOwnedByScope
 } from '@/constants/filters'
+import FilterModeToggle from './FilterModeToggle.vue'
 
 interface TeamOption {
   value: TeamAbbreviation
@@ -70,6 +75,23 @@ const weightRange = defineModel<[number, number]>('weightRange', { default: () =
 const yearsOfServiceRange = defineModel<[number, number]>('yearsOfServiceRange', { default: () => [YOS_MIN, YOS_MAX] })
 const selectedAwards = defineModel<Record<string, number>>('selectedAwards', { default: () => ({}) })
 const awardFilterMode = defineModel<'exclusive' | 'inclusive'>('awardFilterMode', { default: 'exclusive' })
+const excludeModes = defineModel<ExcludeModes>('excludeModes', { default: () => createDefaultExcludeModes() })
+const onceOwnedByScope = defineModel<OnceOwnedByScope>('onceOwnedByScope', { default: 'first' })
+
+function isExcluded(key: ExcludableFilterKey): boolean {
+  return Boolean(excludeModes.value[key])
+}
+
+// Immutable update so the parent's watcher sees a new object.
+function toggleExclude(key: ExcludableFilterKey): void {
+  excludeModes.value = { ...excludeModes.value, [key]: !excludeModes.value[key] }
+}
+
+// A field reads as negated (red) only when it is in exclude mode AND has at least
+// one selection; an exclude flag with no selections is inert and stays neutral.
+function negatedColor(key: ExcludableFilterKey, count: number): string | undefined {
+  return isExcluded(key) && count > 0 ? 'error' : undefined
+}
 
 const positionOptions = [
   { value: 'G', title: 'Guard (G)' },
@@ -136,8 +158,16 @@ function handleAwardCountChange(award: string, count: number) {
           clearable
           persistent-clear
           closable-chips
+          :base-color="negatedColor('team', selectedTeam.length)"
+          :color="negatedColor('team', selectedTeam.length)"
         >
           <template #prepend-inner>
+            <FilterModeToggle
+              v-if="selectedTeam.length > 0"
+              :excluded="isExcluded('team')"
+              :mobile="mobile"
+              @toggle="toggleExclude('team')"
+            />
             <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
               <img
                 src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
@@ -165,6 +195,7 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
+              :color="negatedColor('team', selectedTeam.length)"
             >
               <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
                 <img
@@ -193,8 +224,16 @@ function handleAwardCountChange(award: string, count: number) {
           clearable
           persistent-clear
           closable-chips
+          :base-color="negatedColor('playsFor', selectedPlaysFor.length)"
+          :color="negatedColor('playsFor', selectedPlaysFor.length)"
         >
           <template #prepend-inner>
+            <FilterModeToggle
+              v-if="selectedPlaysFor.length > 0"
+              :excluded="isExcluded('playsFor')"
+              :mobile="mobile"
+              @toggle="toggleExclude('playsFor')"
+            />
             <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
               <img
                 src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nba.svg"
@@ -222,6 +261,7 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
+              :color="negatedColor('playsFor', selectedPlaysFor.length)"
             >
               <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
                 <img
@@ -251,8 +291,16 @@ function handleAwardCountChange(award: string, count: number) {
           clearable
           persistent-clear
           closable-chips
+          :base-color="negatedColor('nationalities', selectedNationalities.length)"
+          :color="negatedColor('nationalities', selectedNationalities.length)"
         >
           <template #prepend-inner>
+            <FilterModeToggle
+              v-if="selectedNationalities.length > 0"
+              :excluded="isExcluded('nationalities')"
+              :mobile="mobile"
+              @toggle="toggleExclude('nationalities')"
+            />
             <v-icon v-if="!mobile" icon="mdi-flag" size="20" class="mr-2" />
             <div v-else class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
               <span
@@ -279,6 +327,7 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
+              :color="negatedColor('nationalities', selectedNationalities.length)"
             >
               <span
                 v-if="item.raw.flag"
@@ -303,13 +352,25 @@ function handleAwardCountChange(award: string, count: number) {
           chips
           clearable
           persistent-clear
-          prepend-inner-icon="mdi-school"
           closable-chips
-        />
+          :base-color="negatedColor('preDraftTeam', preDraftTeamSearch.length)"
+          :color="negatedColor('preDraftTeam', preDraftTeamSearch.length)"
+          :chip-props="negatedColor('preDraftTeam', preDraftTeamSearch.length) ? { color: 'error' } : undefined"
+        >
+          <template #prepend-inner>
+            <FilterModeToggle
+              v-if="preDraftTeamSearch.length > 0"
+              :excluded="isExcluded('preDraftTeam')"
+              :mobile="mobile"
+              @toggle="toggleExclude('preDraftTeam')"
+            />
+            <v-icon icon="mdi-school" size="20" class="mr-2" />
+          </template>
+        </v-autocomplete>
       </v-col>
 
-      <!-- Drafted From Country: country parsed from the pre-draft team, with an
-           "All non-US countries" umbrella option (which carries no flag). -->
+      <!-- Drafted From Country: country parsed from the pre-draft team. Selecting
+           a country in IS NOT mode replaces the former "all non-US" umbrella. -->
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
         <component
           :is="mobile ? VSelect : VAutocomplete"
@@ -323,8 +384,16 @@ function handleAwardCountChange(award: string, count: number) {
           clearable
           persistent-clear
           closable-chips
+          :base-color="negatedColor('draftCountries', selectedDraftCountries.length)"
+          :color="negatedColor('draftCountries', selectedDraftCountries.length)"
         >
           <template #prepend-inner>
+            <FilterModeToggle
+              v-if="selectedDraftCountries.length > 0"
+              :excluded="isExcluded('draftCountries')"
+              :mobile="mobile"
+              @toggle="toggleExclude('draftCountries')"
+            />
             <v-icon icon="mdi-earth" size="20" class="mr-2" />
           </template>
           <template #item="{ props: itemProps, item }">
@@ -347,6 +416,7 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
+              :color="negatedColor('draftCountries', selectedDraftCountries.length)"
             >
               <span
                 v-if="item.raw.flag"
@@ -361,7 +431,9 @@ function handleAwardCountChange(award: string, count: number) {
         </component>
       </v-col>
 
-      <!-- Once Owned By: any team in a pick's trade chain other than the team that drafted it -->
+      <!-- Once Owned By: a team in a pick's trade chain. The scope toggle below
+           the field switches between matching the original owner only and any
+           owner along the chain. -->
       <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
         <v-autocomplete
           v-model="selectedOnceOwnedBy"
@@ -375,8 +447,16 @@ function handleAwardCountChange(award: string, count: number) {
           clearable
           persistent-clear
           closable-chips
+          :base-color="negatedColor('onceOwnedBy', selectedOnceOwnedBy.length)"
+          :color="negatedColor('onceOwnedBy', selectedOnceOwnedBy.length)"
         >
           <template #prepend-inner>
+            <FilterModeToggle
+              v-if="selectedOnceOwnedBy.length > 0"
+              :excluded="isExcluded('onceOwnedBy')"
+              :mobile="mobile"
+              @toggle="toggleExclude('onceOwnedBy')"
+            />
             <v-icon icon="mdi-swap-horizontal" size="20" class="mr-2" />
           </template>
           <template #item="{ props: itemProps, item }">
@@ -398,6 +478,7 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
+              :color="negatedColor('onceOwnedBy', selectedOnceOwnedBy.length)"
             >
               <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
                 <img
@@ -410,6 +491,26 @@ function handleAwardCountChange(award: string, count: number) {
             </v-chip>
           </template>
         </v-autocomplete>
+
+        <!-- Trade-chain scope, mirroring the Awards All/Any segmented control. -->
+        <div v-if="selectedOnceOwnedBy.length > 0" class="owned-scope-row mt-2">
+          <span class="text-caption text-medium-emphasis owned-scope-label">Match as</span>
+          <v-tooltip location="bottom" max-width="300">
+            <template #activator="{ props: tooltipProps }">
+              <v-btn-toggle
+                v-model="onceOwnedByScope"
+                v-bind="tooltipProps"
+                mandatory
+                variant="outlined"
+                class="owned-scope-toggle"
+              >
+                <v-btn value="first">First owner</v-btn>
+                <v-btn value="any">Any owner</v-btn>
+              </v-btn-toggle>
+            </template>
+            <span>First owner: matches only the team that originally held the pick (head of the trade chain).<br>Any owner: matches the team anywhere along the trade chain.</span>
+          </v-tooltip>
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -721,6 +822,26 @@ function handleAwardCountChange(award: string, count: number) {
 .award-mode-toggle :deep(.v-btn) {
   min-height: 25px;
   padding-inline: 24px;
+  letter-spacing: 0.02em;
+}
+
+// The "Once Owned By" trade-chain scope toggle sits beneath its field; its
+// labels are longer, so it uses tighter horizontal padding and may wrap below
+// the caption on narrow columns.
+.owned-scope-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+.owned-scope-label {
+  flex-shrink: 0;
+}
+
+.owned-scope-toggle :deep(.v-btn) {
+  min-height: 28px;
+  padding-inline: 14px;
   letter-spacing: 0.02em;
 }
 

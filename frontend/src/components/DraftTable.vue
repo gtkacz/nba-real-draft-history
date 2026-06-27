@@ -6,12 +6,11 @@ import type { TeamAbbreviation } from '@/types/team'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { exportDraftPicksToCSV, downloadCSV as downloadCSVFile } from '@/utils/csvExporter'
 import { getCountryCode } from '@/utils/countryCodeConverter'
-import { NON_US_DRAFT_COUNTRY, US_DRAFT_COUNTRY } from '@/utils/draftCountry'
 import { useCountryData } from '@/composables/useCountryData'
 import { useTeamData } from '@/composables/useTeamData'
 import { parseHeight } from '@/utils/parseHeight'
 import { formatHeight } from '@/utils/formatHeight'
-import { getCurrentSeasonStartYear } from '@/utils/season'
+import { getPlayerStatus } from '@/utils/playerStatus'
 import {
   YEAR_MIN, YEAR_MAX,
   PICK_MIN, PICK_MAX,
@@ -19,7 +18,11 @@ import {
   HEIGHT_MIN, HEIGHT_MAX,
   WEIGHT_MIN, WEIGHT_MAX,
   YOS_MIN, YOS_MAX,
-  DEFAULT_ITEMS_PER_PAGE
+  DEFAULT_ITEMS_PER_PAGE,
+  DEFAULT_ONCE_OWNED_BY_SCOPE,
+  createDefaultExcludeModes,
+  type ExcludeModes,
+  type OnceOwnedByScope
 } from '@/constants/filters'
 import PlayerCard from './PlayerCard.vue'
 import MobileDraftCard from './MobileDraftCard.vue'
@@ -58,6 +61,8 @@ interface DraftTableProps {
   selectedNationalities?: string[]
   selectedAwards?: Record<string, number>
   awardFilterMode?: 'exclusive' | 'inclusive'
+  excludeModes?: ExcludeModes
+  onceOwnedByScope?: OnceOwnedByScope
   playerSearch?: string
   sortBy?: SortItem[]
   currentPage?: number
@@ -99,6 +104,8 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   selectedNationalities: () => [],
   selectedAwards: () => ({}),
   awardFilterMode: () => 'exclusive',
+  excludeModes: () => createDefaultExcludeModes(),
+  onceOwnedByScope: () => DEFAULT_ONCE_OWNED_BY_SCOPE,
   playerSearch: '',
   sortBy: () => [
     { key: 'year', order: 'desc' },
@@ -141,6 +148,8 @@ const emit = defineEmits<{
   'update:selectedNationalities': [value: string[]]
   'update:selectedAwards': [value: Record<string, number>]
   'update:awardFilterMode': [value: 'exclusive' | 'inclusive']
+  'update:excludeModes': [value: ExcludeModes]
+  'update:onceOwnedByScope': [value: OnceOwnedByScope]
   'update:playerSearch': [value: string]
   'update:sortBy': [value: SortItem[]]
   'update:currentPage': [value: number]
@@ -236,16 +245,12 @@ interface DraftCountryOption {
   flag?: string
 }
 
+// The former "all non-US countries" umbrella is gone: selecting United States in
+// exclude (IS NOT) mode now expresses the same query.
 const draftCountryOptions = computed<DraftCountryOption[]>(() => {
-  const countries = props.availableDraftCountries
+  return props.availableDraftCountries
     .map((code) => ({ value: code, title: getFormattedCountryName(code), flag: code }))
     .sort((a, b) => a.title.localeCompare(b.title))
-  // The "all non-US countries" umbrella is only meaningful when foreign origins exist.
-  const hasForeign = props.availableDraftCountries.some((code) => code !== US_DRAFT_COUNTRY)
-  if (!hasForeign) {
-    return countries
-  }
-  return [{ value: NON_US_DRAFT_COUNTRY, title: 'All non-US countries' }, ...countries]
 })
 
 const minAge = computed(() => props.availableAges.length > 0 ? Math.min(...props.availableAges) : 17)
@@ -329,6 +334,10 @@ const filterBind = computed(() => ({
   'onUpdate:selectedAwards': (v: Record<string, number>) => emit('update:selectedAwards', v),
   awardFilterMode: props.awardFilterMode,
   'onUpdate:awardFilterMode': (v: 'exclusive' | 'inclusive') => emit('update:awardFilterMode', v),
+  excludeModes: props.excludeModes,
+  'onUpdate:excludeModes': (v: ExcludeModes) => emit('update:excludeModes', v),
+  onceOwnedByScope: props.onceOwnedByScope,
+  'onUpdate:onceOwnedByScope': (v: OnceOwnedByScope) => emit('update:onceOwnedByScope', v),
 }))
 
 
@@ -1030,20 +1039,17 @@ function openPlayerCard(player: DraftPick) {
   showPlayerCard.value = true
 }
 
-function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active' | 'retired' | 'unknown' {
-  // If no retirement data, return unknown
-  if (playedUntilYear === undefined) return 'unknown'
-  return playedUntilYear < getCurrentSeasonStartYear() ? 'retired' : 'active'
-}
-
 // A rookie is an active player who has not yet completed an NBA season. This is a
 // purely visual distinction; rookies still count as active players for filtering.
 function isRookie(pick: DraftPick): boolean {
-  return getPlayerRetirementStatus(pick.played_until_year) === 'active' && pick.yearsOfService === 0
+  return getPlayerStatus(pick) === 'active' && pick.yearsOfService === 0
 }
 
-function getRetirementTooltipText(playedUntilYear: number | undefined, playsFor: string | undefined): string {
-  const status = getPlayerRetirementStatus(playedUntilYear)
+function getRetirementTooltipText(pick: DraftPick): string {
+  const status = getPlayerStatus(pick)
+  const playedUntilYear = pick.played_until_year ?? undefined
+  const playsFor = pick.plays_for
+  if (status === 'never-debuted') return 'Never debuted in the NBA'
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
       // Get the full team display name
@@ -1065,23 +1071,30 @@ function getRetirementTooltipText(playedUntilYear: number | undefined, playsFor:
 
 
 
+// Negated (IS NOT) filters get an "(excluded)" suffix so the share/export
+// tooltips read uniformly regardless of which filter is negated.
+function filterLabel(base: string, excluded: boolean): string {
+  return excluded ? `${base} (excluded)` : base
+}
+
 // Helper function to describe active filters
 function getActiveFiltersDescription(): string {
   const filters: string[] = []
-  
+
   if (props.selectedTeam.length > 0) {
     const teamNames = props.selectedTeam.map(t => getTeamFullName(t)).join(', ')
-    filters.push(`Drafted by: ${teamNames}`)
+    filters.push(`${filterLabel('Drafted by', props.excludeModes.team)}: ${teamNames}`)
   }
 
   if (props.selectedOnceOwnedBy.length > 0) {
     const teamNames = props.selectedOnceOwnedBy.map(t => getTeamFullName(t)).join(', ')
-    filters.push(`Once owned by: ${teamNames}`)
+    const base = props.onceOwnedByScope === 'first' ? 'First owned by' : 'Once owned by'
+    filters.push(`${filterLabel(base, props.excludeModes.onceOwnedBy)}: ${teamNames}`)
   }
 
   if (props.selectedPlaysFor.length > 0) {
     const teamNames = props.selectedPlaysFor.map(t => getTeamFullName(t)).join(', ')
-    filters.push(`Currently plays for: ${teamNames}`)
+    filters.push(`${filterLabel('Currently plays for', props.excludeModes.playsFor)}: ${teamNames}`)
   }
   
   if (!props.useYearRange && props.selectedYear !== null) {
@@ -1100,15 +1113,15 @@ function getActiveFiltersDescription(): string {
   }
 
   if (props.preDraftTeamSearch.length > 0) {
-    filters.push(`Drafted from: ${props.preDraftTeamSearch.slice(0, 2).join(', ')}${props.preDraftTeamSearch.length > 2 ? '...' : ''}`)
+    filters.push(`${filterLabel('Drafted from', props.excludeModes.preDraftTeam)}: ${props.preDraftTeamSearch.slice(0, 2).join(', ')}${props.preDraftTeamSearch.length > 2 ? '...' : ''}`)
   }
 
   if (props.selectedDraftCountries.length > 0) {
     const names = props.selectedDraftCountries
-      .map((code) => code === NON_US_DRAFT_COUNTRY ? 'All non-US countries' : getFormattedCountryName(code))
+      .map((code) => getFormattedCountryName(code))
       .slice(0, 2)
       .join(', ')
-    filters.push(`Drafted from country: ${names}${props.selectedDraftCountries.length > 2 ? '...' : ''}`)
+    filters.push(`${filterLabel('Drafted from country', props.excludeModes.draftCountries)}: ${names}${props.selectedDraftCountries.length > 2 ? '...' : ''}`)
   }
 
   if (props.selectedPositions.length > 0) {
@@ -1141,7 +1154,7 @@ function getActiveFiltersDescription(): string {
   
   if (props.selectedNationalities && props.selectedNationalities.length > 0) {
     const countries = props.selectedNationalities.map(c => getFormattedCountryName(c)).slice(0, 2).join(', ')
-    filters.push(`Nationality: ${countries}${props.selectedNationalities.length > 2 ? '...' : ''}`)
+    filters.push(`${filterLabel('Nationality', props.excludeModes.nationalities)}: ${countries}${props.selectedNationalities.length > 2 ? '...' : ''}`)
   }
   
   if (props.playerSearch && props.playerSearch.trim() !== '') {
@@ -1743,7 +1756,7 @@ const shareTooltipText = computed(() => {
             <!-- Retired/Active Indicator - show team logo if active and plays for different team, otherwise show status icon -->
             <v-tooltip location="top">
               <template #activator="{ props: tooltipProps }">
-                <template v-if="getPlayerRetirementStatus(item.played_until_year) === 'active' && item.plays_for && getCanonicalTeam(item.plays_for, item.year) !== getCanonicalTeam(item.team, item.year)">
+                <template v-if="getPlayerStatus(item) === 'active' && item.plays_for && getCanonicalTeam(item.plays_for, item.year) !== getCanonicalTeam(item.team, item.year)">
                   <v-avatar
                     v-bind="tooltipProps"
                     size="16"
@@ -1761,19 +1774,19 @@ const shareTooltipText = computed(() => {
                 <v-icon
                   v-else
                   v-bind="tooltipProps"
-                  :icon="getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'mdi-account-off' : isRookie(item) ? 'mdi-account-plus' : getPlayerRetirementStatus(item.played_until_year) === 'active' ? 'mdi-account-check' : 'mdi-account-question'"
+                  :icon="getPlayerStatus(item) === 'never-debuted' ? 'mdi-account-clock' : getPlayerStatus(item) === 'retired' ? 'mdi-account-off' : isRookie(item) ? 'mdi-account-plus' : getPlayerStatus(item) === 'active' ? 'mdi-account-check' : 'mdi-account-question'"
                   size="16"
-                  :color="getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'grey' : isRookie(item) ? 'primary' : getPlayerRetirementStatus(item.played_until_year) === 'active' ? 'success' : 'warning'"
+                  :color="getPlayerStatus(item) === 'never-debuted' ? 'info' : getPlayerStatus(item) === 'retired' ? 'grey' : isRookie(item) ? 'primary' : getPlayerStatus(item) === 'active' ? 'success' : 'warning'"
                   class="player-status-icon"
                 />
               </template>
               <span v-if="isRookie(item)">
                 Rookie<template v-if="item.plays_for"> for the {{ getTeamDisplayName(item.plays_for, item.year) }}</template>
               </span>
-              <span v-else-if="getPlayerRetirementStatus(item.played_until_year) === 'active' && item.plays_for">
+              <span v-else-if="getPlayerStatus(item) === 'active' && item.plays_for">
                 Currently plays for the {{ getTeamDisplayName(item.plays_for, item.year) }}
               </span>
-              <span v-else>{{ getRetirementTooltipText(item.played_until_year, item.plays_for) }}</span>
+              <span v-else>{{ getRetirementTooltipText(item) }}</span>
             </v-tooltip>
             <!-- Awards Star Icon -->
             <v-tooltip v-if="item.awards && Object.keys(item.awards).length > 0" location="top">

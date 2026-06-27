@@ -12,6 +12,7 @@ import type { IconSet } from 'vuetify'
 import {
   mdiAccount,
   mdiAccountCheck,
+  mdiAccountClock,
   mdiAccountOff,
   mdiAccountQuestion,
   mdiAccountPlus,
@@ -63,6 +64,7 @@ import {
 const ICON_MAP: Record<string, string> = {
   'mdi-account': mdiAccount,
   'mdi-account-check': mdiAccountCheck,
+  'mdi-account-clock': mdiAccountClock,
   'mdi-account-off': mdiAccountOff,
   'mdi-account-question': mdiAccountQuestion,
   'mdi-account-plus': mdiAccountPlus,

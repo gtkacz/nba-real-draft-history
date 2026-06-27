@@ -1,6 +1,7 @@
 import { watch, onMounted, nextTick, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { TeamAbbreviation } from '@/types/team'
+import { NON_US_DRAFT_COUNTRY, US_DRAFT_COUNTRY } from '@/utils/draftCountry'
 import {
   YEAR_MIN,
   YEAR_MAX,
@@ -14,7 +15,13 @@ import {
   WEIGHT_MAX,
   YOS_MIN,
   YOS_MAX,
-  DEFAULT_ITEMS_PER_PAGE
+  DEFAULT_ITEMS_PER_PAGE,
+  DEFAULT_ONCE_OWNED_BY_SCOPE,
+  EXCLUDABLE_FILTER_KEYS,
+  createDefaultExcludeModes,
+  type ExcludableFilterKey,
+  type ExcludeModes,
+  type OnceOwnedByScope
 } from '@/constants/filters'
 
 type SortItem = { key: string; order: 'asc' | 'desc' }
@@ -40,6 +47,8 @@ interface FilterDefaults {
   selectedNationalities: string[]
   selectedAwards: Record<string, number>
   awardFilterMode: 'exclusive' | 'inclusive'
+  excludeModes: ExcludeModes
+  onceOwnedByScope: OnceOwnedByScope
   playerSearch: string
   sortBy: SortItem[]
   currentPage: number
@@ -67,6 +76,8 @@ const DEFAULT_FILTERS: FilterDefaults = {
   selectedNationalities: [],
   selectedAwards: {},
   awardFilterMode: 'exclusive',
+  excludeModes: createDefaultExcludeModes(),
+  onceOwnedByScope: DEFAULT_ONCE_OWNED_BY_SCOPE,
   playerSearch: '',
   sortBy: [
     { key: 'year', order: 'desc' },
@@ -98,6 +109,8 @@ export function useFilterUrlSync(
     selectedNationalities: Ref<string[]>
     selectedAwards: Ref<Record<string, number>>
     awardFilterMode: Ref<'exclusive' | 'inclusive'>
+    excludeModes: Ref<ExcludeModes>
+    onceOwnedByScope: Ref<OnceOwnedByScope>
     playerSearch: Ref<string>
     sortBy: Ref<SortItem[]>
     currentPage: Ref<number>
@@ -169,6 +182,24 @@ export function useFilterUrlSync(
     return [num1, num2]
   }
 
+  // Negated filters are serialized as a comma list of their keys (absent keys
+  // are regular/include mode).
+  function serializeExcludeModes(modes: ExcludeModes): string {
+    return EXCLUDABLE_FILTER_KEYS.filter((key) => modes[key]).join(',')
+  }
+
+  function deserializeExcludeModes(str: string | null | (string | null)[] | undefined): ExcludeModes {
+    const modes = createDefaultExcludeModes()
+    const raw = deserializeArray(str, 'string') as string[]
+    const valid = new Set<string>(EXCLUDABLE_FILTER_KEYS)
+    for (const key of raw) {
+      if (valid.has(key)) {
+        modes[key as ExcludableFilterKey] = true
+      }
+    }
+    return modes
+  }
+
   // Load filters from URL on mount
   function loadFiltersFromUrl() {
     isLoadingFromUrl = true
@@ -196,6 +227,8 @@ export function useFilterUrlSync(
       filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
       filters.selectedAwards.value = { ...DEFAULT_FILTERS.selectedAwards }
       filters.awardFilterMode.value = DEFAULT_FILTERS.awardFilterMode
+      filters.excludeModes.value = createDefaultExcludeModes()
+      filters.onceOwnedByScope.value = DEFAULT_FILTERS.onceOwnedByScope
       filters.playerSearch.value = DEFAULT_FILTERS.playerSearch
       filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
       filters.currentPage.value = DEFAULT_FILTERS.currentPage
@@ -273,10 +306,25 @@ export function useFilterUrlSync(
 
     // Load selectedDraftCountries
     if (query.draftCountries) {
-      const countries = deserializeArray(query.draftCountries, 'string')
-      if (countries.length > 0) {
-        filters.selectedDraftCountries.value = countries as string[]
+      const countries = deserializeArray(query.draftCountries, 'string') as string[]
+      if (countries.includes(NON_US_DRAFT_COUNTRY)) {
+        // Back-compat: the retired "all non-US countries" umbrella is now
+        // expressed as "Drafted From Country IS NOT United States".
+        filters.selectedDraftCountries.value = [US_DRAFT_COUNTRY]
+        filters.excludeModes.value = { ...filters.excludeModes.value, draftCountries: true }
+      } else if (countries.length > 0) {
+        filters.selectedDraftCountries.value = countries
       }
+    }
+
+    // Load exclude (negation) modes
+    if (query.exclude) {
+      filters.excludeModes.value = deserializeExcludeModes(query.exclude)
+    }
+
+    // Load onceOwnedByScope
+    if (query.ownedScope === 'any' || query.ownedScope === 'first') {
+      filters.onceOwnedByScope.value = query.ownedScope
     }
 
     // Load selectedPositions
@@ -526,6 +574,15 @@ export function useFilterUrlSync(
       query.awardMode = filters.awardFilterMode.value
     }
 
+    const excludeSerialized = serializeExcludeModes(filters.excludeModes.value)
+    if (excludeSerialized) {
+      query.exclude = excludeSerialized
+    }
+
+    if (filters.onceOwnedByScope.value !== DEFAULT_FILTERS.onceOwnedByScope) {
+      query.ownedScope = filters.onceOwnedByScope.value
+    }
+
     // Only add playerSearch if it's different from default (non-empty)
     if (filters.playerSearch.value && filters.playerSearch.value.trim() !== '') {
       query.playerSearch = filters.playerSearch.value.trim()
@@ -574,6 +631,8 @@ export function useFilterUrlSync(
       filters.selectedNationalities.value,
       filters.selectedAwards.value,
       filters.awardFilterMode.value,
+      filters.excludeModes.value,
+      filters.onceOwnedByScope.value,
       filters.sortBy.value,
       filters.currentPage.value,
       filters.itemsPerPage.value
@@ -636,6 +695,8 @@ export function useFilterUrlSync(
     filters.retiredFilter.value = DEFAULT_FILTERS.retiredFilter
     filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
     filters.selectedAwards.value = { ...DEFAULT_FILTERS.selectedAwards }
+    filters.excludeModes.value = createDefaultExcludeModes()
+    filters.onceOwnedByScope.value = DEFAULT_FILTERS.onceOwnedByScope
     filters.playerSearch.value = DEFAULT_FILTERS.playerSearch
     filters.sortBy.value = [...DEFAULT_FILTERS.sortBy]
     filters.currentPage.value = DEFAULT_FILTERS.currentPage

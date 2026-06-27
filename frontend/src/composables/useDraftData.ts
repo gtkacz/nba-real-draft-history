@@ -8,11 +8,11 @@ import { parseHeight } from '@/utils/parseHeight'
 import { getCanonicalTeam } from '@/utils/teamAliases'
 import { getTradeChainCanonicalTeams } from '@/utils/tradeChain'
 import { getCurrentSeasonStartYear } from '@/utils/season'
+import { getPlayerStatus } from '@/utils/playerStatus'
 import { useCountryData } from '@/composables/useCountryData'
 import {
   buildCountryNameToCode,
   resolveDraftCountryCode,
-  NON_US_DRAFT_COUNTRY,
   US_DRAFT_COUNTRY,
 } from '@/utils/draftCountry'
 import {
@@ -29,6 +29,10 @@ import {
   YOS_MIN,
   YOS_MAX,
   DEFAULT_ITEMS_PER_PAGE,
+  DEFAULT_ONCE_OWNED_BY_SCOPE,
+  createDefaultExcludeModes,
+  type ExcludeModes,
+  type OnceOwnedByScope,
 } from '@/constants/filters'
 
 const allDraftPicks = ref<DraftPick[]>([])
@@ -65,6 +69,12 @@ export function useDraftData() {
   const selectedAwards = ref<Record<string, number>>({}) // { awardName: minCount }
   const awardFilterMode = ref<'exclusive' | 'inclusive'>('exclusive')
   const playerSearch = ref<string>('')
+
+  // Per-filter negation: when a key is true that membership filter excludes its
+  // selected values instead of including them. Each filter is independently
+  // regular or negated; the two never apply at once for the same filter.
+  const excludeModes = ref<ExcludeModes>(createDefaultExcludeModes())
+  const onceOwnedByScope = ref<OnceOwnedByScope>(DEFAULT_ONCE_OWNED_BY_SCOPE)
 
   // Debounced version of playerSearch to avoid filtering on every keystroke
   const debouncedPlayerSearch = ref<string>(playerSearch.value)
@@ -209,40 +219,57 @@ export function useDraftData() {
   const filteredData = computed(() => {
     let filtered = allDraftPicks.value
 
-    // Team filter - multiple selection
+    // Team filter ("Drafted By") - the team is always present, so negation is the
+    // plain complement of the selection.
     if (selectedTeam.value.length > 0) {
-      filtered = filtered.filter((pick) => selectedTeam.value.includes(pick.team as TeamAbbreviation))
+      const exclude = excludeModes.value.team
+      filtered = filtered.filter((pick) => {
+        const isMatch = selectedTeam.value.includes(pick.team as TeamAbbreviation)
+        return exclude ? !isMatch : isMatch
+      })
     }
 
-    // "Once owned by" filter - match picks whose trade chain includes any selected
-    // team, excluding the team that ultimately drafted the pick.
+    // "Once owned by" filter - inspect a pick's trade chain. In 'any' scope the
+    // selected team can appear anywhere among the prior owners; in 'first' scope
+    // it must be the chain's original owner. Negation flips the match. Picks that
+    // were never traded carry no ownership history and so are never returned by
+    // this filter, in either mode.
     if (selectedOnceOwnedBy.value.length > 0) {
       const selectedCanonical = selectedOnceOwnedBy.value.map((team) => getCanonicalTeam(team))
+      const exclude = excludeModes.value.onceOwnedBy
+      const scope = onceOwnedByScope.value
       filtered = filtered.filter((pick) => {
         const chain = getTradeChainCanonicalTeams(pick.draftTrades, pick.year)
         if (chain.length === 0) return false
         const drafter = getCanonicalTeam(pick.team, pick.year)
-        const priorOwners = chain.filter((team) => team !== drafter)
-        return selectedCanonical.some((team) => priorOwners.includes(team))
+        let isMatch: boolean
+        if (scope === 'first') {
+          // The original owner is the head of the chain; ignore the degenerate
+          // case where that is also the drafting team.
+          const firstOwner = chain[0]
+          isMatch = firstOwner !== drafter && selectedCanonical.includes(firstOwner)
+        } else {
+          const priorOwners = chain.filter((team) => team !== drafter)
+          isMatch = selectedCanonical.some((team) => priorOwners.includes(team))
+        }
+        return exclude ? !isMatch : isMatch
       })
     }
 
-    // Currently plays for filter - multiple selection
-    // Only includes active players (excludes retired players)
+    // Currently plays for filter - restricted to active players who have a known
+    // current team. In include mode that team must be one of the selection; in
+    // exclude mode it must be a different team (retired players and players with
+    // no current team are outside this filter's domain in both modes).
     if (selectedPlaysFor.value.length > 0) {
+      const exclude = excludeModes.value.playsFor
+      const seasonStartYear = getCurrentSeasonStartYear()
       filtered = filtered.filter((pick) => {
-        // First check if player is active (not retired)
-        const seasonStartYear = getCurrentSeasonStartYear()
-        const isRetired =
-          pick.played_until_year !== undefined && pick.played_until_year < seasonStartYear
-        if (isRetired) return false
+        if (getPlayerStatus(pick, seasonStartYear) !== 'active') return false
 
-        // Check if plays_for exists, is not empty, and matches one of the selected teams
         const playsFor = pick.plays_for?.trim()
-        if (playsFor && playsFor !== '') {
-          return selectedPlaysFor.value.includes(playsFor as TeamAbbreviation)
-        }
-        return false
+        if (!playsFor) return false
+        const isMatch = selectedPlaysFor.value.includes(playsFor as TeamAbbreviation)
+        return exclude ? !isMatch : isMatch
       })
     }
 
@@ -292,23 +319,27 @@ export function useDraftData() {
       })
     }
 
-    // Pre-draft team filter - multiple selection
+    // Pre-draft team filter ("Drafted From") - restricted to picks with a known
+    // pre-draft team; negation keeps those whose team is not in the selection.
     if (preDraftTeamSearch.value.length > 0) {
-      filtered = filtered.filter(
-        (pick) => pick.preDraftTeam && preDraftTeamSearch.value.includes(pick.preDraftTeam),
-      )
+      const exclude = excludeModes.value.preDraftTeam
+      filtered = filtered.filter((pick) => {
+        if (!pick.preDraftTeam) return false
+        const isMatch = preDraftTeamSearch.value.includes(pick.preDraftTeam)
+        return exclude ? !isMatch : isMatch
+      })
     }
 
-    // Drafted-from country filter - explicit countries plus an optional
-    // "all non-US countries" umbrella; the two are OR-combined.
+    // Drafted-from country filter - every pick resolves to a country code (US by
+    // default), so negation is the plain complement. Excluding the US therefore
+    // yields all non-US origins, which replaces the former "all non-US" umbrella.
     if (selectedDraftCountries.value.length > 0) {
-      const wantsNonUs = selectedDraftCountries.value.includes(NON_US_DRAFT_COUNTRY)
-      const explicitCodes = selectedDraftCountries.value.filter((code) => code !== NON_US_DRAFT_COUNTRY)
+      const exclude = excludeModes.value.draftCountries
       const teamCountry = draftCountryByTeam.value
       filtered = filtered.filter((pick) => {
         const code = teamCountry.get(pick.preDraftTeam ?? '') ?? US_DRAFT_COUNTRY
-        if (explicitCodes.includes(code)) return true
-        return wantsNonUs && code !== US_DRAFT_COUNTRY
+        const isMatch = selectedDraftCountries.value.includes(code)
+        return exclude ? !isMatch : isMatch
       })
     }
 
@@ -387,11 +418,9 @@ export function useDraftData() {
     if (retiredFilter.value !== 'all') {
       const seasonStartYear = getCurrentSeasonStartYear()
       filtered = filtered.filter((pick) => {
-        // Exclude players with unknown retirement status (played_until_year is undefined)
-        if (pick.played_until_year === undefined) {
-          return false
-        }
-        const isRetired = pick.played_until_year < seasonStartYear
+        const status = getPlayerStatus(pick, seasonStartYear)
+        if (status === 'unknown' || status === 'never-debuted') return false
+        const isRetired = status === 'retired'
         if (retiredFilter.value === 'retired') {
           return isRetired
         } else {
@@ -401,12 +430,16 @@ export function useDraftData() {
       })
     }
 
-    // Nationality filter - multiple selection
+    // Nationality filter - restricted to picks with a known nationality; negation
+    // keeps those whose nationality is not in the selection.
     if (selectedNationalities.value.length > 0) {
+      const exclude = excludeModes.value.nationalities
       filtered = filtered.filter((pick) => {
         if (!pick.origin_country) return false
         const normalizedCountry = pick.origin_country.toLowerCase().trim()
-        return selectedNationalities.value.includes(normalizedCountry)
+        if (normalizedCountry === '') return false
+        const isMatch = selectedNationalities.value.includes(normalizedCountry)
+        return exclude ? !isMatch : isMatch
       })
     }
 
@@ -492,6 +525,8 @@ export function useDraftData() {
     selectedNationalities,
     selectedAwards,
     awardFilterMode,
+    excludeModes,
+    onceOwnedByScope,
     playerSearch,
     sortBy,
     currentPage,

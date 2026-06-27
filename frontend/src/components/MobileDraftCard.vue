@@ -4,7 +4,7 @@ import type { DraftPick } from '@/types/draft'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getCountryCode } from '@/utils/countryCodeConverter'
 import { useTeamData } from '@/composables/useTeamData'
-import { getCurrentSeasonStartYear } from '@/utils/season'
+import { getPlayerStatus } from '@/utils/playerStatus'
 
 interface MobileDraftCardProps {
   item: DraftPick
@@ -108,19 +108,17 @@ function getPositionColor(position: string): string {
   }
 }
 
-function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active' | 'retired' | 'unknown' {
-  if (playedUntilYear === undefined) return 'unknown'
-  return playedUntilYear < getCurrentSeasonStartYear() ? 'retired' : 'active'
-}
-
 // A rookie is an active player who has not yet completed an NBA season. Purely
 // visual; rookies still count as active players for filtering.
 function isRookie(pick: DraftPick): boolean {
-  return getPlayerRetirementStatus(pick.played_until_year) === 'active' && pick.yearsOfService === 0
+  return getPlayerStatus(pick) === 'active' && pick.yearsOfService === 0
 }
 
-function getRetirementText(playedUntilYear: number | undefined, playsFor: string | undefined): string {
-  const status = getPlayerRetirementStatus(playedUntilYear)
+function getRetirementText(pick: DraftPick): string {
+  const status = getPlayerStatus(pick)
+  const playedUntilYear = pick.played_until_year ?? undefined
+  const playsFor = pick.plays_for
+  if (status === 'never-debuted') return 'Never debuted in the NBA'
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
       return getTeamDisplayName(playsFor, playedUntilYear)
@@ -225,7 +223,7 @@ function formatAwardName(award: string): string {
               :class="`fi fi-${getCountryCode(item.origin_country)}`"
               class="player-flag-icon"
             />
-            <template v-if="getPlayerRetirementStatus(item.played_until_year) === 'active' && item.plays_for && getCanonicalTeam(item.plays_for, item.year) !== getCanonicalTeam(item.team, item.year)">
+            <template v-if="getPlayerStatus(item) === 'active' && item.plays_for && getCanonicalTeam(item.plays_for, item.year) !== getCanonicalTeam(item.team, item.year)">
               <v-avatar
                 size="16"
                 rounded="0"
@@ -240,7 +238,13 @@ function formatAwardName(award: string): string {
               </v-avatar>
             </template>
             <v-icon
-              v-else-if="getPlayerRetirementStatus(item.played_until_year) === 'retired'"
+              v-else-if="getPlayerStatus(item) === 'never-debuted'"
+              icon="mdi-account-clock"
+              size="16"
+              color="info"
+            />
+            <v-icon
+              v-else-if="getPlayerStatus(item) === 'retired'"
               icon="mdi-account-off"
               size="16"
               color="grey"
@@ -252,7 +256,7 @@ function formatAwardName(award: string): string {
               color="primary"
             />
             <v-icon
-              v-else-if="getPlayerRetirementStatus(item.played_until_year) === 'active'"
+              v-else-if="getPlayerStatus(item) === 'active'"
               icon="mdi-account-check"
               size="16"
               color="success"
@@ -369,12 +373,12 @@ function formatAwardName(award: string): string {
           </div>
 
           <!-- Retirement/Current Team Status -->
-          <div v-if="item.played_until_year !== undefined || item.plays_for" class="mb-3">
+          <div v-if="getPlayerStatus(item) !== 'unknown'" class="mb-3">
             <div class="text-caption text-medium-emphasis mb-1">
-              {{ getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'Retired - Last Played For' : 'Currently Plays For' }}
+              {{ getPlayerStatus(item) === 'never-debuted' ? 'NBA Status' : getPlayerStatus(item) === 'retired' ? 'Retired - Last Played For' : 'Currently Plays For' }}
             </div>
             <div class="text-body-1 font-weight-medium">
-              {{ getRetirementText(item.played_until_year, item.plays_for) }}
+              {{ getRetirementText(item) }}
             </div>
           </div>
 
@@ -509,4 +513,3 @@ function formatAwardName(award: string): string {
   }
 }
 </style>
-
