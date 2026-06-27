@@ -65,7 +65,7 @@ const selectedPositions = defineModel<string[]>('selectedPositions', { default: 
 const selectedRounds = defineModel<(number | string)[]>('selectedRounds', { default: () => [] })
 const tradeFilter = defineModel<'all' | 'traded' | 'not-traded'>('tradeFilter', { default: 'all' })
 const retiredFilter = defineModel<'all' | 'retired' | 'not-retired'>('retiredFilter', { default: 'all' })
-const forfeitedFilter = defineModel<'hide' | 'show' | 'only'>('forfeitedFilter', { default: 'hide' })
+const forfeitedFilter = defineModel<'hide' | 'show' | 'only'>('forfeitedFilter', { default: 'show' })
 const useYearRange = defineModel<boolean>('useYearRange', { default: true })
 const yearRange = defineModel<[number, number]>('yearRange', { default: () => [YEAR_MIN, YEAR_MAX] })
 const selectedYear = defineModel<number | null>('selectedYear', { default: null })

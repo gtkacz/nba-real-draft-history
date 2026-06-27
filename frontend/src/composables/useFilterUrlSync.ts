@@ -74,7 +74,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
   yearsOfServiceRange: [YOS_MIN, YOS_MAX],
   tradeFilter: 'all',
   retiredFilter: 'all',
-  forfeitedFilter: 'hide',
+  forfeitedFilter: 'show',
   selectedNationalities: [],
   selectedAwards: {},
   awardFilterMode: 'exclusive',

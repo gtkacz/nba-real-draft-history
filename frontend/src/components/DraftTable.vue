@@ -102,7 +102,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   yearsOfServiceRange: () => [YOS_MIN, YOS_MAX],
   tradeFilter: () => 'all',
   retiredFilter: () => 'all',
-  forfeitedFilter: () => 'hide',
+  forfeitedFilter: () => 'show',
   selectedNationalities: () => [],
   selectedAwards: () => ({}),
   awardFilterMode: () => 'exclusive',
@@ -578,11 +578,15 @@ const items = computed(() => {
 })
 
 // Scoreboard-style tween so the pick count animates when the result set changes.
+// Forfeited picks are absences, not draftees, so they are excluded from the
+// headline "picks" tally even when shown in the table.
+const pickCount = computed(() => items.value.reduce((total, item) => total + (item.isForfeited ? 0 : 1), 0))
+
 const displayCount = ref(0)
 let countRaf = 0
 
 watch(
-  () => items.value.length,
+  () => pickCount.value,
   (target) => {
     cancelAnimationFrame(countRaf)
     const start = displayCount.value
@@ -668,8 +672,8 @@ const hasActiveFilters = computed(() => {
   // Retired filter active
   if (props.retiredFilter !== 'all') return true
 
-  // Forfeited-picks filter active
-  if (props.forfeitedFilter !== 'hide') return true
+  // Forfeited-picks filter active (showing alongside is the default)
+  if (props.forfeitedFilter !== 'show') return true
 
   // Nationality filter active
   if (props.selectedNationalities && props.selectedNationalities.length > 0) return true
@@ -702,7 +706,7 @@ function getActiveFiltersCount(): number {
   if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== YOS_MIN || props.yearsOfServiceRange[1] !== YOS_MAX)) count++
   if (props.tradeFilter !== 'all') count++
   if (props.retiredFilter !== 'all') count++
-  if (props.forfeitedFilter !== 'hide') count++
+  if (props.forfeitedFilter !== 'show') count++
   if (props.selectedNationalities && props.selectedNationalities.length > 0) count++
   if (props.selectedAwards && Object.keys(props.selectedAwards).length > 0) count++
   if (props.playerSearch && props.playerSearch.trim() !== '') count++
@@ -1164,8 +1168,8 @@ function getActiveFiltersDescription(): string {
     filters.push(`Retirement: ${props.retiredFilter === 'retired' ? 'Retired only' : 'Active only'}`)
   }
 
-  if (props.forfeitedFilter !== 'hide') {
-    filters.push(`Forfeited picks: ${props.forfeitedFilter === 'only' ? 'Only forfeited' : 'Shown'}`)
+  if (props.forfeitedFilter !== 'show') {
+    filters.push(`Forfeited picks: ${props.forfeitedFilter === 'only' ? 'Only forfeited' : 'Hidden'}`)
   }
 
   if (props.selectedNationalities && props.selectedNationalities.length > 0) {
@@ -1702,21 +1706,24 @@ const shareTooltipText = computed(() => {
       <template #item.player="{ item }">
         <div v-if="item.isForfeited" class="d-flex align-center forfeited-cell">
           <v-icon icon="mdi-cancel" size="20" color="error" class="mr-2 flex-shrink-0" />
-          <div class="d-flex flex-column">
+          <div class="d-flex flex-column forfeited-text">
             <span class="font-weight-bold">Forfeited pick</span>
-            <span class="text-caption text-medium-emphasis forfeited-reason">
-              {{ item.forfeitReason }}
+            <div class="d-flex align-center forfeited-reason-row">
+              <span
+                class="text-caption text-medium-emphasis forfeited-reason"
+                :title="item.forfeitReason"
+              >{{ item.forfeitReason }}</span>
               <a
                 v-if="item.forfeitSource"
                 :href="item.forfeitSource"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="forfeited-source"
+                class="forfeited-source ml-1 flex-shrink-0"
                 @click.stop
               >
                 <v-icon icon="mdi-open-in-new" size="12" />
               </a>
-            </span>
+            </div>
           </div>
         </div>
         <div v-else class="d-flex align-center player-cell">
@@ -2030,15 +2037,24 @@ const shareTooltipText = computed(() => {
     font-style: italic;
   }
 
+  // Keep the forfeited cell to two lines (title + single-line reason) so its row
+  // matches the height of player rows; the full reason stays available on hover.
+  .forfeited-cell,
+  .forfeited-text,
+  .forfeited-reason-row {
+    min-width: 0;
+  }
+
   .forfeited-reason {
-    white-space: normal;
     font-style: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .forfeited-source {
     color: inherit;
     text-decoration: none;
-    margin-left: 2px;
     vertical-align: middle;
   }
 

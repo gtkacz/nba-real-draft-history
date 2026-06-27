@@ -151,7 +151,7 @@ export function useDraftData() {
   const yearsOfServiceRange = ref<[number, number]>([YOS_MIN, YOS_MAX])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
   const retiredFilter = ref<'all' | 'retired' | 'not-retired'>('all')
-  const forfeitedFilter = ref<'hide' | 'show' | 'only'>('hide')
+  const forfeitedFilter = ref<'hide' | 'show' | 'only'>('show')
   const selectedNationalities = ref<string[]>([])
   const selectedAwards = ref<Record<string, number>>({}) // { awardName: minCount }
   const awardFilterMode = ref<'exclusive' | 'inclusive'>('exclusive')
