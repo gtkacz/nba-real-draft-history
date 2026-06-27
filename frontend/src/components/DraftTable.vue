@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, watch, onUnmounted } from 'vue'
+import { computed, ref, onMounted, watch, onUnmounted, type ComponentPublicInstance } from 'vue'
 import { useDisplay } from 'vuetify'
 import type { DraftPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
@@ -594,32 +594,16 @@ watch(
   }
 )
 
-// Mobile cards render just-in-time: an initial batch is shown and the next batch is
-// appended as a bottom sentinel scrolls into view, mirroring the desktop virtual
-// table's on-demand row loading instead of paginating.
-const MOBILE_BATCH_SIZE = 20
-const mobileLoadedCount = ref(MOBILE_BATCH_SIZE)
-const loadMoreSentinel = ref<HTMLElement | null>(null)
-let mobileLoadObserver: IntersectionObserver | null = null
+// The mobile card list is virtualized (v-virtual-scroll), mirroring the desktop
+// virtual table: only the cards filling the viewport stay mounted and DOM nodes are
+// recycled as you scroll, instead of accumulating every loaded card.
+const mobileScroller = ref<ComponentPublicInstance | null>(null)
 
-const mobileVisibleItems = computed(() => items.value.slice(0, mobileLoadedCount.value))
-const hasMoreMobileItems = computed(() => mobileLoadedCount.value < items.value.length)
-
-function loadMoreMobileItems() {
-  if (!hasMoreMobileItems.value) return
-  mobileLoadedCount.value = Math.min(mobileLoadedCount.value + MOBILE_BATCH_SIZE, items.value.length)
+// Stable per-row key so the virtualizer rebinds the correct card after filtering or
+// sorting, preventing a recycled card from showing the wrong row's expanded state.
+function mobileItemKey(item: DraftPick): string {
+  return `${item.year}-${item.pick}-${item.player}`
 }
-
-// Reset to the first batch whenever the filtered/sorted result set changes.
-watch(items, () => {
-  mobileLoadedCount.value = MOBILE_BATCH_SIZE
-})
-
-// Keep the observer pointed at the live sentinel node as it mounts and unmounts.
-watch(loadMoreSentinel, (el, prev) => {
-  if (prev) mobileLoadObserver?.unobserve(prev)
-  if (el) mobileLoadObserver?.observe(el)
-})
 
 // Check if any filters are active (non-default)
 const hasActiveFilters = computed(() => {
@@ -738,8 +722,12 @@ function getTableScrollEl(): HTMLElement | null {
 
 function handleScroll(event?: Event) {
   const target = event?.target
-  // Desktop: the virtual table scrolls inside its own wrapper.
-  if (target instanceof HTMLElement && target.classList.contains('v-table__wrapper')) {
+  // Both layouts scroll inside their own virtualized container: the desktop table's
+  // wrapper and the mobile card list's v-virtual-scroll.
+  if (
+    target instanceof HTMLElement &&
+    (target.classList.contains('v-table__wrapper') || target.classList.contains('v-virtual-scroll'))
+  ) {
     showBackToTop.value = target.scrollTop > 300
     return
   }
@@ -759,22 +747,17 @@ function handleScroll(event?: Event) {
 
 function scrollToTop() {
   getTableScrollEl()?.scrollTo({ top: 0, behavior: 'smooth' })
+  const mobileEl = mobileScroller.value?.$el
+  if (mobileEl instanceof HTMLElement) mobileEl.scrollTo({ top: 0, behavior: 'smooth' })
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 onMounted(() => {
   loadTeams()
-  // Capture phase so internal scroll containers (the virtual table) are observed too.
+  // Capture phase so the internal scroll containers (desktop table / mobile virtual
+  // scroller) are observed too, since scroll events don't bubble.
   window.addEventListener('scroll', handleScroll, true)
   handleScroll() // Check initial scroll position
-  // rootMargin pre-fetches the next batch before the sentinel is fully on screen.
-  mobileLoadObserver = new IntersectionObserver(
-    (entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) loadMoreMobileItems()
-    },
-    { rootMargin: '600px 0px' }
-  )
-  if (loadMoreSentinel.value) mobileLoadObserver.observe(loadMoreSentinel.value)
 })
 
 onUnmounted(() => {
@@ -782,7 +765,6 @@ onUnmounted(() => {
   window.removeEventListener('pointermove', onResizeMove)
   window.removeEventListener('pointerup', onResizeEnd)
   cancelAnimationFrame(countRaf)
-  mobileLoadObserver?.disconnect()
 })
 
 function getTeamLogoUrl(team: string, year?: number): string {
@@ -1518,24 +1500,23 @@ const shareTooltipText = computed(() => {
         <p class="text-body-2 text-medium-emphasis">Try adjusting your filters</p>
       </div>
 
-      <template v-else>
-        <MobileDraftCard
-          v-for="item in mobileVisibleItems"
-          :key="`${item.year}-${item.pick}-${item.player}`"
-          :item="item"
-          :show-player-measurements="showMeasurementsOnMobile"
-          @player-click="openPlayerCard"
-        />
-
-        <!-- JIT loader: appends the next batch as it scrolls into view. -->
-        <div
-          v-if="hasMoreMobileItems"
-          ref="loadMoreSentinel"
-          class="mobile-load-sentinel"
-        >
-          <v-progress-circular indeterminate color="primary" size="28" />
-        </div>
-      </template>
+      <v-virtual-scroll
+        v-else
+        ref="mobileScroller"
+        :items="items"
+        :item-key="mobileItemKey"
+        class="mobile-virtual-scroll"
+      >
+        <template #default="{ item }">
+          <div class="mobile-card-slot">
+            <MobileDraftCard
+              :item="item"
+              :show-player-measurements="showMeasurementsOnMobile"
+              @player-click="openPlayerCard"
+            />
+          </div>
+        </template>
+      </v-virtual-scroll>
     </div>
 
     <!-- Desktop Table View -->
