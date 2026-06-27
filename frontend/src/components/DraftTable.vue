@@ -2416,8 +2416,8 @@ const shareTooltipText = computed(() => {
   }
 
   @media (max-width: 959px) {
-    bottom: 16px;
-    right: 16px;
+    bottom: calc(36px + env(safe-area-inset-bottom));
+    right: calc(24px + env(safe-area-inset-right));
     min-width: 56px;
     min-height: 56px;
   }
