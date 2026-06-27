@@ -700,9 +700,11 @@ function getActiveFiltersCount(): number {
   return count
 }
 
-// Check if exactly one team is selected
+// Check if exactly one team is selected. A negated team filter excludes that
+// team rather than scoping to it, so it must not drive the "Real <team> Draft
+// History" header/logo.
 const singleSelectedTeam = computed(() => {
-  if (props.selectedTeam.length === 1) {
+  if (props.selectedTeam.length === 1 && !props.excludeModes.team) {
     return props.selectedTeam[0]
   }
   return null

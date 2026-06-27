@@ -247,7 +247,10 @@ export function useDraftData() {
           // The original owner is the head of the chain; ignore the degenerate
           // case where that is also the drafting team.
           const firstOwner = chain[0]
-          isMatch = firstOwner !== drafter && selectedCanonical.includes(firstOwner)
+          isMatch =
+            firstOwner !== undefined &&
+            firstOwner !== drafter &&
+            selectedCanonical.includes(firstOwner)
         } else {
           const priorOwners = chain.filter((team) => team !== drafter)
           isMatch = selectedCanonical.some((team) => priorOwners.includes(team))

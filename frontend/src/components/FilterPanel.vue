@@ -165,7 +165,7 @@ function handleAwardCountChange(award: string, count: number) {
             <FilterModeToggle
               v-if="selectedTeam.length > 0"
               :excluded="isExcluded('team')"
-              :mobile="mobile"
+              :mobile="mobile ?? false"
               @toggle="toggleExclude('team')"
             />
             <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
@@ -231,7 +231,7 @@ function handleAwardCountChange(award: string, count: number) {
             <FilterModeToggle
               v-if="selectedPlaysFor.length > 0"
               :excluded="isExcluded('playsFor')"
-              :mobile="mobile"
+              :mobile="mobile ?? false"
               @toggle="toggleExclude('playsFor')"
             />
             <div class="team-logo-container mr-2" style="width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
@@ -298,7 +298,7 @@ function handleAwardCountChange(award: string, count: number) {
             <FilterModeToggle
               v-if="selectedNationalities.length > 0"
               :excluded="isExcluded('nationalities')"
-              :mobile="mobile"
+              :mobile="mobile ?? false"
               @toggle="toggleExclude('nationalities')"
             />
             <v-icon v-if="!mobile" icon="mdi-flag" size="20" class="mr-2" />
@@ -361,7 +361,7 @@ function handleAwardCountChange(award: string, count: number) {
             <FilterModeToggle
               v-if="preDraftTeamSearch.length > 0"
               :excluded="isExcluded('preDraftTeam')"
-              :mobile="mobile"
+              :mobile="mobile ?? false"
               @toggle="toggleExclude('preDraftTeam')"
             />
             <v-icon icon="mdi-school" size="20" class="mr-2" />
@@ -391,7 +391,7 @@ function handleAwardCountChange(award: string, count: number) {
             <FilterModeToggle
               v-if="selectedDraftCountries.length > 0"
               :excluded="isExcluded('draftCountries')"
-              :mobile="mobile"
+              :mobile="mobile ?? false"
               @toggle="toggleExclude('draftCountries')"
             />
             <v-icon icon="mdi-earth" size="20" class="mr-2" />
@@ -454,7 +454,7 @@ function handleAwardCountChange(award: string, count: number) {
             <FilterModeToggle
               v-if="selectedOnceOwnedBy.length > 0"
               :excluded="isExcluded('onceOwnedBy')"
-              :mobile="mobile"
+              :mobile="mobile ?? false"
               @toggle="toggleExclude('onceOwnedBy')"
             />
             <v-icon icon="mdi-swap-horizontal" size="20" class="mr-2" />

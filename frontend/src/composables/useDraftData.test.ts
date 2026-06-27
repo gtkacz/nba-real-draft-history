@@ -171,3 +171,155 @@ describe('useDraftData loadDraftData', () => {
     expect(draftData.error.value).toBe('Failed to fetch draft_history.json: 404')
   })
 })
+
+describe('useDraftData negation filters', () => {
+  beforeEach(() => {
+    vi.stubGlobal('fetch', vi.fn())
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
+    vi.restoreAllMocks()
+  })
+
+  async function loadPicks(picks: Record<string, unknown>[]) {
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => picks,
+    } as unknown as Response)
+    const draftData = useDraftData()
+    await draftData.loadDraftData()
+    return draftData
+  }
+
+  function players(draftData: Awaited<ReturnType<typeof loadPicks>>): string[] {
+    return draftData.filteredData.value.map((p) => p.player as string)
+  }
+
+  it('excludes the selected team when "Drafted By" is negated', async () => {
+    const draftData = await loadPicks([
+      { year: 2015, round: 1, pick: 1, player: 'A', team: 'DAL' },
+      { year: 2015, round: 1, pick: 2, player: 'B', team: 'BOS' },
+    ])
+
+    draftData.selectedTeam.value = ['DAL']
+    expect(players(draftData)).toEqual(['A'])
+
+    draftData.excludeModes.value = { ...draftData.excludeModes.value, team: true }
+    expect(players(draftData)).toEqual(['B'])
+  })
+
+  it('combines an include filter with a negated filter (plays for CHI, NOT drafted by CHI)', async () => {
+    const draftData = await loadPicks([
+      { year: 2015, round: 1, pick: 1, player: 'HomegrownBull', team: 'CHI', plays_for: 'CHI', played_until_year: 2999 },
+      { year: 2015, round: 1, pick: 2, player: 'TradedToBull', team: 'LAL', plays_for: 'CHI', played_until_year: 2999 },
+    ])
+
+    draftData.selectedPlaysFor.value = ['CHI']
+    draftData.selectedTeam.value = ['CHI']
+    draftData.excludeModes.value = { ...draftData.excludeModes.value, team: true }
+
+    expect(players(draftData)).toEqual(['TradedToBull'])
+  })
+
+  it('"Currently Plays For" negation keeps only active players on another team', async () => {
+    const draftData = await loadPicks([
+      { year: 2015, round: 1, pick: 1, player: 'ActiveDAL', team: 'DAL', plays_for: 'DAL', played_until_year: 2999 },
+      { year: 2015, round: 1, pick: 2, player: 'ActiveBOS', team: 'BOS', plays_for: 'BOS', played_until_year: 2999 },
+      { year: 2015, round: 1, pick: 3, player: 'RetiredDAL', team: 'DAL', plays_for: 'DAL', played_until_year: 2000 },
+    ])
+
+    draftData.selectedPlaysFor.value = ['DAL']
+    draftData.excludeModes.value = { ...draftData.excludeModes.value, playsFor: true }
+
+    // Active player on another team survives; the retired player does not.
+    expect(players(draftData)).toEqual(['ActiveBOS'])
+  })
+
+  it('excludes the US to yield all non-US draft origins', async () => {
+    const draftData = await loadPicks([
+      { year: 2015, round: 1, pick: 1, player: 'Foreign', team: 'OKC', preDraftTeam: 'Anadolu Efes (Turkey)' },
+      { year: 2015, round: 1, pick: 2, player: 'Domestic', team: 'DUKE', preDraftTeam: 'Duke' },
+    ])
+
+    draftData.selectedDraftCountries.value = ['us']
+    expect(players(draftData)).toEqual(['Domestic'])
+
+    draftData.excludeModes.value = { ...draftData.excludeModes.value, draftCountries: true }
+    expect(players(draftData)).toEqual(['Foreign'])
+  })
+
+  it('negating Nationality keeps only known, non-matching nationalities', async () => {
+    const draftData = await loadPicks([
+      { year: 2015, round: 1, pick: 1, player: 'American', team: 'DAL', origin_country: 'USA' },
+      { year: 2015, round: 1, pick: 2, player: 'Canadian', team: 'TOR', origin_country: 'Canada' },
+      { year: 2015, round: 1, pick: 3, player: 'Unknown', team: 'BOS', origin_country: '' },
+    ])
+
+    draftData.selectedNationalities.value = ['usa']
+    draftData.excludeModes.value = { ...draftData.excludeModes.value, nationalities: true }
+
+    expect(players(draftData)).toEqual(['Canadian'])
+  })
+})
+
+describe('useDraftData "Once Owned By" scope', () => {
+  beforeEach(() => {
+    vi.stubGlobal('fetch', vi.fn())
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
+    vi.restoreAllMocks()
+  })
+
+  async function loadChainPicks() {
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => [
+        // Chain WAS -> NYK -> OKC: first owner WAS, NYK is a middle owner.
+        { year: 2015, round: 1, pick: 1, player: 'MultiHop', team: 'OKC', draftTrades: 'WAS to NYK NYK to OKC' },
+        // Chain BOS -> MIA: first owner BOS, no NYK involvement.
+        { year: 2015, round: 1, pick: 2, player: 'OtherChain', team: 'MIA', draftTrades: 'BOS to MIA' },
+        // Never traded: carries no ownership history.
+        { year: 2015, round: 1, pick: 3, player: 'NeverTraded', team: 'LAL', draftTrades: null },
+      ],
+    } as unknown as Response)
+    const draftData = useDraftData()
+    await draftData.loadDraftData()
+    return draftData
+  }
+
+  function players(draftData: Awaited<ReturnType<typeof loadChainPicks>>): string[] {
+    return draftData.filteredData.value.map((p) => p.player as string)
+  }
+
+  it('matches a middle owner only in "any" scope, not "first"', async () => {
+    const draftData = await loadChainPicks()
+    draftData.selectedOnceOwnedBy.value = ['NYK']
+
+    draftData.onceOwnedByScope.value = 'any'
+    expect(players(draftData)).toEqual(['MultiHop'])
+
+    draftData.onceOwnedByScope.value = 'first'
+    expect(players(draftData)).toEqual([])
+  })
+
+  it('matches the original owner in "first" scope', async () => {
+    const draftData = await loadChainPicks()
+    draftData.selectedOnceOwnedBy.value = ['WAS']
+    draftData.onceOwnedByScope.value = 'first'
+    expect(players(draftData)).toEqual(['MultiHop'])
+  })
+
+  it('negation keeps traded picks that do not match, but never-traded picks stay out', async () => {
+    const draftData = await loadChainPicks()
+    draftData.selectedOnceOwnedBy.value = ['NYK']
+    draftData.onceOwnedByScope.value = 'any'
+    draftData.excludeModes.value = { ...draftData.excludeModes.value, onceOwnedBy: true }
+
+    // MultiHop is excluded (owned by NYK); OtherChain survives; NeverTraded has no
+    // ownership history and is not returned by the ownership filter in either mode.
+    expect(players(draftData)).toEqual(['OtherChain'])
+  })
+})

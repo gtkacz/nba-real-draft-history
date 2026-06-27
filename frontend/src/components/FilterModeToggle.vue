@@ -7,10 +7,16 @@ defineProps<{
 
 const emit = defineEmits<{ toggle: [] }>()
 
-// The pill lives inside an autocomplete/select prepend-inner slot; without
-// swallowing the event the surrounding field would open its menu or steal focus
-// when the operator is tapped.
-function onActivate(event: Event) {
+// The pill lives inside an autocomplete/select prepend-inner slot. Suppress the
+// mousedown so the surrounding field does not open its menu or steal focus, but
+// do NOT toggle here — otherwise mousedown + click would fire the toggle twice
+// and cancel out. The click handler alone owns the state change.
+function onMousedown(event: Event) {
+  event.stopPropagation()
+  event.preventDefault()
+}
+
+function onClick(event: Event) {
   event.stopPropagation()
   event.preventDefault()
   emit('toggle')
@@ -31,8 +37,8 @@ function onActivate(event: Event) {
         ? 'Excluding the selected values — click to include instead'
         : 'Including the selected values — click to exclude instead'
     "
-    @mousedown="onActivate"
-    @click="onActivate"
+    @mousedown="onMousedown"
+    @click="onClick"
   >
     {{ excluded ? 'IS NOT' : 'IS' }}
   </button>
