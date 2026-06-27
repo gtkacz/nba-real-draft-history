@@ -10,10 +10,12 @@ from pathlib import Path
 import pandas as pd
 
 from backend.python.services.draft_history_builder import (
+    apply_espn_trade_overrides,
     attach_awards,
     build_draft_history_json,
     compute_data_version,
     enrich_draft_history,
+    load_espn_trades,
     load_raw_draft_history,
     resolve_owning_rows,
     to_draft_pick_records,
@@ -488,6 +490,71 @@ class DraftHistoryBuilderTests(unittest.TestCase):
         self.assertEqual(len(resolved), 1)
         self.assertEqual(resolved.iloc[0]["team"], "DEN")
 
+
+    def _owning_row(self, pick: int, team: str, trades: str = "") -> dict[str, object]:
+        return {
+            "Year": 2025, "Round": 1, "Pick": pick, "Player": f"Player {pick}",
+            "Pos": "G", "HT": "6-4", "WT": 190, "Age": 20,
+            "Pre-Draft Team": "Example", "Class": "Fr *",
+            "Draft Trades": trades, "YOS": 0, "team": team,
+        }
+
+    def test_apply_espn_overrides_fills_via_chain_and_keeps_drafting_team(self) -> None:
+        """A 'from ... via ...' pick gains a chain ending at, and still owned by, the drafter."""
+        frame = pd.DataFrame([self._owning_row(15, "OKC")])
+        espn = {(2025, 1, 15): ["MIA", "LAC", "OKC"]}
+
+        result = apply_espn_trade_overrides(frame, espn)
+
+        self.assertEqual(result.iloc[0]["Draft Trades"], "MIA to LAC to OKC")
+        self.assertEqual(result.iloc[0]["team"], "OKC")
+
+    def test_apply_espn_overrides_reassigns_owner_for_traded_to(self) -> None:
+        """A 'Traded to X' pick is reassigned to X while the chain records the drafter."""
+        frame = pd.DataFrame([self._owning_row(13, "ATL")])
+        espn = {(2025, 1, 13): ["ATL", "NOP"]}
+
+        result = apply_espn_trade_overrides(frame, espn)
+
+        self.assertEqual(result.iloc[0]["Draft Trades"], "ATL to NOP")
+        self.assertEqual(result.iloc[0]["team"], "NOP")
+
+    def test_apply_espn_overrides_never_overwrites_existing_chain(self) -> None:
+        """RealGM's own trade data always wins over ESPN."""
+        frame = pd.DataFrame([self._owning_row(24, "SAC", trades="OKC to SAC")])
+        espn = {(2025, 1, 24): ["OKC", "POR"]}
+
+        result = apply_espn_trade_overrides(frame, espn)
+
+        self.assertEqual(result.iloc[0]["Draft Trades"], "OKC to SAC")
+        self.assertEqual(result.iloc[0]["team"], "SAC")
+
+    def test_apply_espn_overrides_is_noop_without_data(self) -> None:
+        """No ESPN cache means the frame is returned unchanged."""
+        frame = pd.DataFrame([self._owning_row(8, "ATL")])
+
+        result = apply_espn_trade_overrides(frame, {})
+
+        self.assertEqual(result.iloc[0]["Draft Trades"], "")
+        self.assertEqual(result.iloc[0]["team"], "ATL")
+
+    def test_load_espn_trades_returns_empty_when_absent(self) -> None:
+        """A missing or unset cache path loads as an empty mapping."""
+        self.assertEqual(load_espn_trades(None), {})
+        self.assertEqual(load_espn_trades(Path("/nonexistent/espn_draft_trades.json")), {})
+
+    def test_load_espn_trades_keys_by_year_round_pick(self) -> None:
+        """The cache loads into a (year, round, pick) -> chain mapping."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "espn.json"
+            path.write_text(
+                json.dumps([{"year": 2025, "round": 1, "pick": 15, "chain": ["MIA", "LAC", "OKC"]}]),
+                encoding="utf-8",
+            )
+
+            loaded = load_espn_trades(path)
+
+        self.assertEqual(loaded, {(2025, 1, 15): ["MIA", "LAC", "OKC"]})
 
     def test_compute_data_version_is_deterministic_and_content_sensitive(self) -> None:
         """The data version is a stable content hash that changes only when data changes."""

@@ -7,6 +7,7 @@ RAW_DIR = DATA_DIR / "raw"
 RAW_DRAFT_HISTORY_DIR = RAW_DIR / "draft_history"
 RAW_PLAYERS_PATH = RAW_DIR / "players_nba_data.json"
 RAW_AWARDS_PATH = RAW_DIR / "awards.json"
+RAW_ESPN_TRADES_PATH = RAW_DIR / "espn_draft_trades.json"
 TEAMS_MAPPING_PATH = DATA_DIR / "teams_mapping.json"
 
 FRONTEND_PUBLIC_DATA_DIR = Path("frontend/public/data")

@@ -220,6 +220,50 @@ def resolve_owning_rows(raw_frame: pd.DataFrame) -> pd.DataFrame:
     return survivors.drop(columns=["source_team", "_was_traded_away"]).reset_index(drop=True)
 
 
+def load_espn_trades(espn_trades_path: Path | None) -> dict[tuple[int, int, int], list[str]]:
+    """Load ESPN-sourced trade chains keyed by ``(year, round, pick)``.
+
+    Returns an empty mapping when no path is given or the cache is absent, so a
+    build without the ESPN stage simply applies no overrides.
+    """
+    if espn_trades_path is None or not espn_trades_path.exists():
+        return {}
+
+    with espn_trades_path.open("r", encoding="utf-8") as file:
+        raw = json.load(file)
+
+    return {
+        (int(entry["year"]), int(entry["round"]), int(entry["pick"])): list(entry["chain"])
+        for entry in raw
+    }
+
+
+def apply_espn_trade_overrides(
+    frame: pd.DataFrame,
+    espn_trades: dict[tuple[int, int, int], list[str]],
+) -> pd.DataFrame:
+    """Fill blank trade chains from ESPN data, reassigning ownership to the chain's destination.
+
+    Only picks RealGM left without a trade are touched; an existing chain always
+    wins. The chain's final team is its true owner (the "Traded to" destination),
+    while the chain's start preserves the team that actually made the selection.
+    """
+    if not espn_trades:
+        return frame
+
+    frame = frame.copy()
+    for index, row in frame.iterrows():
+        if _as_string(row.get("Draft Trades")).strip():
+            continue
+        key = (int(row["Year"]), int(row["Round"]), int(row["Pick"]))
+        chain = espn_trades.get(key)
+        if not chain:
+            continue
+        frame.at[index, "Draft Trades"] = " to ".join(chain)
+        frame.at[index, "team"] = chain[-1]
+    return frame
+
+
 def prepare_nba_players(players_frame: pd.DataFrame) -> pd.DataFrame:
     """Add normalized full-name fields to the NBA player index."""
     players = players_frame.copy()
@@ -379,10 +423,15 @@ def load_awards(awards_path: Path) -> dict[str, dict[str, int]]:
     return {str(nba_id): dict(awards) for nba_id, awards in raw.items()}
 
 
-def build_enriched_frame(raw_dir: Path, players_path: Path) -> pd.DataFrame:
+def build_enriched_frame(
+    raw_dir: Path,
+    players_path: Path,
+    espn_trades_path: Path | None = None,
+) -> pd.DataFrame:
     """Build the de-duplicated and NBA-enriched dataframe without awards attached."""
     raw = load_raw_draft_history(raw_dir)
     owning_rows = resolve_owning_rows(raw)
+    owning_rows = apply_espn_trade_overrides(owning_rows, load_espn_trades(espn_trades_path))
     players = load_players(players_path)
     return enrich_draft_history(owning_rows, players)
 
@@ -425,9 +474,10 @@ def build_draft_history_json(
     teams_mapping_path: Path,
     output_path: Path,
     public_mapping_path: Path,
+    espn_trades_path: Path | None = None,
 ) -> list[dict[str, Any]]:
     """Build and publish `draft_history.json` plus the frontend team mapping copy."""
-    enriched = build_enriched_frame(raw_dir, players_path)
+    enriched = build_enriched_frame(raw_dir, players_path, espn_trades_path)
     awarded = attach_awards(enriched, load_awards(awards_path))
     records = to_draft_pick_records(awarded)
 
