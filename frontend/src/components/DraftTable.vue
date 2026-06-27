@@ -198,17 +198,6 @@ function downloadCSV() {
   }
 }
 
-// Pagination - use props with computed for two-way binding
-const currentPage = computed({
-  get: () => props.currentPage ?? 1,
-  set: (value) => emit('update:currentPage', value)
-})
-
-const itemsPerPage = computed({
-  get: () => props.itemsPerPage ?? 30,
-  set: (value) => emit('update:itemsPerPage', value)
-})
-
 const playerSearch = computed({
   get: () => props.playerSearch ?? '',
   set: (value) => emit('update:playerSearch', value)
@@ -605,12 +594,31 @@ watch(
   }
 )
 
-// Paginated items for mobile view
-const paginatedItems = computed(() => {
-  if (itemsPerPage.value === -1) return items.value
-  const start = (currentPage.value - 1) * itemsPerPage.value
-  const end = start + itemsPerPage.value
-  return items.value.slice(start, end)
+// Mobile cards render just-in-time: an initial batch is shown and the next batch is
+// appended as a bottom sentinel scrolls into view, mirroring the desktop virtual
+// table's on-demand row loading instead of paginating.
+const MOBILE_BATCH_SIZE = 20
+const mobileLoadedCount = ref(MOBILE_BATCH_SIZE)
+const loadMoreSentinel = ref<HTMLElement | null>(null)
+let mobileLoadObserver: IntersectionObserver | null = null
+
+const mobileVisibleItems = computed(() => items.value.slice(0, mobileLoadedCount.value))
+const hasMoreMobileItems = computed(() => mobileLoadedCount.value < items.value.length)
+
+function loadMoreMobileItems() {
+  if (!hasMoreMobileItems.value) return
+  mobileLoadedCount.value = Math.min(mobileLoadedCount.value + MOBILE_BATCH_SIZE, items.value.length)
+}
+
+// Reset to the first batch whenever the filtered/sorted result set changes.
+watch(items, () => {
+  mobileLoadedCount.value = MOBILE_BATCH_SIZE
+})
+
+// Keep the observer pointed at the live sentinel node as it mounts and unmounts.
+watch(loadMoreSentinel, (el, prev) => {
+  if (prev) mobileLoadObserver?.unobserve(prev)
+  if (el) mobileLoadObserver?.observe(el)
 })
 
 // Check if any filters are active (non-default)
@@ -730,17 +738,22 @@ function getTableScrollEl(): HTMLElement | null {
 
 function handleScroll(event?: Event) {
   const target = event?.target
-  let scrollTop: number
+  // Desktop: the virtual table scrolls inside its own wrapper.
   if (target instanceof HTMLElement && target.classList.contains('v-table__wrapper')) {
-    // Desktop: the virtual table's own scroll container.
-    scrollTop = target.scrollTop
-  } else if (target instanceof HTMLElement) {
-    // Ignore scrolls from unrelated inner containers (menus, dropdowns).
+    showBackToTop.value = target.scrollTop > 300
     return
-  } else {
-    // Mobile / page-level scroll.
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
   }
+  // Page-level scroll is dispatched on the document, <html>, or <body> depending on
+  // the browser; any other element is an unrelated inner container (menus, sheets)
+  // that should not drive the back-to-top button.
+  if (
+    target instanceof HTMLElement &&
+    target !== document.documentElement &&
+    target !== document.body
+  ) {
+    return
+  }
+  const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0
   showBackToTop.value = scrollTop > 300
 }
 
@@ -751,13 +764,17 @@ function scrollToTop() {
 
 onMounted(() => {
   loadTeams()
-  // Set initial items per page based on mobile state
-  if (isMobile.value && props.itemsPerPage === DEFAULT_ITEMS_PER_PAGE) {
-    emit('update:itemsPerPage', 20)
-  }
   // Capture phase so internal scroll containers (the virtual table) are observed too.
   window.addEventListener('scroll', handleScroll, true)
   handleScroll() // Check initial scroll position
+  // rootMargin pre-fetches the next batch before the sentinel is fully on screen.
+  mobileLoadObserver = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) loadMoreMobileItems()
+    },
+    { rootMargin: '600px 0px' }
+  )
+  if (loadMoreSentinel.value) mobileLoadObserver.observe(loadMoreSentinel.value)
 })
 
 onUnmounted(() => {
@@ -765,6 +782,7 @@ onUnmounted(() => {
   window.removeEventListener('pointermove', onResizeMove)
   window.removeEventListener('pointerup', onResizeEnd)
   cancelAnimationFrame(countRaf)
+  mobileLoadObserver?.disconnect()
 })
 
 function getTeamLogoUrl(team: string, year?: number): string {
@@ -1018,33 +1036,6 @@ function getYearsOfServiceColor(years: number | null | undefined): string {
   return `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`
 }
 
-// Computed properties for pagination
-const totalPages = computed(() => {
-  if (itemsPerPage.value === -1) return 1
-  return Math.ceil(items.value.length / itemsPerPage.value)
-})
-
-const itemsPerPageOptions = computed(() => {
-  if (isMobile.value) {
-    return [
-      { value: 20, title: '20' },
-      { value: 30, title: '30' },
-      { value: 50, title: '50' },
-      { value: 100, title: '100' },
-      { value: -1, title: 'All' }
-    ]
-  }
-  return [
-    { value: 30, title: '30' },
-    { value: 60, title: '60' },
-    { value: 100, title: '100' },
-    { value: 250, title: '250' },
-    { value: 500, title: '500' },
-    { value: -1, title: 'All' }
-  ]
-})
-
-const pageInput = ref('')
 const selectedPlayer = ref<DraftPick | null>(null)
 const showPlayerCard = ref(false)
 const showBackToTop = ref(false)
@@ -1054,22 +1045,6 @@ const tableWrapEl = ref<HTMLElement | null>(null)
 function openPlayerCard(player: DraftPick) {
   selectedPlayer.value = player
   showPlayerCard.value = true
-}
-
-function handlePageInput(event?: Event) {
-  let value: number
-  if (event) {
-    const target = event.target as HTMLInputElement
-    value = parseInt(target.value, 10)
-  } else {
-    value = parseInt(String(pageInput.value), 10)
-  }
-  if (!isNaN(value) && value >= 1 && value <= totalPages.value) {
-    currentPage.value = value
-    pageInput.value = ''
-  } else {
-    pageInput.value = ''
-  }
 }
 
 function getPlayerRetirementStatus(playedUntilYear: number | undefined): 'active' | 'retired' | 'unknown' {
@@ -1106,14 +1081,6 @@ function getRetirementTooltipText(playedUntilYear: number | undefined, playsFor:
 }
 
 
-
-// Watch for page changes to update the input placeholder
-watch(currentPage, () => {
-  // Clear input when page changes externally (via chevrons)
-  if (pageInput.value) {
-    pageInput.value = ''
-  }
-})
 
 // Helper function to describe active filters
 function getActiveFiltersDescription(): string {
@@ -1545,7 +1512,7 @@ const shareTooltipText = computed(() => {
         class="mb-4"
       />
       
-      <div v-if="!loading && paginatedItems.length === 0" class="text-center pa-8">
+      <div v-if="!loading && items.length === 0" class="text-center pa-8">
         <v-icon icon="mdi-information-outline" size="48" color="info" class="mb-2" />
         <p class="text-h6">No draft picks found</p>
         <p class="text-body-2 text-medium-emphasis">Try adjusting your filters</p>
@@ -1553,67 +1520,22 @@ const shareTooltipText = computed(() => {
 
       <template v-else>
         <MobileDraftCard
-          v-for="item in paginatedItems"
+          v-for="item in mobileVisibleItems"
           :key="`${item.year}-${item.pick}-${item.player}`"
           :item="item"
           :show-player-measurements="showMeasurementsOnMobile"
           @player-click="openPlayerCard"
         />
-      </template>
 
-      <!-- Mobile Pagination -->
-      <div v-if="!loading && items.length > 0" class="mobile-pagination mt-4">
-        <v-row align="center" justify="center" class="mb-2">
-          <v-col cols="12" class="d-flex align-center justify-center flex-wrap gap-2">
-            <v-btn
-              icon="mdi-chevron-left"
-              variant="outlined"
-              :disabled="currentPage === 1"
-              @click="currentPage = Math.max(1, currentPage - 1)"
-              size="large"
-              min-width="44"
-              min-height="44"
-            />
-            
-            <div class="d-flex align-center gap-2">
-              <input
-                v-model.number="pageInput"
-                type="number"
-                :min="1"
-                :max="totalPages"
-                class="page-input-mobile"
-                @keydown.enter="handlePageInput($event)"
-                @blur="handlePageInput($event)"
-              />
-              <span class="text-body-2 text-medium-emphasis">/ {{ totalPages }}</span>
-            </div>
-            
-            <v-btn
-              icon="mdi-chevron-right"
-              variant="outlined"
-              :disabled="currentPage >= totalPages"
-              @click="currentPage = Math.min(totalPages, currentPage + 1)"
-              size="large"
-              min-width="44"
-              min-height="44"
-            />
-          </v-col>
-        </v-row>
-        
-        <v-row align="center" justify="center">
-          <v-col cols="12" class="d-flex align-center justify-center">
-            <span class="text-body-2 text-medium-emphasis mr-2">Items per page:</span>
-            <v-select
-              v-model="itemsPerPage"
-              :items="itemsPerPageOptions"
-              variant="outlined"
-              density="compact"
-              hide-details
-              style="max-width: 120px;"
-            />
-          </v-col>
-        </v-row>
-      </div>
+        <!-- JIT loader: appends the next batch as it scrolls into view. -->
+        <div
+          v-if="hasMoreMobileItems"
+          ref="loadMoreSentinel"
+          class="mobile-load-sentinel"
+        >
+          <v-progress-circular indeterminate color="primary" size="28" />
+        </div>
+      </template>
     </div>
 
     <!-- Desktop Table View -->
@@ -1980,19 +1902,22 @@ const shareTooltipText = computed(() => {
       :player="selectedPlayer"
     />
 
-    <!-- Back to Top Button -->
-    <v-fade-transition>
-      <v-btn
-        v-show="showBackToTop"
-        class="back-to-top-btn"
-        icon="mdi-chevron-up"
-        color="primary"
-        size="large"
-        elevation="4"
-        rounded="xl"
-        @click="scrollToTop"
-      />
-    </v-fade-transition>
+    <!-- Back to Top Button — teleported to <body> so position:fixed resolves against
+         the viewport rather than the animated (transformed) table card. -->
+    <Teleport to="body">
+      <v-fade-transition>
+        <v-btn
+          v-show="showBackToTop"
+          class="back-to-top-btn"
+          icon="mdi-chevron-up"
+          color="primary"
+          size="large"
+          elevation="4"
+          rounded="xl"
+          @click="scrollToTop"
+        />
+      </v-fade-transition>
+    </Teleport>
   </v-card>
 </template>
 
@@ -2386,23 +2311,19 @@ const shareTooltipText = computed(() => {
       padding: 8px 0;
     }
 
-    // Mobile pagination
-    .mobile-pagination {
-      padding: 16px;
-      background: rgba(var(--v-theme-surface), 0.5);
-      border-radius: 8px;
+    // Spinner that anchors the just-in-time card loader.
+    .mobile-load-sentinel {
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
     }
 
-    .page-input-mobile {
-      width: 60px;
-      padding: 8px 12px;
-      border: 1px solid rgba(var(--v-theme-on-surface), 0.12);
-      border-radius: 4px;
-      text-align: center;
-      font-size: 16px; // Prevents zoom on iOS
-      min-height: 44px;
-      background: rgba(var(--v-theme-surface), 1);
-      color: rgba(var(--v-theme-on-surface), 1);
+    // Mobile shows the card list (no wide table), so the card must not become its own
+    // scroll container — the overflow-x:auto below otherwise computes overflow-y to
+    // auto, which scopes the header's position:sticky to the card instead of the
+    // viewport and stops it sticking on scroll.
+    &.draft-table {
+      overflow: visible;
     }
 
     // Ensure checkboxes have proper touch targets
@@ -2486,29 +2407,29 @@ const shareTooltipText = computed(() => {
       font-size: 1.25rem;
     }
   }
+}
 
-  // Back to Top Button
-  .back-to-top-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 1000;
-    min-width: 48px;
-    min-height: 48px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+// Back-to-Top button is teleported to <body>, so its style sits at the top level of
+// the scoped block (not nested under .draft-table) to reach the teleported node.
+.back-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  min-width: 48px;
+  min-height: 48px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 
-    &:hover {
-      // transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
 
-    @media (max-width: 959px) {
-      bottom: 16px;
-      right: 16px;
-      min-width: 56px;
-      min-height: 56px;
-    }
+  @media (max-width: 959px) {
+    bottom: 16px;
+    right: 16px;
+    min-width: 56px;
+    min-height: 56px;
   }
 }
 
