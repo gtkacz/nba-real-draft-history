@@ -1716,17 +1716,22 @@ const shareTooltipText = computed(() => {
                 :href="item.forfeitSource"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="forfeited-source ml-1 flex-shrink-0"
+                class="forfeited-source ml-2 flex-shrink-0"
                 @click.stop
               >
-                <v-icon icon="mdi-open-in-new" size="12" />
+                <v-icon icon="mdi-open-in-new" size="13" />
               </a>
             </div>
             <div class="d-flex align-center forfeited-reason-row">
-              <span
-                class="text-caption text-medium-emphasis forfeited-reason"
-                :title="item.forfeitReason"
-              >{{ item.forfeitReason }}</span>
+              <v-tooltip location="top">
+                <template #activator="{ props: tooltipProps }">
+                  <span
+                    v-bind="tooltipProps"
+                    class="text-caption text-medium-emphasis forfeited-reason"
+                  >{{ item.forfeitReason }}</span>
+                </template>
+                <span>{{ item.forfeitReason }}</span>
+              </v-tooltip>
             </div>
           </div>
         </div>

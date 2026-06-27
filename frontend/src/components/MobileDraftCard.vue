@@ -170,8 +170,14 @@ function formatAwardName(award: string): string {
         </v-avatar>
         <div class="flex-grow-1">
           <div class="d-flex align-center gap-1 mb-1">
-            <v-icon icon="mdi-cancel" size="18" color="error" />
-            <span class="text-subtitle-1 font-weight-bold">Forfeited pick</span>
+            <span class="text-h6 font-weight-bold player-name">Forfeited pick</span>
+              {{ item.player }}
+              <v-icon
+                icon="mdi-cancel"
+                title="Deceased"
+                size="20"
+                color="error"
+              />
           </div>
           <div class="text-caption text-medium-emphasis mb-1">
             {{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }} • Round {{ item.round }}
