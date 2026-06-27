@@ -98,6 +98,10 @@ function handleContinue() {
     flex-shrink: 0;
   }
 
+  .text-h3 {
+    color: rgb(var(--v-theme-brand));
+  }
+
   @media (min-width: 600px) {
     max-width: 80vw;
     padding: 24px;

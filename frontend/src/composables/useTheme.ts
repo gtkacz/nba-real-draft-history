@@ -11,7 +11,7 @@ export function useTheme() {
     const stored = localStorage.getItem(THEME_STORAGE_KEY)
 
     if (stored !== null) {
-      return stored === 'light'
+      return stored === 'dark'
     }
 
     return false

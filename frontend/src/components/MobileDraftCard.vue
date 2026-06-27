@@ -123,12 +123,12 @@ function getRetirementText(playedUntilYear: number | undefined, playsFor: string
   const status = getPlayerRetirementStatus(playedUntilYear)
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
-      return `Currently plays for the ${getTeamDisplayName(playsFor, year)}`
+      return getTeamDisplayName(playsFor, year)
     }
     return 'Currently active'
   } else if (status === 'retired') {
     if (playsFor && playsFor.trim() !== '') {
-      return `Last played for ${getTeamDisplayName(playsFor, year)} in ${playedUntilYear}`
+      return `${getTeamDisplayName(playsFor, year)} in ${playedUntilYear}`
     }
     return `Retired in ${playedUntilYear}`
   } else {
