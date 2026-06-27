@@ -1704,26 +1704,37 @@ const shareTooltipText = computed(() => {
       </template>
 
       <template #item.player="{ item }">
-        <div v-if="item.isForfeited" class="d-flex align-center forfeited-cell">
-          <v-icon icon="mdi-cancel" size="20" color="error" class="mr-2 flex-shrink-0" />
-          <div class="d-flex flex-column forfeited-text">
-            <span class="font-weight-bold">Forfeited pick</span>
-            <div class="d-flex align-center forfeited-reason-row">
-              <span
-                class="text-caption text-medium-emphasis forfeited-reason"
-                :title="item.forfeitReason"
-              >{{ item.forfeitReason }}</span>
-              <a
-                v-if="item.forfeitSource"
-                :href="item.forfeitSource"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="forfeited-source ml-1 flex-shrink-0"
-                @click.stop
-              >
-                <v-icon icon="mdi-open-in-new" size="12" />
-              </a>
-            </div>
+        <div v-if="item.isForfeited" class="d-flex align-center player-cell">
+          <div class="d-flex align-center flex-wrap gap-1">
+            <span class="font-weight-bold player-name">Forfeited pick</span>
+            <!-- Forfeit reason - replaces the nationality flag -->
+            <v-tooltip location="top">
+              <template #activator="{ props: tooltipProps }">
+                <v-icon
+                  v-bind="tooltipProps"
+                  icon="mdi-cancel"
+                  size="16"
+                  color="error"
+                  class="player-status-icon"
+                />
+              </template>
+              <span>{{ item.forfeitReason }}</span>
+            </v-tooltip>
+            <!-- Source link - replaces the NBA status indicator -->
+            <v-tooltip v-if="item.forfeitSource" location="top">
+              <template #activator="{ props: tooltipProps }">
+                <a
+                  :href="item.forfeitSource"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="forfeited-source player-status-icon d-inline-flex"
+                  @click.stop
+                >
+                  <v-icon v-bind="tooltipProps" icon="mdi-open-in-new" size="16" />
+                </a>
+              </template>
+              <span>View source</span>
+            </v-tooltip>
           </div>
         </div>
         <div v-else class="d-flex align-center player-cell">
@@ -2034,22 +2045,6 @@ const shareTooltipText = computed(() => {
   :deep(.v-data-table__tr.forfeited-row) {
     background-color: color-mix(in srgb, rgb(var(--v-theme-error)) 5%, rgb(var(--v-theme-surface)));
     box-shadow: inset 3px 0 0 0 rgb(var(--v-theme-error));
-    font-style: italic;
-  }
-
-  // Keep the forfeited cell to two lines (title + single-line reason) so its row
-  // matches the height of player rows; the full reason stays available on hover.
-  .forfeited-cell,
-  .forfeited-text,
-  .forfeited-reason-row {
-    min-width: 0;
-  }
-
-  .forfeited-reason {
-    font-style: normal;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .forfeited-source {
