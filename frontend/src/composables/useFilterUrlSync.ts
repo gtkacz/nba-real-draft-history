@@ -44,6 +44,7 @@ interface FilterDefaults {
   yearsOfServiceRange: [number, number]
   tradeFilter: 'all' | 'traded' | 'not-traded'
   retiredFilter: 'all' | 'retired' | 'not-retired'
+  forfeitedFilter: 'hide' | 'show' | 'only'
   selectedNationalities: string[]
   selectedAwards: Record<string, number>
   awardFilterMode: 'exclusive' | 'inclusive'
@@ -73,6 +74,7 @@ const DEFAULT_FILTERS: FilterDefaults = {
   yearsOfServiceRange: [YOS_MIN, YOS_MAX],
   tradeFilter: 'all',
   retiredFilter: 'all',
+  forfeitedFilter: 'hide',
   selectedNationalities: [],
   selectedAwards: {},
   awardFilterMode: 'exclusive',
@@ -106,6 +108,7 @@ export function useFilterUrlSync(
     yearsOfServiceRange: Ref<[number, number]>
     tradeFilter: Ref<'all' | 'traded' | 'not-traded'>
     retiredFilter: Ref<'all' | 'retired' | 'not-retired'>
+    forfeitedFilter: Ref<'hide' | 'show' | 'only'>
     selectedNationalities: Ref<string[]>
     selectedAwards: Ref<Record<string, number>>
     awardFilterMode: Ref<'exclusive' | 'inclusive'>
@@ -224,6 +227,7 @@ export function useFilterUrlSync(
       filters.yearsOfServiceRange.value = [...DEFAULT_FILTERS.yearsOfServiceRange]
       filters.tradeFilter.value = DEFAULT_FILTERS.tradeFilter
       filters.retiredFilter.value = DEFAULT_FILTERS.retiredFilter
+      filters.forfeitedFilter.value = DEFAULT_FILTERS.forfeitedFilter
       filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
       filters.selectedAwards.value = { ...DEFAULT_FILTERS.selectedAwards }
       filters.awardFilterMode.value = DEFAULT_FILTERS.awardFilterMode
@@ -375,6 +379,11 @@ export function useFilterUrlSync(
     // Load retiredFilter
     if (query.retiredFilter && (query.retiredFilter === 'retired' || query.retiredFilter === 'not-retired' || query.retiredFilter === 'all')) {
       filters.retiredFilter.value = query.retiredFilter as 'all' | 'retired' | 'not-retired'
+    }
+
+    // Load forfeitedFilter
+    if (query.forfeitedFilter && (query.forfeitedFilter === 'hide' || query.forfeitedFilter === 'show' || query.forfeitedFilter === 'only')) {
+      filters.forfeitedFilter.value = query.forfeitedFilter as 'hide' | 'show' | 'only'
     }
 
     // Load selectedNationalities
@@ -561,6 +570,10 @@ export function useFilterUrlSync(
       query.retiredFilter = filters.retiredFilter.value
     }
 
+    if (filters.forfeitedFilter.value !== DEFAULT_FILTERS.forfeitedFilter) {
+      query.forfeitedFilter = filters.forfeitedFilter.value
+    }
+
     if (isNonDefault(filters.selectedNationalities.value, DEFAULT_FILTERS.selectedNationalities)) {
       query.nationalities = serializeArray(filters.selectedNationalities.value)
     }
@@ -628,6 +641,7 @@ export function useFilterUrlSync(
       filters.yearsOfServiceRange.value,
       filters.tradeFilter.value,
       filters.retiredFilter.value,
+      filters.forfeitedFilter.value,
       filters.selectedNationalities.value,
       filters.selectedAwards.value,
       filters.awardFilterMode.value,
@@ -693,6 +707,7 @@ export function useFilterUrlSync(
     filters.yearsOfServiceRange.value = [...DEFAULT_FILTERS.yearsOfServiceRange]
     filters.tradeFilter.value = DEFAULT_FILTERS.tradeFilter
     filters.retiredFilter.value = DEFAULT_FILTERS.retiredFilter
+    filters.forfeitedFilter.value = DEFAULT_FILTERS.forfeitedFilter
     filters.selectedNationalities.value = [...DEFAULT_FILTERS.selectedNationalities]
     filters.selectedAwards.value = { ...DEFAULT_FILTERS.selectedAwards }
     filters.excludeModes.value = createDefaultExcludeModes()

@@ -238,29 +238,77 @@ def load_espn_trades(espn_trades_path: Path | None) -> dict[tuple[int, int, int]
     }
 
 
+def _canonical_chain(draft_trades: str, year: int) -> list[str]:
+    """Canonicalize a RealGM trade-chain string into a list of franchise codes."""
+    teams: list[str] = []
+    for token in re.split(r"\s+to\s+", draft_trades.strip()):
+        stripped = token.strip()
+        if not stripped:
+            continue
+        code = canonical_team(stripped, year)
+        if not teams or teams[-1] != code:
+            teams.append(code)
+    return teams
+
+
+def _merge_trade_chains(realgm_chain: list[str], espn_chain: list[str]) -> list[str] | None:
+    """Return a fuller chain that keeps RealGM's owner, or None when ESPN adds nothing safe.
+
+    RealGM tends to record the outgoing/owning trade (ending at the owner) while
+    ESPN records the incoming acquisition (ending at the drafting slot). Two cases
+    let ESPN extend the chain without ever moving the owner (the chain's end):
+
+    * superset - ESPN already ends at RealGM's owner with extra leading legs.
+    * complementary - ESPN's path ends at the slot where RealGM's path begins,
+      so the two stitch into one journey through that slot.
+    """
+    if not realgm_chain or not espn_chain:
+        return None
+
+    espn_extends_to_same_owner = (
+        espn_chain[-1] == realgm_chain[-1]
+        and len(espn_chain) > len(realgm_chain)
+        and espn_chain[-len(realgm_chain):] == realgm_chain
+    )
+    if espn_extends_to_same_owner:
+        return espn_chain
+
+    if espn_chain[-1] == realgm_chain[0] and len(espn_chain) > 1:
+        return espn_chain + realgm_chain[1:]
+
+    return None
+
+
 def apply_espn_trade_overrides(
     frame: pd.DataFrame,
     espn_trades: dict[tuple[int, int, int], list[str]],
 ) -> pd.DataFrame:
-    """Fill blank trade chains from ESPN data, reassigning ownership to the chain's destination.
+    """Fill blank trade chains from ESPN and extend partial ones without changing the owner.
 
-    Only picks RealGM left without a trade are touched; an existing chain always
-    wins. The chain's final team is its true owner (the "Traded to" destination),
-    while the chain's start preserves the team that actually made the selection.
+    A pick RealGM left blank takes ESPN's chain wholesale, with its destination as
+    the new owner. A pick RealGM already has a chain for is only extended when ESPN
+    adds completeness safely (see ``_merge_trade_chains``); the owner — the chain's
+    final team — is always RealGM's, and conflicting ESPN data is ignored.
     """
     if not espn_trades:
         return frame
 
     frame = frame.copy()
     for index, row in frame.iterrows():
-        if _as_string(row.get("Draft Trades")).strip():
-            continue
         key = (int(row["Year"]), int(row["Round"]), int(row["Pick"]))
-        chain = espn_trades.get(key)
-        if not chain:
+        espn_chain = espn_trades.get(key)
+        if not espn_chain:
             continue
-        frame.at[index, "Draft Trades"] = " to ".join(chain)
-        frame.at[index, "team"] = chain[-1]
+
+        existing = _as_string(row.get("Draft Trades")).strip()
+        if not existing:
+            frame.at[index, "Draft Trades"] = " to ".join(espn_chain)
+            frame.at[index, "team"] = espn_chain[-1]
+            continue
+
+        merged = _merge_trade_chains(_canonical_chain(existing, key[0]), espn_chain)
+        if merged is not None:
+            frame.at[index, "Draft Trades"] = " to ".join(merged)
     return frame
 
 

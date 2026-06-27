@@ -519,8 +519,8 @@ class DraftHistoryBuilderTests(unittest.TestCase):
         self.assertEqual(result.iloc[0]["Draft Trades"], "ATL to NOP")
         self.assertEqual(result.iloc[0]["team"], "NOP")
 
-    def test_apply_espn_overrides_never_overwrites_existing_chain(self) -> None:
-        """RealGM's own trade data always wins over ESPN."""
+    def test_apply_espn_overrides_keeps_realgm_on_conflict(self) -> None:
+        """When ESPN disagrees on the destination, RealGM's chain and owner are kept."""
         frame = pd.DataFrame([self._owning_row(24, "SAC", trades="OKC to SAC")])
         espn = {(2025, 1, 24): ["OKC", "POR"]}
 
@@ -528,6 +528,36 @@ class DraftHistoryBuilderTests(unittest.TestCase):
 
         self.assertEqual(result.iloc[0]["Draft Trades"], "OKC to SAC")
         self.assertEqual(result.iloc[0]["team"], "SAC")
+
+    def test_apply_espn_overrides_adopts_superset_chain_keeping_owner(self) -> None:
+        """ESPN replaces a RealGM chain it strictly extends toward the same owner."""
+        frame = pd.DataFrame([self._owning_row(21, "MIA", trades="PHI to MIA")])
+        espn = {(2025, 1, 21): ["DEN", "PHI", "MIA"]}
+
+        result = apply_espn_trade_overrides(frame, espn)
+
+        self.assertEqual(result.iloc[0]["Draft Trades"], "DEN to PHI to MIA")
+        self.assertEqual(result.iloc[0]["team"], "MIA")
+
+    def test_apply_espn_overrides_stitches_complementary_chain(self) -> None:
+        """ESPN's incoming path stitches onto RealGM's outgoing path at the drafting slot."""
+        frame = pd.DataFrame([self._owning_row(39, "MEM", trades="WAS to MEM")])
+        espn = {(2025, 1, 39): ["PHX", "DEN", "WAS"]}
+
+        result = apply_espn_trade_overrides(frame, espn)
+
+        self.assertEqual(result.iloc[0]["Draft Trades"], "PHX to DEN to WAS to MEM")
+        self.assertEqual(result.iloc[0]["team"], "MEM")
+
+    def test_apply_espn_overrides_leaves_identical_chain_untouched(self) -> None:
+        """An equivalent ESPN chain neither rewrites the string nor changes the owner."""
+        frame = pd.DataFrame([self._owning_row(30, "DAL", trades="ATL to DAL")])
+        espn = {(2025, 1, 30): ["ATL", "DAL"]}
+
+        result = apply_espn_trade_overrides(frame, espn)
+
+        self.assertEqual(result.iloc[0]["Draft Trades"], "ATL to DAL")
+        self.assertEqual(result.iloc[0]["team"], "DAL")
 
     def test_apply_espn_overrides_is_noop_without_data(self) -> None:
         """No ESPN cache means the frame is returned unchanged."""

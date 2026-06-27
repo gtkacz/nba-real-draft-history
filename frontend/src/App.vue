@@ -31,6 +31,7 @@ const {
   yearsOfServiceRange,
   tradeFilter,
   retiredFilter,
+  forfeitedFilter,
   selectedNationalities,
   selectedAwards,
   awardFilterMode,
@@ -76,6 +77,7 @@ const { resetFilters: resetFiltersFromUrl } = useFilterUrlSync({
   yearsOfServiceRange,
   tradeFilter,
   retiredFilter,
+  forfeitedFilter,
   selectedNationalities,
   selectedAwards,
   awardFilterMode,
@@ -155,6 +157,7 @@ onMounted(() => {
               v-model:years-of-service-range="yearsOfServiceRange"
               v-model:trade-filter="tradeFilter"
               v-model:retired-filter="retiredFilter"
+              v-model:forfeited-filter="forfeitedFilter"
               v-model:selected-nationalities="selectedNationalities"
               v-model:selected-awards="selectedAwards"
               v-model:award-filter-mode="awardFilterMode"

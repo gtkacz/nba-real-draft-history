@@ -58,6 +58,7 @@ interface DraftTableProps {
   yearsOfServiceRange?: [number, number]
   tradeFilter?: 'all' | 'traded' | 'not-traded'
   retiredFilter?: 'all' | 'retired' | 'not-retired'
+  forfeitedFilter?: 'hide' | 'show' | 'only'
   selectedNationalities?: string[]
   selectedAwards?: Record<string, number>
   awardFilterMode?: 'exclusive' | 'inclusive'
@@ -101,6 +102,7 @@ const props = withDefaults(defineProps<DraftTableProps>(), {
   yearsOfServiceRange: () => [YOS_MIN, YOS_MAX],
   tradeFilter: () => 'all',
   retiredFilter: () => 'all',
+  forfeitedFilter: () => 'hide',
   selectedNationalities: () => [],
   selectedAwards: () => ({}),
   awardFilterMode: () => 'exclusive',
@@ -145,6 +147,7 @@ const emit = defineEmits<{
   'update:yearsOfServiceRange': [value: [number, number]]
   'update:tradeFilter': [value: 'all' | 'traded' | 'not-traded']
   'update:retiredFilter': [value: 'all' | 'retired' | 'not-retired']
+  'update:forfeitedFilter': [value: 'hide' | 'show' | 'only']
   'update:selectedNationalities': [value: string[]]
   'update:selectedAwards': [value: Record<string, number>]
   'update:awardFilterMode': [value: 'exclusive' | 'inclusive']
@@ -314,6 +317,8 @@ const filterBind = computed(() => ({
   'onUpdate:tradeFilter': (v: 'all' | 'traded' | 'not-traded') => emit('update:tradeFilter', v),
   retiredFilter: props.retiredFilter,
   'onUpdate:retiredFilter': (v: 'all' | 'retired' | 'not-retired') => emit('update:retiredFilter', v),
+  forfeitedFilter: props.forfeitedFilter,
+  'onUpdate:forfeitedFilter': (v: 'hide' | 'show' | 'only') => emit('update:forfeitedFilter', v),
   useYearRange: props.useYearRange,
   'onUpdate:useYearRange': (v: boolean) => emit('update:useYearRange', v),
   yearRange: props.yearRange,
@@ -663,6 +668,9 @@ const hasActiveFilters = computed(() => {
   // Retired filter active
   if (props.retiredFilter !== 'all') return true
 
+  // Forfeited-picks filter active
+  if (props.forfeitedFilter !== 'hide') return true
+
   // Nationality filter active
   if (props.selectedNationalities && props.selectedNationalities.length > 0) return true
 
@@ -694,6 +702,7 @@ function getActiveFiltersCount(): number {
   if (props.yearsOfServiceRange && (props.yearsOfServiceRange[0] !== YOS_MIN || props.yearsOfServiceRange[1] !== YOS_MAX)) count++
   if (props.tradeFilter !== 'all') count++
   if (props.retiredFilter !== 'all') count++
+  if (props.forfeitedFilter !== 'hide') count++
   if (props.selectedNationalities && props.selectedNationalities.length > 0) count++
   if (props.selectedAwards && Object.keys(props.selectedAwards).length > 0) count++
   if (props.playerSearch && props.playerSearch.trim() !== '') count++
@@ -795,6 +804,7 @@ function getPlayerHeadshotUrl(nbaId: string | number | undefined): string {
 function getTeamRowProps({ item }: { item: DraftPick }) {
   const code = getCanonicalTeam(item.team, item.year).toLowerCase()
   return {
+    class: item.isForfeited ? 'forfeited-row' : undefined,
     style: {
       '--row-team-primary': `var(--team-${code}-primary, rgb(var(--v-theme-primary)))`
     }
@@ -1153,7 +1163,11 @@ function getActiveFiltersDescription(): string {
   if (props.retiredFilter !== 'all') {
     filters.push(`Retirement: ${props.retiredFilter === 'retired' ? 'Retired only' : 'Active only'}`)
   }
-  
+
+  if (props.forfeitedFilter !== 'hide') {
+    filters.push(`Forfeited picks: ${props.forfeitedFilter === 'only' ? 'Only forfeited' : 'Shown'}`)
+  }
+
   if (props.selectedNationalities && props.selectedNationalities.length > 0) {
     const countries = props.selectedNationalities.map(c => getFormattedCountryName(c)).slice(0, 2).join(', ')
     filters.push(`${filterLabel('Nationality', props.excludeModes.nationalities)}: ${countries}${props.selectedNationalities.length > 2 ? '...' : ''}`)
@@ -1686,9 +1700,28 @@ const shareTooltipText = computed(() => {
       </template>
 
       <template #item.player="{ item }">
-        <div class="d-flex align-center player-cell">
-          <v-avatar 
-            :size="isMobile ? 32 : 40" 
+        <div v-if="item.isForfeited" class="d-flex align-center forfeited-cell">
+          <v-icon icon="mdi-cancel" size="20" color="error" class="mr-2 flex-shrink-0" />
+          <div class="d-flex flex-column">
+            <span class="font-weight-bold">Forfeited pick</span>
+            <span class="text-caption text-medium-emphasis forfeited-reason">
+              {{ item.forfeitReason }}
+              <a
+                v-if="item.forfeitSource"
+                :href="item.forfeitSource"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="forfeited-source"
+                @click.stop
+              >
+                <v-icon icon="mdi-open-in-new" size="12" />
+              </a>
+            </span>
+          </div>
+        </div>
+        <div v-else class="d-flex align-center player-cell">
+          <v-avatar
+            :size="isMobile ? 32 : 40"
             class="mr-3 player-headshot"
             :class="{ 'player-headshot-clickable': item.nba_id }"
             color="grey-lighten-4"
@@ -1813,6 +1846,11 @@ const shareTooltipText = computed(() => {
         </div>
       </template>
 
+      <template #item.pick="{ item }">
+        <span v-if="item.isForfeited">{{ item.forfeitDisplayPick ?? '—' }}</span>
+        <span v-else>{{ item.pick }}</span>
+      </template>
+
       <template #item.position="{ item }">
         <div class="d-flex gap-1">
           <v-chip
@@ -1847,8 +1885,10 @@ const shareTooltipText = computed(() => {
       </template>
 
       <template #item.yearsOfService="{ item }">
-        <v-chip 
-          size="small" 
+        <span v-if="item.isForfeited" class="text-medium-emphasis">-</span>
+        <v-chip
+          v-else
+          size="small"
           variant="tonal"
           :color="getYearsOfServiceColor(item.yearsOfService) || 'white'"
         >
@@ -1980,6 +2020,26 @@ const shareTooltipText = computed(() => {
   :deep(.v-data-table__tr:hover) {
     background-color: color-mix(in srgb, var(--row-team-primary, rgb(var(--v-theme-primary))) 10%, rgb(var(--v-theme-surface)));
     box-shadow: inset 3px 0 0 0 var(--row-team-primary, rgb(var(--v-theme-primary)));
+  }
+
+  // Forfeited picks are not players; mute the row and flag it with a left rail so it
+  // reads as a structural absence rather than a draftee.
+  :deep(.v-data-table__tr.forfeited-row) {
+    background-color: color-mix(in srgb, rgb(var(--v-theme-error)) 5%, rgb(var(--v-theme-surface)));
+    box-shadow: inset 3px 0 0 0 rgb(var(--v-theme-error));
+    font-style: italic;
+  }
+
+  .forfeited-reason {
+    white-space: normal;
+    font-style: normal;
+  }
+
+  .forfeited-source {
+    color: inherit;
+    text-decoration: none;
+    margin-left: 2px;
+    vertical-align: middle;
   }
 
   .trade-chain {

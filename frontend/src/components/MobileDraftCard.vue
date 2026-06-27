@@ -159,8 +159,41 @@ function formatAwardName(award: string): string {
     @click="expanded = !expanded"
   >
     <v-card-text class="pa-4">
+      <!-- Forfeited pick: a stripped draft slot, not a drafted player -->
+      <div v-if="item.isForfeited" class="d-flex align-center">
+        <v-avatar size="40" class="mr-3" rounded="0" style="background: transparent;">
+          <v-img
+            :src="getTeamLogoUrl(item.team, item.year)"
+            :alt="getOriginalTeamName(item.team, item.year)"
+            contain
+          />
+        </v-avatar>
+        <div class="flex-grow-1">
+          <div class="d-flex align-center gap-1 mb-1">
+            <v-icon icon="mdi-cancel" size="18" color="error" />
+            <span class="text-subtitle-1 font-weight-bold">Forfeited pick</span>
+          </div>
+          <div class="text-caption text-medium-emphasis mb-1">
+            {{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }} • Round {{ item.round }}
+          </div>
+          <div class="text-body-2">
+            {{ item.forfeitReason }}
+            <a
+              v-if="item.forfeitSource"
+              :href="item.forfeitSource"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="forfeited-source"
+              @click.stop
+            >
+              <v-icon icon="mdi-open-in-new" size="14" />
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!-- Header: Player Info -->
-      <div class="d-flex align-center mb-3">
+      <div v-if="!item.isForfeited" class="d-flex align-center mb-3">
           <v-avatar 
           :size="56" 
           class="mr-3 player-headshot"
@@ -284,7 +317,7 @@ function formatAwardName(award: string): string {
       </div>
 
       <!-- Quick Stats Row -->
-      <div class="d-flex align-center justify-space-between mb-3">
+      <div v-if="!item.isForfeited" class="d-flex align-center justify-space-between mb-3">
         <div class="d-flex align-center gap-2">
           <v-chip size="small" color="primary" variant="tonal">
             Pick #{{ item.pick }}
@@ -307,7 +340,7 @@ function formatAwardName(award: string): string {
       </div>
 
       <!-- Expanded Details -->
-      <v-expand-transition>
+      <v-expand-transition v-if="!item.isForfeited">
         <div v-if="expanded">
           <v-divider class="mb-3" />
           
@@ -510,6 +543,12 @@ function formatAwardName(award: string): string {
 
   .detail-item {
     padding: 4px 0;
+  }
+
+  .forfeited-source {
+    color: inherit;
+    text-decoration: none;
+    vertical-align: middle;
   }
 }
 </style>

@@ -20,35 +20,41 @@ describe('useDraftData loadDraftData', () => {
     vi.restoreAllMocks()
   })
 
-  it('fetches one consolidated draft_history.json and derives teamLogo', async () => {
+  it('fetches draft_history.json and forfeited_picks.json, deriving teamLogo', async () => {
     const fetchMock = vi.mocked(fetch)
-    fetchMock.mockResolvedValue({
-      ok: true,
-      json: async () => [
-        {
-          year: 2018,
-          round: 1,
-          pick: 3,
-          player: 'Luka Doncic',
-          position: 'F',
-          height: '6-8',
-          weight: 230,
-          age: 19,
-          preDraftTeam: 'Real Madrid (Spain)',
-          class: '1999 DOB *',
-          draftTrades: 'ATL to DAL',
-          yearsOfService: 7,
-          team: 'DAL',
-          awards: { 'NBA Most Valuable Player': 1 },
-        },
-      ],
-    } as Response)
+    fetchMock.mockImplementation(
+      async (url) =>
+        ({
+          ok: true,
+          json: async () =>
+            String(url).includes('forfeited_picks.json')
+              ? []
+              : [
+                  {
+                    year: 2018,
+                    round: 1,
+                    pick: 3,
+                    player: 'Luka Doncic',
+                    position: 'F',
+                    height: '6-8',
+                    weight: 230,
+                    age: 19,
+                    preDraftTeam: 'Real Madrid (Spain)',
+                    class: '1999 DOB *',
+                    draftTrades: 'ATL to DAL',
+                    yearsOfService: 7,
+                    team: 'DAL',
+                    awards: { 'NBA Most Valuable Player': 1 },
+                  },
+                ],
+        }) as Response,
+    )
 
     const draftData = useDraftData()
     await draftData.loadDraftData()
 
-    expect(fetchMock).toHaveBeenCalledTimes(1)
     expect(fetchMock).toHaveBeenCalledWith('/data/draft_history.json?v=testver')
+    expect(fetchMock).toHaveBeenCalledWith('/data/forfeited_picks.json?v=testver')
     expect(draftData.filteredData.value).toHaveLength(1)
     expect(draftData.filteredData.value[0]?.teamLogo).toBe(
       'https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg',
@@ -321,5 +327,141 @@ describe('useDraftData "Once Owned By" scope', () => {
     // MultiHop is excluded (owned by NYK); OtherChain survives; NeverTraded has no
     // ownership history and is not returned by the ownership filter in either mode.
     expect(players(draftData)).toEqual(['OtherChain'])
+  })
+})
+
+describe('useDraftData forfeited picks', () => {
+  beforeEach(() => {
+    vi.stubGlobal('fetch', vi.fn())
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
+    vi.restoreAllMocks()
+  })
+
+  async function load(
+    picks: Record<string, unknown>[],
+    forfeited: Record<string, unknown>[],
+  ) {
+    vi.mocked(fetch).mockImplementation(
+      async (url) =>
+        ({
+          ok: true,
+          json: async () => (String(url).includes('forfeited_picks.json') ? forfeited : picks),
+        }) as Response,
+    )
+    const draftData = useDraftData()
+    await draftData.loadDraftData()
+    return draftData
+  }
+
+  const regularPicks = [
+    { year: 2025, round: 1, pick: 1, player: 'First', team: 'DAL' },
+    { year: 2025, round: 1, pick: 30, player: 'LastFirstRound', team: 'BOS' },
+    { year: 2025, round: 2, pick: 31, player: 'SecondRound', team: 'LAL' },
+  ]
+
+  it('hides forfeited picks by default', async () => {
+    const draftData = await load(regularPicks, [
+      { year: 2025, round: 1, pick: null, team: 'NYK', reason: 'Tampering' },
+    ])
+    expect(draftData.filteredData.value.map((p) => p.player)).toEqual([
+      'First',
+      'LastFirstRound',
+      'SecondRound',
+    ])
+  })
+
+  it('shows only forfeited picks in "only" mode', async () => {
+    const draftData = await load(regularPicks, [
+      { year: 2025, round: 1, pick: null, team: 'NYK', reason: 'Tampering' },
+    ])
+    draftData.forfeitedFilter.value = 'only'
+    const rows = draftData.filteredData.value
+    expect(rows).toHaveLength(1)
+    expect(rows[0]?.isForfeited).toBe(true)
+    expect(rows[0]?.team).toBe('NYK')
+    expect(rows[0]?.forfeitReason).toBe('Tampering')
+  })
+
+  it('appends forfeited picks alongside players in "show" mode', async () => {
+    const draftData = await load(regularPicks, [
+      { year: 2025, round: 1, pick: null, team: 'NYK', reason: 'Tampering' },
+    ])
+    draftData.forfeitedFilter.value = 'show'
+    expect(draftData.filteredData.value).toHaveLength(4)
+    expect(draftData.filteredData.value.filter((p) => p.isForfeited)).toHaveLength(1)
+  })
+
+  it('assigns a null-slot forfeited pick an end-of-round sort value', async () => {
+    const draftData = await load(regularPicks, [
+      { year: 2025, round: 1, pick: null, team: 'NYK', reason: 'Tampering' },
+    ])
+    draftData.forfeitedFilter.value = 'only'
+    // Just past the last first-round pick (30), before the second round (31).
+    expect(draftData.filteredData.value[0]?.pick).toBeGreaterThan(30)
+    expect(draftData.filteredData.value[0]?.pick).toBeLessThan(31)
+    expect(draftData.filteredData.value[0]?.forfeitDisplayPick).toBeNull()
+  })
+
+  it('preserves a known overall slot for display', async () => {
+    const draftData = await load(regularPicks, [
+      { year: 2025, round: 1, pick: 15, team: 'NYK', reason: 'Tampering' },
+    ])
+    draftData.forfeitedFilter.value = 'only'
+    expect(draftData.filteredData.value[0]?.pick).toBe(15)
+    expect(draftData.filteredData.value[0]?.forfeitDisplayPick).toBe(15)
+  })
+
+  it('narrows forfeited picks by structural filters (year, round, team)', async () => {
+    const draftData = await load(regularPicks, [
+      { year: 2025, round: 1, pick: null, team: 'NYK', reason: 'A' },
+      { year: 2024, round: 1, pick: null, team: 'CHI', reason: 'B' },
+      { year: 2025, round: 2, pick: null, team: 'MIL', reason: 'C' },
+    ])
+    draftData.forfeitedFilter.value = 'only'
+
+    draftData.selectedYear.value = 2025
+    draftData.useYearRange.value = false
+    expect(draftData.filteredData.value.map((p) => p.team)).toEqual(['NYK', 'MIL'])
+
+    draftData.selectedRounds.value = [1]
+    expect(draftData.filteredData.value.map((p) => p.team)).toEqual(['NYK'])
+
+    draftData.selectedRounds.value = []
+    draftData.selectedTeam.value = ['MIL']
+    expect(draftData.filteredData.value.map((p) => p.team)).toEqual(['MIL'])
+
+    draftData.excludeModes.value = { ...draftData.excludeModes.value, team: true }
+    expect(draftData.filteredData.value.map((p) => p.team)).toEqual(['NYK'])
+  })
+
+  it('keeps forfeited picks visible under an attribute filter in "show" mode', async () => {
+    const draftData = await load(regularPicks, [
+      { year: 2025, round: 1, pick: null, team: 'NYK', reason: 'Tampering' },
+    ])
+    draftData.forfeitedFilter.value = 'show'
+    // A height filter drops players lacking measurements but must not remove the
+    // forfeited pick, which has no player attributes to match against.
+    draftData.heightRange.value = [72, 84]
+    const rows = draftData.filteredData.value
+    expect(rows.some((p) => p.isForfeited)).toBe(true)
+  })
+
+  it('degrades to no forfeited picks when the file is missing', async () => {
+    vi.mocked(fetch).mockImplementation(
+      async (url) =>
+        ({
+          ok: !String(url).includes('forfeited_picks.json'),
+          status: String(url).includes('forfeited_picks.json') ? 404 : 200,
+          json: async () => regularPicks,
+        }) as Response,
+    )
+    const draftData = useDraftData()
+    await draftData.loadDraftData()
+    draftData.forfeitedFilter.value = 'only'
+    expect(draftData.filteredData.value).toHaveLength(0)
+    expect(draftData.error.value).toBeNull()
   })
 })

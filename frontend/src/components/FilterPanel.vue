@@ -65,6 +65,7 @@ const selectedPositions = defineModel<string[]>('selectedPositions', { default: 
 const selectedRounds = defineModel<(number | string)[]>('selectedRounds', { default: () => [] })
 const tradeFilter = defineModel<'all' | 'traded' | 'not-traded'>('tradeFilter', { default: 'all' })
 const retiredFilter = defineModel<'all' | 'retired' | 'not-retired'>('retiredFilter', { default: 'all' })
+const forfeitedFilter = defineModel<'hide' | 'show' | 'only'>('forfeitedFilter', { default: 'hide' })
 const useYearRange = defineModel<boolean>('useYearRange', { default: true })
 const yearRange = defineModel<[number, number]>('yearRange', { default: () => [YEAR_MIN, YEAR_MAX] })
 const selectedYear = defineModel<number | null>('selectedYear', { default: null })
@@ -576,6 +577,21 @@ function handleAwardCountChange(award: string, count: number) {
           variant="outlined"
           hide-details
           prepend-inner-icon="mdi-account-off"
+        />
+      </v-col>
+
+      <v-col cols="12" md="6" :class="mobile ? 'mb-3' : 'mb-2'">
+        <v-select
+          v-model="forfeitedFilter"
+          :items="[
+            { value: 'hide', title: 'Hide Forfeited' },
+            { value: 'show', title: 'Show Forfeited' },
+            { value: 'only', title: 'Only Forfeited' }
+          ]"
+          label="Forfeited Picks"
+          variant="outlined"
+          hide-details
+          prepend-inner-icon="mdi-cancel"
         />
       </v-col>
     </v-row>

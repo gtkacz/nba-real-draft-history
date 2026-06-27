@@ -1,5 +1,5 @@
 import { ref, computed, watch } from 'vue'
-import type { DraftPick } from '@/types/draft'
+import type { DraftPick, ForfeitedPick } from '@/types/draft'
 import type { TeamAbbreviation } from '@/types/team'
 import { getDataUrl } from '@/utils/dataUrl'
 import { loadDataVersion } from '@/composables/useDataVersion'
@@ -47,6 +47,92 @@ function withTeamLogo(pick: DraftPick): DraftPick {
   }
 }
 
+// Forfeited picks carry no overall slot when the pick was removed from the draft
+// entirely. To keep the year/pick sort placing them at the end of their round, a
+// null-slot pick is assigned a synthetic value just past the last numbered pick of
+// its year+round; a per-row epsilon keeps multiple null-slot forfeits in the same
+// round uniquely ordered (and uniquely keyed in the virtualized lists).
+const FORFEIT_END_OF_ROUND_OFFSET = 0.5
+const FORFEIT_ROW_EPSILON = 0.001
+
+function buildForfeitedPicks(forfeited: ForfeitedPick[], regular: DraftPick[]): DraftPick[] {
+  const maxPickByYearRound = new Map<string, number>()
+  const maxPickByYear = new Map<number, number>()
+  regular.forEach((pick) => {
+    const yearRoundKey = `${pick.year}|${pick.round}`
+    const yearRoundMax = maxPickByYearRound.get(yearRoundKey)
+    if (yearRoundMax === undefined || pick.pick > yearRoundMax) {
+      maxPickByYearRound.set(yearRoundKey, pick.pick)
+    }
+    const yearMax = maxPickByYear.get(pick.year)
+    if (yearMax === undefined || pick.pick > yearMax) {
+      maxPickByYear.set(pick.year, pick.pick)
+    }
+  })
+
+  return forfeited.map((entry, index) => {
+    const knownPick = typeof entry.pick === 'number' ? entry.pick : null
+    let sortPick: number
+    if (knownPick !== null) {
+      sortPick = knownPick
+    } else {
+      const base =
+        maxPickByYearRound.get(`${entry.year}|${entry.round}`) ??
+        maxPickByYear.get(entry.year) ??
+        entry.round * PICK_MAX
+      sortPick = base + FORFEIT_END_OF_ROUND_OFFSET + index * FORFEIT_ROW_EPSILON
+    }
+
+    return withTeamLogo({
+      year: entry.year,
+      round: entry.round,
+      pick: sortPick,
+      player: '',
+      position: '',
+      height: '',
+      weight: 0,
+      age: 0,
+      preDraftTeam: '',
+      class: '',
+      draftTrades: null,
+      yearsOfService: 0,
+      team: entry.team,
+      nba_id: null,
+      origin_country: null,
+      played_until_year: null,
+      is_defunct: 0,
+      plays_for: null,
+      awards: {},
+      isForfeited: true,
+      forfeitReason: entry.reason,
+      forfeitSource: entry.source ?? null,
+      forfeitDisplayPick: knownPick,
+    })
+  })
+}
+
+// Forfeited picks are an optional, hand-curated dataset; a missing or malformed file
+// must not break the primary draft load, so any failure degrades to an empty list.
+async function loadForfeitedPicks(
+  version: string | null,
+  regular: DraftPick[],
+): Promise<DraftPick[]> {
+  try {
+    const response = await fetch(getDataUrl('forfeited_picks.json', version))
+    if (!response.ok) {
+      return []
+    }
+    const records = (await response.json()) as ForfeitedPick[]
+    if (!Array.isArray(records)) {
+      return []
+    }
+    return buildForfeitedPicks(records, regular)
+  } catch (err) {
+    console.error('Error loading forfeited picks:', err)
+    return []
+  }
+}
+
 export function useDraftData() {
   const selectedTeam = ref<TeamAbbreviation[]>([])
   const selectedOnceOwnedBy = ref<TeamAbbreviation[]>([])
@@ -65,6 +151,7 @@ export function useDraftData() {
   const yearsOfServiceRange = ref<[number, number]>([YOS_MIN, YOS_MAX])
   const tradeFilter = ref<'all' | 'traded' | 'not-traded'>('all')
   const retiredFilter = ref<'all' | 'retired' | 'not-retired'>('all')
+  const forfeitedFilter = ref<'hide' | 'show' | 'only'>('hide')
   const selectedNationalities = ref<string[]>([])
   const selectedAwards = ref<Record<string, number>>({}) // { awardName: minCount }
   const awardFilterMode = ref<'exclusive' | 'inclusive'>('exclusive')
@@ -216,8 +303,39 @@ export function useDraftData() {
   const minYearsOfService = computed(() => _physicalBounds.value.minYearsOfService)
   const maxYearsOfService = computed(() => _physicalBounds.value.maxYearsOfService)
 
+  // Forfeited picks possess only year, round, and drafting team, so the include/
+  // only modes narrow them by exactly those structural filters (team negation
+  // included) and leave the player-attribute filters to the drafted players.
+  function matchesStructuralForfeit(pick: DraftPick): boolean {
+    if (useYearRange.value) {
+      if (yearRange.value && yearRange.value.length === 2) {
+        const [minYear, maxYear] = yearRange.value
+        if (pick.year < minYear || pick.year > maxYear) return false
+      }
+    } else if (selectedYear.value !== null) {
+      if (pick.year !== selectedYear.value) return false
+    }
+
+    if (selectedRounds.value.length > 0) {
+      const roundMatch = selectedRounds.value.some((round) =>
+        round === '3+' ? pick.round >= 3 : pick.round === round,
+      )
+      if (!roundMatch) return false
+    }
+
+    if (selectedTeam.value.length > 0) {
+      const exclude = excludeModes.value.team
+      const isMatch = selectedTeam.value.includes(pick.team as TeamAbbreviation)
+      if (exclude ? isMatch : !isMatch) return false
+    }
+
+    return true
+  }
+
   const filteredData = computed(() => {
-    let filtered = allDraftPicks.value
+    // The player-attribute filter chain operates on drafted players only; forfeited
+    // rows are reintroduced afterward according to forfeitedFilter.
+    let filtered = allDraftPicks.value.filter((pick) => !pick.isForfeited)
 
     // Team filter ("Drafted By") - the team is always present, so negation is the
     // plain complement of the selection.
@@ -478,7 +596,19 @@ export function useDraftData() {
       })
     }
 
-    return filtered
+    if (forfeitedFilter.value === 'hide') {
+      return filtered
+    }
+
+    const forfeitedRows = allDraftPicks.value.filter(
+      (pick) => pick.isForfeited && matchesStructuralForfeit(pick),
+    )
+
+    if (forfeitedFilter.value === 'only') {
+      return forfeitedRows
+    }
+
+    return [...filtered, ...forfeitedRows]
   })
 
   async function loadDraftData() {
@@ -497,7 +627,9 @@ export function useDraftData() {
         throw new Error('draft_history.json must contain an array')
       }
 
-      allDraftPicks.value = records.map(withTeamLogo)
+      const regular = records.map(withTeamLogo)
+      const forfeited = await loadForfeitedPicks(version, regular)
+      allDraftPicks.value = [...regular, ...forfeited]
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Failed to load draft data'
       console.error('Error loading draft data:', err)
@@ -525,6 +657,7 @@ export function useDraftData() {
     yearsOfServiceRange,
     tradeFilter,
     retiredFilter,
+    forfeitedFilter,
     selectedNationalities,
     selectedAwards,
     awardFilterMode,
