@@ -119,16 +119,16 @@ function isRookie(pick: DraftPick): boolean {
   return getPlayerRetirementStatus(pick.played_until_year) === 'active' && pick.yearsOfService === 0
 }
 
-function getRetirementText(playedUntilYear: number | undefined, playsFor: string | undefined, year?: number): string {
+function getRetirementText(playedUntilYear: number | undefined, playsFor: string | undefined): string {
   const status = getPlayerRetirementStatus(playedUntilYear)
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
-      return getTeamDisplayName(playsFor, year)
+      return getTeamDisplayName(playsFor, playedUntilYear)
     }
     return 'Currently active'
   } else if (status === 'retired') {
     if (playsFor && playsFor.trim() !== '') {
-      return `${getTeamDisplayName(playsFor, year)} in ${playedUntilYear}`
+      return `${getTeamDisplayName(playsFor, playedUntilYear)} in ${playedUntilYear}`
     }
     return `Retired in ${playedUntilYear}`
   } else {
@@ -374,7 +374,7 @@ function formatAwardName(award: string): string {
               {{ getPlayerRetirementStatus(item.played_until_year) === 'retired' ? 'Retired - Last Played For' : 'Currently Plays For' }}
             </div>
             <div class="text-body-1 font-weight-medium">
-              {{ getRetirementText(item.played_until_year, item.plays_for, item.year) }}
+              {{ getRetirementText(item.played_until_year, item.plays_for) }}
             </div>
           </div>
 
@@ -509,5 +509,4 @@ function formatAwardName(award: string): string {
   }
 }
 </style>
-
 

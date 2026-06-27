@@ -91,18 +91,17 @@ function isRookie(pick: DraftPick): boolean {
 // Mirrors MobileDraftCard's getRetirementText helper
 function getRetirementText(
   playedUntilYear: number | undefined,
-  playsFor: string | undefined,
-  year?: number
+  playsFor: string | undefined
 ): string {
   const status = getPlayerRetirementStatus(playedUntilYear)
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
-      return `Currently plays for the ${getTeamDisplayName(playsFor, year)}`
+      return `Currently plays for the ${getTeamDisplayName(playsFor, playedUntilYear)}`
     }
     return 'Currently active'
   } else if (status === 'retired') {
     if (playsFor && playsFor.trim() !== '') {
-      return `Last played for ${getTeamDisplayName(playsFor, year)} in ${playedUntilYear}`
+      return `Last played for ${getTeamDisplayName(playsFor, playedUntilYear)} in ${playedUntilYear}`
     }
     return `Retired in ${playedUntilYear}`
   } else {
@@ -359,7 +358,7 @@ const tradeChain = computed<string[]>(() => {
               </template>
             </div>
             <div class="text-body-1 font-weight-medium">
-              {{ getRetirementText(player.played_until_year, player.plays_for, player.year) }}
+              {{ getRetirementText(player.played_until_year, player.plays_for) }}
             </div>
           </div>
 

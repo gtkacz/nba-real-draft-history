@@ -1042,19 +1042,19 @@ function isRookie(pick: DraftPick): boolean {
   return getPlayerRetirementStatus(pick.played_until_year) === 'active' && pick.yearsOfService === 0
 }
 
-function getRetirementTooltipText(playedUntilYear: number | undefined, playsFor: string | undefined, year?: number): string {
+function getRetirementTooltipText(playedUntilYear: number | undefined, playsFor: string | undefined): string {
   const status = getPlayerRetirementStatus(playedUntilYear)
   if (status === 'active') {
     if (playsFor && playsFor.trim() !== '') {
       // Get the full team display name
-      const teamFullName = getTeamDisplayName(playsFor, year)
+      const teamFullName = getTeamDisplayName(playsFor, playedUntilYear)
       return `Currently plays for the ${teamFullName}`
     }
     return 'Currently active'
   } else if (status === 'retired') {
     if (playsFor && playsFor.trim() !== '') {
       // Get the full team display name
-      const teamFullName = getTeamDisplayName(playsFor, year)
+      const teamFullName = getTeamDisplayName(playsFor, playedUntilYear)
       return `Last played for the ${teamFullName} in ${playedUntilYear}`
     }
     return `Retired in ${playedUntilYear}`
@@ -1773,7 +1773,7 @@ const shareTooltipText = computed(() => {
               <span v-else-if="getPlayerRetirementStatus(item.played_until_year) === 'active' && item.plays_for">
                 Currently plays for the {{ getTeamDisplayName(item.plays_for, item.year) }}
               </span>
-              <span v-else>{{ getRetirementTooltipText(item.played_until_year, item.plays_for, item.year) }}</span>
+              <span v-else>{{ getRetirementTooltipText(item.played_until_year, item.plays_for) }}</span>
             </v-tooltip>
             <!-- Awards Star Icon -->
             <v-tooltip v-if="item.awards && Object.keys(item.awards).length > 0" location="top">
