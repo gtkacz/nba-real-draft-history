@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getCountryCode } from '@/utils/countryCodeConverter'
+import { useTeamData } from '@/composables/useTeamData'
 import { getPlayerStatus } from '@/utils/playerStatus'
 
 interface MobileDraftCardProps {
@@ -11,6 +12,8 @@ interface MobileDraftCardProps {
 }
 
 const props = defineProps<MobileDraftCardProps>()
+
+const { getTeamFullName } = useTeamData()
 
 const expanded = ref(false)
 
@@ -35,7 +38,8 @@ function getOriginalTeam(trades: string | null, year?: number): string | null {
 
 function getTeamDisplayName(team: string | null | undefined, year?: number): string {
   if (!team) return 'Unknown'
-  return getOriginalTeamName(team, year)
+  const originalTeam = getOriginalTeamName(team, year)
+  return getTeamFullName(originalTeam)
 }
 
 function isDifferentTeam(originalTeam: string | null, currentTeam: string, year?: number): boolean {
@@ -190,7 +194,7 @@ function formatAwardName(award: string): string {
               />
           </div>
           <div class="text-caption text-medium-emphasis mb-1 d-flex align-center">
-            <span>{{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }} • Round {{ item.round }}</span>
+            <span>{{ getOriginalTeamName(item.team, item.year) }} • {{ item.year }} • Round {{ item.round }}</span>
           </div>
           <div class="text-body-2">
             {{ item.forfeitReason }}
@@ -325,7 +329,7 @@ function formatAwardName(award: string): string {
               />
             </v-avatar>
             <span>
-              {{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }}
+              {{ getOriginalTeamName(item.team, item.year) }} • {{ item.year }}
               <template v-if="showPlayerMeasurements && (item.height || item.weight)">
                 <span class="ml-1">• {{ item.height || 'N/A' }}</span>
                 <template v-if="item.weight">
