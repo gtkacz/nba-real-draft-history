@@ -144,6 +144,19 @@ function handlePlayerClick() {
   }
 }
 
+// Forfeited picks have no expandable detail; when one carries a source link the
+// whole card acts as that link, otherwise the tap is inert. Drafted players keep
+// the expand/collapse toggle.
+function handleCardClick() {
+  if (props.item.isForfeited) {
+    if (props.item.forfeitSource) {
+      window.open(props.item.forfeitSource, '_blank', 'noopener,noreferrer')
+    }
+    return
+  }
+  expanded.value = !expanded.value
+}
+
 // Memoize the trade chain so the template doesn't call parseTradeChain twice per render
 const tradeChain = computed(() => parseTradeChain(props.item.draftTrades, props.item.year))
 
@@ -156,7 +169,8 @@ function formatAwardName(award: string): string {
 <template>
   <v-card
     class="mobile-draft-card"
-    @click="expanded = !expanded"
+    :class="{ 'mobile-draft-card--inert': item.isForfeited && !item.forfeitSource }"
+    @click="handleCardClick"
   >
     <v-card-text class="pa-4">
       <!-- Forfeited pick: a stripped draft slot, not a drafted player -->
@@ -470,6 +484,15 @@ function formatAwardName(award: string): string {
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  // A forfeited pick without a source link has nothing to open or expand.
+  &--inert {
+    cursor: default;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 
   // Player names are primary content, so they stay high-emphasis; red is reserved for accents.
