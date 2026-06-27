@@ -9,11 +9,12 @@ export function useTheme() {
 
   function loadThemePreference(): boolean {
     const stored = localStorage.getItem(THEME_STORAGE_KEY)
+
     if (stored !== null) {
-      return stored === 'dark'
+      return stored === 'light'
     }
-    // Courtside is dark-first: default to dark when the visitor has no saved choice.
-    return true
+
+    return false
   }
 
   function toggleTheme() {
