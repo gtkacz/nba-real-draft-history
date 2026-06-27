@@ -21,7 +21,8 @@ const lightTheme: ThemeDefinition = {
     error: '#C8102E',
     info: '#1D428A',
     success: '#1E9E6A',
-    warning: '#C9761B'
+    warning: '#C9761B',
+    brand: '#f06931',
   }
 }
 
@@ -41,7 +42,8 @@ const darkTheme: ThemeDefinition = {
     error: '#FF5C73',
     info: '#4C7DEE',
     success: '#34C98A',
-    warning: '#F0A93C'
+    warning: '#F0A93C',
+    brand: '#f06931',
   }
 }
 

@@ -215,7 +215,7 @@ onMounted(() => {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1;
-  color: rgb(var(--v-theme-on-surface));
+  color: rgb(var(--v-theme-brand));
 }
 
 .table-container {
