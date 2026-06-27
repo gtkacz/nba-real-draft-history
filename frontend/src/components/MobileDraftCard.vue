@@ -3,7 +3,6 @@ import { ref, computed } from 'vue'
 import type { DraftPick } from '@/types/draft'
 import { getCanonicalTeam, getDisplayTeam, getOriginalTeamName } from '@/utils/teamAliases'
 import { getCountryCode } from '@/utils/countryCodeConverter'
-import { useTeamData } from '@/composables/useTeamData'
 import { getPlayerStatus } from '@/utils/playerStatus'
 
 interface MobileDraftCardProps {
@@ -12,8 +11,6 @@ interface MobileDraftCardProps {
 }
 
 const props = defineProps<MobileDraftCardProps>()
-
-const { getTeamFullName } = useTeamData()
 
 const expanded = ref(false)
 
@@ -39,7 +36,6 @@ function getOriginalTeam(trades: string | null, year?: number): string | null {
 function getTeamDisplayName(team: string | null | undefined, year?: number): string {
   if (!team) return 'Unknown'
   return getOriginalTeamName(team, year)
-  return getTeamFullName(originalTeam)
 }
 
 function isDifferentTeam(originalTeam: string | null, currentTeam: string, year?: number): boolean {
@@ -184,7 +180,7 @@ function formatAwardName(award: string): string {
         </v-avatar>
         <div class="flex-grow-1">
           <div class="d-flex align-center gap-1 mb-1">
-            <span class="text-h6 font-weight-bold player-name">Forfeited pick</span>
+            <span class="text-h6 font-italic font-weight-bold player-name">Forfeited pick</span>
               {{ item.player }}
               <v-icon
                 icon="mdi-cancel"
@@ -193,8 +189,8 @@ function formatAwardName(award: string): string {
                 color="error"
               />
           </div>
-          <div class="text-caption text-medium-emphasis mb-1">
-            {{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }} • Round {{ item.round }}
+          <div class="text-caption text-medium-emphasis mb-1 d-flex align-center">
+            <span>{{ getTeamDisplayName(item.team, item.year) }} • {{ item.year }} • Round {{ item.round }}</span>
           </div>
           <div class="text-body-2">
             {{ item.forfeitReason }}
