@@ -601,8 +601,9 @@ const mobileScroller = ref<ComponentPublicInstance | null>(null)
 
 // Stable per-row key so the virtualizer rebinds the correct card after filtering or
 // sorting, preventing a recycled card from showing the wrong row's expanded state.
-function mobileItemKey(item: DraftPick): string {
-  return `${item.year}-${item.pick}-${item.player}`
+function mobileItemKey(item: DraftPick | Record<string, unknown>): string {
+  const pick = item as DraftPick
+  return `${pick.year}-${pick.pick}-${pick.player}`
 }
 
 // Check if any filters are active (non-default)
@@ -2292,11 +2293,19 @@ const shareTooltipText = computed(() => {
       padding: 8px 0;
     }
 
-    // Spinner that anchors the just-in-time card loader.
-    .mobile-load-sentinel {
-      display: flex;
-      justify-content: center;
-      padding: 24px 0;
+    // The virtualized card list scrolls inside its own viewport-bounded container
+    // (like the desktop table), so only on-screen cards stay mounted. dvh tracks the
+    // mobile browser's collapsing toolbars; the offset clears the app bar + sticky
+    // table header above it.
+    .mobile-virtual-scroll {
+      height: calc(100dvh - 200px);
+    }
+
+    // Inter-card gap lives in padding (not margin) so the virtualizer's per-item
+    // height measurement includes it — a child margin would collapse out of the
+    // measured box and drift the scroll offsets.
+    .mobile-card-slot {
+      padding-bottom: 12px;
     }
 
     // Mobile shows the card list (no wide table), so the card must not become its own

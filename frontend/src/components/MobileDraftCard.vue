@@ -157,7 +157,7 @@ function formatAwardName(award: string): string {
 
 <template>
   <v-card
-    class="mobile-draft-card mb-3"
+    class="mobile-draft-card"
     @click="expanded = !expanded"
   >
     <v-card-text class="pa-4">
