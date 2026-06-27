@@ -160,6 +160,7 @@ function handleAwardCountChange(award: string, count: number) {
           closable-chips
           :base-color="negatedColor('team', selectedTeam.length)"
           :color="negatedColor('team', selectedTeam.length)"
+          :class="{ 'field-excluded': negatedColor('team', selectedTeam.length) }"
         >
           <template #prepend-inner>
             <FilterModeToggle
@@ -195,7 +196,6 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
-              :color="negatedColor('team', selectedTeam.length)"
             >
               <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
                 <img
@@ -226,6 +226,7 @@ function handleAwardCountChange(award: string, count: number) {
           closable-chips
           :base-color="negatedColor('playsFor', selectedPlaysFor.length)"
           :color="negatedColor('playsFor', selectedPlaysFor.length)"
+          :class="{ 'field-excluded': negatedColor('playsFor', selectedPlaysFor.length) }"
         >
           <template #prepend-inner>
             <FilterModeToggle
@@ -261,7 +262,6 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
-              :color="negatedColor('playsFor', selectedPlaysFor.length)"
             >
               <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
                 <img
@@ -293,6 +293,7 @@ function handleAwardCountChange(award: string, count: number) {
           closable-chips
           :base-color="negatedColor('nationalities', selectedNationalities.length)"
           :color="negatedColor('nationalities', selectedNationalities.length)"
+          :class="{ 'field-excluded': negatedColor('nationalities', selectedNationalities.length) }"
         >
           <template #prepend-inner>
             <FilterModeToggle
@@ -327,7 +328,6 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
-              :color="negatedColor('nationalities', selectedNationalities.length)"
             >
               <span
                 v-if="item.raw.flag"
@@ -355,7 +355,7 @@ function handleAwardCountChange(award: string, count: number) {
           closable-chips
           :base-color="negatedColor('preDraftTeam', preDraftTeamSearch.length)"
           :color="negatedColor('preDraftTeam', preDraftTeamSearch.length)"
-          :chip-props="negatedColor('preDraftTeam', preDraftTeamSearch.length) ? { color: 'error' } : undefined"
+          :class="{ 'field-excluded': negatedColor('preDraftTeam', preDraftTeamSearch.length) }"
         >
           <template #prepend-inner>
             <FilterModeToggle
@@ -386,6 +386,7 @@ function handleAwardCountChange(award: string, count: number) {
           closable-chips
           :base-color="negatedColor('draftCountries', selectedDraftCountries.length)"
           :color="negatedColor('draftCountries', selectedDraftCountries.length)"
+          :class="{ 'field-excluded': negatedColor('draftCountries', selectedDraftCountries.length) }"
         >
           <template #prepend-inner>
             <FilterModeToggle
@@ -416,7 +417,6 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
-              :color="negatedColor('draftCountries', selectedDraftCountries.length)"
             >
               <span
                 v-if="item.raw.flag"
@@ -449,6 +449,7 @@ function handleAwardCountChange(award: string, count: number) {
           closable-chips
           :base-color="negatedColor('onceOwnedBy', selectedOnceOwnedBy.length)"
           :color="negatedColor('onceOwnedBy', selectedOnceOwnedBy.length)"
+          :class="{ 'field-excluded': negatedColor('onceOwnedBy', selectedOnceOwnedBy.length) }"
         >
           <template #prepend-inner>
             <FilterModeToggle
@@ -478,7 +479,6 @@ function handleAwardCountChange(award: string, count: number) {
               v-if="item.raw"
               size="small"
               class="mr-1"
-              :color="negatedColor('onceOwnedBy', selectedOnceOwnedBy.length)"
             >
               <div v-if="item.raw.logo" class="team-logo-container mr-1" style="width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
                 <img
@@ -843,6 +843,15 @@ function handleAwardCountChange(award: string, count: number) {
   min-height: 28px;
   padding-inline: 14px;
   letter-spacing: 0.02em;
+}
+
+// In exclude (IS NOT) mode the field outline and label go red via the field's
+// own color props; this paints the selection chips to match. Targeting the chips
+// through the field's `field-excluded` class works regardless of whether Vuetify
+// renders the chip from the selection slot or its own default markup.
+.field-excluded :deep(.v-chip) {
+  background-color: rgba(var(--v-theme-error), 0.16);
+  color: rgb(var(--v-theme-error));
 }
 
 // Team/nationality logos in the autocomplete/select fields must not be clipped.

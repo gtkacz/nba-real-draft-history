@@ -1267,7 +1267,7 @@ const shareTooltipText = computed(() => {
                 </template>
               </v-tooltip>
               <v-list-item
-                prepend-icon="mdi-filter-variant"
+                prepend-icon="mdi-account-filter"
                 title="Filters"
                 @click="() => { filterMenu = true; actionsMenu = false; }"
               >
@@ -1409,7 +1409,7 @@ const shareTooltipText = computed(() => {
               >
                 <v-btn
                   v-bind="menuProps"
-                  icon="mdi-filter-variant"
+                  icon="mdi-account-filter"
                   variant="text"
                   color="on-surface-variant"
                   size="small"
@@ -1420,7 +1420,7 @@ const shareTooltipText = computed(() => {
             <v-card class="filter-card pa-6">
               <v-card-title class="d-flex align-center justify-space-between mb-4">
                 <div class="d-flex align-center">
-                  <v-icon icon="mdi-filter-variant" class="mr-2" />
+                  <v-icon icon="mdi-account-filter" class="mr-2" />
                   Filters
                 </div>
                 <v-btn
@@ -1446,7 +1446,7 @@ const shareTooltipText = computed(() => {
         <v-card class="filter-card">
           <v-card-title class="d-flex align-center justify-space-between pa-4 sticky-header">
             <div class="d-flex align-center">
-              <v-icon icon="mdi-filter-variant" class="mr-2" />
+              <v-icon icon="mdi-account-filter" class="mr-2" />
               <span class="text-h6">Filters</span>
               <v-chip
                 v-if="hasActiveFilters"
